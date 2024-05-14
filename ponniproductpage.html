@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product page</title>
+		 <link rel="stylesheet" href="./css/style_3.css">
+		  <link rel="stylesheet" href="./css/style_1.css">
+		  
+    <link rel="stylesheet" href="./css/product.css">
+
+	 <link rel="stylesheet" href="./css/owlcarousel.css">
+	<link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<nav id="navhead">
+        <div id="headerfull">
+            <div id="ponnititle">
+                <p>PONNI NATURAL FOODS</p>
+            </div>
+            <div id="ponnilogo">
+                <img src="assets/images/Logo trim.png" alt="Logo" id="logoimg">
+            </div>
+            <div id="headicons">
+                <div id="searchtot">
+                    <button id="searchbutton">
+                        <input id="searchInput" type="text" placeholder="Search for..">
+                        <img src="assets/icons/search.png" id="iconsearch" onclick="openNav()">
+                    </button>
+                    <div class="serchlist">
+                        <ul id="productList">
+
+                        </ul>
+                    </div>
+                </div>
+                <div id="carttot">
+                    <a href="cart.html"><img src="assets/icons/cart-black.png" alt="Cart" id="cartblck"></a>
+                </div>
+                <div id="menutot">
+                    <img src="assets/icons/menu-blck.png" alt="Cart" id="menublck">
+                </div>
+            </div>
+        </div>
+    </nav>
+	<div class="blackscreen"></div>
+	  <div id="searchsort">
+        <div id="contentsear">
+            <div id="titleforsear">
+                <span id="tit">Search our Site</span>
+                <img src="assets/icons/icons8-close-25.png" alt="close" id="closeid" onclick="closeNav()">
+            </div>
+            <div id="seartype">
+                <input id="searchInput2" type="text" placeholder="Search for..">
+                <span id="inspirespan">Need Some Inspiration?</span>
+            </div>
+            <div id="serchlist2">
+                <ul id="productList2">
+
+                </ul>
+            </div>
+            <div id="totalstart">
+                <div class="itemone">
+                    <div class="photopic">
+                        <img src="https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Sesame-Oil.jpg" alt="oil" class="searchimage">
+                    </div>
+                    <div class="contentforpic">
+                        <span>Wood Pressed Gingely Oil</span>
+                        <del>Rs. 500.00</del>
+                        <span>From Rs. 480.00</span>
+                    </div>
+                </div>
+                <div class="itemone">
+                    <div class="photopic">
+                        <img src="https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Groundnut-oil.jpg" alt="oil" class="searchimage">
+                    </div>
+                    <div class="contentforpic">
+                        <span>Wood Pressed Groundnut Oil</span>
+                        <del>Rs. 500.00</del>
+                        <span>From Rs. 480.00</span>
+                    </div>
+                </div>
+                <div class="itemone">
+                    <div class="photopic">
+                        <img src="https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Coconut-Oil.jpg" alt="oil" class="searchimage">
+                    </div>
+                    <div class="contentforpic">
+                        <span>Wood Pressed Coconut Oil</span>
+                        <del>Rs. 500.00</del>
+                        <span>From Rs. 480.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="productpage">
+	<div class="breadcrumbs">
+	   <p><a href="index.html">Home </a> / Tamil-nadu sweets</p>
+	   
+	</div>
+	<div class="productflex">
+	  <div class="flexbox1">
+	    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+  <!-- Indicators/dots -->
+  <div class="carousel-indicators change">
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active">
+    <img id="scroll1"src="https://www.oorla.in/cdn/shop/files/TirunelveliHalwa2.jpg?v=1695623373&width=80">
+    </button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="1">
+    <img id="scroll2" src="https://www.oorla.in/cdn/shop/files/TirunelveliHalwa1_4baa7f67-9563-49f2-892f-5326b614ef72.jpg?v=1695963923&width=80"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="2">
+    <img id="scroll3" src="https://www.oorla.in/cdn/shop/files/TirunelveliHalwa3.jpg?v=1695963923&width=80">
+    </button>
+	 <button type="button" data-bs-target="#demo" data-bs-slide-to="3">
+    <img id="scroll4" src="https://www.oorla.in/cdn/shop/files/TirunelveliHalwa4.jpg?v=1695963922&width=80">
+    </button>
+  </div>
+  
+  <!-- The slideshow/carousel -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://www.oorla.in/cdn/shop/files/TirunelveliHalwa2.jpg?v=1695623373&width=600" alt="image1" class="d-block" style="width:80%;height:40%;">
+    </div>
+    <div class="carousel-item">
+      <img src="https://www.oorla.in/cdn/shop/files/TirunelveliHalwa1_4baa7f67-9563-49f2-892f-5326b614ef72.jpg?v=1695963923&width=600" alt="Chicago" class="d-block" style="width:80%;height:40%;">
+    </div>
+    <div class="carousel-item">
+      <img src="https://www.oorla.in/cdn/shop/files/TirunelveliHalwa3.jpg?v=1695963923&width=600" alt="New York" class="d-block" style="width:80%;height:40%;">
+    </div>
+	<div class="carousel-item">
+      <img src="https://www.oorla.in/cdn/shop/files/TirunelveliHalwa4.jpg?v=1695963922&width=600" alt="New York" class="d-block" style="width:80%;height:40%;">
+    </div>
+  </div>
+  
+  <!-- Left and right controls/icons -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+	  </div>
+	  <div class="flexbox2">
+	    <p class="cate-productlist">Tirunelveli Halwa</p>
+		
+		<span class="cate-staricon"><img src="./assets/icons/icons8-star-18.png"></span>
+		<span class="cate-staricon"><img src="./assets/icons/icons8-star-18.png"></span>
+		<span class="cate-staricon"><img src="./assets/icons/icons8-star-18.png"></span>
+		<span class="cate-staricon"><img src="./assets/icons/icons8-star-18.png"></span>
+		
+		<div class="cate-amount">
+		<del>Rs.189.00</del><span>Rs.169.00</span><span class="savebutton">SAVE 11%</span>
+		</div>
+		
+		<p class="cate-quantity">QUANTITY: 200G</p>
+		<div class="cate-grambutton">
+		 <span><button class="btn-highlight">200g</button><button>400g</button></span>
+		
+		</div>
+		<div class="cate-buttons">
+		<div class="inputavailability">
+      <button onclick="decrementbtn()">-</button>
+     <input id="getvalue" type="number" value="1">
+      <button onclick="incrementbtn()">+</button>
+	 
+</div>
+    <div class="cate-addbtn">
+     <button>ADD TO CART</button>
+	 </div>
+		</div>
+		<p id="cate-des">Duties for Europe & Canada if any should be paid by the customers*</p>
+		
+		
+	  </div>
+	
+	</div>
+	
+	<div class="cate-ingre">
+	<p class="descr-heading">
+	<span id="heading-one" class="borderline">Description</span>
+	<span id="heading-two">Ingredients</span>
+	</p>
+	<div class="cate-para1">
+	<p>Meet the Cupid in the form of Tirunelveli Halwa! This irresistible classic delight will bind you forever with its soft, chewy texture and sweetish taste. We sourced the traditional tasty Tirunelveli halwa straight from Chandra Sweets, where they make their world-famous halwa with the sweetish Tamiraparani Water. Don't you think it should be the universal food of love?</p>
+	</div>
+	<div class="cate-para2">
+	  <p><b>Ingredients - </b>Wheat, Sugar, Ghee</p>
+	  <p><b>Shelf Life -</b> 20 days</p>
+	  <p><b>Packing -</b> Packed with extra care in pouches to retain the Freshness</p>
+	  <p><b>Sourced From -</b> Tirunelveli, Tamil Nadu</p>
+	</div>
+	
+	
+	
+	</div>
+	<p class="cate-like">You may also like</p>
+	<div class="product-carousel">
+	  <div class="owl-carousel product-list1">
+	   <div>
+        
+        <p class="first-image">
+        <img src="https://www.oorla.in/cdn/shop/files/Thoothukudi-Macaroons-2.jpg?v=1697776532&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/ThoothukudiMacaroons1_dd693b00-0b5f-4362-8d38-dfa79a92efbd.jpg?v=1697776532&width=600'"
+        onmouseout="this.src='https://www.oorla.in/cdn/shop/files/Thoothukudi-Macaroons-2.jpg?v=1697776532&width=600'">
+            </p>
+        
+        <p class="productname">Thoothukudi Macaroons</p>
+        <p><del>Rs.249.00</del>
+        <span>From Rs.199.00</span></p>
+        </div>
+	    
+		<div>
+        
+        
+        <p class="first-image">
+        <img src="https://www.oorla.in/cdn/shop/files/KaraikudiAdhirasam2.jpg?v=1695623417&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/KaraikudiAdhirasam1_f7b389eb-6439-4cd5-86e0-f7fa4dfe417a.jpg?v=1695963032&width=400'"
+        onmouseout="this.src='https://www.oorla.in/cdn/shop/files/KaraikudiAdhirasam2.jpg?v=1695623417&width=600'">
+            </p>
+        
+        <p class="productname">Karaikudi Adhirasam</p>
+        <p><del>Rs.229.00</del>
+        <span>From Rs.189.00</span></p>
+        </div>
+		
+		 <div>
+        
+        <p class="first-image">
+        <img src="https://www.oorla.in/cdn/shop/files/Palkova6.jpg?v=1695623256&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/Palkova5.jpg?v=1695967936&width=600'"
+        onmouseout="this.src='https://www.oorla.in/cdn/shop/files/Palkova6.jpg?v=1695623256&width=600'">
+            </p>	
+        
+        <p class="productname">Srivilliputhur Palkova</p>
+        <p><del>Rs.199.00</del>
+        <span>From Rs.169.00</span></p>
+        </div>
+		
+		 <div>
+        
+        <p class="first-image">
+        <img src="https://www.oorla.in/cdn/shop/files/MudalurMuscothHalwa2.jpg?v=1695623874&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/MudalurMuscothHalwa1_ab0cd73a-5f91-405a-bfea-066e8eeb6225.jpg?v=1695963247&width=600'"
+        onmouseout="this.src='https://www.oorla.in/cdn/shop/files/MudalurMuscothHalwa2.jpg?v=1695623874&width=600'">
+            </p>
+        
+        <p class="productname">Thoothukudi Macaroons</p>
+        <p><del>Rs.249.00</del>
+        <span>From Rs.199.00</span></p>
+        </div>
+		
+		 <div>
+        
+        <p class="first-image">
+        <img src="https://www.oorla.in/cdn/shop/files/Thoothukudi-Macaroons-2.jpg?v=1697776532&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/ThoothukudiMacaroons1_dd693b00-0b5f-4362-8d38-dfa79a92efbd.jpg?v=1697776532&width=600'"
+        onmouseout="this.src='https://www.oorla.in/cdn/shop/files/Thoothukudi-Macaroons-2.jpg?v=1697776532&width=600'">
+            </p>
+        
+        <p class="productname">Thoothukudi Macaroons</p>
+        <p><del>Rs.249.00</del>
+        <span>From Rs.199.00</span></p>
+        </div>
+		
+		 <div>
+        
+        <p class="first-image">
+        <img src="https://www.oorla.in/cdn/shop/files/Thoothukudi-Macaroons-2.jpg?v=1697776532&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/ThoothukudiMacaroons1_dd693b00-0b5f-4362-8d38-dfa79a92efbd.jpg?v=1697776532&width=600'"
+        onmouseout="this.src='https://www.oorla.in/cdn/shop/files/Thoothukudi-Macaroons-2.jpg?v=1697776532&width=600'">
+            </p>
+        
+        <p class="productname">Thoothukudi Macaroons</p>
+        <p><del>Rs.249.00</del>
+        <span>From Rs.199.00</span></p>
+        </div>
+		
+		 <div>
+        
+        <p class="first-image">
+        <img src="https://www.oorla.in/cdn/shop/files/Thoothukudi-Macaroons-2.jpg?v=1697776532&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/ThoothukudiMacaroons1_dd693b00-0b5f-4362-8d38-dfa79a92efbd.jpg?v=1697776532&width=600'"
+        onmouseout="this.src='https://www.oorla.in/cdn/shop/files/Thoothukudi-Macaroons-2.jpg?v=1697776532&width=600'">
+            </p>
+        
+        <p class="productname">Thoothukudi Macaroons</p>
+        <p><del>Rs.249.00</del>
+        <span>From Rs.199.00</span></p>
+        </div>
+	  </div>
+	
+	</div>
+	<p class="cate-recent">Recently viewed products</p>
+	
+	
+	<div class="cate-recentphotos">
+	<div class="owl-carousel product-list1">
+	<div>
+        <p class="first-image">
+        <img src="https://www.oorla.in/cdn/shop/files/NagercoilNendranChips2.jpg?v=1695624992&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/NagercoilNendranChips1.jpg?v=1695967899&width=600'"
+        onmouseout="this.src='https://www.oorla.in/cdn/shop/files/NagercoilNendranChips2.jpg?v=1695624992&width=600'">
+            </p>
+        <p class="productname">Nagercoil Nendran Chips</p>
+        <p><del>Rs.189.00</del>
+        <span>From Rs.169.00</span></p>
+        </div>
+		
+		<div>
+        <p class="first-image">
+        <img src="https://www.oorla.in/cdn/shop/files/maduraimixture2.jpg?v=1695625155&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/maduraimixture1_10c360f7-a2ed-445c-a180-3d8bcb40253c.jpg?v=1695963165&width=600'"
+        onmouseout="this.src='https://www.oorla.in/cdn/shop/files/maduraimixture2.jpg?v=1695625155&width=600'">
+            </p>
+        <p class="productname">Madurai Mixture</p>
+        <p><del>Rs.189.00</del>
+        <span>From Rs.169.00</span></p>
+        </div>
+		
+		
+		<div>
+        <p class="first-image">
+        <img src="https://www.oorla.in/cdn/shop/files/ChettinaduThattaiMurukku2.jpg?v=1695625101&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/ChettinaduThattaiMurukku1_d345dbc0-7017-4ac3-b981-9bc793c5d0d7.jpg?v=1695962341&width=600'"
+        onmouseout="this.src='https://www.oorla.in/cdn/shop/files/ChettinaduThattaiMurukku2.jpg?v=1695625101&width=600'">
+            </p>
+        <p class="productname">Chettinadu Thattai Murukku</p>
+        <p><del>Rs.189.00</del>
+        <span>From Rs.169.00</span></p>
+        </div>
+		
+		
+		<div>
+        
+        <p class="first-image">
+        <img src="https://www.oorla.in/cdn/shop/files/ChettinaduThenkuzhalMurukku_Norukkal_2.jpg?v=1695625250&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/ChettinaduThenkuzhalMurukku_Norukkal_1_dade76aa-b1c0-4433-a6dd-ef7ed7897e53.jpg?v=1695962406&width=600'"
+        onmouseout="this.src='https://www.oorla.in/cdn/shop/files/ChettinaduThenkuzhalMurukku_Norukkal_2.jpg?v=1695625250&width=600'">
+            </p>
+        <p class="productname">Chettinadu Thenkuzhal Murukku</p>
+        <p><del>Rs.189.00</del>
+        <span>From Rs.169.00</span></p>
+        </div>
+		
+		
+		<div>
+        
+        <p class="first-image">
+        <img src="https://www.oorla.in/cdn/shop/products/Tamil-Nadu-Amla-Pickle-1.jpg?v=1681114024&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/Tamil-Nadu-Amla-Pickle-2.jpg?v=1681114024&width=600'"
+        onmouseout="this.src='https://www.oorla.in/cdn/shop/products/Tamil-Nadu-Amla-Pickle-1.jpg?v=1681114024&width=600'">
+            </p>
+        
+        
+        <p class="productname">Tamil Nadu Amla Pickle</p>
+        <p><del>Rs.189.00</del>
+        <span>From Rs.169.00</span></p>
+        </div>
+		
+		<div>
+        
+        
+        <p class="first-image">
+        <img src="https://www.oorla.in/cdn/shop/products/Tamil-Nadu-Lemon-Pickle-1.jpg?v=1681825437&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/Tamil-Nadu-Lemon-Pickle-3.jpg?v=1681825437&width=600'"
+        onmouseout="this.src='https://www.oorla.in/cdn/shop/products/Tamil-Nadu-Lemon-Pickle-1.jpg?v=1681825437&width=600'">
+            </p>
+        
+        
+        <p class="productname">Tamil Nadu Lemon Pickle</p>
+        <p><del>Rs.189.00</del>
+        <span>From Rs.169.00</span></p>
+        </div>
+		
+		
+		<div>
+        
+        <p class="first-image">
+        <img src="https://www.oorla.in/cdn/shop/products/Andhra-Chintakaya-Pickle-1.jpg?v=1681117573&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/Andhra-Chintakaya-Pickle-2.jpg?v=1681117573&width=600'"
+        onmouseout="this.src='https://www.oorla.in/cdn/shop/products/Andhra-Chintakaya-Pickle-1.jpg?v=1681117573&width=600'">
+            </p>
+        
+        <p class="productname">Andhra Chintakaya Pickle</p>
+        <p><del>Rs.189.00</del>
+        <span>From Rs.169.00</span></p>
+        </div>
+		
+		<div>
+        
+        
+        <p class="first-image">
+        <img src="https://www.oorla.in/cdn/shop/products/Tamil-Nadu-Garlic-Pickle-1.jpg?v=1681114546&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/Tamil-Nadu-Garlic-Pickle-2.jpg?v=1681114546&width=600'"
+        onmouseout="this.src='https://www.oorla.in/cdn/shop/products/Tamil-Nadu-Garlic-Pickle-1.jpg?v=1681114546&width=600'">
+            </p>
+        
+        
+        <p class="productname">Tamil Nadu Garlic Pickle</p>
+        <p><del>Rs.189.00</del>
+        <span>From Rs.169.00</span></p>
+        </div>
+		
+		
+	</div>
+	
+	</div>
+</div>
+    <div style="margin-top:30px" class="footer-main">
+           <div style="padding-top:50px"class="footer-main2">
+               <div class="footer-contact">
+                <img src="./assets/images/Logo trim.png" width="90px">
+                 <p>Corporate Office:<br>
+           
+                   No.44, Mullai Nagar Bus Stop,<br> Thanakkankulam, Near Ford Showroom<br>
+           
+                     Madurai - 625006</p>
+               <div class="footer-icon">  
+                   <img src="./assets/icons/icons8-f-20.png" class="footer-icon1">
+               <img src="./assets/icons/instagram.png" class="footer-icon2">
+                   <img src="./assets/icons/icons8-youtube-20.png" class="footer-icon3">
+                     
+               </div>	  
+               </div>
+            <div class="footer-about">
+               <h3>ABOUT US</h3>
+               <ul class="footer-linklist" style="padding-left:0px;">
+                          <li>  <a href=""> OUR STORY</a></li>
+                                              
+                        <li>  <a href="">CAREERS</a></li>     
+                                                                 
+                           
+                     <li><a href="" >GET A PACK GIVE A PACK </a> </li>					
+                                             
+                       <li><a href="">CUSTOMER REVIEWS </a></li>
+                                              
+                        <li><a href="">REFER A FRIEND</a>  </li>  
+                        
+                         <li><a href="" > CORPORATE GIFTING</a></li>
+                                 
+                                              
+                                               
+                                           
+                       <li> <a href="">  NEWS &amp; MEDIA </a> </li>
+                  </ul>                           
+                                              
+                                              
+                                                                 
+                                                              
+                                
+               </div>
+           
+           <div class="footer-duties">
+           <h3 >SUPPORT</h3>
+           <ul style="padding-left:0px;">
+           <li><a href="">FAQS</a></li>
+            <li><a href=""> DUTIES & CLEARANCE</a></li>                              
+            <li><a href="">PARTNER WITH US</a></li>                                   
+           </ul>
+           </div>
+           
+           <div class="footer-lastsection">
+           <h3 >PURE GOODNESS FROM THE LAND <h3>
+           <p>Sign up to get exclusive offers,<br>
+           the latest oorla specials, and more!</p>
+           <div class="footer-emailsection">
+           <input type="email" placeholder="Your email address">
+           <button>Subscribe</button>
+           </div>
+           <div class="footer-creditcards">
+           <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg">
+           <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/paypal-49e4c1e03244b6d2de0d270ca0d22dd15da6e92cc7266e93eb43762df5aa355d.svg">
+           <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/maestro-d2055c6b416c46cf134f393e1df6e0ba31722b623870f954afd392092207889c.svg">
+           <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/american_express-12858714bc10cdf384b62b8f41d20f56d8c32c1b8fed98b662f2bfc158dcbcf0.svg">
+           <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/discover-cc9808e50193c7496e7a5245eb86d5e06f02e2476c0fe70f2c40016707d35461.svg">
+           
+           </div>
+           </div>
+           
+           </div>
+           <div class="footer-main3">
+             <div ><h3 class="footer-get">GET IN TOUCH <span class="footer-plus"id="footer-plus1">+</span><span class="footer-minus" id="footer-minus1">-</span></h3></div>
+               <div class="footer-contact" style="margin-top:30px";>
+                <img src="./assets/images/Logo trim.png" width="90px">
+                 <p>Corporate Office:<br>
+           
+                   No.44, Mullai Nagar Bus Stop,<br> Thanakkankulam, Near Ford Showroom<br>
+           
+                     Madurai - 625006</p>
+               <div class="footer-icon">  
+                   <img src="./assets/icons/icons8-f-20.png" class="footer-icon1">
+               <img src="./assets/icons/instagram.png" class="footer-icon2">
+                   <img src="./assets/icons/icons8-youtube-20.png" class="footer-icon3">
+                     
+               </div>	  
+               </div>
+                
+            <div class="footer-about">
+               <h3>ABOUT US <span class="footer-plus" id="footer-plus2">+</span><span class="footer-minus" id="footer-minus2">-</span></h3>
+               <ul class="footer-linklist">
+                          <li>  <a href=""> OUR STORY</a></li>
+                                              
+                        <li>  <a href="">CAREERS</a></li>     
+                                                                 
+                           
+                     <li><a href="" >GET A PACK GIVE A PACK </a> </li>					
+                                             
+                       <li><a href="">CUSTOMER REVIEWS </a></li>
+                                              
+                        <li><a href="">REFER A FRIEND</a>  </li>  
+                        
+                         <li><a href="" > CORPORATE GIFTING</a></li>
+                                 
+                                              
+                                               
+                                           
+                       <li> <a href="">  NEWS &amp; MEDIA </a> </li>
+                  </ul>                           
+                                              
+                                              
+                                                                 
+                                                              
+                                
+               </div>
+           
+           <div class="footer-duties">
+           <h3 >SUPPORT<span class="footer-plus" id="footer-plus3">+</span><span class="footer-minus" id="footer-minus3">-</span></h3>
+           <ul class="footer-dutieslist">
+           <li><a href="">FAQS</a></li>
+            <li><a href=""> DUTIES & CLEARANCE</a></li>                              
+            <li><a href="">PARTNER WITH US</a></li>                                   
+           </ul>
+           </div>
+           
+           <div class="footer-lastsection">
+           
+           <h3 >PURE GOODNESS FROM THE LAND <span class="footer-plus" id="footer-plus4">+</span><span class="footer-minus" id="footer-minus4">-</span><h3>
+           <div class="footer-lastsectioncontent" >
+           <p>Sign up to get exclusive offers,<br>
+           the latest oorla specials, and more!</p>
+           <div class="footer-emailsection">
+           <input type="email" placeholder="Your email address">
+           <button>Subscribe</button>
+           </div>
+           <div class="footer-creditcards">
+           <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg">
+           <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/paypal-49e4c1e03244b6d2de0d270ca0d22dd15da6e92cc7266e93eb43762df5aa355d.svg">
+           <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/maestro-d2055c6b416c46cf134f393e1df6e0ba31722b623870f954afd392092207889c.svg">
+           <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/american_express-12858714bc10cdf384b62b8f41d20f56d8c32c1b8fed98b662f2bfc158dcbcf0.svg">
+           <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/discover-cc9808e50193c7496e7a5245eb86d5e06f02e2476c0fe70f2c40016707d35461.svg">
+           
+           </div>
+           </div>
+           </div>
+           
+           
+           
+           
+           
+           
+           
+           </div>
+           </div>
+		   <div class="footer-copyrights">
+           <div class="copyrightscontent">
+           <div class="copyrights1"><p>care@Ponni.com</p></div>
+           <div class="terms">
+           <li><a href="">PRIVACY</a></li>
+           <li><a href="">TERMS</a></li>
+           <li><a href="">REFUNDS</a></li>
+           <li><a href="">SHIPPING</a></li>
+           </div>
+           </div>
+           
+           </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="./js/product.js"></script>
+<script src="./js/script_1.js"></script>
+<script src="./js/owlnpm.js"></script>
+<script src="./js/owlcarousel.js"></script>
+<script src="./js/testslide.js"></script>
+</body>
+</html>
