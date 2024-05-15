@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/style_1.css">
     <link rel="stylesheet" href="./css/style_2.css">
     <link rel="stylesheet" href="./css/style_3.css">
-	<link rel="stylesheet" href="./css/cart.css">
+
 	<link rel="stylesheet" href="./css/owlcarousel.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -135,6 +135,7 @@
 		 
 	    </div>
 	   </div>
+	 
 	   <div class="cart-price">
 	   <del>Rs. 189.00</del>
 	   <span>Rs. 169.00</span>
@@ -151,23 +152,142 @@
 		<p>Rs. 169.00</p>
 		</div>
 	  
+	 
 	  </div>
 	
 	 </div>
-	 <div>
-	 
-	 
-	 
-	 
+	 <div class="cartordernote">
+	  <div class="notetext">
+	  <h4>Add Order Note</h4>
+	  <textarea name="note" class="cart-note" placeholder="How can we help you?"></textarea>
+	
 	 </div>
+	 <div class="cart-pricedetail">
+	  <div class="cart-price2">
+	  <strong>SUBTOTAL :</strong>
+	  <span> Rs. 169.00 </span>
+	  </div>
+
+	  <div><p class="cart-tax">Tax included and shipping calculated at checkout</p></div>
+	   <div>
+	   <button type="button" class="cart-checkout" onclick="onCheckoutClick(this)">
+            <span class="btn-text">
+                <span>Checkout for Indian Address</span>
+   
+            </span>
+          <span class="pay-opt-icon">
+             <img src="https://cdn.gokwik.co/v4/images/upi-icons.svg">
+           
+             </span>
+
+  </button>
+	 </div>
+	 <button type="submit"  class="cart-submit ">International Address </button>
 	 
 	 
 	 
 	</div>
+    </div>
+	
+	 <div id="modal" class="modal">
+  <div class="modal-content">
+   <div class="payment-content1">
+   <div class="cart-modal">
+    <div>
+   <img src="assets/images/Logo trim.png" alt="Logo" id="cartlogo">
+    </div>
+	<div class="cart-process">
 
+	<div><span class="">Mobile ...</span></div>
+	<div><span class="">Address...</span></div>
+	<div></div><span class="">pay</span></div>
+    </div>
+    <div class="payementphone">
+
+        <div class="paymain-content ">
+            <h3>Enter Mobile Number</h3> 
+                <div class="customernumber">
+                <span id="country-code" class="svelte-176j3m8">+91</span> <span class="vr-line">|</span> 
+                <input type="tel" placeholder="Enter Number" class="phone-input svelte-176j3m8" id="phone-input" pattern="[0-9]{5}-[0-9]{5}" autocomplete="tel"></div>
+                 <div class="notification-checkbox "><input type="checkbox" id="notificationscheck" name="notifications" >
+                     <label for="notifications" class="notifylabel">Notify me for orders, updates &amp; offers</label></div>
+        </div>
+          </div>
+
+      <div class="paycontinue"> <button>Continue</button> </div>
+      <div class="paymentpolicy"><p class="">By proceeding, I accept that I have read and understood the Gokwik's <a target="_blank" href="https://www.gokwik.co/data-policy" class=""><u>Privacy Policy</u></a>
+        and
+        <a target="_blank" href="https://www.gokwik.co/terms"><u>T&amp;C</u></a></p></div>
+        <div class="cartpowereddby">
+            <span><a target="_blank" href="https://www.gokwik.co/terms">T&amp;C</a>
+            |
+            <a  target="_blank" href="https://www.gokwik.co/data-policy">Privacy</a>
+            | 36079c3d</span> 
+            <div class="cartpowered-info ">
+                <div class="cartpoweredimg1"></div>
+                 <div class="cartpoweredimg2"></div>
+                  <div class="cartpoweredimg3"></div>
+                </div>
+
+            <div class="powered-container "><span>Powered By</span>
+                 <a href="https://gokwik.co" target="_blank" >
+                <div class="globalImg svelte-imlje8"></div></a></div>
+
+	</div>
+	
+   </div>
+   
+  
+   <div class="payment-content2">
+    <div class="order-summary-container">
+  
+            <div class="summary-title-inner ">
+            <div class="globalImg">
+           <img src="./assets/icons/icons8-cart-18.png" class="paycart"><span class="title svelte-fsdfae">order summary</span><img src="./assets/icons/icons8-less-than-18 (1).png" class="payuparrow"></div>  
+            </div>
+             <div class="order-summary-wrapper ">
+                <div class="cart-paymentproduct ">
+           
+                    <ul >
+                    <li  class="payproductdetail">
+                        <div class="paymentproduct-img">
+                            <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/thirattipal2.jpg?v=1709551410" width="40px"alt="thirattipal" class="">
+                        </div>
+                         <div class="product-details ">
+                            <div class="title ">A2 Milk Therattipal - 200g</div>
+                             <div class="price">Price:₹289.00</div>
+                              <span >Quantity: 1</span></div>  </li>
+                              
+                  </ul>
+            
+    </div>  
+    <div class="order-summary">
+        <div class="order-summary-details">
+            <ul>
+        <li class="subtotal "><span>Subtotal</span><span>₹458.00</span></li>    
+          <li class="shipping "><span>Shipping</span> <span>To be calculated</span></li> 
+                 <li class="to-pay"><span>To Pay</span> <span>₹458.00</span></li></ul></div></div>
+                </div>
+            </div>
+   
+   
+   </div>
+   
+  
+  
+  </div>
+  </div>
+
+	
+	
+	
+	
+	
+	
+	</div>
    
            
-           <div class="footer-main" style="margin-top:30px";>
+           <div class="footer-main" style="margin-top:70px";>
            <div class="footer-main2" style="padding-top:30px";>
                <div class="footer-contact">
                 <img src="./assets/images/Logo trim.png" width="90px">
