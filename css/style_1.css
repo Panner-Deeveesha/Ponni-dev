@@ -1,0 +1,548 @@
+body{
+    font-family: 'Poppins',Sans-Serif;
+}
+#navhead{
+    width: 100%;
+    height: 100px;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+#headerfull{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0px auto;
+}
+#ponnilogo{
+    width: 20%;
+    text-align: center;
+    padding-top: 10px;
+}
+#logoimg{
+    width: 150px; 
+    height: 80px; 
+}
+#ponnititle{
+    width: 40%;
+    font-size: 35px;
+    font-weight: 600;
+    color: #4d6b20;
+    margin-top: 5px;
+    padding-left: 20px;
+}
+#menutotleft{
+    display: none;
+    width: 40%;
+    padding-left: 20px;
+}
+#headicons{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+}
+#searchtot{
+    width: 50%;
+    text-align: center;
+    margin-left: auto;
+    margin-top: 0px;
+}
+#searchbutton{
+    position: relative;
+    border:1px solid #ced4da;
+    background: none;
+    border-radius:4px;  
+    width: 100%;
+}
+#searchInput{
+    width:100%;
+    height:40px;
+    border:none;
+    padding-left: 10px;
+    background-color:#F4F6F8;
+    border-right:1px solid #ced4da;
+}
+#searchInput :active{
+    border: none;
+}
+#iconsearch{
+    position: absolute;
+    right: 0px;
+    padding: 7px;
+    border:1px solid #ced4da;
+    background: none;
+}
+.serchlist{
+	position:absolute;
+    width: 18%;
+	z-index: 1;
+}
+#productList{
+	display:none;
+	z-index:5;
+	background:white;
+	width:100%;
+	font-size:14px;
+	padding:5px;
+	height:auto;
+}
+#productList li{
+	list-style:none;
+    text-align: justify;
+}
+#productList span{
+    text-overflow: ellipsis;
+    width: 200px;
+}
+#carttot{
+    width: 10%;
+    align-content: center;
+    text-align: center;
+    margin-left: 20px;
+}
+#cartCount {
+    position: absolute;
+    top: 22px;
+    right: 6%;
+    background: #f0d343;
+    color: black;
+    padding: 0px 5px;
+    border-radius: 33px;
+    font-size: 12px;
+    font-weight: bold;
+}
+#cartblck{
+    width: 25px;
+    height: auto;
+}
+#menutot{
+    width: 10%;
+    align-content: center;
+    text-align: center;
+    margin-left: 5px;
+}
+#menublck{
+    width: 25px;
+    height: auto;
+}
+.blackscreen{
+	display:none;
+    position: fixed;
+    z-index: 3;
+    left: 0%;
+    top: 5;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.7); 
+}
+#firimage{
+    width: 100%;
+    height: auto;
+    background-color: #fff9e3;
+}
+#displayimg{
+    width: 100%;
+    height: auto;
+}
+#displayimg2{
+    display: none;
+    width: 100%;
+    height: auto;
+}
+#displayimg3{
+    display: none;
+    width: 100%;
+    height: auto;
+}
+.inncontent{
+    width: 100%;
+    height: auto; 
+    transform: translate(0,-10px);
+    background-color: #f3f3f3;
+}
+.simpleid{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    margin: 0px auto;
+    justify-content: center;
+}
+.imgsimple{
+    width: 400px;
+    height: auto;
+    margin-top: 40px;
+}
+.textareacon{
+    width: 400px;
+    margin-left: 40px;
+    margin-top: 20px;
+    padding-top: 40px;
+}
+.textcls{
+    font-size: 30px;
+    font-weight: 400;
+    display: block;
+    color: #ecad39;
+    margin-top: 10px;
+}
+.textcls2{
+    font-size: 20px;
+    font-weight: 600;
+    display: block;
+    color: #6cdaf8;
+    margin-top: 10px;
+}
+.para1{
+    font-size: 16px;
+    margin-top: 10px;
+    line-height: .3in;
+    overflow: hidden;
+    text-align: justify;
+}
+.giftbtn{
+    color: #fff;
+    background-color: #3eb6de;
+    border-radius: 10px;
+    width: 130px;
+    height: 40px;
+    border: none;
+    font-size: 18px;
+    font-family: 'poppins';
+    padding: 8px;
+    margin-top: 50px;
+}
+#imgstoryleft{
+    width: 100%;
+}
+#imgstoryright{
+    width: 100%;
+    height: auto;
+}
+#searchsort{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 16;
+    background: rgba(0,0,0,0.7);
+    overflow-x: hidden;
+}
+#contentsear{
+    background: #fff;
+    width: 0;
+    height: 100%;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+.closeid{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 36px;
+    margin: 20px;
+}
+.tit{
+    display: inline-block;
+    width: 50%;
+    margin: 20px;
+    font-size: 20px;
+}
+.titleforsear{
+    border-bottom: 1px solid #e2e0e0;
+}
+#seartype{
+    width: 90%;
+    height: auto;
+    margin: 10px auto;
+}
+#searchInput2{
+    width:100%;
+    height:40px;
+    border: 1px solid #e2e0e0;
+    border-radius: 10px;
+    padding-left: 10px;
+    background-color:#F4F6F8;
+}
+#searchInput2 :active{
+    border: none;
+}
+#inspirespan{
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    padding: 10px;
+    margin-top: 20px;
+}
+#serchlist2{
+	position:absolute;
+    width: 100%;
+	z-index: 16;
+    border-top: 1px solid #e2e0e0;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+#productList2{
+	z-index:16;
+	background:white;
+	width:100%;
+	font-size:14px;
+	padding:5px;
+	height:auto;
+}
+#productList2 li{
+	list-style:none;
+    text-align: justify;
+    color: #000;
+}
+#productList2 span{
+    text-overflow: ellipsis;
+    width: 200px;
+}
+#totalstart{
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+}
+.itemone{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.photopic{
+    width: 15%;
+    height: auto;
+}
+.searchimage{
+    width: 100px;
+    height: 80px;
+}
+.contentforpic{
+    width: 60%;
+    height: auto;
+}
+.contentforpic span{
+    font-size: 16px;
+    font-weight: 200;
+    color: #000;
+}
+del{
+    color: #878787;
+    font-size: 16px;
+}
+.contentforpic span:nth-of-type(2){
+    color: #f41010;
+}
+#menusort{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 16;
+    background: rgba(0,0,0,0.7);
+    overflow-x: hidden;
+}
+#menusear{
+    background: #fff;
+    width: 0;
+    height: 100%;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+.menureg{
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #e2e0e0;
+}
+#userimg{
+    width: 20px;
+    height: 20px;
+    margin: 20px;
+}
+.menureg span{
+    margin: 20px;
+    font-size: 14px;
+}
+@media only screen and (max-width:990px){
+    #ponnititle{
+       display: none;
+    }
+    #menutotleft{
+        display: block;
+    }
+    #displayimg{
+        display: none;
+    }
+    #displayimg2{
+        display: block;
+    }
+    #searchtot{
+        width: 20%;
+        margin-top: 10px;
+        margin-left: auto;
+    }
+    #searchbutton {
+        border: none;
+    }
+    #searchInput{
+        display: none;
+    }
+    #iconsearch{
+        border: none;
+        padding: 0;
+        position: static;
+        margin-bottom: 10px;
+        margin-left: 40px;
+    }
+    #carttot{
+        width: 15%;
+        margin-left: 0px;
+    }
+    #cartCount {
+        right: 2%;
+    }
+    #cartblck {
+        margin-left: 10px;
+    }
+    #menutot{
+        display: none;
+    }
+    .photopic{
+        width: 30%;
+    }
+}
+@media only screen and (max-width:880px){
+    .simpleid {
+        display: block;
+    }
+    .textareacon {
+        width: 100%;
+        padding-top: 0px;
+        margin-left: 0px;
+    }
+    .imgsimple{
+        width: 90%;
+        text-align: justify;
+    }
+    .simpleid:nth-of-type(2){
+        display: flex;
+        flex-wrap: wrap-reverse;
+    }
+}
+@media only screen and (max-width:750px){
+    #iconsearch{
+        margin-left: 20px;
+    }
+}
+@media only screen and (max-width:630px){
+    #ponnilogo {
+        width: 25%;
+    }
+    #logoimg{
+        width: 130px;
+        height: 90px;
+    }
+    #searchtot {
+        margin-top: 20px;
+    }
+    #iconsearch{
+        margin-bottom: 20px;
+    }
+    #carttot{
+        width: 25%;
+        margin-left: 10px;
+    }
+}
+@media only screen and (max-width:500px){
+    .itemone{
+        width: 100%;
+        display: block;
+        margin-left: 10px;
+    }
+    .contentforpic{
+        width: 90%;
+    }
+    #displayimg2{
+        display: none;
+    }
+    #displayimg3{
+        display: block;
+    }
+    .textareacon{
+        margin-top: 0px;
+    }
+    
+}
+@media only screen and (max-width:475px){
+    #ponnilogo {
+        width: 45%;
+    }
+    #logoimg{
+        width: 110px;
+        height: 75px;
+    }
+    #searchtot{
+        width: 28%;
+        margin-right: 12px;
+    }
+    #carttot{
+        margin: 5px;
+    }
+}
+@media only screen and (max-width:440px){
+    .textcls{
+        font-size: 20px;
+    }
+    .para1{
+        font-size: 14px;
+    }
+    .imgsimple{
+        width: 95%;
+        margin-top: 0px;
+    }
+}
+@media only screen and (max-width:390px){
+    #ponnilogo{
+        width: 55%;
+    }
+    #logoimg{
+        width: 90px;
+        height: 60px;
+    }
+    #headicons{
+        padding-right: 8px;
+    }
+    #cartCount{
+        right: 0%;
+    }
+}
+@media only screen and (max-width:310px){
+    #ponnilogo{
+        width: 50%;
+        padding-left: 10px;
+    }
+    #logoimg{
+        width: 100px;
+        height: 75px;
+    }
+    #headicons{
+        width: 50%;
+        padding-right: 10px;
+    }
+}
