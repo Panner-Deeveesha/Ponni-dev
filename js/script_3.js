@@ -48,6 +48,7 @@ function cancelpayment(){
 }
 function continuenxt(){
   document.getElementById("payementphone1").style.display="none";
+  document.getElementById("payment-adress").style.display="block";
 }
 function payuparrow(){
   document.getElementById("paydownarrow").style.display="block";
@@ -63,3 +64,6 @@ function paydownarrow(){
 
 
 }
+document.getElementById("myButton").onclick = function() {
+
+};
