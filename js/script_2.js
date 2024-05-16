@@ -63,7 +63,6 @@ $(document).ready(function () {
   });
   $(".cate-heading2 #btn-savouries").click(function () {
     $(".selectimages2").fadeIn("slow");
-
     $(".selectimages1").css("display", "none");
     $(".selectimages3").css("display", "none");
     $(".selectimages4").css("display", "none");
@@ -75,7 +74,6 @@ $(document).ready(function () {
     $(".selectimages3").fadeIn("slow");
     $(".selectimages2").css("display", "none");
     $(".selectimages1").css("display", "none");
-
     $(".selectimages4").css("display", "none");
     $(".selectimages5").css("display", "none");
     $(".selectimages6").css("display", "none");
@@ -84,7 +82,6 @@ $(document).ready(function () {
     $(".selectimages3").css("display", "none");
     $(".selectimages2").css("display", "none");
     $(".selectimages1").css("display", "none");
-
     $(".selectimages4").fadeIn("slow");
     $(".selectimages5").css("display", "none");
     $(".selectimages6").css("display", "none");
@@ -93,7 +90,6 @@ $(document).ready(function () {
     $(".selectimages3").css("display", "none");
     $(".selectimages2").css("display", "none");
     $(".selectimages1").css("display", "none");
-
     $(".selectimages4").css("display", "none");
     $(".selectimages5").fadeIn("slow");
     $(".selectimages6").css("display", "none");
@@ -102,7 +98,6 @@ $(document).ready(function () {
     $(".selectimages3").css("display", "none");
     $(".selectimages2").css("display", "none");
     $(".selectimages1").css("display", "none");
-
     $(".selectimages4").css("display", "none");
     $(".selectimages5").css("display", "none");
     $(".selectimages6").fadeIn("slow");
