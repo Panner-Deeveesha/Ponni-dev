@@ -83,13 +83,17 @@ function closeNav() {
 }
 
 function openmenu() {
-  document.getElementById("menusort").style.width = "100%";
   const screenWidth = window.innerWidth;
   if (screenWidth > 990) {
-    document.getElementById("menusear").style.width = "45%";
-    document.getElementById("menusort").style.right = "0px"; 
-    document.getElementById("menusear").style.right = "0px";
+    document.getElementById("menusort").style.width = "100%";
+    document.getElementById("menusear").style.left = "auto";
+    document.getElementById("menusear").style.right = "0";
+    document.getElementById("menusear").style.width = "18%";
+
   } else {
+    document.getElementById("menusort").style.width = "100%";
+    document.getElementById("menusear").style.left = "0";
+    document.getElementById("menusear").style.right = "auto";
     document.getElementById("menusear").style.width = "80%";
   }
 }
@@ -98,6 +102,24 @@ function closemenu() {
   document.getElementById("menusort").style.width = "0%";
   document.getElementById("menusear").style.width = "0";
 }
+
+const cartCountElement = document.getElementById('cartCount');
+let quantityInputs = 0;
+
+/*function updateCartCount() {
+  cartItemCount = Array.from(quantityInputs).reduce(
+      (total, input) => total + parseInt(input.value),
+      1
+  );
+  cartCountElement.innerText = cartItemCount;
+}
+updateCartCount();*/
+
+function addItemToCart() {
+  quantityInputs++; // Increment count
+  cartCountElement.textContent = quantityInputs; // Update the span content
+}
+addItemToCart();
 
 $(document).ready(function () {
   $("#searchInput").focus(function () {
@@ -118,6 +140,18 @@ $(document).ready(function () {
 
   $("#searchInput2").focus(function () {
     $("#totalstart").css("display", "none");
+  });
+
+  $("#plussym").click(function () {
+    $(".contentmenuslide #shopslide").slideDown("slow");
+    $("#shopslide").css("display", "flex");
+    $("#minussym").css("display", "block");
+    $("#plussym").css("display", "none");
+  });
+  $("#minussym").click(function () {
+    $(".contentmenuslide #shopslide").slideUp("slow");
+    $("#minussym").css("display", "none");
+    $("#plussym").css("display", "block");
   });
 
   /*$("#iconsearch").click(function(){
