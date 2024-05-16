@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ponni Natural Foods</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style_1.css">
+    <link rel="stylesheet" href="./css/style_2.css">
+    <link rel="stylesheet" href="./css/style_3.css">
+	<link rel="stylesheet" href="./css/owlcarousel.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Radio Canada' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Poppins';font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Keerthana working area start-->
+    <nav id="navhead">
+        <div id="headerfull">
+            <div id="ponnititle">
+                <p>PONNI NATURAL FOODS</p>
+            </div>
+            <div id="menutotleft">
+                <img src="assets/icons/menu-blck.png" alt="Cart" id="menublck" onclick="openmenu()">
+            </div>
+            <div id="ponnilogo">
+                <img src="assets/images/Logo trim.png" alt="Logo" id="logoimg">
+            </div>
+            <div id="headicons">
+                <div id="searchtot">
+                    <button id="searchbutton">
+                        <input id="searchInput" type="text" placeholder="Search for..">
+                        <img src="assets/icons/search.png" id="iconsearch" onclick="openNav()">
+                    </button>
+                    <div class="serchlist">
+                        <ul id="productList">
+
+                        </ul>
+                    </div>
+                </div>
+                <div id="carttot">
+                    <a href="cart.html">
+                        <p id="cartCount">0</p>
+                        <img src="assets/icons/cart-black.png" alt="Cart" id="cartblck">
+                    </a>
+                </div>
+                <div id="menutot">
+                    <img src="assets/icons/menu-blck.png" alt="Cart" id="menublck" onclick="openmenu()">
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="blackscreen"></div>
+    <div class="wholecategories2">
+        <div class="cate-heading" id="mydiv" style="margin-top: 0px;">
+            <div id="btn-sweets"><span class="btn">Rice</span></div>
+            <div id="btn-savouries"><span class="btn active">Oil</span></div>
+            <div id="btn-pickels"><span class="btn">Snacks</span></div>
+            <div id="btn-honey"><span class="btn">Flour</span></div>
+            <div id="btn-masalas"><span class="btn">Masalas</span></div>
+            <div id="btn-podi"><span class="btn">Beauty Products</span></div>
+        </div>
+        <div class="cate-heading2" id="mydiv2">
+            <div id="btn-sweets" class="cateheadings"><p>Rice</p></div>
+            <div id="btn-savouries" class="cateheadings active2"><p>Oil</p></div>
+            <div id="btn-pickels" class="cateheadings"><p>Snacks</p></div>
+            <div id="btn-honey" class="cateheadings"><p>Flour</p></div>
+            <div id="btn-masalas" class="cateheadings"><p>Masalas</p></div>
+            <div id="btn-podi" class="cateheadings"><p>Beauty Products</p></div>
+        </div>
+    </div>
+    <div id="firimage">
+        <div>
+            <img src="./assets/images/mainbanner.png" alt="samplestore" id="displayimg">
+            <img src="assets/images/tab.png" alt="samplestore" id="displayimg2">
+            <img src="assets/images/mobile.png" alt="samplestore" id="displayimg3">
+        </div>
+    </div>
+    <div id="searchsort">
+        <div id="contentsear">
+            <div class="titleforsear">
+                <span class="tit">Search our Site</span>
+                <img src="assets/icons/icons8-close-25.png" alt="close" class="closeid" onclick="closeNav()">
+            </div>
+            <div id="seartype">
+                <input id="searchInput2" type="text" placeholder="Search for..">
+                <span id="inspirespan">Need Some Inspiration?</span>
+            </div>
+            <div id="serchlist2">
+                <ul id="productList2">
+
+                </ul>
+            </div>
+            <div id="totalstart">
+                <div class="itemone">
+                    <div class="photopic">
+                        <img src="https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Sesame-Oil.jpg" alt="oil" class="searchimage">
+                    </div>
+                    <div class="contentforpic">
+                        <span>Wood Pressed Gingely Oil</span>
+                        <del>Rs. 500.00</del>
+                        <span>From Rs. 480.00</span>
+                    </div>
+                </div>
+                <div class="itemone">
+                    <div class="photopic">
+                        <img src="https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Groundnut-oil.jpg" alt="oil" class="searchimage">
+                    </div>
+                    <div class="contentforpic">
+                        <span>Wood Pressed Groundnut Oil</span>
+                        <del>Rs. 500.00</del>
+                        <span>From Rs. 480.00</span>
+                    </div>
+                </div>
+                <div class="itemone">
+                    <div class="photopic">
+                        <img src="https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Coconut-Oil.jpg" alt="oil" class="searchimage">
+                    </div>
+                    <div class="contentforpic">
+                        <span>Wood Pressed Coconut Oil</span>
+                        <del>Rs. 500.00</del>
+                        <span>From Rs. 480.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="menusort">
+        <div id="menusear">
+            <div class="titleforsear">
+                <span class="tit">Menu</span>
+                <img src="assets/icons/icons8-close-25.png" alt="close" class="closeid" onclick="closemenu()">
+            </div>
+            <div class="menureg">
+                <a href="login.html">
+                    <img src="./assets/icons/maleuser.png" alt="Login" id="userimg">
+                    <span>Login/Register</span>
+                </a>
+            </div>
+            <div class="menureg">
+                <img src="./assets/icons/rocket.png" alt="NewItems" id="Items">
+                <span>New Items & Best Seller</span>
+            </div>
+            <div class="menureg">
+                <img src="./assets/icons/shoppingbag.png" alt="ShopNow" id="shipbag">
+                <span>Shop Now</span>
+                <span class="menu-plus" id="plussym">+</span>
+                <span class="menu-minus" id="minussym">-</span>
+            </div>
+            <div class="contentmenuslide">
+                <ul id="shopslide">
+                    <li>
+                        <a href="rice.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Rice" class="menuimg" id="ricemenu">
+                        <span>Rice</span></a>
+                    </li>
+                    <li>
+                        <a href="oil.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Oil" class="menuimg" id="oilmenu">
+                        <span>Oil</span></a>
+                    </li>
+                    <li>
+                        <a href="snack.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="snackmenu">
+                        <span>Snacks</span></a>
+                    </li>
+                    <li>
+                        <a href="flour.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="flourmenu">
+                        <span>Flour</span></a>
+                    </li>
+                    <li>
+                        <a href="masalas.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="masalmenu">
+                        <span>Masalas</span></a>
+                    </li>
+                    <li>
+                        <a href="beauty.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="beautymenu">
+                        <span>Beauty Products</span></a>
+                    </li>  
+                </ul>
+            </div>
+            <div class="menureg" id="ethomenureg">
+                <span style="color: grey;">Get In Touch</span>
+                <span>care@ponni.com</span>
+            </div>
+        </div>
+    </div>
+    <!-- Keerthana working area end-->
+    <!-- Swetha working area start-->
+    <div class="wholecategories2" style="padding-top: 10px;">
+        <div id="cate-myimages">
+            <div class="selectimages1 passivemove">
+                <div class="sweets-images">
+                    <div>
+                        <a href="ponniproductpage.html">
+                            <p class="first-image">
+                                <img src="https://www.oorla.in/cdn/shop/files/TirunelveliHalwa2.jpg?v=1695623373&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/TirunelveliHalwa1_4baa7f67-9563-49f2-892f-5326b614ef72.jpg?v=1695963923&width=600'"
+                                onmouseout="this.src='https://www.oorla.in/cdn/shop/files/TirunelveliHalwa2.jpg?v=1695623373&width=600'">
+                            </p>			
+                        </a>
+                        <p class="productname">Tirunelveli Halwa</p>
+                        <p class="priceamount"><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/Palkova6.jpg?v=1695623256&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/Palkova5.jpg?v=1695967936&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/Palkova6.jpg?v=1695623256&width=600'">
+                        </p>	
+                        <p class="productname">Srivilliputhur Palkova</p>
+                        <p><del>Rs.199.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/KaraikudiAdhirasam2.jpg?v=1695623417&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/KaraikudiAdhirasam1_f7b389eb-6439-4cd5-86e0-f7fa4dfe417a.jpg?v=1695963032&width=400'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/KaraikudiAdhirasam2.jpg?v=1695623417&width=600'">
+                        </p>
+                        <p class="productname">Karaikudi Adhirasam</p>
+                        <p><del>Rs.229.00</del>
+                            <span>From Rs.189.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/KaraikudiAdhirasam2.jpg?v=1695623417&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/KaraikudiAdhirasam1_f7b389eb-6439-4cd5-86e0-f7fa4dfe417a.jpg?v=1695963032&width=400'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/KaraikudiAdhirasam2.jpg?v=1695623417&width=600'">
+                        </p>
+                        <p class="productname">Karaikudi Adhirasam</p>
+                        <p><del>Rs.229.00</del>
+                            <span>From Rs.189.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/KaraikudiAdhirasam2.jpg?v=1695623417&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/KaraikudiAdhirasam1_f7b389eb-6439-4cd5-86e0-f7fa4dfe417a.jpg?v=1695963032&width=400'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/KaraikudiAdhirasam2.jpg?v=1695623417&width=600'">
+                        </p>
+                        <p class="productname">Karaikudi Adhirasam</p>
+                        <p><del>Rs.229.00</del>
+                            <span>From Rs.189.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/KaraikudiAdhirasam2.jpg?v=1695623417&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/KaraikudiAdhirasam1_f7b389eb-6439-4cd5-86e0-f7fa4dfe417a.jpg?v=1695963032&width=400'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/KaraikudiAdhirasam2.jpg?v=1695623417&width=600'">
+                        </p>
+                        <p class="productname">Karaikudi Adhirasam</p>
+                        <p><del>Rs.229.00</del>
+                            <span>From Rs.189.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/KaraikudiAdhirasam2.jpg?v=1695623417&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/KaraikudiAdhirasam1_f7b389eb-6439-4cd5-86e0-f7fa4dfe417a.jpg?v=1695963032&width=400'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/KaraikudiAdhirasam2.jpg?v=1695623417&width=600'">
+                        </p>
+                        <p class="productname">Karaikudi Adhirasam</p>
+                        <p><del>Rs.229.00</del>
+                            <span>From Rs.189.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/Thoothukudi-Macaroons-2.jpg?v=1697776532&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/ThoothukudiMacaroons1_dd693b00-0b5f-4362-8d38-dfa79a92efbd.jpg?v=1697776532&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/Thoothukudi-Macaroons-2.jpg?v=1697776532&width=600'">
+                        </p>
+                        <p class="productname">Thoothukudi Macaroons</p>
+                        <p><del>Rs.249.00</del>
+                            <span>From Rs.199.00</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="selectimages2">
+                <div class="savouries-images">
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/NagercoilNendranChips2.jpg?v=1695624992&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/NagercoilNendranChips1.jpg?v=1695967899&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/NagercoilNendranChips2.jpg?v=1695624992&width=600'">
+                        </p>
+                        <p class="productname">Nagercoil Nendran Chips</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/maduraimixture2.jpg?v=1695625155&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/maduraimixture1_10c360f7-a2ed-445c-a180-3d8bcb40253c.jpg?v=1695963165&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/maduraimixture2.jpg?v=1695625155&width=600'">
+                        </p>
+                        <p class="productname">Madurai Mixture</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/maduraimixture2.jpg?v=1695625155&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/maduraimixture1_10c360f7-a2ed-445c-a180-3d8bcb40253c.jpg?v=1695963165&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/maduraimixture2.jpg?v=1695625155&width=600'">
+                        </p>
+                        <p class="productname">Madurai Mixture</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/maduraimixture2.jpg?v=1695625155&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/maduraimixture1_10c360f7-a2ed-445c-a180-3d8bcb40253c.jpg?v=1695963165&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/maduraimixture2.jpg?v=1695625155&width=600'">
+                        </p>
+                        <p class="productname">Madurai Mixture</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/maduraimixture2.jpg?v=1695625155&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/maduraimixture1_10c360f7-a2ed-445c-a180-3d8bcb40253c.jpg?v=1695963165&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/maduraimixture2.jpg?v=1695625155&width=600'">
+                        </p>
+                        <p class="productname">Madurai Mixture</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/maduraimixture2.jpg?v=1695625155&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/maduraimixture1_10c360f7-a2ed-445c-a180-3d8bcb40253c.jpg?v=1695963165&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/maduraimixture2.jpg?v=1695625155&width=600'">
+                        </p>
+                        <p class="productname">Madurai Mixture</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>    
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/ChettinaduThattaiMurukku2.jpg?v=1695625101&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/ChettinaduThattaiMurukku1_d345dbc0-7017-4ac3-b981-9bc793c5d0d7.jpg?v=1695962341&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/ChettinaduThattaiMurukku2.jpg?v=1695625101&width=600'">
+                        </p>
+                        <p class="productname">Chettinadu Thattai Murukku</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                    <p class="first-image">
+                        <img src="https://www.oorla.in/cdn/shop/files/ChettinaduThenkuzhalMurukku_Norukkal_2.jpg?v=1695625250&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/ChettinaduThenkuzhalMurukku_Norukkal_1_dade76aa-b1c0-4433-a6dd-ef7ed7897e53.jpg?v=1695962406&width=600'"
+                        onmouseout="this.src='https://www.oorla.in/cdn/shop/files/ChettinaduThenkuzhalMurukku_Norukkal_2.jpg?v=1695625250&width=600'">
+                    </p>
+                    <p class="productname">Chettinadu Thenkuzhal Murukku</p>
+                    <p><del>Rs.189.00</del>
+                        <span>From Rs.169.00</span>
+                    </p>
+                    </div>
+                </div>
+            </div>
+            <div class="selectimages3">
+                <div class="pickels-images">
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/Tamil-Nadu-Amla-Pickle-1.jpg?v=1681114024&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/Tamil-Nadu-Amla-Pickle-2.jpg?v=1681114024&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/Tamil-Nadu-Amla-Pickle-1.jpg?v=1681114024&width=600'">
+                        </p>
+                        <p class="productname">Tamil Nadu Amla Pickle</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/Tamil-Nadu-Lemon-Pickle-1.jpg?v=1681825437&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/Tamil-Nadu-Lemon-Pickle-3.jpg?v=1681825437&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/Tamil-Nadu-Lemon-Pickle-1.jpg?v=1681825437&width=600'">
+                        </p>
+                        <p class="productname">Tamil Nadu Lemon Pickle</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/Andhra-Chintakaya-Pickle-1.jpg?v=1681117573&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/Andhra-Chintakaya-Pickle-2.jpg?v=1681117573&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/Andhra-Chintakaya-Pickle-1.jpg?v=1681117573&width=600'">
+                        </p>
+                        <p class="productname">Andhra Chintakaya Pickle</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/Andhra-Chintakaya-Pickle-1.jpg?v=1681117573&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/Andhra-Chintakaya-Pickle-2.jpg?v=1681117573&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/Andhra-Chintakaya-Pickle-1.jpg?v=1681117573&width=600'">
+                        </p>
+                        <p class="productname">Andhra Chintakaya Pickle</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/Andhra-Chintakaya-Pickle-1.jpg?v=1681117573&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/Andhra-Chintakaya-Pickle-2.jpg?v=1681117573&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/Andhra-Chintakaya-Pickle-1.jpg?v=1681117573&width=600'">
+                        </p>
+                        <p class="productname">Andhra Chintakaya Pickle</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/Andhra-Chintakaya-Pickle-1.jpg?v=1681117573&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/Andhra-Chintakaya-Pickle-2.jpg?v=1681117573&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/Andhra-Chintakaya-Pickle-1.jpg?v=1681117573&width=600'">
+                        </p>
+                        <p class="productname">Andhra Chintakaya Pickle</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/Andhra-Chintakaya-Pickle-1.jpg?v=1681117573&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/Andhra-Chintakaya-Pickle-2.jpg?v=1681117573&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/Andhra-Chintakaya-Pickle-1.jpg?v=1681117573&width=600'">
+                        </p>
+                        <p class="productname">Andhra Chintakaya Pickle</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/Tamil-Nadu-Garlic-Pickle-1.jpg?v=1681114546&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/Tamil-Nadu-Garlic-Pickle-2.jpg?v=1681114546&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/Tamil-Nadu-Garlic-Pickle-1.jpg?v=1681114546&width=600'">
+                        </p>
+                        <p class="productname">Tamil Nadu Garlic Pickle</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="selectimages4">
+                <div class="honey-images">
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/honey-listing-image.-4jpg.jpg?v=1696496909&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/6.jpg?v=1696496909&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/honey-listing-image.-4jpg.jpg?v=1696496909&width=600'">
+                        </p>
+                        <p class="productname">Nagercoil Nendran Chips</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/honey-listing-image-3.jpg?v=1696497017&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/3.jpg?v=1696497017&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/honey-listing-image-3.jpg?v=1696497017&width=600'">
+                        </p>
+                        <p class="productname">Kombu Wild Honey</p>
+                        <p><del>Rs.689.00</del>
+                            <span>From Rs.369.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/13_8483acba-2f5e-465a-b51b-947b062b3a0d.jpg?v=1696488521&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/1.jpg?v=1696488521&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/13_8483acba-2f5e-465a-b51b-947b062b3a0d.jpg?v=1696488521&width=600'">
+                        </p>
+                        <p class="productname">Mountain Wild Honey</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/honey-listing-image-5.jpg?v=1696497049&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/7.jpg?v=1696497049&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/honey-listing-image-5.jpg?v=1696497049&width=600'">
+                        </p>
+                        <p class="productname">Honey Soaked Rose Gulkand</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/honey-listing-image-5.jpg?v=1696497049&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/7.jpg?v=1696497049&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/honey-listing-image-5.jpg?v=1696497049&width=600'">
+                        </p>
+                        <p class="productname">Honey Soaked Rose Gulkand</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/honey-listing-image-5.jpg?v=1696497049&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/7.jpg?v=1696497049&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/honey-listing-image-5.jpg?v=1696497049&width=600'">
+                        </p>
+                        <p class="productname">Honey Soaked Rose Gulkand</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/honey-listing-image-5.jpg?v=1696497049&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/7.jpg?v=1696497049&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/honey-listing-image-5.jpg?v=1696497049&width=600'">
+                        </p>
+                        <p class="productname">Honey Soaked Rose Gulkand</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/files/honey-listing-image-5.jpg?v=1696497049&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/files/7.jpg?v=1696497049&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/files/honey-listing-image-5.jpg?v=1696497049&width=600'">
+                        </p>
+                        <p class="productname">Honey Soaked Rose Gulkand</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="selectimages5">
+                <div class="masalas-images">
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/1-concept_51a8e7b5-4a8f-46e4-b81a-805ce13e602a.jpg?v=1657257251&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/2-product_b5611a2d-68b5-4226-b143-4d80493f40cc.jpg?v=1657257251&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/1-concept_51a8e7b5-4a8f-46e4-b81a-805ce13e602a.jpg?v=1657257251&width=600'">
+                        </p>
+                        <p class="productname">Kongunattu Chicken Masala</p>
+                        <p><del>Rs.359.00</del>
+                            <span>From Rs.319.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/1-concept_2e44c465-3520-438d-940e-019f07fa1ff7.jpg?v=1657515094&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/2-product_6088f298-0c90-4446-9775-7ca2a7ac48a9.jpg?v=1657515094&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/1-concept_2e44c465-3520-438d-940e-019f07fa1ff7.jpg?v=1657515094&width=600'">
+                        </p>
+                        <p class="productname">Kongunattu Mutton Masala</p>
+                        <p><del>Rs.459.00</del>
+                            <span>From Rs.389.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/1-concept_ce4721cb-892c-42d5-a9e4-222ab2f5d35c.jpg?v=1657515460&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/2-product_6f9af2d6-4b84-454e-a8ca-ee114dc5f9b8.jpg?v=1657515460&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/1-concept_ce4721cb-892c-42d5-a9e4-222ab2f5d35c.jpg?v=1657515460&width=600'">
+                        </p>
+                        <p class="productname">Kongunattu Sambar Thool</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/1-concept_802fb8c3-64be-40b5-b321-e03ab25194f0.jpg?v=1657516990&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/2-product_136b4ece-6e08-4f3b-85c9-3b845b942667.jpg?v=1657516991&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/1-concept_802fb8c3-64be-40b5-b321-e03ab25194f0.jpg?v=1657516990&width=600'">
+                        </p>
+                        <p class="productname">Kongunattu Kuzhambu Masala</p>
+                        <p><del>Rs.219.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/1-concept_802fb8c3-64be-40b5-b321-e03ab25194f0.jpg?v=1657516990&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/2-product_136b4ece-6e08-4f3b-85c9-3b845b942667.jpg?v=1657516991&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/1-concept_802fb8c3-64be-40b5-b321-e03ab25194f0.jpg?v=1657516990&width=600'">
+                        </p>
+                        <p class="productname">Kongunattu Kuzhambu Masala</p>
+                        <p><del>Rs.219.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/1-concept_802fb8c3-64be-40b5-b321-e03ab25194f0.jpg?v=1657516990&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/2-product_136b4ece-6e08-4f3b-85c9-3b845b942667.jpg?v=1657516991&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/1-concept_802fb8c3-64be-40b5-b321-e03ab25194f0.jpg?v=1657516990&width=600'">
+                        </p>
+                        <p class="productname">Kongunattu Kuzhambu Masala</p>
+                        <p><del>Rs.219.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/1-concept_802fb8c3-64be-40b5-b321-e03ab25194f0.jpg?v=1657516990&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/2-product_136b4ece-6e08-4f3b-85c9-3b845b942667.jpg?v=1657516991&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/1-concept_802fb8c3-64be-40b5-b321-e03ab25194f0.jpg?v=1657516990&width=600'">
+                        </p>
+                        <p class="productname">Kongunattu Kuzhambu Masala</p>
+                        <p><del>Rs.219.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/1-concept_802fb8c3-64be-40b5-b321-e03ab25194f0.jpg?v=1657516990&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/2-product_136b4ece-6e08-4f3b-85c9-3b845b942667.jpg?v=1657516991&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/1-concept_802fb8c3-64be-40b5-b321-e03ab25194f0.jpg?v=1657516990&width=600'">
+                        </p>
+                        <p class="productname">Kongunattu Kuzhambu Masala</p>
+                        <p><del>Rs.219.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="selectimages6">
+                <div class="podi-images">
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/1--Concept_9b462db3-29ae-47ba-99f6-ec25b36cc23f.jpg?v=1657690886&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/2-Product_d6acdf7c-8cee-4716-b0bb-3570a2e8ecca.jpg?v=1657690886&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/1--Concept_9b462db3-29ae-47ba-99f6-ec25b36cc23f.jpg?v=1657690886&width=600'">
+                        </p>
+                        <p class="productname">Chettinadu Idli Dosa Podi</p>
+                        <p><del>Rs.389.00</del>
+                            <span>From Rs.349.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/1-concept_ce4721cb-892c-42d5-a9e4-222ab2f5d35c.jpg?v=1657515460&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/2-product_6f9af2d6-4b84-454e-a8ca-ee114dc5f9b8.jpg?v=1657515460&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/1-concept_ce4721cb-892c-42d5-a9e4-222ab2f5d35c.jpg?v=1657515460&width=600'">
+                        </p> 
+                        <p class="productname">Kongunattu Sambar Thool</p>
+                        <p><del>Rs.289.00</del>
+                            <span>From Rs.239.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/1-concept_77b4cbb7-cbca-4ba5-8d4d-3cf4f1b552d8.jpg?v=1657517953&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/2-product_4a8ca02b-d3f1-4e52-8521-0cc605a398fa.jpg?v=1657517953&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/1-concept_77b4cbb7-cbca-4ba5-8d4d-3cf4f1b552d8.jpg?v=1657517953&width=600'">
+                        </p>
+                        <p class="productname">Chettinadu Paruppu Podi</p>
+                        <p><del>Rs.189.00</del>
+                            <span>From Rs.169.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/6.png?v=1648184760&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/Poondu.jpg?v=1648184760&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/6.png?v=1648184760&width=600'">
+                        </p>
+                        <p class="productname">Kongunattu Garlic Podi</p>
+                        <p><del>Rs.339.00</del>
+                            <span>From Rs.229.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/6.png?v=1648184760&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/Poondu.jpg?v=1648184760&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/6.png?v=1648184760&width=600'">
+                        </p>
+                        <p class="productname">Kongunattu Garlic Podi</p>
+                        <p><del>Rs.339.00</del>
+                            <span>From Rs.229.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/6.png?v=1648184760&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/Poondu.jpg?v=1648184760&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/6.png?v=1648184760&width=600'">
+                        </p>
+                        <p class="productname">Kongunattu Garlic Podi</p>
+                        <p><del>Rs.339.00</del>
+                            <span>From Rs.229.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/6.png?v=1648184760&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/Poondu.jpg?v=1648184760&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/6.png?v=1648184760&width=600'">
+                        </p>
+                        <p class="productname">Kongunattu Garlic Podi</p>
+                        <p><del>Rs.339.00</del>
+                            <span>From Rs.229.00</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="first-image">
+                            <img src="https://www.oorla.in/cdn/shop/products/6.png?v=1648184760&width=600"onmouseover="this.src='https://www.oorla.in/cdn/shop/products/Poondu.jpg?v=1648184760&width=600'"
+                            onmouseout="this.src='https://www.oorla.in/cdn/shop/products/6.png?v=1648184760&width=600'">
+                        </p>
+                        <p class="productname">Kongunattu Garlic Podi</p>
+                        <p><del>Rs.339.00</del>
+                            <span>From Rs.229.00</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<!-- Swetha working area end-->
+    <!-- kavya working area start--> 
+    <div class="footer-whole">
+        <img src="./assets/images/footer v001.jpg" class="footer-banner" >
+        <img src="./assets/images/footer tab final.png" class="footer-banner1" >
+        <img src="./assets/images/footer mobile v001 (1).png" class="footer-banner2" >
+        <div class="footer-main">
+            <div class="footer-main2">
+                <div class="footer-contact">
+                    <img src="./assets/images/Logo trim.png" width="90px">
+                    <p>Corporate Office:<br>
+            
+                        No.44, Mullai Nagar Bus Stop,<br> Thanakkankulam, Near Ford Showroom<br>
+            
+                        Madurai - 625006
+                    </p>
+                    <div class="footer-icon">  
+                        <img src="./assets/icons/icons8-f-20.png" class="footer-icon1">
+                        <img src="./assets/icons/instagram.png" class="footer-icon2">
+                        <img src="./assets/icons/icons8-youtube-20.png" class="footer-icon3">
+                    </div>	  
+                </div>
+                <div class="footer-about">
+                    <h3>ABOUT US</h3>
+                    <ul class="footer-linklist">
+                        <li><a href=""> OUR STORY</a></li>                   
+                        <li><a href="">CAREERS</a></li>              
+                        <li><a href="" >GET A PACK GIVE A PACK </a> </li>					                   
+                        <li><a href="">CUSTOMER REVIEWS </a></li>                  
+                        <li><a href="">REFER A FRIEND</a>  </li>  
+                        <li><a href="" > CORPORATE GIFTING</a></li>                   
+                        <li> <a href="">  NEWS &amp; MEDIA </a> </li>
+                    </ul>                                              
+                </div>
+                <div class="footer-duties">
+                    <h3 >SUPPORT</h3>
+                    <ul>
+                    <li><a href="">FAQS</a></li>
+                    <li><a href=""> DUTIES & CLEARANCE</a></li>                              
+                    <li><a href="">PARTNER WITH US</a></li>                                   
+                    </ul>
+                </div>    
+                <div class="footer-lastsection">
+                    <h3 >PURE GOODNESS FROM THE LAND <h3>
+                    <p>Sign up to get exclusive offers,<br>
+                        the latest oorla specials, and more!
+                    </p>
+                    <div class="footer-emailsection">
+                        <input type="email" placeholder="Your email address">
+                        <button>Subscribe</button>
+                    </div>
+                    <div class="footer-creditcards">
+                        <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg">
+                        <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/paypal-49e4c1e03244b6d2de0d270ca0d22dd15da6e92cc7266e93eb43762df5aa355d.svg">
+                        <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/maestro-d2055c6b416c46cf134f393e1df6e0ba31722b623870f954afd392092207889c.svg">
+                        <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/american_express-12858714bc10cdf384b62b8f41d20f56d8c32c1b8fed98b662f2bfc158dcbcf0.svg">
+                        <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/discover-cc9808e50193c7496e7a5245eb86d5e06f02e2476c0fe70f2c40016707d35461.svg">
+                    </div>
+                </div>
+            </div>
+            <div class="footer-main3">
+                <div>
+                    <h3 class="footer-get">GET IN TOUCH <span class="footer-plus"id="footer-plus1">+</span><span class="footer-minus" id="footer-minus1">-</span></h3></div>
+                    <div class="footer-contact" style="margin-top:30px";>
+                    <img src="./assets/images/Logo trim.png" width="90px">
+                    <p>Corporate Office:<br>
+                
+                        No.44, Mullai Nagar Bus Stop,<br> Thanakkankulam, Near Ford Showroom<br>
+                
+                        Madurai - 625006
+                    </p>
+                    <div class="footer-icon">  
+                        <img src="./assets/icons/icons8-f-20.png" class="footer-icon1">
+                        <img src="./assets/icons/instagram.png" class="footer-icon2">
+                        <img src="./assets/icons/icons8-youtube-20.png" class="footer-icon3">
+                    </div>	  
+                </div>  
+                <div class="footer-about">
+                    <h3>ABOUT US <span class="footer-plus" id="footer-plus2">+</span><span class="footer-minus" id="footer-minus2">-</span></h3>
+                    <ul class="footer-linklist">
+                        <li><a href=""> OUR STORY</a></li>              
+                        <li><a href="">CAREERS</a></li>     
+                        <li><a href="" >GET A PACK GIVE A PACK </a> </li>					                 
+                        <li><a href="">CUSTOMER REVIEWS </a></li>                
+                        <li><a href="">REFER A FRIEND</a>  </li>  
+                        <li><a href="" > CORPORATE GIFTING</a></li>                  
+                        <li><a href="">  NEWS &amp; MEDIA </a> </li>
+                    </ul>                                           
+                </div>
+                <div class="footer-duties">
+                    <h3 >SUPPORT<span class="footer-plus" id="footer-plus3">+</span><span class="footer-minus" id="footer-minus3">-</span></h3>
+                    <ul class="footer-dutieslist">
+                        <li><a href="">FAQS</a></li>
+                        <li><a href=""> DUTIES & CLEARANCE</a></li>                              
+                        <li><a href="">PARTNER WITH US</a></li>                                   
+                    </ul>
+                </div>
+                <div class="footer-lastsection">
+                    <h3>PURE GOODNESS FROM THE LAND <span class="footer-plus" id="footer-plus4">+</span><span class="footer-minus" id="footer-minus4">-</span></h3>
+                    <div class="footer-lastsectioncontent" >
+                        <p>Sign up to get exclusive offers,<br>
+                            the latest oorla specials, and more!
+                        </p>
+                        <div class="footer-emailsection">
+                            <input type="email" placeholder="Your email address">
+                            <button>Subscribe</button>
+                        </div>
+                        <div class="footer-creditcards">
+                            <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg">
+                            <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/paypal-49e4c1e03244b6d2de0d270ca0d22dd15da6e92cc7266e93eb43762df5aa355d.svg">
+                            <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/maestro-d2055c6b416c46cf134f393e1df6e0ba31722b623870f954afd392092207889c.svg">
+                            <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/american_express-12858714bc10cdf384b62b8f41d20f56d8c32c1b8fed98b662f2bfc158dcbcf0.svg">
+                            <img src="https://www.oorla.in/cdn/shopifycloud/shopify/assets/payment_icons/discover-cc9808e50193c7496e7a5245eb86d5e06f02e2476c0fe70f2c40016707d35461.svg">
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <div class="footer-copyrights">
+            <div class="copyrightscontent">
+                <div class="copyrights1"><p>care@Ponni.com</p></div>
+                <div class="terms">
+                    <li><a href="">PRIVACY</a></li>
+                    <li><a href="">TERMS</a></li>
+                    <li><a href="">REFUNDS</a></li>
+                    <li><a href="">SHIPPING</a></li>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- kavya working area end--> 
+ <script src="./js/jquery.min.js"></script>
+ <script src="./js/script.js"></script>
+ <script src="./js/script_1.js"></script>
+ <script src="./js/script_2.js"></script>
+ <script src="./js/script_3.js"></script>
+</body>
+</html>

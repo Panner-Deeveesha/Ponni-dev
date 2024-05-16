@@ -10,7 +10,6 @@ $(document).ready(function () {
   });
   $("#btn-savouries").click(function () {
     $(".selectimages2").fadeIn("slow");
-
     $(".selectimages1").css("display", "none");
     $(".selectimages3").css("display", "none");
     $(".selectimages4").css("display", "none");
