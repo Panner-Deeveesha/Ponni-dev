@@ -17,10 +17,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<nav id="navhead">
+    <nav id="navhead">
         <div id="headerfull">
             <div id="ponnititle">
                 <p>PONNI NATURAL FOODS</p>
+            </div>
+            <div id="menutotleft">
+                <img src="assets/icons/menu-blck.png" alt="Cart" id="menublck" onclick="openmenu()">
             </div>
             <div id="ponnilogo">
                 <img src="assets/images/Logo trim.png" alt="Logo" id="logoimg">
@@ -38,20 +41,24 @@
                     </div>
                 </div>
                 <div id="carttot">
-                    <a href="cart.html"><img src="assets/icons/cart-black.png" alt="Cart" id="cartblck"></a>
+                    <a href="cart.html">
+                        <p id="cartCount">0</p>
+                        <img src="assets/icons/cart-black.png" alt="Cart" id="cartblck">
+                    </a>
                 </div>
                 <div id="menutot">
-                    <img src="assets/icons/menu-blck.png" alt="Cart" id="menublck">
+                    <img src="assets/icons/menu-blck.png" alt="Cart" id="menublck" onclick="openmenu()">
                 </div>
             </div>
         </div>
     </nav>
-	<div class="blackscreen"></div>
-	  <div id="searchsort">
+    <div class="blackscreen"></div>
+    
+    <div id="searchsort">
         <div id="contentsear">
-            <div id="titleforsear">
-                <span id="tit">Search our Site</span>
-                <img src="assets/icons/icons8-close-25.png" alt="close" id="closeid" onclick="closeNav()">
+            <div class="titleforsear">
+                <span class="tit">Search our Site</span>
+                <img src="assets/icons/icons8-close-25.png" alt="close" class="closeid" onclick="closeNav()">
             </div>
             <div id="seartype">
                 <input id="searchInput2" type="text" placeholder="Search for..">
@@ -96,6 +103,19 @@
             </div>
         </div>
     </div>
+    <div id="menusort">
+        <div id="menusear">
+            <div class="titleforsear">
+                <span class="tit">Menu</span>
+                <img src="assets/icons/icons8-close-25.png" alt="close" class="closeid" onclick="closemenu()">
+            </div>
+            <div class="menureg">
+                <img src="./assets/icons/maleuser.png" alt="Login" id="userimg">
+                <span>Login/Register</span>
+            </div>
+        </div>
+    </div>
+         
 <div class="productpage">
 	<div class="breadcrumbs">
 	   <p><a href="index.html">Home </a> / Tamil-nadu sweets</p>
@@ -209,7 +229,7 @@
             </p>
         
         <p class="productname">Thoothukudi Macaroons</p>
-        <p><del>Rs.249.00</del>
+        <p class="productamount"><del>Rs.249.00</del>
         <span>From Rs.199.00</span></p>
         </div>
 	    
@@ -222,7 +242,7 @@
             </p>
         
         <p class="productname">Karaikudi Adhirasam</p>
-        <p><del>Rs.229.00</del>
+        <p class="productamount"><del>Rs.229.00</del>
         <span>From Rs.189.00</span></p>
         </div>
 		
@@ -234,7 +254,7 @@
             </p>	
         
         <p class="productname">Srivilliputhur Palkova</p>
-        <p><del>Rs.199.00</del>
+        <p class="productamount"><del>Rs.199.00</del>
         <span>From Rs.169.00</span></p>
         </div>
 		
@@ -246,7 +266,7 @@
             </p>
         
         <p class="productname">Thoothukudi Macaroons</p>
-        <p><del>Rs.249.00</del>
+        <p class="productamount"><del>Rs.249.00</del>
         <span>From Rs.199.00</span></p>
         </div>
 		
@@ -258,7 +278,7 @@
             </p>
         
         <p class="productname">Thoothukudi Macaroons</p>
-        <p><del>Rs.249.00</del>
+        <p class="productamount"><del>Rs.249.00</del>
         <span>From Rs.199.00</span></p>
         </div>
 		
@@ -270,7 +290,7 @@
             </p>
         
         <p class="productname">Thoothukudi Macaroons</p>
-        <p><del>Rs.249.00</del>
+        <p class="productamount"><del>Rs.249.00</del>
         <span>From Rs.199.00</span></p>
         </div>
 		
@@ -282,7 +302,7 @@
             </p>
         
         <p class="productname">Thoothukudi Macaroons</p>
-        <p><del>Rs.249.00</del>
+        <p class="productamount"><del>Rs.249.00</del>
         <span>From Rs.199.00</span></p>
         </div>
 	  </div>
@@ -299,7 +319,7 @@
         onmouseout="this.src='https://www.oorla.in/cdn/shop/files/NagercoilNendranChips2.jpg?v=1695624992&width=600'">
             </p>
         <p class="productname">Nagercoil Nendran Chips</p>
-        <p><del>Rs.189.00</del>
+        <p class="productamount"><del>Rs.189.00</del>
         <span>From Rs.169.00</span></p>
         </div>
 		
@@ -309,7 +329,7 @@
         onmouseout="this.src='https://www.oorla.in/cdn/shop/files/maduraimixture2.jpg?v=1695625155&width=600'">
             </p>
         <p class="productname">Madurai Mixture</p>
-        <p><del>Rs.189.00</del>
+        <p class="productamount"><del>Rs.189.00</del>
         <span>From Rs.169.00</span></p>
         </div>
 		
@@ -320,7 +340,7 @@
         onmouseout="this.src='https://www.oorla.in/cdn/shop/files/ChettinaduThattaiMurukku2.jpg?v=1695625101&width=600'">
             </p>
         <p class="productname">Chettinadu Thattai Murukku</p>
-        <p><del>Rs.189.00</del>
+        <p class="productamount"><del>Rs.189.00</del>
         <span>From Rs.169.00</span></p>
         </div>
 		
@@ -332,7 +352,7 @@
         onmouseout="this.src='https://www.oorla.in/cdn/shop/files/ChettinaduThenkuzhalMurukku_Norukkal_2.jpg?v=1695625250&width=600'">
             </p>
         <p class="productname">Chettinadu Thenkuzhal Murukku</p>
-        <p><del>Rs.189.00</del>
+        <p class="productamount"><del>Rs.189.00</del>
         <span>From Rs.169.00</span></p>
         </div>
 		
@@ -346,7 +366,7 @@
         
         
         <p class="productname">Tamil Nadu Amla Pickle</p>
-        <p><del>Rs.189.00</del>
+        <p class="productamount"><del>Rs.189.00</del>
         <span>From Rs.169.00</span></p>
         </div>
 		
@@ -360,7 +380,7 @@
         
         
         <p class="productname">Tamil Nadu Lemon Pickle</p>
-        <p><del>Rs.189.00</del>
+        <p class="productamount"><del>Rs.189.00</del>
         <span>From Rs.169.00</span></p>
         </div>
 		
@@ -373,7 +393,7 @@
             </p>
         
         <p class="productname">Andhra Chintakaya Pickle</p>
-        <p><del>Rs.189.00</del>
+        <p class="productamount"><del>Rs.189.00</del>
         <span>From Rs.169.00</span></p>
         </div>
 		
@@ -387,7 +407,7 @@
         
         
         <p class="productname">Tamil Nadu Garlic Pickle</p>
-        <p><del>Rs.189.00</del>
+        <p class="productamount"><del>Rs.189.00</del>
         <span>From Rs.169.00</span></p>
         </div>
 		
