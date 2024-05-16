@@ -215,9 +215,9 @@
     </div>
 	<div class="cart-process">
 
-	<div><span class="">Mobile ...</span></div>
-	<div><span class="">Address...</span></div>
-	<div></div><span class="">pay</span></div>
+	<div><span id="paymobile" >Mobile ...</span></div>
+	<div><span id="payaddress">Address...</span></div>
+	<div></div><span id="paypayment">pay</span></div>
     </div>
     <div class="payementphone" id="payementphone1">
     
@@ -230,6 +230,43 @@
                      <label for="notifications" class="notifylabel">Notify me for orders, updates &amp; offers</label></div>
         </div>
           </div>
+      <div class="payment-adress" id="payment-adress">
+       <div class="addressheader">
+        <h3>Add New Address</h3>
+        <p>* Mandatory Fields</p>
+       </div>
+       <div class="payment-adressinputs">
+        <input type="text"  name="pincode" value id="payment-pin"  placeholder="Pincode*"required>
+        
+       
+       <div class="addresscity">
+        <div class="addresscity1">
+        <input class="" id="city" type="text" required="" placeholder="City*" maxlength="250">
+         </div> 
+         <div class="addresscity2">
+            <input id="state" type="text" readonly="" placeholder="State*" required="">
+       </div>
+        </div>
+        <div class="userdetail">
+
+            <input name="full-name" id="full-name" placeholder="FullName*"required="" type="text" maxlength="100">
+            <input name="email" id="email"  required=""  placeholder="Email*" type="text" maxlength="100">
+            <input name="address" id="address" placeholder="Address*" required="" type="text" maxlength="1000">
+            <div class="line-inputs "><span>Address Type</span> 
+                <div class="button-group-wrap ">
+                    <div ><input type="radio" id="home" name="input-type" value="home" >
+                         <label class="merchant-color merchant-border svelte-3lpm2y" for="home">Home</label></div>
+                          <div ><input type="radio" id="work" name="input-type" value="work" > 
+                            <label class=" svelte-3lpm2y" for="work">Work</label></div></div> 
+                           </div>
+
+        </div>
+   
+      </div>
+      </div>
+
+
+
 
       <div class="paycontinue"> <button onclick="continuenxt()">Continue</button> </div>
       <div class="paymentpolicy"><p class="">By proceeding, I accept that I have read and understood the Gokwik's <a target="_blank" href="https://www.gokwik.co/data-policy" class=""><u>Privacy Policy</u></a>

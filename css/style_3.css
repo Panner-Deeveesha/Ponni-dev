@@ -690,7 +690,7 @@ border:none !important;
       
   }
   .modal {
-    display:none; 
+    display:block; 
     position: fixed;
     z-index:1000;
     left: 0%;
@@ -988,12 +988,155 @@ border:none !important;
     padding:10px;
     background-color:#FFFFFF; ;
 }
+
+
 .cartcancel{
     float:right;
     z-index:100!important;
     transform: translate(10px,8px);
   cursor: pointer;
    
+}
+.payment-adressinputs #payment-pin{
+    width: 100%;
+    position: relative;
+      margin-top:10px;
+    padding: 0.3rem 0.75rem;
+    border: 0.7px solid #b0b0b0;
+    box-sizing: border-box;
+    min-height: 50px;
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    font-size:16px;
+
+}
+.payment-adressinputs .addresscity{
+    display:flex;
+   justify-content: space-between;
+   margin-top: 20px;
+}
+
+
+.addresscity.addresscity1{
+    width:50%;
+}
+.addresscity .addresscity1 input{
+   
+    width:100%;
+    position: relative;
+    margin-bottom: 1.25rem;
+    padding: 0.3rem 0.75rem;
+    border: 0.7px solid #b0b0b0;
+    box-sizing: border-box;
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    overflow: hidden;
+  
+}
+.addresscity.addresscity2{
+    width:50%;
+}
+.addresscity .addresscity2 input{
+    
+    width:100%;
+    position: relative;
+    margin-bottom: 1.25rem;
+    padding: 0.3rem 0.75rem;
+    border: 0.7px solid #b0b0b0;
+    box-sizing: border-box;
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    overflow: hidden;
+    
+}
+
+.payment-adressinputs #pinlabel{
+    position:absolute;
+    top:34%;
+    margin-left: 10px;
+    font-size: 12px;
+    line-height: 18px;
+}
+.payment-adressinputs #statelabel{
+    position:absolute;
+    top:41%;
+    margin-left: 10px;
+    font-size: 12px;
+    line-height: 18px;
+}
+.payment-adressinputs #citylabel{
+    position:absolute;
+    top:41%;
+    margin-left: 10px;
+    font-size: 12px;
+    line-height: 18px;
+}
+.button-group-wrap{
+    display: flex;
+    justify-content:space-between;
+    column-gap:20px;
+}
+.payment-content1 .payment-adress{
+    display:none;
+    height:230px;
+    overflow-y:scroll ;
+}
+.line-inputs{
+    display:flex;
+     column-gap:20px;
+    align-items: center;
+}
+.button-group-wrap input[type=radio]{
+background: #fafafa;
+border-radius: 5px;
+position: relative;
+width:100%;
+
+line-height: 20px;
+border: 1px solid #909090;
+color: #909090;
+cursor: pointer;
+}
+.line-inputs span{
+font-size:16px;
+
+}
+.userdetail input[type=text]{
+    width: 100%;
+    position: relative;
+    margin-bottom: 1.25rem;
+    padding: 0.3rem 0.75rem;
+    border: 0.7px solid #b0b0b0;
+    box-sizing: border-box;
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    overflow: hidden;
+    background: var(--white);
+
+
+
+}
+
+.payment-content1 .addressheader{
+    margin-top:10px;
+    display:flex; 
+    padding-bottom:10px;
+    align-items: center;
+ justify-content: space-between;
+ border-bottom:1px solid #e0e0e0;;
+}
+.payment-content1 .addressheader h3{
+    font-size: 16px;
+}
+.payment-content1 .addressheader p{
+    font-size: 10px;
 }
 .phone-input textarea:focus, input:focus{
     outline: none;
