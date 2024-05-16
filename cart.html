@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="./css/style_1.css">
     <link rel="stylesheet" href="./css/style_2.css">
     <link rel="stylesheet" href="./css/style_3.css">
-
 	<link rel="stylesheet" href="./css/owlcarousel.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,6 +31,9 @@
             <div id="ponnititle">
                 <p>PONNI NATURAL FOODS</p>
             </div>
+            <div id="menutotleft">
+                <img src="assets/icons/menu-blck.png" alt="Cart" id="menublck" onclick="openmenu()">
+            </div>
             <div id="ponnilogo">
                 <img src="assets/images/Logo trim.png" alt="Logo" id="logoimg">
             </div>
@@ -48,27 +50,30 @@
                     </div>
                 </div>
                 <div id="carttot">
-                    <img src="assets/icons/cart-black.png" alt="Cart" id="cartblck">
+                    <a href="cart.html">
+                        <p id="cartCount">0</p>
+                        <img src="assets/icons/cart-black.png" alt="Cart" id="cartblck">
+                    </a>
                 </div>
                 <div id="menutot">
-                    <img src="assets/icons/menu-blck.png" alt="Cart" id="menublck">
+                    <img src="assets/icons/menu-blck.png" alt="Cart" id="menublck" onclick="openmenu()">
                 </div>
             </div>
         </div>
     </nav>
     <div class="blackscreen"></div>
-  <!--  <div id="firimage">
+ <!----   <div id="firimage">
         <div>
-            <img src="./assets/images/web cover FINAL-2.jpg" alt="samplestore" id="displayimg">
-            <img src="assets/images/tab.jpg" alt="samplestore" id="displayimg2">
-            <img src="assets/images/mobile.jpg" alt="samplestore" id="displayimg3">
+            <img src="./assets/images/mainbanner.png" alt="samplestore" id="displayimg">
+            <img src="assets/images/tab.png" alt="samplestore" id="displayimg2">
+            <img src="assets/images/mobile.png" alt="samplestore" id="displayimg3">
         </div>
     </div>-->
     <div id="searchsort">
         <div id="contentsear">
-            <div id="titleforsear">
-                <span id="tit">Search our Site</span>
-                <img src="assets/icons/icons8-close-25.png" alt="close" id="closeid" onclick="closeNav()">
+            <div class="titleforsear">
+                <span class="tit">Search our Site</span>
+                <img src="assets/icons/icons8-close-25.png" alt="close" class="closeid" onclick="closeNav()">
             </div>
             <div id="seartype">
                 <input id="searchInput2" type="text" placeholder="Search for..">
@@ -110,6 +115,18 @@
                         <span>From Rs. 480.00</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div id="menusort">
+        <div id="menusear">
+            <div class="titleforsear">
+                <span class="tit">Menu</span>
+                <img src="assets/icons/icons8-close-25.png" alt="close" class="closeid" onclick="closemenu()">
+            </div>
+            <div class="menureg">
+                <img src="./assets/icons/maleuser.png" alt="Login" id="userimg">
+                <span>Login/Register</span>
             </div>
         </div>
     </div>
@@ -170,7 +187,7 @@
 
 	  <div><p class="cart-tax">Tax included and shipping calculated at checkout</p></div>
 	   <div>
-	   <button type="button" class="cart-checkout" onclick="onCheckoutClick(this)">
+	   <button type="button" class="cart-checkout" onclick="Checkout()">
             <span class="btn-text">
                 <span>Checkout for Indian Address</span>
    
@@ -202,19 +219,19 @@
 	<div><span class="">Address...</span></div>
 	<div></div><span class="">pay</span></div>
     </div>
-    <div class="payementphone">
-
+    <div class="payementphone" id="payementphone1">
+    
         <div class="paymain-content ">
             <h3>Enter Mobile Number</h3> 
                 <div class="customernumber">
                 <span id="country-code" class="svelte-176j3m8">+91</span> <span class="vr-line">|</span> 
-                <input type="tel" placeholder="Enter Number" class="phone-input svelte-176j3m8" id="phone-input" pattern="[0-9]{5}-[0-9]{5}" autocomplete="tel"></div>
+                <input type="tel" placeholder="Enter Number" class="phone-input " id="phone-input" pattern="[0-9]{5}-[0-9]{5}" autocomplete="tel"></div>
                  <div class="notification-checkbox "><input type="checkbox" id="notificationscheck" name="notifications" >
                      <label for="notifications" class="notifylabel">Notify me for orders, updates &amp; offers</label></div>
         </div>
           </div>
 
-      <div class="paycontinue"> <button>Continue</button> </div>
+      <div class="paycontinue"> <button onclick="continuenxt()">Continue</button> </div>
       <div class="paymentpolicy"><p class="">By proceeding, I accept that I have read and understood the Gokwik's <a target="_blank" href="https://www.gokwik.co/data-policy" class=""><u>Privacy Policy</u></a>
         and
         <a target="_blank" href="https://www.gokwik.co/terms"><u>T&amp;C</u></a></p></div>
@@ -240,14 +257,18 @@
   
    <div class="payment-content2">
     <div class="order-summary-container">
-  
+        
             <div class="summary-title-inner ">
+              
             <div class="globalImg">
-           <img src="./assets/icons/icons8-cart-18.png" class="paycart"><span class="title svelte-fsdfae">order summary</span><img src="./assets/icons/icons8-less-than-18 (1).png" class="payuparrow"></div>  
+                <div class="cartcancel"> <img src="./assets/icons/icons8-wrong-25 (1).png" onclick="cancelpayment()"></div>
+           <img src="./assets/icons/icons8-cart-18.png" class="paycart"><span class="title svelte-fsdfae">order summary</span><img src="./assets/icons/icons8-less-than-18 (1).png" onclick="payuparrow()" id="payuparrow"><img onclick="paydownarrow()" src="./assets/icons/icons8-less-than-18.png" id="paydownarrow"></span></div>  
             </div>
-             <div class="order-summary-wrapper ">
-                <div class="cart-paymentproduct ">
-           
+            
+             <div class="order-summary-wrapper " id="cart-paymentproductid">
+               
+                <div class="cart-paymentproduct " >
+                   
                     <ul >
                     <li  class="payproductdetail">
                         <div class="paymentproduct-img">
@@ -269,7 +290,13 @@
                  <li class="to-pay"><span>To Pay</span> <span>₹458.00</span></li></ul></div></div>
                 </div>
             </div>
-   
+      
+            <div class="loader-div">
+                <button ><span class="view-offer">Click here to View Coupons</span> 
+                <span class="view-offer "> <span ><img src="./assets/icons/icons8--than-18 (1).png"></span></span></button></div>
+              
+                
+
    
    </div>
    

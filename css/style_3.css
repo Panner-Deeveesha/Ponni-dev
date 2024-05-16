@@ -690,7 +690,7 @@ border:none !important;
       
   }
   .modal {
-    display:block; 
+    display:none; 
     position: fixed;
     z-index:1000;
     left: 0%;
@@ -861,6 +861,14 @@ border:none !important;
   }
   .cartpowereddby{
       display:flex;
+      font-size:10px;
+      margin-top:20px;
+      justify-content: space-between;
+      align-items: center;
+  }
+  .cartpowereddby a{
+    color:#050038;
+    text-decoration: none;
   }
   .cartpoweredimg1{
       background-image: url("https://pdp.gokwik.co/assets/icons/icons.svg") !important;
@@ -891,12 +899,21 @@ border:none !important;
       padding-right:10px;
       color:#050038;
   }
-  .payuparrow{
+  #payuparrow{
       vertical-align:middle;
       padding-top:3px;
-  
+      padding-top: 10px;
+    
+      float: right;
       padding-left:5px;
   }
+  #paydownarrow{
+    display: none;
+    vertical-align:middle;
+   padding-top: 10px;
+  
+   float: right;
+}
   .payproductdetail{
       font-size: 13px;
   }
@@ -919,14 +936,68 @@ border:none !important;
       width:60%;
       padding:7px;
   }
+  
   .order-summary-container{
      padding-left:20px;
+     position: relative;
      padding-right:20px;
       background-color:#FFFFFF;
+      padding-bottom: 10px;
+      border-radius:10px;
   }
   .order-summary-container li{
       list-style: none;
   }
+  .order-summary-details .subtotal{
+     margin-top:5px;
+    display:flex;
+    justify-content: space-between;
+    font-size: 13px;
+  }
+  .order-summary-details .shipping{
+    display:flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color:#050038;
+    
+  } 
+  .order-summary-details .to-pay{
+  margin-top: 10px;
+    padding-top: 15px;
+    font-weight: 700;
+    display:flex;
+    justify-content: space-between;
+    border-top: 1px solid #eaeaea;
+    font-size: 15px;
+    color:#050038;
+    padding-bottom: 15px;
+  }
+  .payment-content2 .loader-div button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  box-sizing: border-box;
+  border-radius: 24px;
+  border: 0.4px dashed #050038;
+  background:none;
+}
+.payment-content2 .loader-div{
+    margin-top:30px;
+    padding:10px;
+    background-color:#FFFFFF; ;
+}
+.cartcancel{
+    float:right;
+    z-index:100!important;
+    transform: translate(10px,8px);
+  cursor: pointer;
+   
+}
+.phone-input textarea:focus, input:focus{
+    outline: none;
+    }
   .globalImg{
       display:inline;
   
@@ -1037,6 +1108,13 @@ font-size:20px;
           display:none;
 
        }
+       .footer-main2 {
+
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 20px;
+        padding: 40px;
+    }
         .footer-banner1 {
           display:block;
 
@@ -1264,13 +1342,41 @@ width:100%;
 }
     
 }
+@media only screen and (max-width:550px){
+    .payment-content1 {
+        width: 100%;
+        padding: 7px;
+        height:60%;
+    }
+    .payment-content2 {
+        height:40%;
+        width: 100%;
+        padding: 8px;
+    }
+    .modal-content{
+    margin-top:0px;
+    background-color: #FFFFFF;
 
+   justify-content: initial;
+
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column-reverse;
+    width: 100%;
+    padding:5px;
+  
+    border-radius: 8px;
+    width:100%;
+    height: 100% !important;
+ }
+}
  @media only screen and (max-width:500px){
    .cart-description {
   display: block;
   border:none;
  
      }
+    
     .cartordernote {
       
       margin-top: 0px;

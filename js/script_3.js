@@ -38,3 +38,28 @@ $("#footer-minus4").click(function () {
   $("#footer-minus4").css("display", "none");
   $("#footer-plus4").css("display", "block");
 });
+
+function Checkout(){
+  document.getElementById("modal").style.display="block";
+}
+
+function cancelpayment(){
+  document.getElementById("modal").style.display="none";
+}
+function continuenxt(){
+  document.getElementById("payementphone1").style.display="none";
+}
+function payuparrow(){
+  document.getElementById("paydownarrow").style.display="block";
+  document.getElementById("payuparrow").style.display="none";
+  document.getElementById("cart-paymentproductid").style.display="none";
+
+
+}
+function paydownarrow(){
+  document.getElementById("paydownarrow").style.display="none";
+  document.getElementById("payuparrow").style.display="block";
+  document.getElementById("cart-paymentproductid").style.display="block";
+
+
+}
