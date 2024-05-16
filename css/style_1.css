@@ -447,6 +447,7 @@ del{
     font-size: 12px;
     text-wrap: nowrap;
     overflow: hidden;
+    display: block;
 }
 .wholecategories2{
     padding: 30px 0px;
@@ -606,11 +607,8 @@ del{
         width: 90px;
         height: 60px;
     }
-    #headicons{
-        padding-right: 10px;
-    }
     #cartCount{
-        right: 0%;
+        right: 3%;
     }
     #menutotleft {
         padding-left: 10px;

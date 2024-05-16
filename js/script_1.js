@@ -88,7 +88,7 @@ function openmenu() {
     document.getElementById("menusort").style.width = "100%";
     document.getElementById("menusear").style.left = "auto";
     document.getElementById("menusear").style.right = "0";
-    document.getElementById("menusear").style.width = "18%";
+    document.getElementById("menusear").style.width = "25%";
 
   } else {
     document.getElementById("menusort").style.width = "100%";
