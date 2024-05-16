@@ -380,6 +380,9 @@ del{
     display: flex;
     text-decoration: none;
 }
+#ethomenureg{
+    display: block;
+}
 #userimg{
     width: 20px;
     height: 20px;
