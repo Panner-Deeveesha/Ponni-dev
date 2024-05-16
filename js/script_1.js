@@ -153,7 +153,6 @@ $(document).ready(function () {
     $("#minussym").css("display", "none");
     $("#plussym").css("display", "block");
   });
-
   /*$("#iconsearch").click(function(){
     $(".blackscreen").css("top","0");
     $(".blackscreen").css("z-index","99");

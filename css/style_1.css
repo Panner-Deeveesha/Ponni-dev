@@ -435,6 +435,10 @@ del{
     display: block;
     padding: 10px;
 }
+#shopslide li a{
+    text-decoration: none;
+    color: #000;
+}
 .menuimg{
     width: 70px;
     height: 70px;
@@ -443,6 +447,16 @@ del{
     font-size: 12px;
     text-wrap: nowrap;
     overflow: hidden;
+}
+.wholecategories2{
+    padding: 30px 0px;
+    background-color: #fff9e3;
+}
+.wholecategories2 .active,.btn:hover {
+    cursor: pointer;
+    color: #fff;
+    background-color: #2b4522;
+    border: 1px solid #2b4522;
 }
 @media only screen and (max-width:990px){
     #ponnititle{
