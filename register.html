@@ -2,46 +2,127 @@
 <html>
 
 <head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register page</title>
-		<link rel="stylesheet" href="./css/style_1.css">
-		  <link rel="stylesheet" href="./css/style_2.css">
-		    <link rel="stylesheet" href="./css/style_3.css">
-   <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register page</title>
+ 
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/style_1.css">
+  <link rel="stylesheet" href="./css/style_2.css">
+  <link rel="stylesheet" href="./css/style_3.css">
+<link rel="stylesheet" href="./css/owlcarousel.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Radio Canada' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+   
+		
 	
 </head>
 <body>
-<nav id="navhead">
-        <div id="headerfull">
-            <div id="ponnititle">
-                <p>PONNI NATURAL FOODS</p>
-            </div>
-            <div id="ponnilogo">
-                <img src="assets/images/Logo trim.png" alt="Logo" id="logoimg">
-            </div>
-            <div id="headicons">
-                <div id="searchtot">
-                    <button id="searchbutton">
-                        <input id="searchInput" type="text" placeholder="Search for..">
-                        <img src="assets/icons/search.png" id="iconsearch" onclick="openNav()">
-                    </button>
-                    <div class="serchlist">
-                        <ul id="productList">
+  <nav id="navhead">
+    <div id="headerfull">
+        <div id="ponnititle">
+            <p>PONNI NATURAL FOODS</p>
+        </div>
+        <div id="menutotleft">
+            <img src="assets/icons/menu-blck.png" alt="Cart" id="menublck" onclick="openmenu()">
+        </div>
+        <div id="ponnilogo">
+            <img src="assets/images/Logo trim.png" alt="Logo" id="logoimg">
+        </div>
+        <div id="headicons">
+            <div id="searchtot">
+                <button id="searchbutton">
+                    <input id="searchInput" type="text" placeholder="Search for..">
+                    <img src="assets/icons/search.png" id="iconsearch" onclick="openNav()">
+                </button>
+                <div class="serchlist">
+                    <ul id="productList">
 
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
-                <div id="carttot">
-                    <a href="cart.html"><img src="assets/icons/cart-black.png" alt="Cart" id="cartblck"></a>
+            </div>
+            <div id="carttot">
+                <a href="cart.html">
+                    <p id="cartCount">0</p>
+                    <img src="assets/icons/cart-black.png" alt="Cart" id="cartblck">
+                </a>
+            </div>
+            <div id="menutot">
+                <img src="assets/icons/menu-blck.png" alt="Cart" id="menublck" onclick="openmenu()">
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="blackscreen"></div>
+
+<div id="searchsort">
+    <div id="contentsear">
+        <div class="titleforsear">
+            <span class="tit">Search our Site</span>
+            <img src="assets/icons/icons8-close-25.png" alt="close" class="closeid" onclick="closeNav()">
+        </div>
+        <div id="seartype">
+            <input id="searchInput2" type="text" placeholder="Search for..">
+            <span id="inspirespan">Need Some Inspiration?</span>
+        </div>
+        <div id="serchlist2">
+            <ul id="productList2">
+
+            </ul>
+        </div>
+        <div id="totalstart">
+            <div class="itemone">
+                <div class="photopic">
+                    <img src="https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Sesame-Oil.jpg" alt="oil" class="searchimage">
                 </div>
-                <div id="menutot">
-                    <img src="assets/icons/menu-blck.png" alt="Cart" id="menublck">
+                <div class="contentforpic">
+                    <span>Wood Pressed Gingely Oil</span>
+                    <del>Rs. 500.00</del>
+                    <span>From Rs. 480.00</span>
+                </div>
+            </div>
+            <div class="itemone">
+                <div class="photopic">
+                    <img src="https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Groundnut-oil.jpg" alt="oil" class="searchimage">
+                </div>
+                <div class="contentforpic">
+                    <span>Wood Pressed Groundnut Oil</span>
+                    <del>Rs. 500.00</del>
+                    <span>From Rs. 480.00</span>
+                </div>
+            </div>
+            <div class="itemone">
+                <div class="photopic">
+                    <img src="https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Coconut-Oil.jpg" alt="oil" class="searchimage">
+                </div>
+                <div class="contentforpic">
+                    <span>Wood Pressed Coconut Oil</span>
+                    <del>Rs. 500.00</del>
+                    <span>From Rs. 480.00</span>
                 </div>
             </div>
         </div>
-    </nav>
-	 <div class="blackscreen"></div>
+    </div>
+</div>
+<div id="menusort">
+    <div id="menusear">
+        <div class="titleforsear">
+            <span class="tit">Menu</span>
+            <img src="assets/icons/icons8-close-25.png" alt="close" class="closeid" onclick="closemenu()">
+        </div>
+        <div class="menureg">
+            <img src="./assets/icons/maleuser.png" alt="Login" id="userimg">
+            <span>Login/Register</span>
+        </div>
+    </div>
+</div>
+	
 	   <div class="wholeregisterpage">
    <p id="register-heading">REGISTER</p>
    <div class="register-innerdiv">
@@ -222,6 +303,8 @@
            
            </div>
 		   </div>
-		   
+		   <script src="./js/script_1.js"></script>
+    <script src="./js/script_2.js"></script>
+    <script src="./js/script_3.js"></script>
 </body>
 </html>

@@ -40,6 +40,7 @@ body{
 .login-innerdiv p{
 	color:#707070;
 	margin-top:20px;
+    margin-bottom: 20pxs;
 }
 .login-innerdiv a{
 	text-decoration:none;
@@ -63,13 +64,19 @@ body{
 }
 
 .login-innerdiv button{
-	width:430px;
-	background-color:#000;
+	width:400px;
+    background-color:#36491e;
 	border:none;
 	color:#fff;
 	padding:8px 20px;
 	font-size:17px;
 	border-radius:10px;
+    margin-top: 20px;
+    
+}
+.login-innerdiv button:hover{
+     cursor: pointer;
+     background-color: #3e8e41;
 }
 
 .wholeregisterpage{
@@ -127,7 +134,7 @@ body{
  
 }
 .register-innerdiv button{
-	width:430px;
+	width:400px;
 	background-color:#36491e;
 	border:none;
 	color:#fff;
@@ -136,17 +143,86 @@ body{
 	font-size:17px;
 	border-radius:10px;
 }
+.register-innerdiv button:hover{
+    cursor: pointer;
+    background-color: #3e8e41;
+}
 
+.wholepasswordpage{
+    font-family: 'Poppins', sans-serif;	
+   
+   }
+   
+   
+   .wholepasswordpage #login-heading{
+       
+       background-color:#6d9928;
+       padding:35px;
+       color:#fff;
+       font-size:25px;
+       text-align:center;
+       
+   }
+   .password-innerdiv .passheading{
+      font-size: 20px;
+      font-weight: 600;
 
-
-
-
-
-
-
-
-
-
+   }
+   .password-innerdiv{
+       width:500px;
+       height:500px;
+       margin-left:auto;
+       margin-right:auto;
+       margin-top:200px;
+       color:#707070;
+   }
+   .password-innerdiv input{
+       padding:15px;
+       border:1px solid #ddd;
+       color:#707070;
+       width:400px;
+       margin-left:auto;
+       margin-right:auto;
+       margin-top:20px;
+       margin-bottom: 20px;
+   }
+   .password-innerdiv p{
+       color:#707070;
+       width:400px;
+       line-height: 25px;
+       margin-top:20px;
+   }
+   .password-innerdiv a:link {
+     color:#707070;
+     background-color: transparent;
+     text-decoration: none;
+   }
+   
+   .password-innerdiv a:visited {
+     color:#707070;
+     background-color: transparent;
+     text-decoration: none;
+   }
+   
+   .password-innerdiv a:hover {
+     color: red;
+    
+    
+   }
+   .password-innerdiv button{
+       width:400px;
+       background-color:#36491e;
+       border:none;
+       color:#fff;
+       margin-top:30px;
+       padding:8px 20px;
+       font-size:17px;
+       border-radius:10px;
+   }
+   .password-innerdiv button:hover{
+    cursor: pointer;
+    background-color: #3e8e41;
+}
 .wholecategories {
     font-family: 'Poppins', sans-serif;
     background-color: #fff9e3;
@@ -823,7 +899,7 @@ width:20px;
 	top:38%;
 	width:40px;
 	height:40px;
-	right:5%;
+	right:1%;
 	opacity:1;
 	font-size:25px;
 	z-index:10;
@@ -875,7 +951,7 @@ width:20px;
 	top:38%;
 	width:40px;
 	height:40px;
-	right:5%;
+	right:1%;
 	opacity:1;
 	font-size:25px;
 	z-index:10;
@@ -1976,7 +2052,7 @@ width:20px;
     }
 	.login-innerdiv {
     width: 90%;
-    height: 650px;
+    height: 450px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 100px;
@@ -2002,7 +2078,7 @@ width:20px;
     }
     .register-innerdiv {
       width: 90%;
-      height: 650px;
+      height: 450px;
       margin-left: auto;
       margin-right: auto;
       margin-top: 100px;
@@ -2026,6 +2102,38 @@ width:20px;
       font-size: 18px;
       border-radius: 10px;
     }
+    .password-innerdiv p {
+        color: #707070;
+        width: 90%;
+        line-height: 25px;
+        margin-top: 20px;
+    }
+    .password-innerdiv {
+        width: 90%;
+        height: 450px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 100px;
+        color: #707070;
+      }
+      .password-innerdiv input {
+        padding: 15px;
+        border: 1px solid #ddd;
+        color: #ddd;
+        width: 82%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+      }
+      .password-innerdiv button {
+        width: 90%;
+        background-color: #000;
+        border: none;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 10px;
+      }
 }
 @media only screen and (max-width:450px){
 	.first-image {
@@ -2308,6 +2416,23 @@ width:20px;
         margin-top: 30px;
         display: block;
     }
+    .flexbox1 .carousel-control-prev {
+        display:none;
+    }
+    .flexbox1 .carousel-control-next{
+        display:none;
+    }
+    .flexbox1 .carousel-item {
+        position: relative;
+        display: none;
+        float: left;
+        width: 89%;
+        margin-left:10%;
+        margin-right:-100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        transition: transform .6s ease-in-out;
+    }
 	.product-carousel .owl-nav .owl-next {
    display:none;
 }
@@ -2324,17 +2449,38 @@ width:20px;
     width: 250px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px;
+    margin-top:10px;
+    margin-bottom:0px;
     font-size: 25px;
     font-weight: 700;
 }
   .cate-recent {
-    width: 250px;
+    width:80%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px;
-    font-size: 25px;
+    margin-top: 10px;
+    font-size: 22px;
     font-weight: 700;
+}
+.cate-recentphotos {
+    width: 100%;
+    margin: 0px;
+    margin-top:10px;
+    overflow: hidden;
+}
+.product-carousel {
+    width: 100%;
+    margin: 0px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.cate-para1 {
+    width: 100%;
+    margin: 0px;
+    line-height: 32px;
+    padding: 20px;
+    color: #878787;
+    padding-bottom:0px;
 }
 }
 @media only screen and (max-width:400px) {
@@ -2495,6 +2641,18 @@ width:20px;
         height: 150px;
         overflow: hidden;
         margin: 0px;
+    }
+    .productname {
+        width: 120px;
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .productamount{
+        width: 120px;
+       
+        margin-left: auto;
+        margin-right: auto;
     }
 	.cate-amount .savebutton {
         display: block;
