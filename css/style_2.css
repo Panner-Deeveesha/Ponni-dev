@@ -40,6 +40,7 @@ body{
 .login-innerdiv p{
 	color:#707070;
 	margin-top:20px;
+    margin-bottom: 20px;
 }
 .login-innerdiv a{
 	text-decoration:none;
@@ -823,7 +824,7 @@ width:20px;
 	top:38%;
 	width:40px;
 	height:40px;
-	right:5%;
+	right:1%;
 	opacity:1;
 	font-size:25px;
 	z-index:10;
@@ -875,7 +876,7 @@ width:20px;
 	top:38%;
 	width:40px;
 	height:40px;
-	right:5%;
+	right:1%;
 	opacity:1;
 	font-size:25px;
 	z-index:10;
@@ -2308,6 +2309,23 @@ width:20px;
         margin-top: 30px;
         display: block;
     }
+    .flexbox1 .carousel-control-prev {
+        display:none;
+    }
+    .flexbox1 .carousel-control-next{
+        display:none;
+    }
+    .flexbox1 .carousel-item {
+        position: relative;
+        display: none;
+        float: left;
+        width: 89%;
+        margin-left:10%;
+        margin-right:-100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        transition: transform .6s ease-in-out;
+    }
 	.product-carousel .owl-nav .owl-next {
    display:none;
 }
@@ -2324,17 +2342,38 @@ width:20px;
     width: 250px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px;
+    margin-top:10px;
+    margin-bottom:0px;
     font-size: 25px;
     font-weight: 700;
 }
   .cate-recent {
-    width: 250px;
+    width:80%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px;
-    font-size: 25px;
+    margin-top: 10px;
+    font-size: 22px;
     font-weight: 700;
+}
+.cate-recentphotos {
+    width: 100%;
+    margin: 0px;
+    margin-top:10px;
+    overflow: hidden;
+}
+.product-carousel {
+    width: 100%;
+    margin: 0px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.cate-para1 {
+    width: 100%;
+    margin: 0px;
+    line-height: 32px;
+    padding: 20px;
+    color: #878787;
+    padding-bottom:0px;
 }
 }
 @media only screen and (max-width:400px) {
@@ -2495,6 +2534,18 @@ width:20px;
         height: 150px;
         overflow: hidden;
         margin: 0px;
+    }
+    .productname {
+        width: 120px;
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .productamount{
+        width: 120px;
+       
+        margin-left: auto;
+        margin-right: auto;
     }
 	.cate-amount .savebutton {
         display: block;
