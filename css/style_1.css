@@ -379,6 +379,7 @@ del{
 .menureg a{
     display: flex;
     text-decoration: none;
+    color: #000;
 }
 #ethomenureg{
     display: block;
