@@ -382,7 +382,10 @@ del{
     color: #000;
 }
 #ethomenureg{
-    display: block;
+    display: grid;
+}
+#ethomenureg span{
+    margin: 5px;
 }
 #userimg{
     width: 20px;
@@ -427,8 +430,10 @@ del{
     text-align: center;
 }
 #shopslide li{
-    width: 33.3333%;
+    width: 33.333%;
     list-style-type: none;
+    display: block;
+    padding: 10px;
 }
 .menuimg{
     width: 70px;

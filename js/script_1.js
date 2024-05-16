@@ -94,7 +94,7 @@ function openmenu() {
     document.getElementById("menusort").style.width = "100%";
     document.getElementById("menusear").style.left = "0";
     document.getElementById("menusear").style.right = "auto";
-    document.getElementById("menusear").style.width = "55%";
+    document.getElementById("menusear").style.width = "70%";
   }
 }
 
