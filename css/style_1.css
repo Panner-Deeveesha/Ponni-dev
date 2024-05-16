@@ -379,6 +379,10 @@ del{
 .menureg:nth-of-type(5) span:first-of-type{
     display: block;
 }
+.menureg a{
+    display: flex;
+    text-decoration: none;
+}
 #userimg{
     width: 20px;
     height: 20px;
