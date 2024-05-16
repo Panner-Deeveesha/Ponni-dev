@@ -65,18 +65,20 @@ body{
 
 .login-innerdiv button{
 	width:400px;
-	background-color:#000;
+    background-color:#36491e;
 	border:none;
 	color:#fff;
 	padding:8px 20px;
 	font-size:17px;
 	border-radius:10px;
     margin-top: 20px;
+    
 }
 .login-innerdiv button:hover{
      cursor: pointer;
-
+     background-color: #3e8e41;
 }
+
 .wholeregisterpage{
  font-family: 'Poppins', sans-serif;	
 
@@ -143,7 +145,7 @@ body{
 }
 .register-innerdiv button:hover{
     cursor: pointer;
-
+    background-color: #3e8e41;
 }
 
 .wholepasswordpage{
@@ -219,7 +221,7 @@ body{
    }
    .password-innerdiv button:hover{
     cursor: pointer;
-
+    background-color: #3e8e41;
 }
    
 
