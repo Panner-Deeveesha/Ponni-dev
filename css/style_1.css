@@ -374,11 +374,8 @@ del{
     width: 100%;
     border-bottom: 1px solid #e2e0e0;
 }
-.menureg:nth-of-type(4){
-    justify-content: space-between;
-}
 .menureg:nth-of-type(4) span:first-of-type{
-    width: 50%;
+    width: 80%;
 }
 .menureg a{
     display: flex;
