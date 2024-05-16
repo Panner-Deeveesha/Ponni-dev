@@ -370,14 +370,79 @@ del{
     width: 100%;
     border-bottom: 1px solid #e2e0e0;
 }
+.menureg:nth-of-type(4){
+    justify-content: space-between;
+}
+.menureg:nth-of-type(4) span:first-of-type{
+    width: 50%;
+}
+.menureg a{
+    display: flex;
+    text-decoration: none;
+    color: #000;
+}
+#ethomenureg{
+    display: grid;
+}
+#ethomenureg span{
+    margin: 5px;
+}
 #userimg{
     width: 20px;
     height: 20px;
     margin: 20px;
 }
+#Items{
+    width: 20px;
+    height: 20px;
+    margin: 20px;
+}
+#shipbag{
+    width: 20px;
+    height: 20px;
+    margin: 20px;
+}
+#plussym{
+    font-size: 18px;
+    margin: 15px;
+}
+#minussym{
+    display: none;
+    font-size: 18px;
+    margin: 15px;
+}
 .menureg span{
     margin: 20px;
     font-size: 14px;
+}
+.contentmenuslide{
+    width: 100%;
+    border-bottom: 1px solid #e2e0e0;
+    background-color: #e2e0e0;
+}
+#shopslide{
+    width: 98%;
+    height: 290px;
+    display: none;
+    flex-wrap: wrap;
+    padding: 10px;
+    align-content: center;
+    text-align: center;
+}
+#shopslide li{
+    width: 33.333%;
+    list-style-type: none;
+    display: block;
+    padding: 10px;
+}
+.menuimg{
+    width: 70px;
+    height: 70px;
+}
+#shopslide li span{
+    font-size: 12px;
+    text-wrap: nowrap;
+    overflow: hidden;
 }
 @media only screen and (max-width:990px){
     #ponnititle{
@@ -466,7 +531,9 @@ del{
     }
     #carttot{
         width: 25%;
-        margin-left: 10px;
+    }
+    #cartCount {
+        right: 2.8%;
     }
 }
 @media only screen and (max-width:500px){
@@ -499,7 +566,7 @@ del{
     }
     #searchtot{
         width: 28%;
-        margin-right: 12px;
+        margin-right: 5px;
     }
     #carttot{
         margin: 5px;
@@ -526,23 +593,33 @@ del{
         height: 60px;
     }
     #headicons{
-        padding-right: 8px;
+        padding-right: 10px;
     }
     #cartCount{
         right: 0%;
+    }
+    #menutotleft {
+        padding-left: 10px;
     }
 }
 @media only screen and (max-width:310px){
     #ponnilogo{
         width: 50%;
-        padding-left: 10px;
+        padding-left: 0px;
+        padding-top: 0px;
     }
     #logoimg{
-        width: 100px;
-        height: 75px;
+        width: 80px;
+        height: 50px;
     }
     #headicons{
-        width: 50%;
-        padding-right: 10px;
+        width: 30%;
+    }
+    #searchtot{
+        margin-right: 10px;
+    }
+    #carttot{
+        margin-left: 10px;
+        margin-right: 10px;
     }
 }
