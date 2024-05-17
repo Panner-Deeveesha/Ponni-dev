@@ -49,6 +49,12 @@ function cancelpayment(){
 function continuenxt(){
   document.getElementById("payementphone1").style.display="none";
   document.getElementById("payment-adress").style.display="block";
+  document.getElementById("paycontinue2").style.display="block"; 
+}
+function continuenxt2(){
+  document.getElementById("payment-adress").style.display="none";
+  document.getElementById("paycontinue2").style.display="none"; 
+  document.getElementById("paymentwalletid").style.display="block"; 
 }
 function payuparrow(){
   document.getElementById("paydownarrow").style.display="block";
@@ -64,6 +70,9 @@ function paydownarrow(){
 
 
 }
-document.getElementById("myButton").onclick = function() {
-
+document.getElementById("paymobile").onclick = function() {
+  document.getElementById("payment-adress").style.display="none";
+  document.getElementById("payementphone1").style.display="block";
+  document.getElementById("paycontinue2").style.display="none"; 
+  document.getElementById("paymentwalletid").style.display="none"; 
 };

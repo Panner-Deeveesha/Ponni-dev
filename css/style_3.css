@@ -690,7 +690,7 @@ border:none !important;
       
   }
   .modal {
-    display:block; 
+    display:none; 
     position: fixed;
     z-index:1000;
     left: 0%;
@@ -821,13 +821,13 @@ border:none !important;
       height: 8px;
       position: absolute;
   }
-  .paycontinue {
+  .paycontinue1 {
   max-width: 280px;
        margin-top:50px;
       margin-left: auto;
       margin-right: auto;
   }
-  .paycontinue button{
+  .paycontinue1 button{
       display: inline-flex;
       width: 100%;
       height: 50px;
@@ -842,6 +842,64 @@ border:none !important;
       border: none;
   
   }
+  .paymentwallet-contents{
+    display:grid;
+    grid-template-columns:auto auto;
+    gap:10px;
+  }
+  .paymentbhim{
+   display:flex ;
+  gap:5px;
+  }
+  .paymentbhim span {
+    font-size:15px;
+    color:white;
+  }
+  .paymentbhim {
+    margin-top:20px;
+     width:100%;
+    border: 0;
+    background-color:#6d9928;
+    padding:15px;
+    border-radius: 6px !important;
+    letter-spacing: 0.1px;
+    font-size: 16px;
+    gap: 0.5rem;
+  }
+  .paymentwallet{
+    margin-top:100px;
+    padding-bottom:70px;
+    display:none;
+    
+  }
+  .paymentwallet p{
+    font-size:12px;
+    text-align: center;
+    padding-bottom:10px;
+  }
+  #paycontinue2 {
+    max-width: 280px;
+         margin-top:50px;
+        margin-left: auto;
+        margin-right: auto;
+        display:none;
+    }
+  .paycontinue2 button{
+    
+    display: inline-flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    font-size: 16px;
+    border-radius: 8px;
+    padding: 1rem;
+    min-height: 60px;
+    color: white;
+    justify-content: center;
+    background:rgb(129,176,50,0.8);
+    border: none;
+
+}
   .paymentpolicy p{
   
   color:#979eb5;
@@ -906,6 +964,9 @@ border:none !important;
     
       float: right;
       padding-left:5px;
+  }
+  #cart-paymentproductid{
+    display:block;
   }
   #paydownarrow{
     display: none;
@@ -1091,17 +1152,7 @@ border:none !important;
      column-gap:20px;
     align-items: center;
 }
-.button-group-wrap input[type=radio]{
-background: #fafafa;
-border-radius: 5px;
-position: relative;
-width:100%;
 
-line-height: 20px;
-border: 1px solid #909090;
-color: #909090;
-cursor: pointer;
-}
 .line-inputs span{
 font-size:16px;
 
@@ -1120,6 +1171,22 @@ font-size:16px;
     overflow: hidden;
     background: var(--white);
 
+
+
+}
+.userdetail .home-radio{ 
+
+    font-size: 15px;
+    
+}
+.userdetail .work-radio{ 
+
+      font-size: 15px;
+  }
+.userdetail .button-group-wrap{
+  max-width:250px;
+  margin-left: auto;
+  margin-right:auto;
 
 
 }
@@ -1489,15 +1556,15 @@ width:100%;
     .payment-content1 {
         width: 100%;
         padding: 7px;
-        height:60%;
+        height:auto;
     }
     .payment-content2 {
-        height:40%;
+        height:auto;
         width: 100%;
         padding: 8px;
     }
     .modal-content{
-    margin-top:0px;
+    margin-top:50px;
     background-color: #FFFFFF;
 
    justify-content: initial;
@@ -1510,7 +1577,7 @@ width:100%;
   
     border-radius: 8px;
     width:100%;
-    height: 100% !important;
+    height:auto !important;
  }
 }
  @media only screen and (max-width:500px){
@@ -1559,17 +1626,58 @@ margin-right:auto;
   font-size:14px;
   color:#878787;
 }
+.payment-content2 .loader-div {
+    margin-top:5px;
+    padding: 10px;
+    background-color: #FFFFFF;
+}
 .cart-price2{
   
 text-align:center;
 
+}
+.paymain-content h3 {
+    font-weight: 400;
+    color: black;
+    font-size:15px;
+    
+}
+.paymain-content {
+    margin-top:5px;
+ 
+}
+
+.paycontinue1 {
+ 
+ margin-top:8px;
+   
+}
+#paycontinue2 {
+   
+    margin-top: 5px;
+  
+}
+.paymentbhim {
+    margin-top: 5px;
+  
+}
+.paymentwallet {
+    
+ padding-bottom:20px; 
+ 
+}
+.paymentwallet {
+    margin-top: 20px;
 }
 .cart-submit{
 width:100%;
 margin-left:auto;
 margin-right:auto; 
 }
-
+.paymentwallet-contents {
+    display:block;
+    
+}
 
       
   }

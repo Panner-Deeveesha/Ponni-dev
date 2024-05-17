@@ -62,7 +62,7 @@
         </div>
     </nav>
     <div class="blackscreen"></div>
- <!----   <div id="firimage">
+ <!----<div id="firimage">
         <div>
             <img src="./assets/images/mainbanner.png" alt="samplestore" id="displayimg">
             <img src="assets/images/tab.png" alt="samplestore" id="displayimg2">
@@ -229,6 +229,8 @@
                  <div class="notification-checkbox "><input type="checkbox" id="notificationscheck" name="notifications" >
                      <label for="notifications" class="notifylabel">Notify me for orders, updates &amp; offers</label></div>
         </div>
+        
+      <div class="paycontinue1"> <button onclick="continuenxt()">Continue</button> </div>
           </div>
       <div class="payment-adress" id="payment-adress">
        <div class="addressheader">
@@ -254,21 +256,54 @@
             <input name="address" id="address" placeholder="Address*" required="" type="text" maxlength="1000">
             <div class="line-inputs "><span>Address Type</span> 
                 <div class="button-group-wrap ">
-                    <div ><input type="radio" id="home" name="input-type" value="home" >
-                         <label class="merchant-color merchant-border svelte-3lpm2y" for="home">Home</label></div>
-                          <div ><input type="radio" id="work" name="input-type" value="work" > 
-                            <label class=" svelte-3lpm2y" for="work">Work</label></div></div> 
+                    <div class="home-radio" ><input type="radio" id="home" name="input-type" value="home" >
+                         <label for="home">Home</label></div>
+                          <div class="work-radio" ><input type="radio" id="work" name="input-type" value="work" > 
+                            <label for="work">Work</label></div></div> 
                            </div>
-
+          
         </div>
    
       </div>
+      
+      
+      </div>
+      <div class="paycontinue2" id="paycontinue2"> <button onclick="continuenxt2()">Continue</button> </div>
+      
+      <div class="paymentwallet" id="paymentwalletid">
+        <div>
+            <p>Please select payment method to complete the order</p>
+        </div>
+         <div class="paymentwallet-contents">
+        <div >
+            <button class="paymentbhim">
+            <img src="./assets/icons/icons8-bhim-18 (1).png" style="vertical-align:middle;">
+            <span>Pay via UPI</span>
+            <span> ₹533.00</span></button>
+        </div>
+        <div >
+            <button class="paymentbhim">
+            <img src="./assets/icons/icons8-card-18.png" style="vertical-align:middle;">
+            <span>Pay via Card</span>
+            <span> ₹533.00</span></button>
+        </div>
+        <div >
+            <button class="paymentbhim">
+            <img src="./assets/icons/icons8-wallet-18.png" style="vertical-align:middle;">
+            <span>Pay via Wallets</span>
+            <span> ₹533.00</span></button>
+        </div>
+        <div >
+            <button class="paymentbhim">
+            <img src="./assets/icons/icons8-bank-20.png" style="vertical-align:middle;">
+            <span>Pay via Netbanking</span>
+            <span> ₹533.00</span></button>
+        </div>
+        </div>
+
       </div>
 
 
-
-
-      <div class="paycontinue"> <button onclick="continuenxt()">Continue</button> </div>
       <div class="paymentpolicy"><p class="">By proceeding, I accept that I have read and understood the Gokwik's <a target="_blank" href="https://www.gokwik.co/data-policy" class=""><u>Privacy Policy</u></a>
         and
         <a target="_blank" href="https://www.gokwik.co/terms"><u>T&amp;C</u></a></p></div>
