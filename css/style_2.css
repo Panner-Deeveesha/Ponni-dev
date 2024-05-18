@@ -1,15 +1,6 @@
-body{
-	margin:0px;	
-	
-}
-
-
 .wholeloginpage{
  font-family: 'Poppins', sans-serif;	
-
 }
-
-
 .wholeloginpage #login-heading{
 	
 	background-color:#6d9928;
@@ -766,6 +757,7 @@ width:20px;
 }
 .cate-ingre{
 	width:100%;
+    margin-top: 20px;
 	background-color:#f6f6f8;
 }
 .cate-para1{
