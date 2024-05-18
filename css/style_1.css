@@ -177,14 +177,12 @@ body{
 }
 .imgsimple{
     width: 400px;
-    height: auto;
-    margin-top: 40px;
+    height: 350px;
 }
 .textareacon{
     width: 400px;
     margin-left: 40px;
     margin-top: 20px;
-    padding-top: 40px;
 }
 .textcls{
     font-size: 30px;
@@ -387,6 +385,7 @@ del{
 }
 #ethomenureg span{
     margin: 5px;
+    margin-left: 14px;
 }
 #userimg{
     width: 20px;
@@ -519,6 +518,7 @@ del{
     }
     .imgsimple{
         width: 90%;
+        height: auto;
         text-align: justify;
     }
     .simpleid:nth-of-type(2){

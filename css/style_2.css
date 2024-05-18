@@ -502,11 +502,10 @@ body{
 .cate-lastcontent p{
 	width:80%;
 	font-size:20px;
-	font-weight:600;
-	
+	font-weight:400;
+	text-align: center;
 	margin-left:auto;
 	margin-right:auto;
-	
 }
 /*product css*/
 
@@ -1680,6 +1679,9 @@ width:20px;
         overflow: hidden;
         margin: 0px;
     }
+    .cate-lastcontent{
+        padding: 5px;
+    }
 }
 
 
@@ -1906,9 +1908,9 @@ width:20px;
     }
     
     .cate-lastcontent p {
-      width: 85%;
+      width: 95%;
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 100;
       margin-left: auto;
       margin-right: auto;
     }	 
