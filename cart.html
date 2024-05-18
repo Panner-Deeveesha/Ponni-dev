@@ -141,11 +141,11 @@
 		<p class="cart-p3">QUANTITY</p>
 		<p class="cart-p4">TOTAL</p>
 	  </div>
-	  <div class="cart-description">
-	  <div class="cart-description1">
+	  <div class="cart-description" id="cart-descriptionid">
+	  <!--<div class="cart-description1">
 	  <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/TirunelveliHalwa2.jpg?v=1695623373&width=120">
-	   <div class="cart-product1">
-	    <p>Tirunelveli Halwa</p>
+	   <div class="cart-product1" >
+	    <p id="cart-productname"></p>
 		 <p>Quantity: 200g<p>
 		 <img src="./assets/icons/icons8-edit-20.png">
 		 <img src="./assets/icons/icons8-delete-20.png">
@@ -155,14 +155,14 @@
 	 
 	   <div class="cart-price">
 	   <del>Rs. 189.00</del>
-	   <span>Rs. 169.00</span>
+	   <span id="cart-price1">Rs. 169.00</span>
 	   
 	   </div>
 	  
 	  		<div class="cartinputavailability">
-      <button onclick="decrementbtn()">-</button>
+      <button onclick="decrementbtn1()">-</button>
      <input id="cartgetvalue" type="number" value="1">
-      <button onclick="incrementbtn()">+</button>
+      <button onclick="incrementbtn1()">+</button>
 	 
        </div>
 	    <div class="cart-totalvalue">
@@ -170,7 +170,7 @@
 		</div>
 	  
 	 
-	  </div>
+	  </div>-->
 	
 	 </div>
 	 <div class="cartordernote">
@@ -545,5 +545,26 @@
     <script src="./js/owlnpm.js"></script>
 	<script src="./js/owlcarousel.js"></script>
 	<script src="./js/testslide2.js"></script>
+	<script>
+	var xhr = new XMLHttpRequest();
+        xhr.open("POST", "./php/cartdetail.php", true);
+        xhr.onreadystatechange = function () {
+		var cartDiv = document.getElementById("ponniproductpage.html");
+	            var pricediv=document.getElementById("cart-price1");
+                var Quantitydiv=document.getElementById(" cartgetvalue");
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                
+                var products = JSON.parse(xhr.responseText);
+             
+      
+                products.forEach(function (product) {
+                    cartDiv.innerHTML = "<div>" + product.productName+ "</div>";
+                   pricediv.innerHTML ="<span>"+product.productprice+"</span>";
+                 
+                });
+            }
+        };
+        xhr.send();
+	</script>
 	</body>
 	</html>
