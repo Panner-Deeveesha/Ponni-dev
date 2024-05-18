@@ -1,63 +1,80 @@
-const products = [
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Sesame-Oil.jpg', name: 'Wood Pressed Gingelly Oil', price: 480, category: 'Oil' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Groundnut-oil.jpg', name: 'Wood Pressed Groundnut Oil ', price: 360, category: 'Oil' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Coconut-Oil.jpg', name: 'Wood Pressed Coconut Oil ', price: 360, category: 'Oil' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Had-pound-rice.jpg', name: 'Little millet Rice', price: 70, category: 'Rice' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Had-pound-rice.jpg', name: 'Kodo millet Rice', price: 70, category: 'Rice' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Kullakar-Rice.jpg2_.jpg', name: 'foxtail millet Rice', price: 70, category: 'Rice' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Kullakar-Rice.jpg2_.jpg', name: 'barnyard millet Rice', price: 70, category: 'Rice' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Mappillai-Samba-Arisi.jpg', name: 'bridegroom Rice ', price: 60, category: 'Rice' }
-];
 
+
+document.getElementById('searchInput').addEventListener('input', function () {
+  const searchTerm = this.value;
+  const tolen = searchTerm.length;
+  if(tolen == 3){
+    displayProducts(searchTerm);
+  }
+
+});
 
 function displayProducts(searchTerm) {
-  const productList = document.getElementById('productList');
-  productList.innerHTML = '';
-
-  products.forEach(product => {
-    if (product.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-       const li = document.createElement('li');
-       productList.innerHTML += `<li><img src="${product.imageurl}" style="width:60px; height:auto; vertical-align:middle; padding:5px;">
-          <span>${product.name}-${product.price}'<span>&#x20B9</span>'-${product.category}</span>
-          </li>`;
-       productList.appendChild(li);
-
+var obj;
+	$.ajax({
+      url: "./php/getAllProducts.php",
+      type: "get",
+      success: function (response) {
+      obj = JSON.parse(response);
+      //var uniqueId = [];
+      // $( obj ).each(function(index,value  ) {
+      //console.log(value.uniqueId);
+      // uniqueId.push(value.uniqueId);
+      // });
+      getPrice(obj,searchTerm);
+    },
+    error: function (error) {
+      console.log(error);
     }
   });
 }
 
-document.getElementById('searchInput').addEventListener('input', function () {
-  const searchTerm = this.value;
-  displayProducts(searchTerm);
-});
-
-displayProducts('products');
-
-const products2 = [
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Sesame-Oil.jpg', name: 'Wood Pressed Gingelly Oil', price: 480, category: 'Oil' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Groundnut-oil.jpg', name: 'Wood Pressed Groundnut Oil ', price: 360, category: 'Oil' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Coconut-Oil.jpg', name: 'Wood Pressed Coconut Oil ', price: 360, category: 'Oil' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Had-pound-rice.jpg', name: 'Little millet Rice', price: 70, category: 'Rice' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Had-pound-rice.jpg', name: 'Kodo millet Rice', price: 70, category: 'Rice' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Kullakar-Rice.jpg2_.jpg', name: 'Foxtail millet Rice', price: 70, category: 'Rice' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Kullakar-Rice.jpg2_.jpg', name: 'Barnyard millet Rice', price: 70, category: 'Rice' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Mappillai-Samba-Arisi.jpg', name: 'Bridegroom Rice ', price: 60, category: 'Rice' }
-];
-
-function displayProd(searchTerm2) {
-  const productList2 = document.getElementById('productList2');
-  productList2.innerHTML = '';
-
-  products2.forEach(product => {
-    if (product.name.toLowerCase().includes(searchTerm2.toLowerCase())) {
-       const li = document.createElement('li');
-       productList2.innerHTML += `<li><img src="${product.imageurl}" style="width:60px; height:auto; vertical-align:middle; padding:5px;">
-          <span>${product.name}-${product.price}'<span>&#x20B9</span>'-${product.category}</span>
-          </li>`;
-       productList2.appendChild(li);
-
-    }
+function getPrice(obj, searchTerm) {
+  $.ajax({
+      url: "./php/getPrice.php",
+      type: "get",
+      success: function (response) {
+          var obj2 = JSON.parse(response);
+          //console.log(response);
+          // console.log(obj);
+          $(obj).each(function (index, value) {
+              //console.log(value);
+              $(obj2).each(function (index2, value2) {
+                  if (value.uniqueId == value2.id) {
+                      //console.log(value.uniqueId+":"+value2.id  );
+                      value.price = value2.price;
+                      value.offerPrice = value2.offerPrice;
+                      //console.log(value);
+                  }
+              });
+              //showNewLanches(obj);
+          });
+        getvalfn(obj,searchTerm);
+      },
+      error: function (error) {
+          console.log(error);
+      }
   });
+}
+
+function getvalfn(obj,searchTerm){
+  var num = obj.length;
+
+  for(i=0;i<num;i++){
+    var prodname = obj[i].name;
+    var prodprice = obj[i].price;
+    if(prodname.includes(searchTerm) == true){
+      var ulit = document.getElementById("productList");
+      var liiiit= document.createElement("li");
+      liiiit.classList.add("acting");
+      liiiit.innerHTML = prodname + "<br><span> Price: &#x20B9</span>" + prodprice + "<hr>";
+      ulit.appendChild(liiiit);
+    }
+  }
+}
+
+function summaonu(getname){
+  console.log(getname);
 }
 
 document.getElementById('searchInput2').addEventListener('input', function () {
@@ -65,7 +82,26 @@ document.getElementById('searchInput2').addEventListener('input', function () {
   displayProd(searchTerm2);
 });
 
-displayProd('products2');
+function displayProd(searchTerm2) {
+	$.ajax({
+    url: "./php/getAllProducts.php",
+    type: "get",
+    success: function (response) {
+      var obj = JSON.parse(response);
+      //var uniqueId = [];
+      // $( obj ).each(function(index,value  ) {
+      //console.log(value.uniqueId);
+      // uniqueId.push(value.uniqueId);
+      // });
+      console.log(obj);
+    },
+    error: function (error) {
+      console.log(error);
+    }
+  });
+   var num = obj.length;
+   console.log(num);
+}
 
 function openNav() {
   document.getElementById("searchsort").style.width = "100%";
@@ -153,6 +189,10 @@ $(document).ready(function () {
     $("#minussym").css("display", "none");
     $("#plussym").css("display", "block");
   });
+  $(document).on("click",".acting",function(){
+    var getname = $(this).html();
+    summaonu(getname);
+  })
   /*$("#iconsearch").click(function(){
     $(".blackscreen").css("top","0");
     $(".blackscreen").css("z-index","99");

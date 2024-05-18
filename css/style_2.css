@@ -1,15 +1,6 @@
-body{
-	margin:0px;	
-	
-}
-
-
 .wholeloginpage{
  font-family: 'Poppins', sans-serif;	
-
 }
-
-
 .wholeloginpage #login-heading{
 	
 	background-color:#6d9928;
@@ -502,11 +493,10 @@ body{
 .cate-lastcontent p{
 	width:80%;
 	font-size:20px;
-	font-weight:600;
-	
+	font-weight:400;
+	text-align: center;
 	margin-left:auto;
 	margin-right:auto;
-	
 }
 /*product css*/
 
@@ -767,6 +757,7 @@ width:20px;
 }
 .cate-ingre{
 	width:100%;
+    margin-top: 20px;
 	background-color:#f6f6f8;
 }
 .cate-para1{
@@ -1680,6 +1671,9 @@ width:20px;
         overflow: hidden;
         margin: 0px;
     }
+    .cate-lastcontent{
+        padding: 5px;
+    }
 }
 
 
@@ -1906,9 +1900,9 @@ width:20px;
     }
     
     .cate-lastcontent p {
-      width: 85%;
+      width: 95%;
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 100;
       margin-left: auto;
       margin-right: auto;
     }	 
