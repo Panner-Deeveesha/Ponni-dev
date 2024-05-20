@@ -114,7 +114,73 @@ $(document).ready(function () {
     $(".cate-para1").css("display", "none");
 	 $(".cate-para2").css("display", "block");
   });
+ 
 });
+$(document).on("click", ".btn", function() {
+  var innerHTML = $(this).html();
+  getBycategory(innerHTML);
+});
+function isJsonString(str) {
+  try {
+      JSON.parse(str);
+  } catch (e) {
+      return false;
+  }
+  return true;
+}
+function getBycategory(innerHTML) {
+  var categroy =innerHTML;
+  var data = {
+      "categroy": categroy
+  }
+  $.ajax({
+      url: "./php/getProductByCategory.php",
+      type: "post",
+      data: data,
+      success: function (response) {
+          var boo = isJsonString(response);
+         
+          if(boo==true){
+              var obj = JSON.parse(response);
+              displaycategories(obj);
+             
+          }else{
+              console.log("Error");
+          }   
+  
+      },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+}
+function displaycategories(obj){
+
+ var t = "";
+  for(let i=0;i<obj.length;i++){
+    t +='<div>';
+    t +='<p>';
+    t +=obj[i].name;
+    t +='</p>';
+    t +='</div>';
+    document.getElementById("samplew").innerHTML=t;
+    
+   
+
+  }
+ 
+ /*var classname=document.getElementsByClassName()
+  for(let i=0;i<obj.length;i++){
+    var catename =obj[i].name;
+    var displayname= document.querySelectorAll(".productname");
+ displayname[i].innerHTML=catename;*/
+    
+  }
+  
+ 
+
+
+
 function incrementbtn(){
 	var getvalue=document.getElementById("getvalue").value;
 	var increevalue=++getvalue;

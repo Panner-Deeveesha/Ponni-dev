@@ -1,6 +1,15 @@
+body{
+	margin:0px;	
+	
+}
+
+
 .wholeloginpage{
  font-family: 'Poppins', sans-serif;	
+
 }
+
+
 .wholeloginpage #login-heading{
 	
 	background-color:#6d9928;
@@ -263,6 +272,14 @@
     background-color: #2b4522;
     border: 1px solid #2b4522;
 }
+#cate-myimages #samplew{
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
 
 .selectimages1 {
     display: none;
@@ -493,10 +510,11 @@
 .cate-lastcontent p{
 	width:80%;
 	font-size:20px;
-	font-weight:400;
-	text-align: center;
+	font-weight:600;
+	
 	margin-left:auto;
 	margin-right:auto;
+	
 }
 /*product css*/
 
@@ -757,7 +775,6 @@ width:20px;
 }
 .cate-ingre{
 	width:100%;
-    margin-top: 20px;
 	background-color:#f6f6f8;
 }
 .cate-para1{
@@ -1671,9 +1688,6 @@ width:20px;
         overflow: hidden;
         margin: 0px;
     }
-    .cate-lastcontent{
-        padding: 5px;
-    }
 }
 
 
@@ -1900,9 +1914,9 @@ width:20px;
     }
     
     .cate-lastcontent p {
-      width: 95%;
+      width: 85%;
       font-size: 16px;
-      font-weight: 100;
+      font-weight: 600;
       margin-left: auto;
       margin-right: auto;
     }	 
