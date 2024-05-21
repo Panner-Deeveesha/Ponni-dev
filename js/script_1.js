@@ -21,8 +21,7 @@ var obj;
       //console.log(value.uniqueId);
       // uniqueId.push(value.uniqueId);
       // });
-      getPrice(obj,searchTerm);
-      getPrice2(obj,searchTerm);
+      Pricecheck(obj,searchTerm);
     },
     error: function (error) {
       console.log(error);
@@ -30,7 +29,7 @@ var obj;
   });
 }
 
-function getPrice(obj, searchTerm) {
+function Pricecheck(obj, searchTerm) {
   $.ajax({
       url: "./php/getPrice.php",
       type: "get",
@@ -60,20 +59,59 @@ function getPrice(obj, searchTerm) {
 
 function getvalfn(obj,searchTerm){
   var num = obj.length;
+  const uniqueMap = new Map();
+  obj.forEach((item) => {
+    uniqueMap.set(item.name,item);
+  });
+  const uniqueObj =  Array.from(uniqueMap.values());
   for(i=0;i<num;i++){
-    var prodname = obj[i].name;
-    var prodprice = obj[i].price;
+    var prodname = uniqueObj[i].name;
+    var prodprice = uniqueObj[i].price;
+    var offprice = uniqueObj[i].offerPrice;
     if(prodname.includes(searchTerm) == true){
       var ulit = document.getElementById("productList");
       var listcreate= document.createElement("li");
       listcreate.id = "acting";
-      listcreate.innerHTML = prodname + " <br> <del id='delval'> " + prodprice + "</del>" + " <span id='ofpr'>";
+      listcreate.innerHTML ="<div id='titlesear'>" + prodname + "</div>" + "<del id='delval'> " + prodprice + "</del>" + " <span id='offpriceid'>" + offprice + "</span>";
       ulit.appendChild(listcreate);
     }
   }
 }
 
-function getPrice2(obj, getname) {
+function getprod(getname) {
+  var name = getname;
+  var data = {
+      "name": name
+  }
+  $.ajax({
+    url: "./php/getbyproductname.php",
+    type: "post",
+    data: data,
+    success: function (response) {
+      var boo = isJsonString(response);
+      if(boo==true){
+          var obj = JSON.parse(response);
+          getPrice2(obj);
+      }else{
+          console.log("Error");
+      }   
+    },
+    error: function (error) {
+      console.log(error);
+    }
+  });
+}
+
+function isJsonString(str) {
+  try {
+      JSON.parse(str);
+  } catch (e) {
+      return false;
+  }
+  return true;
+}
+
+function getPrice2(obj) {
   $.ajax({
       url: "./php/getPrice.php",
       type: "get",
@@ -93,7 +131,7 @@ function getPrice2(obj, getname) {
               });
               //showNewLanches(obj);
           });
-        finalsearch(obj,getname);
+        navigatepage(obj);
       },
       error: function (error) {
           console.log(error);
@@ -101,19 +139,11 @@ function getPrice2(obj, getname) {
   });
 }
 
-function finalsearch(obj,getname){
-  var somesearname = getname;
-  var tolength = obj.length;
-  for(i=0;i<tolength;i++){
-    var objname = obj[i].name;
-    var objprice = obj[i].price;
-    if(somesearname.includes(objname) && somesearname.includes(objprice)){
-      var wholeobj = obj[i];
-      const serializedObject = encodeURIComponent(JSON.stringify(wholeobj));
-      const url = `ponniproductpage.html?data=${serializedObject}`;
-      window.location.href = url;
-    }
-  }
+function navigatepage(obj){
+  var wholeobj = obj;
+  const serializedObject = encodeURIComponent(JSON.stringify(wholeobj));
+  const url = `ponniproductpage.html?data=${serializedObject}`;
+  window.location.href = url;
 }
 
 function productpageonload(){
@@ -122,9 +152,31 @@ function productpageonload(){
   const deserializedObject = JSON.parse(decodeURIComponent(serializedData));
   var converttoobj = JSON.parse(serializedData);
   console.log(converttoobj);
-  document.getElementById("someone").innerHTML = converttoobj.name;
-  document.getElementById("priceid").innerHTML = "Rs."+converttoobj.price;
-  document.getElementById("offpriceid").innerHTML =" From Rs." +converttoobj.offerPrice;
+  var hecticinsert = "";
+  hecticinsert +='<div class="product-details">';  
+  hecticinsert +='<h3>';
+  hecticinsert +=converttoobj[0].name;
+  hecticinsert +='</h3>';
+  hecticinsert +='<p>';
+  hecticinsert +='<del>';
+  hecticinsert +="Rs."+converttoobj[0].price;
+  hecticinsert +='</del>';
+  hecticinsert +='<span>';
+  hecticinsert +="From Rs."+converttoobj[0].offerPrice;
+  hecticinsert +='</span>';
+  hecticinsert +='</p>';
+  hecticinsert +='<p>';
+  hecticinsert +="QUANTITY : "+converttoobj[0].volume+converttoobj[0].unit;
+  hecticinsert +='</p>';
+  hecticinsert +='<div class="cate-grambutton">'; 
+  for(let i=0;i<converttoobj.length;i++){
+    hecticinsert += '<button class="btn-highlight">';
+    hecticinsert += converttoobj[i].volume + " " + converttoobj[i].unit;
+    hecticinsert += '</button>'
+  }
+  hecticinsert +='</div>';
+  hecticinsert +='</div>';
+  document.getElementById("product-content").innerHTML= hecticinsert;
 }
 
 document.getElementById('searchInput2').addEventListener('input', function () {
@@ -239,9 +291,9 @@ $(document).ready(function () {
     $("#minussym").css("display", "none");
     $("#plussym").css("display", "block");
   });
-  $(document).on("click","#acting",function(){
+  $(document).on("click","#titlesear",function(){
     var getname = $(this).text();
-    displayProducts(getname);
+    getprod(getname);
   })
   /*$("#iconsearch").click(function(){
     $(".blackscreen").css("top","0");
