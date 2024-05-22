@@ -1,27 +1,39 @@
-
+const products = [
+  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Sesame-Oil.jpg', name: 'Wood Pressed Gingelly Oil', price: 480, category: 'Oil' },
+  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Groundnut-oil.jpg', name: 'Wood Pressed Groundnut Oil ', price: 360, category: 'Oil' },
+  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Coconut-Oil.jpg', name: 'Wood Pressed Coconut Oil ', price: 360, category: 'Oil' },
+  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Had-pound-rice.jpg', name: 'Little millet Rice', price: 70, category: 'Rice' },
+  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Had-pound-rice.jpg', name: 'Kodo millet Rice', price: 70, category: 'Rice' },
+  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Kullakar-Rice.jpg2_.jpg', name: 'foxtail millet Rice', price: 70, category: 'Rice' },
+  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Kullakar-Rice.jpg2_.jpg', name: 'barnyard millet Rice', price: 70, category: 'Rice' },
+  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Mappillai-Samba-Arisi.jpg', name: 'bridegroom Rice ', price: 60, category: 'Rice' }
+];
 
 document.getElementById('searchInput').addEventListener('input', function () {
   const searchTerm = this.value;
   const tolen = searchTerm.length;
-  if(tolen == 3){
+  if(tolen > 3){
     displayProducts(searchTerm);
   }
-
 });
 
 function displayProducts(searchTerm) {
-var obj;
+  var name = searchTerm;
+  var data = {
+      "name": name
+  }
 	$.ajax({
-      url: "./php/getAllProducts.php",
-      type: "get",
-      success: function (response) {
-      obj = JSON.parse(response);
-      //var uniqueId = [];
-      // $( obj ).each(function(index,value  ) {
-      //console.log(value.uniqueId);
-      // uniqueId.push(value.uniqueId);
-      // });
-      Pricecheck(obj,searchTerm);
+    url: "./php/getprodbyname.php",
+    type: "post",
+    data: data,
+    success: function (response) {
+      var boo = isJsonString(response);
+      if(boo==true){
+          var obj = JSON.parse(response);
+          Pricecheck(obj);
+      }else{
+          console.log("Error");
+      }   
     },
     error: function (error) {
       console.log(error);
@@ -29,7 +41,7 @@ var obj;
   });
 }
 
-function Pricecheck(obj, searchTerm) {
+function Pricecheck(obj) {
   $.ajax({
       url: "./php/getPrice.php",
       type: "get",
@@ -49,7 +61,7 @@ function Pricecheck(obj, searchTerm) {
               });
               //showNewLanches(obj);
           });
-        getvalfn(obj,searchTerm);
+        getvalfn(obj);
       },
       error: function (error) {
           console.log(error);
@@ -57,24 +69,23 @@ function Pricecheck(obj, searchTerm) {
   });
 }
 
-function getvalfn(obj,searchTerm){
+function getvalfn(obj){
+  //console.log(obj);
   var num = obj.length;
-  const uniqueMap = new Map();
+  /*const uniqueMap = new Map();
   obj.forEach((item) => {
     uniqueMap.set(item.name,item);
   });
-  const uniqueObj =  Array.from(uniqueMap.values());
+  const uniqueObj =  Array.from(uniqueMap.values());*/
   for(i=0;i<num;i++){
-    var prodname = uniqueObj[i].name;
-    var prodprice = uniqueObj[i].price;
-    var offprice = uniqueObj[i].offerPrice;
-    if(prodname.includes(searchTerm) == true){
-      var ulit = document.getElementById("productList");
-      var listcreate= document.createElement("li");
-      listcreate.id = "acting";
-      listcreate.innerHTML ="<div id='titlesear'>" + prodname + "</div>" + "<del id='delval'> " + prodprice + "</del>" + " <span id='offpriceid'>" + offprice + "</span>";
-      ulit.appendChild(listcreate);
-    }
+    var prodname = obj[i].name;
+    var prodprice = obj[i].price;
+    var offprice = obj[i].offerPrice;
+    var ulit = document.getElementById("productList");
+    var listcreate= document.createElement("li");
+    listcreate.id = "acting";
+    listcreate.innerHTML ="<div id='titlesear'>" + prodname + "</div>" + "<del id='delval'> " + prodprice + "</del>" + " <span id='offpriceid'>" + offprice + "</span>";
+    ulit.appendChild(listcreate);
   }
 }
 
