@@ -97,6 +97,9 @@ body{
     text-overflow: ellipsis;
     width: 200px;
 }
+#offpriceid{
+    color: #f41010;
+}
 #carttot{
     width: 10%;
     align-content: center;

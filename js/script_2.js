@@ -1,6 +1,30 @@
 
+var c= "rice";
+var productBuy ="";
+function indexfunc(){
+  getproductname(c);
+  var header = document.getElementById("mydiv");
+  var btns = header.getElementsByClassName("btn");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function () {
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
+  var header2 = document.getElementById("mydiv2");
+  var btns2 = header2.getElementsByClassName("cateheadings");
+  for (var i = 0; i < btns2.length; i++) {
+    btns2[i].addEventListener("click", function () {
+      var current2 = document.getElementsByClassName("active2");
+      current2[0].className = current2[0].className.replace(" active2", "");
+      this.className += " active2";
+    });
+  }
+}
 $(document).ready(function () {
-  $("#btn-sweets").click(function () {
+  
+  /*$("#btn-sweets").click(function () {
     $(".selectimages2").css("display", "none");
     $(".selectimages1").fadeIn("slow");
     $(".selectimages3").css("display", "none");
@@ -101,7 +125,7 @@ $(document).ready(function () {
     $(".selectimages4").css("display", "none");
     $(".selectimages5").css("display", "none");
     $(".selectimages6").fadeIn("slow");
-  });
+  });*/
   $("#heading-one").click(function(){
 	  $(this).addClass("borderline");
 	  $("#heading-two").removeClass("borderline");
@@ -114,7 +138,215 @@ $(document).ready(function () {
     $(".cate-para1").css("display", "none");
 	 $(".cate-para2").css("display", "block");
   });
+  
 });
+function getproductname(c){
+var cateproname=c;
+  getBycategory(cateproname);
+}
+
+$(document).on("click", ".btn", function() {
+  var innerHTML = $(this).html();
+  getproductname(innerHTML);
+ 
+});
+$(document).on("click", ".item-product", function() {
+  var temp= $(this).html();
+
+
+  window.location.href = "./ponniproductpage.html?innerHTML="+temp;
+
+ 
+});
+productpage();
+function productpage(){
+  const searchParams = new URLSearchParams(window.location.search);
+  if(searchParams.has('innerHTML')){
+      getByproductname(searchParams.get('innerHTML')); 
+  }
+
+}
+function getByproductname(innerHTML2) {
+  var proname =innerHTML2;
+  var data = {
+      "name": proname
+  }
+  $.ajax({
+      url: "./php/getAllProducts.php",
+      type: "get",
+      data: data,
+      success: function (response) {
+        var obj = JSON.parse(response);
+        //var uniqueId = [];
+        // $( obj ).each(function(index,value  ) {
+        //console.log(value.uniqueId);
+        // uniqueId.push(value.uniqueId);
+        // });
+       
+        productpagegetPrice(obj,proname);
+      },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+}
+function fetchproduct(obj,proname){
+
+  for(i=0;i<obj.length;i++){
+    var productname=obj[i].name;
+    if(proname==productname){
+      displayproduct(obj[i]);
+    }
+  }
+
+}
+function productpagegetPrice(obj,proname) {
+  $.ajax({
+      url: "./php/getPrice.php",
+      type: "get",
+      success: function (response) {
+          var obj2 = JSON.parse(response);
+          //console.log(response);
+          // console.log(obj);
+          $(obj).each(function (index, value) {
+              //console.log(value);
+              $(obj2).each(function (index2, value2) {
+                  if (value.uniqueId == value2.id) {
+                      //console.log(value.uniqueId+":"+value2.id  );
+                      value.price = value2.price;
+                      value.offerPrice = value2.offerPrice;
+                      //console.log(value);
+                  }
+              });
+              
+          });
+          //showNewLanches(obj);
+        
+        fetchproduct(obj,proname)
+      },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+}
+function displayproduct(obj){
+
+
+  var s = "";
+
+
+    s +='<div class="product-details">';
+   
+    s +='<h3>';
+    s +=obj.name;
+    s +='</h3>';
+    s +='<p>';
+    s +='<del>';
+    s +="Rs."+obj.price;
+    s +='</del>';
+    s +='<span>';
+    s +="From Rs."+obj.offerPrice;
+    s +='</span>';
+    s +='</p>';
+    s +='</div>';
+    document.getElementById("product-content").innerHTML=s;
+    
+  
+
+
+}
+function isJsonString(str) {
+  try {
+      JSON.parse(str);
+  } catch (e) {
+      return false;
+  }
+  return true;
+}
+function getBycategory(innerHTML) {
+  var categroy =innerHTML;
+  var data = {
+      "categroy": categroy
+  }
+  $.ajax({
+      url: "./php/getProductByCategory.php",
+      type: "post",
+      data: data,
+      success: function (response) {
+          var boo = isJsonString(response);
+         
+          if(boo==true){
+              var obj = JSON.parse(response);
+              
+              getPrice(obj);
+             
+          }else{
+              console.log("Error");
+          }   
+  
+      },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+}
+function getPrice(obj) {
+  $.ajax({
+      url: "./php/getPrice.php",
+      type: "get",
+      success: function (response) {
+          var obj2 = JSON.parse(response);
+          //console.log(response);
+          // console.log(obj);
+          $(obj).each(function (index, value) {
+              //console.log(value);
+              $(obj2).each(function (index2, value2) {
+                  if (value.uniqueId == value2.id) {
+                      //console.log(value.uniqueId+":"+value2.id  );
+                      value.price = value2.price;
+                      value.offerPrice = value2.offerPrice;
+                      //console.log(value);
+                  }
+              });
+              
+          });
+          //showNewLanches(obj);
+        
+          displaycategories(obj);
+      },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+}
+
+function displaycategories(obj){
+
+ var t = "";
+  for(let i=0;i<obj.length;i++){
+    t +='<div class="sampleitem">';
+   
+    t +='<p class="item-product">';
+    t +=obj[i].name;
+    t +='</p>';
+    t +='<p>';
+    t +='<del>';
+    t +="Rs."+obj[i].price;
+    t +='</del>';
+    t +='<span>';
+    t +="From Rs."+obj[i].offerPrice;
+    t +='</span>';
+    t +='</p>';
+    
+    t +='</div>';
+    document.getElementById("samplew").innerHTML=t;
+    
+  }
+ 
+    
+  }
+
+
 function incrementbtn(){
 	var getvalue=document.getElementById("getvalue").value;
 	var increevalue=++getvalue;
@@ -128,21 +360,4 @@ function decrementbtn(){
 	}
 	document.getElementById("getvalue").value=degreevalue;
 }
-var header = document.getElementById("mydiv");
-var btns = header.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function () {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
-}
-var header2 = document.getElementById("mydiv2");
-var btns2 = header2.getElementsByClassName("cateheadings");
-for (var i = 0; i < btns2.length; i++) {
-  btns2[i].addEventListener("click", function () {
-    var current2 = document.getElementsByClassName("active2");
-    current2[0].className = current2[0].className.replace(" active2", "");
-    this.className += " active2";
-  });
-}
+
