@@ -33,6 +33,13 @@ body{
     margin-top: 5px;
     padding-left: 20px;
 }
+.imgclass{
+    width: 30px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+}
 #menutotleft{
     display: none;
     width: 40%;

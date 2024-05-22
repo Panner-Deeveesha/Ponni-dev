@@ -167,40 +167,69 @@ function productpage(){
 
 }
 function getByproductname(innerHTML2) {
-  var proname =innerHTML2;
+  var name =innerHTML2;
   var data = {
-      "name": proname
+      "name": name
   }
   $.ajax({
-      url: "./php/getAllProducts.php",
-      type: "get",
+      url: "./php/getbyproductname.php",
+      type: "post",
       data: data,
       success: function (response) {
-        var obj = JSON.parse(response);
-        //var uniqueId = [];
-        // $( obj ).each(function(index,value  ) {
-        //console.log(value.uniqueId);
-        // uniqueId.push(value.uniqueId);
-        // });
+        var boo = isJsonString(response);
        
-        productpagegetPrice(obj,proname);
+        if(boo==true){
+            var obj = JSON.parse(response);
+            
+          
+           getAvailability(obj);
+           
+        }else{
+            console.log("Error");
+        }   
+
+    },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+  
+}
+function getAvailability(obj){
+
+ 
+    $.ajax({
+      url: "./php/getAllavailability.php",
+      type: "get",
+      success: function (response) {
+          var obj2 = JSON.parse(response);
+          
+          $(obj).each(function (index, value) {
+             
+              $(obj2).each(function (index2, value2) {
+                  if (value.uniqueId == value2.id) {
+                      //console.log(value.uniqueId+":"+value2.id  );
+                      value.availability = value2.availability;
+                     
+                    
+                  }
+              });
+              
+          });
+          //showNewLanches(obj);
+        
+       
+         productpagegetPrice(obj);
+          
+      
       },
       error: function (error) {
           console.log(error);
       }
   });
+  
 }
-function fetchproduct(obj,proname){
-
-  for(i=0;i<obj.length;i++){
-    var productname=obj[i].name;
-    if(proname==productname){
-      displayproduct(obj[i]);
-    }
-  }
-
-}
-function productpagegetPrice(obj,proname) {
+function productpagegetPrice(obj) {
   $.ajax({
       url: "./php/getPrice.php",
       type: "get",
@@ -221,40 +250,86 @@ function productpagegetPrice(obj,proname) {
               
           });
           //showNewLanches(obj);
-        
-        fetchproduct(obj,proname)
+       displayproduct(obj);
+       
+         
+      
       },
       error: function (error) {
           console.log(error);
       }
   });
 }
-function displayproduct(obj){
+var nummaxvalue;
+function displayproduct(input){
 
+console.log(input);
 
   var s = "";
 
-
-    s +='<div class="product-details">';
+  s +='<div class="product-details">';
    
-    s +='<h3>';
-    s +=obj.name;
-    s +='</h3>';
-    s +='<p>';
-    s +='<del>';
-    s +="Rs."+obj.price;
-    s +='</del>';
-    s +='<span>';
-    s +="From Rs."+obj.offerPrice;
-    s +='</span>';
-    s +='</p>';
-    s +='</div>';
-    document.getElementById("product-content").innerHTML=s;
+  s +='<h3>';
+  s +=input[0].name;
+  s +='</h3>';
+  s +='<p>';
+  s +='<del>';
+  s +="Rs."+input[0].price;
+  s +='</del>';
+  s +='<span>';
+  s +="From Rs."+input[0].offerPrice;
+  s +='</span>';
+  s +='</p>';
+  s +='<p>';
+  s +="QUANTITY : "+input[0].volume+input[0].unit;
+  s +='</p>';
+  s +='<div class="cate-grambutton">';
+  for(let i=0;i<input.length;i++){
+    var dynamiid='dynamic-id'+(i+1);
+    if(i==0){
+    
+      s +='<button type="button" id="'+dynamiid+'" class="btnnormal highlightbtn" onclick="highlightbtn(this.id)">';
+      s +=input[i].volume+" "+input[i].unit;
+      s +='</button>';
+    }
+    else{
+    
+      s +='<button type="button" id="'+dynamiid+'"class="btnnormal" onclick="highlightbtn(this.id)">';
+      s +=input[i].volume+" "+input[i].unit;
+      s +='</button>';
+    }
+  }
+
+  
+
+  s +='</div>';
+  s +='</div>';
+  const inputnum = document.getElementById("getvalue");
+inputnum.setAttribute("max", input[0].availability);
+
+
+
+
+    
+document.getElementById("product-content").innerHTML=s;
     
   
 
 
 }
+function highlightbtn(clickedid){
+var byid=document.getElementById(clickedid);
+  $('.btnnormal').removeClass('highlightbtn');
+  
+    // Add "active" class to the clicked button
+    
+    byid.classList.add('highlightbtn');
+}
+
+
+
+
+
 function isJsonString(str) {
   try {
       JSON.parse(str);
@@ -277,7 +352,7 @@ function getBycategory(innerHTML) {
          
           if(boo==true){
               var obj = JSON.parse(response);
-              
+           
               getPrice(obj);
              
           }else{
@@ -290,7 +365,9 @@ function getBycategory(innerHTML) {
       }
   });
 }
+
 function getPrice(obj) {
+  
   $.ajax({
       url: "./php/getPrice.php",
       type: "get",
@@ -311,7 +388,7 @@ function getPrice(obj) {
               
           });
           //showNewLanches(obj);
-        
+         
           displaycategories(obj);
       },
       error: function (error) {
@@ -322,19 +399,30 @@ function getPrice(obj) {
 
 function displaycategories(obj){
 
+
+const uniqueMap = new Map();
+
+obj.forEach((item) => {
+  
+  uniqueMap.set(item.name, item);
+});
+
+const uniqueObjects = Array.from(uniqueMap.values());
+
+
  var t = "";
-  for(let i=0;i<obj.length;i++){
+  for(let i=0;i<uniqueObjects.length;i++){
     t +='<div class="sampleitem">';
    
     t +='<p class="item-product">';
-    t +=obj[i].name;
+    t +=uniqueObjects[i].name;
     t +='</p>';
     t +='<p>';
     t +='<del>';
-    t +="Rs."+obj[i].price;
+    t +="Rs."+uniqueObjects[i].price;
     t +='</del>';
     t +='<span>';
-    t +="From Rs."+obj[i].offerPrice;
+    t +="From Rs."+uniqueObjects[i].offerPrice;
     t +='</span>';
     t +='</p>';
     
@@ -348,8 +436,15 @@ function displaycategories(obj){
 
 
 function incrementbtn(){
+  const passwordInput = document.getElementById("getvalue");
+const maxLength = passwordInput.max;
+console.log(maxLength);
+
 	var getvalue=document.getElementById("getvalue").value;
 	var increevalue=++getvalue;
+  if(increevalue>=maxLength){
+    increevalue=maxLength;
+  }
 	document.getElementById("getvalue").value=increevalue;
 }
 function decrementbtn(){

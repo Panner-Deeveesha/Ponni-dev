@@ -1,14 +1,3 @@
-const products = [
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Sesame-Oil.jpg', name: 'Wood Pressed Gingelly Oil', price: 480, category: 'Oil' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Groundnut-oil.jpg', name: 'Wood Pressed Groundnut Oil ', price: 360, category: 'Oil' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Coconut-Oil.jpg', name: 'Wood Pressed Coconut Oil ', price: 360, category: 'Oil' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Had-pound-rice.jpg', name: 'Little millet Rice', price: 70, category: 'Rice' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Had-pound-rice.jpg', name: 'Kodo millet Rice', price: 70, category: 'Rice' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Kullakar-Rice.jpg2_.jpg', name: 'foxtail millet Rice', price: 70, category: 'Rice' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Kullakar-Rice.jpg2_.jpg', name: 'barnyard millet Rice', price: 70, category: 'Rice' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Mappillai-Samba-Arisi.jpg', name: 'bridegroom Rice ', price: 60, category: 'Rice' }
-];
-
 var ulit = document.getElementById("productList");
 
 document.getElementById('searchInput').addEventListener('input', function () {
@@ -45,37 +34,45 @@ function displayProducts(searchTerm) {
 }
 
 function Pricecheck(obj) {
-  $.ajax({
-      url: "./php/getPrice.php",
-      type: "get",
+  for(i=0;i<obj.length;i++){
+    var name = obj[i].uniqueId;
+    var data = {
+      "name": name
+    }
+  }
+    $.ajax({
+      url: "./php/pricebyunique.php",
+      type: "post",
+      data: data,
       success: function (response) {
-          var obj2 = JSON.parse(response);
-          //console.log(response);
-          // console.log(obj);
-          $(obj).each(function (index, value) {
-              //console.log(value);
-              $(obj2).each(function (index2, value2) {
-                  if (value.uniqueId == value2.id) {
-                      //console.log(value.uniqueId+":"+value2.id  );
-                      value.price = value2.price;
-                      value.offerPrice = value2.offerPrice;
-                      //console.log(value);
-                  }
-              });
-              //showNewLanches(obj);
-          });
+        var obj2 = JSON.parse(response);
+        //console.log(response);
+        console.log(obj);
+        $(obj).each(function (index, value) {
+          //console.log(value);
+            $(obj2).each(function (index2, value2) {
+              if (value.uniqueId == value2.id) {
+                //console.log(value.uniqueId+":"+value2.id  );
+                value.price = value2.price;
+                value.offerPrice = value2.offerPrice;
+                //console.log(value);
+              }
+            });
+            //showNewLanches(obj);
+        });
+        console.log(obj);
         getvalfn(obj);
       },
       error: function (error) {
-          console.log(error);
+        console.log(error);
       }
-  });
+    });
+
 }
 
 function getvalfn(obj){
   //console.log(obj);
   var num = obj.length;
-  
   /*const uniqueMap = new Map();
   obj.forEach((item) => {
     uniqueMap.set(item.name,item);
