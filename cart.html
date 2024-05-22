@@ -549,22 +549,79 @@
 	var xhr = new XMLHttpRequest();
         xhr.open("POST", "./php/cartdetail.php", true);
         xhr.onreadystatechange = function () {
-		var cartDiv = document.getElementById("ponniproductpage.html");
-	            var pricediv=document.getElementById("cart-price1");
-                var Quantitydiv=document.getElementById(" cartgetvalue");
+		var cartDiv ="";
+	           
             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
                 
                 var products = JSON.parse(xhr.responseText);
              
       
                 products.forEach(function (product) {
-                    cartDiv.innerHTML = "<div>" + product.productName+ "</div>";
-                   pricediv.innerHTML ="<span>"+product.productprice+"</span>";
-                 
-                });
+                    
+                        cartDiv +='<div class="cart-description1">';
+                            cartDiv+='<img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/TirunelveliHalwa2.jpg?v=1695623373&width=120">';
+                            cartDiv +='<div class="cart-product1" >'; 
+                                cartDiv +='<p id="cart-productname"> ';
+                                    cartDiv +=product.productName;
+                                    cartDiv+='</p>';
+                                  
+                                    cartDiv +='<p>';
+                                        cartDiv+=product.Quantity;
+                                        cartDiv+='</p>';
+                                        cartDiv +='<p>'; 
+                                            cartDiv += '<img src="./assets/icons/icons8-delete-20.png">' ;
+                                            cartDiv +='</p>'; 
+                                        cartDiv+= '</div>';
+                                        cartDiv+= '</div>';
+                                        cartDiv+='<div class="cart-price">';
+                                    cartDiv +='<del>';
+                                        cartDiv +='Rs. 189.00';
+                                        cartDiv +='</del>';
+                                        cartDiv +='<span class="product-price" id="cart-price1">';
+                                            cartDiv +=product.productprice;
+                                            cartDiv +='</span>';
+                                            cartDiv +='</div>';
+                                            cartDiv+='<div class="cartinputavailability">';
+                                                cartDiv+= ' <button onclick="updateTotal(this, -1)">';  
+                                                    cartDiv +='-' ;
+                                                    cartDiv+='</button>';
+                                                    cartDiv+=`<input id="cartgetvalue" type="number"  class="product-quantity" value='${product.count}'>`; 
+
+                                                    cartDiv+='<button "onclick=updateTotal(this, 1)">';
+                                                        
+                                                        cartDiv +='+';
+                                                     cartDiv +='</button>';
+                                                     cartDiv +='</div>';
+
+                                                      cartDiv +='<div class="cart-totalvalue">';
+                                                        cartDiv += '<p class="total-value">Total: Rs. ' + (parseFloat(product.productprice) * parseInt(product.count)).toFixed(2) + '</p>';
+                                                        cartDiv +='</div>';
+                                                        cartDiv +='</div>';
+                         
+
+
+                
+                                                    }); 
+                                                    console.log(cartDiv);
+
+                document.getElementById("cart-descriptionid").innerHTML= cartDiv;
             }
         };
         xhr.send();
+        function updateTotal(btn, increment) {
+    var quantityInput = btn.parentNode.querySelector('.product-quantity');
+    var price = parseFloat(quantityInput.parentNode.previousElementSibling.querySelector('.product-price').textContent);
+    var quantity = parseInt(quantityInput.value);
+    quantity += increment;
+    if (quantity < 1) {
+        quantity = 1;
+    }
+    quantityInput.value = quantity;
+    var totalValue = price * quantity;
+    btn.parentNode.nextElementSibling.querySelector('.total-value').textContent = 'Total: Rs. ' + totalValue.toFixed(2);
+}
+
+
 	</script>
 	</body>
 	</html>
