@@ -9,10 +9,13 @@ const products = [
   { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Mappillai-Samba-Arisi.jpg', name: 'bridegroom Rice ', price: 60, category: 'Rice' }
 ];
 
+var ulit = document.getElementById("productList");
+
 document.getElementById('searchInput').addEventListener('input', function () {
   const searchTerm = this.value;
   const tolen = searchTerm.length;
-  if(tolen > 3){
+  ulit.innerHTML = " ";
+  if(tolen >= 3){
     displayProducts(searchTerm);
   }
 });
@@ -72,6 +75,7 @@ function Pricecheck(obj) {
 function getvalfn(obj){
   //console.log(obj);
   var num = obj.length;
+  
   /*const uniqueMap = new Map();
   obj.forEach((item) => {
     uniqueMap.set(item.name,item);
@@ -81,7 +85,6 @@ function getvalfn(obj){
     var prodname = obj[i].name;
     var prodprice = obj[i].price;
     var offprice = obj[i].offerPrice;
-    var ulit = document.getElementById("productList");
     var listcreate= document.createElement("li");
     listcreate.id = "acting";
     listcreate.innerHTML ="<div id='titlesear'>" + prodname + "</div>" + "<del id='delval'> " + prodprice + "</del>" + " <span id='offpriceid'>" + offprice + "</span>";
