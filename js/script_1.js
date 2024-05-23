@@ -327,10 +327,10 @@ $(document).ready(function () {
 
   $(document).click(function (event) {
     if (!$(event.target).closest("#searchInput").length) {
-      $("#productList").css("display", "none");
+      $("#productList").css("display", "block");
     }
     else {
-      $("#productList").css("display", "block");
+      $("#productList").css("display", "none");
     }
   });
 
