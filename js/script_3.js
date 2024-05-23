@@ -76,3 +76,90 @@ document.getElementById("paymobile").onclick = function() {
   document.getElementById("paycontinue2").style.display="none"; 
   document.getElementById("paymentwalletid").style.display="none"; 
 };
+function cartadding(){
+    var productName =document.getElementsByClassName("cate-productlist").innerHTML;
+    var productPrice = document.querySelector('.cate-amount span'); ;
+       var productcount=document.getElementById("getvalue").value;
+	   
+    // Send product details to server using AJAX
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "cart.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            console.log("Product added to cart successfully");
+        }
+    };
+    var data = "productName=" + encodeURIComponent(productName) + "&productPrice=" + encodeURIComponent(productPrice)+"&productcount=" + encodeURIComponent(productcount);
+   console.log(data);
+
+
+
+   xhr.send(data);
+	
+}
+
+$(document).ready(function() {
+  $.ajax({
+      type: "POST",
+      url: "./php/cartdetail.php",
+      dataType: "json",
+      success: function(products) {
+          var cartDiv = "";
+          products.forEach(function(product) {
+              cartDiv += '<div class="cart-description1">';
+              cartDiv += '<img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/TirunelveliHalwa2.jpg?v=1695623373&width=120">';
+              cartDiv += '<div class="cart-product1">';
+              cartDiv += '<p id="cart-productname">';
+              cartDiv += product.productName;
+              cartDiv += '</p>';
+              cartDiv += '<p>';
+              cartDiv += product.Quantity;
+              cartDiv += '</p>';
+              cartDiv += '<p>';
+              cartDiv += '<img src="./assets/icons/icons8-delete-20.png">';
+              cartDiv += '</p>';
+              cartDiv += '</div>';
+              cartDiv += '</div>';
+              cartDiv += '<div class="cart-price">';
+              cartDiv += '<del>';
+              cartDiv += 'Rs. 189.00';
+              cartDiv += '</del>';
+              cartDiv += '<span class="product-price" id="cart-price1">';
+              cartDiv += product.productprice;
+              cartDiv += '</span>';
+              cartDiv += '</div>';
+              cartDiv += '<div class="cartinputavailability">';
+              cartDiv += '<button onclick="updateTotal(this, -1)">';
+              cartDiv += '-';
+              cartDiv += '</button>';
+              cartDiv += `<input id="cartgetvalue" type="number" class="product-quantity" value='${product.count}'>`;
+              cartDiv += '<button onclick="updateTotal(this, 1)">';
+              cartDiv += '+';
+              cartDiv += '</button>';
+              cartDiv += '</div>';
+              cartDiv += '<div class="cart-totalvalue">';
+              cartDiv += '<p class="total-value">' + product.totsl + '</p>';
+              cartDiv += '</div>';
+              cartDiv += '</div>';
+          });
+          $("#cart-descriptionid").html(cartDiv);
+      },
+      error: function(xhr, status, error) {
+          console.error("Error:", error); 
+      }
+  });
+});
+function incrementbtn1(){
+	var getvalue=document.getElementById("cartgetvalue").value;
+	var increevalue=++getvalue;
+	document.getElementById("cartgetvalue").value=increevalue;
+}
+function decrementbtn1(){
+	var leastvalue=document.getElementById("cartgetvalue").value;
+	var degreevalue=--leastvalue;
+	if(degreevalue==0){
+		degreevalue=1;
+	}
+	document.getElementById("cartgetvalue").value=degreevalue;
+}
