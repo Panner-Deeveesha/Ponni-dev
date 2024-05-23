@@ -3,7 +3,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $productName = $_POST['productName'];
 $productPrice= $_POST['productPrice'];
 $productcount = $_POST['productcount'];
-$quantity = $_POST['Quantity'];
+$Total = $_POST['Total'];
 }
 $servername = "localhost";
 $username = "root";
@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 }
 
 // Insert product details into database
-$sql ="INSERT INTO `usecart1`(`productName`,`productprice`,`count`,`Quantity`)VALUES('$productName','$productPrice','$productcount','$quantity')"; 
+$sql ="INSERT INTO `usecart1`(`productName`,`productprice`,`count`,`total`)VALUES('$productName','$productPrice','$productcount','$Total')"; 
 $excute= mysqli_query($conn,$sql);
 if($excute) {
   echo "newrecord created successfully";
