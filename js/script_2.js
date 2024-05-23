@@ -260,76 +260,87 @@ function productpagegetPrice(obj) {
       }
   });
 }
-var nummaxvalue;
+
 function displayproduct(input){
-
 console.log(input);
-
   var s = "";
 
   s +='<div class="product-details">';
    
-  s +='<h3>';
+  s +='<h3 id="productname">';
   s +=input[0].name;
   s +='</h3>';
   s +='<p>';
-  s +='<del>';
+  s +='<del id="pricedetails">';
   s +="Rs."+input[0].price;
   s +='</del>';
-  s +='<span>';
+  s +='<span id="offerpricedetails">';
   s +="From Rs."+input[0].offerPrice;
   s +='</span>';
   s +='</p>';
-  s +='<p>';
+  s +='<p id="quantityvalue">';
   s +="QUANTITY : "+input[0].volume+input[0].unit;
   s +='</p>';
   s +='<div class="cate-grambutton">';
-  for(let i=0;i<input.length;i++){
+  for(var i=0;i<input.length;i++){
     var dynamiid='dynamic-id'+(i+1);
     if(i==0){
     
       s +='<button type="button" id="'+dynamiid+'" class="btnnormal highlightbtn" onclick="highlightbtn(this.id)">';
+      
       s +=input[i].volume+" "+input[i].unit;
       s +='</button>';
     }
     else{
-    
-      s +='<button type="button" id="'+dynamiid+'"class="btnnormal" onclick="highlightbtn(this.id)">';
-      s +=input[i].volume+" "+input[i].unit;
+      s +='<button type="button" id="'+dynamiid+'" class="btnnormal" onclick="highlightbtn(this.id)">';
+     s +=input[i].volume+" "+input[i].unit;
       s +='</button>';
+    
     }
+ 
+
   }
 
   
 
   s +='</div>';
   s +='</div>';
+
+  document.getElementById("product-content").innerHTML=s;
+
+  $(document).on("click", ".btnnormal", function() {
+    var buttons = $(".btnnormal"); // Get all buttons with the class "btnnormal"
+    var index = buttons.index($(this));
+    //console.log("Button clicked at index: " + index);
+    document.getElementById("pricedetails").innerHTML="Rs. "+input[index].price;
+    document.getElementById("quantityvalue").innerHTML="QUANTITY : "+input[index].volume+input[index].unit;
+    document.getElementById("offerpricedetails").innerHTML="From Rs. "+input[index].offerPrice;
+  });
+
   const inputnum = document.getElementById("getvalue");
 inputnum.setAttribute("max", input[0].availability);
 
-
-
-
-    
-document.getElementById("product-content").innerHTML=s;
-    
   
 
-
 }
+
+
+
 function highlightbtn(clickedid){
-var byid=document.getElementById(clickedid);
-  $('.btnnormal').removeClass('highlightbtn');
+  var byid=document.getElementById(clickedid);
   
-    // Add "active" class to the clicked button
+    $('.btnnormal').removeClass('highlightbtn');
+    var innervalue=byid.innerHTML;
+   
+     
+      byid.classList.add('highlightbtn');
+   
+     // console.log(input);
+    //$(".pricedetails del").innerHTML=input[0].price;
+  }
+
+
     
-    byid.classList.add('highlightbtn');
-}
-
-
-
-
-
 function isJsonString(str) {
   try {
       JSON.parse(str);
@@ -455,4 +466,3 @@ function decrementbtn(){
 	}
 	document.getElementById("getvalue").value=degreevalue;
 }
-
