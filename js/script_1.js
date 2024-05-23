@@ -4,13 +4,15 @@ document.getElementById('searchInput').addEventListener('input', function () {
   const searchTerm = this.value;
   const tolen = searchTerm.length;
   ulit.innerHTML = " ";
+  //console.log(tolen);
+  var replacedString = searchTerm.replace(/ /g, "_");
   if(tolen >= 3){
-    displayProducts(searchTerm);
+    displayProducts(replacedString);
   }
 });
 
-function displayProducts(searchTerm) {
-  var name = searchTerm;
+function displayProducts(replacedString) {
+  var name = replacedString.replace(/_/g, " ");
   var data = {
       "name": name
   }
@@ -34,20 +36,17 @@ function displayProducts(searchTerm) {
 }
 
 function Pricecheck(obj) {
-  for(i=0;i<obj.length;i++){
-    var name = obj[i].uniqueId;
-    var data = {
-      "name": name
-    }
-  }
-    $.ajax({
+  var jsonObjects = JSON.stringify(obj);
+  console.log(obj);
+  console.log(jsonObjects);
+  $.ajax({
       url: "./php/pricebyunique.php",
       type: "post",
-      data: data,
+      data: { objects: jsonObjects },
       success: function (response) {
         var obj2 = JSON.parse(response);
         //console.log(response);
-        console.log(obj);
+        console.log(obj2);
         $(obj).each(function (index, value) {
           //console.log(value);
             $(obj2).each(function (index2, value2) {
