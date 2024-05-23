@@ -37,8 +37,8 @@ function displayProducts(replacedString) {
 
 function Pricecheck(obj) {
   var jsonObjects = JSON.stringify(obj);
-  console.log(obj);
-  console.log(jsonObjects);
+  //console.log(obj);
+  //console.log(jsonObjects);
   $.ajax({
       url: "./php/pricebyunique.php",
       type: "post",
@@ -46,7 +46,7 @@ function Pricecheck(obj) {
       success: function (response) {
         var obj2 = JSON.parse(response);
         //console.log(response);
-        console.log(obj2);
+        //console.log(obj2);
         $(obj).each(function (index, value) {
           //console.log(value);
             $(obj2).each(function (index2, value2) {
@@ -59,7 +59,7 @@ function Pricecheck(obj) {
             });
             //showNewLanches(obj);
         });
-        console.log(obj);
+        //console.log(obj);
         getvalfn(obj);
       },
       error: function (error) {
@@ -101,7 +101,8 @@ function getprod(getname) {
       var boo = isJsonString(response);
       if(boo==true){
           var obj = JSON.parse(response);
-          getPrice2(obj);
+          //console.log(obj);
+          getAvail(obj);
       }else{
           console.log("Error");
       }   
@@ -119,6 +120,29 @@ function isJsonString(str) {
       return false;
   }
   return true;
+}
+
+function getAvail(obj){
+  $.ajax({
+    url: "./php/getAllavailability.php",
+    type: "get",
+    success: function (response) {
+        var obj2 = JSON.parse(response);
+        $(obj).each(function (index, value) {
+          $(obj2).each(function (index2, value2) {
+            if (value.uniqueId == value2.id) {
+              //console.log(value.uniqueId+":"+value2.id  );
+              value.availability = value2.availability;
+            }
+          });
+        });
+        //showNewLanches(obj);
+        getPrice2(obj);
+    },
+    error: function (error) {
+        console.log(error);
+    }
+});
 }
 
 function getPrice2(obj) {
@@ -180,12 +204,22 @@ function productpageonload(){
   hecticinsert +='</p>';
   hecticinsert +='<div class="cate-grambutton">'; 
   for(let i=0;i<converttoobj.length;i++){
-    hecticinsert += '<button class="btn-highlight">';
-    hecticinsert += converttoobj[i].volume + " " + converttoobj[i].unit;
-    hecticinsert += '</button>'
+    var idcreate='idcreate'+(i+1);
+    if(i==0){
+      hecticinsert +='<button type="button" id="'+idcreate+'" class="btnnormal highlightbtn" onclick="highlightbtn(this.id)">';
+      hecticinsert +=converttoobj[i].volume + " " + converttoobj[i].unit;
+      hecticinsert +='</button>';
+    }
+    else{
+      hecticinsert +='<button type="button" id="'+dynamiid+'"class="btnnormal" onclick="highlightbtn(this.id)">';
+      hecticinsert +=converttoobj[i].volume + " " + converttoobj[i].unit;
+      hecticinsert +='</button>';
+    }
   }
   hecticinsert +='</div>';
   hecticinsert +='</div>';
+  const inputnum = document.getElementById("getvalue");
+  inputnum.setAttribute("max", converttoobj[0].availability);
   document.getElementById("product-content").innerHTML= hecticinsert;
 }
 
@@ -279,10 +313,10 @@ $(document).ready(function () {
 
   $(document).click(function (event) {
     if (!$(event.target).closest("#searchInput").length) {
-      $("#productList").css("display", "none");
+      $("#productList").css("display", "block");
     }
     else {
-      $("#productList").css("display", "block");
+      $("#productList").css("display", "none");
     }
   });
 
