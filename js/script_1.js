@@ -1,27 +1,18 @@
-const products = [
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Sesame-Oil.jpg', name: 'Wood Pressed Gingelly Oil', price: 480, category: 'Oil' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Groundnut-oil.jpg', name: 'Wood Pressed Groundnut Oil ', price: 360, category: 'Oil' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Coconut-Oil.jpg', name: 'Wood Pressed Coconut Oil ', price: 360, category: 'Oil' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Had-pound-rice.jpg', name: 'Little millet Rice', price: 70, category: 'Rice' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Had-pound-rice.jpg', name: 'Kodo millet Rice', price: 70, category: 'Rice' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Kullakar-Rice.jpg2_.jpg', name: 'foxtail millet Rice', price: 70, category: 'Rice' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Kullakar-Rice.jpg2_.jpg', name: 'barnyard millet Rice', price: 70, category: 'Rice' },
-  { imageurl: 'https://gramiyum.in/wp-content/uploads/2022/09/Mappillai-Samba-Arisi.jpg', name: 'bridegroom Rice ', price: 60, category: 'Rice' }
-];
-
 var ulit = document.getElementById("productList");
 
 document.getElementById('searchInput').addEventListener('input', function () {
   const searchTerm = this.value;
   const tolen = searchTerm.length;
   ulit.innerHTML = " ";
+  //console.log(tolen);
+  var replacedString = searchTerm.replace(/ /g, "_");
   if(tolen >= 3){
-    displayProducts(searchTerm);
+    displayProducts(replacedString);
   }
 });
 
-function displayProducts(searchTerm) {
-  var name = searchTerm;
+function displayProducts(replacedString) {
+  var name = replacedString.replace(/_/g, " ");
   var data = {
       "name": name
   }
@@ -45,37 +36,42 @@ function displayProducts(searchTerm) {
 }
 
 function Pricecheck(obj) {
+  var jsonObjects = JSON.stringify(obj);
+  //console.log(obj);
+  //console.log(jsonObjects);
   $.ajax({
-      url: "./php/getPrice.php",
-      type: "get",
+      url: "./php/pricebyunique.php",
+      type: "post",
+      data: { objects: jsonObjects },
       success: function (response) {
-          var obj2 = JSON.parse(response);
-          //console.log(response);
-          // console.log(obj);
-          $(obj).each(function (index, value) {
-              //console.log(value);
-              $(obj2).each(function (index2, value2) {
-                  if (value.uniqueId == value2.id) {
-                      //console.log(value.uniqueId+":"+value2.id  );
-                      value.price = value2.price;
-                      value.offerPrice = value2.offerPrice;
-                      //console.log(value);
-                  }
-              });
-              //showNewLanches(obj);
-          });
+        var obj2 = JSON.parse(response);
+        //console.log(response);
+        //console.log(obj2);
+        $(obj).each(function (index, value) {
+          //console.log(value);
+            $(obj2).each(function (index2, value2) {
+              if (value.uniqueId == value2.id) {
+                //console.log(value.uniqueId+":"+value2.id  );
+                value.price = value2.price;
+                value.offerPrice = value2.offerPrice;
+                //console.log(value);
+              }
+            });
+            //showNewLanches(obj);
+        });
+        //console.log(obj);
         getvalfn(obj);
       },
       error: function (error) {
-          console.log(error);
+        console.log(error);
       }
-  });
+    });
+
 }
 
 function getvalfn(obj){
   //console.log(obj);
   var num = obj.length;
-  
   /*const uniqueMap = new Map();
   obj.forEach((item) => {
     uniqueMap.set(item.name,item);
@@ -105,7 +101,8 @@ function getprod(getname) {
       var boo = isJsonString(response);
       if(boo==true){
           var obj = JSON.parse(response);
-          getPrice2(obj);
+          //console.log(obj);
+          getAvail(obj);
       }else{
           console.log("Error");
       }   
@@ -123,6 +120,29 @@ function isJsonString(str) {
       return false;
   }
   return true;
+}
+
+function getAvail(obj){
+  $.ajax({
+    url: "./php/getAllavailability.php",
+    type: "get",
+    success: function (response) {
+        var obj2 = JSON.parse(response);
+        $(obj).each(function (index, value) {
+          $(obj2).each(function (index2, value2) {
+            if (value.uniqueId == value2.id) {
+              //console.log(value.uniqueId+":"+value2.id  );
+              value.availability = value2.availability;
+            }
+          });
+        });
+        //showNewLanches(obj);
+        getPrice2(obj);
+    },
+    error: function (error) {
+        console.log(error);
+    }
+});
 }
 
 function getPrice2(obj) {
@@ -184,12 +204,22 @@ function productpageonload(){
   hecticinsert +='</p>';
   hecticinsert +='<div class="cate-grambutton">'; 
   for(let i=0;i<converttoobj.length;i++){
-    hecticinsert += '<button class="btn-highlight">';
-    hecticinsert += converttoobj[i].volume + " " + converttoobj[i].unit;
-    hecticinsert += '</button>'
+    var idcreate='idcreate'+(i+1);
+    if(i==0){
+      hecticinsert +='<button type="button" id="'+idcreate+'" class="btnnormal highlightbtn" onclick="highlightbtn(this.id)">';
+      hecticinsert +=converttoobj[i].volume + " " + converttoobj[i].unit;
+      hecticinsert +='</button>';
+    }
+    else{
+      hecticinsert +='<button type="button" id="'+dynamiid+'"class="btnnormal" onclick="highlightbtn(this.id)">';
+      hecticinsert +=converttoobj[i].volume + " " + converttoobj[i].unit;
+      hecticinsert +='</button>';
+    }
   }
   hecticinsert +='</div>';
   hecticinsert +='</div>';
+  const inputnum = document.getElementById("getvalue");
+  inputnum.setAttribute("max", converttoobj[0].availability);
   document.getElementById("product-content").innerHTML= hecticinsert;
 }
 
@@ -283,10 +313,10 @@ $(document).ready(function () {
 
   $(document).click(function (event) {
     if (!$(event.target).closest("#searchInput").length) {
-      $("#productList").css("display", "none");
+      $("#productList").css("display", "block");
     }
     else {
-      $("#productList").css("display", "block");
+      $("#productList").css("display", "none");
     }
   });
 
