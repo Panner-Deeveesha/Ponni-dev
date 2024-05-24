@@ -1,6 +1,6 @@
 <?php
     include "config.php";
-    $name = $_POST["name"];
+    $name = $_POST["productName"];
     $sql = "SELECT productName,productId,unit,volume FROM products WHERE productName='$name' AND isActive='1'";
     $res = $con->query($sql);
 
