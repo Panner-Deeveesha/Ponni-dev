@@ -337,7 +337,7 @@ function getAvailability(obj){
               
           });
           //showNewLanches(obj);
-       
+         console.log(obj);
        
          productpagegetPrice(obj);
           
@@ -424,11 +424,13 @@ console.log(input);
   s +='</div>';
   s +='</div>';
 
-  const inputnum = document.getElementById("getvalue");
-inputnum.setAttribute("max", input[0].availability);
-
+  
 
   document.getElementById("product-content").innerHTML=s;
+
+  const inputnum = document.getElementById("getvalue");
+inputnum.setAttribute("max", input[0].availability);
+console.log(input[0].availability);
 
   $(document).on("click", ".btnnormal", function() {
     var buttons = $(".btnnormal"); // Get all buttons with the class "btnnormal"
