@@ -59,6 +59,7 @@ function Pricecheck(obj) {
             });
             //showNewLanches(obj);
         });
+
         //console.log(obj);
         getvalfn(obj);
       },
@@ -78,14 +79,27 @@ function getvalfn(obj){
   });
   const uniqueObj =  Array.from(uniqueMap.values());*/
   for(i=0;i<num;i++){
+    var t = "";
     var prodname = obj[i].name;
     var prodprice = obj[i].price;
     var offprice = obj[i].offerPrice;
     var listcreate= document.createElement("li");
     listcreate.id = "acting";
-    listcreate.innerHTML ="<div id='titlesear'>" + prodname + "</div>" + "<del id='delval'> " + prodprice + "</del>" + " <span id='offpriceid'>" + offprice + "</span>";
+    t += "<img src=https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Sesame-Oil.jpg class='searimg'>";
+    t += "<div id='titlesear'>";
+    t += prodname;
+    t += "</div>";
+    //t += "<del id='delval'> ";
+    //t += prodprice;
+    //t += "</del>";
+    //t += " <span id='offpriceid'>";
+    //t += offprice;
+    //t += "</span>";
+    listcreate.innerHTML = t;
+    //listcreate.innerHTML = "<img src=https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Sesame-Oil.jpg class='searimg'>" + "<div id='titlesear'>" + prodname + "</div>" + "<del id='delval'> " + prodprice + "</del>" + " <span id='offpriceid'>" + offprice + "</span>";
     ulit.appendChild(listcreate);
   }
+  
 }
 
 function getprod(getname) {
@@ -185,7 +199,7 @@ function productpageonload(){
   const serializedData = urlParams.get("data");
   const deserializedObject = JSON.parse(decodeURIComponent(serializedData));
   var converttoobj = JSON.parse(serializedData);
-  console.log(converttoobj);
+  //console.log(converttoobj);
   var hecticinsert = "";
   hecticinsert +='<div class="product-details">';  
   hecticinsert +='<h3>';

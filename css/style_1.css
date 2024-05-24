@@ -96,16 +96,27 @@ body{
 	padding:5px;
 	height:auto;
 }
+.searimg{
+    width:60px; 
+    height:auto; 
+    vertical-align:middle; 
+    padding:5px;
+}
 #productList li{
 	list-style:none;
     text-align: justify;
+    display: flex;
 }
-#productList span{
+#productList div{
     text-overflow: ellipsis;
-    width: 200px;
+    display: inline-block;
 }
 #offpriceid{
+    display: inline-block;
     color: #f41010;
+}
+#delval{
+    display: inline-block;
 }
 #carttot{
     width: 10%;
