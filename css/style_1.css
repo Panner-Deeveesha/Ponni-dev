@@ -106,11 +106,12 @@ body{
 	list-style:none;
     text-align: justify;
     display: flex;
+    padding: 10px;
 }
 #productList div{
     text-overflow: ellipsis;
-    display: inline-block;
 }
+
 #offpriceid{
     display: inline-block;
     color: #f41010;

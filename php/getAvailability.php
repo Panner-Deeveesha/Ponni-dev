@@ -1,6 +1,6 @@
 <?php
     include "config.php";
-    $uniqueId = $_POST["uniqueId"];
+    $uniqueId = $_POST["productId"];
 		 $sql = "SELECT availability,id FROM availability WHERE id='$uniqueId' AND isActive='1'";
     $res = $con->query($sql);
 

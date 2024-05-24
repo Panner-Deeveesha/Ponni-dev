@@ -4,7 +4,7 @@
 
  
 
-    $sql = "SELECT price, offerPrice,id FROM price WHERE isActive=1";
+    $sql = "SELECT price, offerPrice,productId FROM price WHERE isActive=1";
 
     $res = $con->query($sql);
 

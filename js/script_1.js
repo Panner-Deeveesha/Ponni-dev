@@ -50,7 +50,7 @@ function Pricecheck(obj) {
         $(obj).each(function (index, value) {
           //console.log(value);
             $(obj2).each(function (index2, value2) {
-              if (value.uniqueId == value2.id) {
+              if (value.productId == value2.productId) {
                 //console.log(value.uniqueId+":"+value2.id  );
                 value.price = value2.price;
                 value.offerPrice = value2.offerPrice;
@@ -80,15 +80,21 @@ function getvalfn(obj){
   const uniqueObj =  Array.from(uniqueMap.values());*/
   for(i=0;i<num;i++){
     var t = "";
-    var prodname = obj[i].name;
+    var prodname = obj[i].productName;
     var prodprice = obj[i].price;
     var offprice = obj[i].offerPrice;
+    var prodcat = obj[i].category;
     var listcreate= document.createElement("li");
     listcreate.id = "acting";
     t += "<img src=https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Sesame-Oil.jpg class='searimg'>";
+    t += "<div class='flecls'>"
     t += "<div id='titlesear'>";
     t += prodname;
     t += "</div>";
+    t += "<span id='prodcat'>Category: ";
+    t += prodcat;
+    t += "</span>";
+    t += "</div>"
     //t += "<del id='delval'> ";
     //t += prodprice;
     //t += "</del>";
@@ -144,7 +150,7 @@ function getAvail(obj){
         var obj2 = JSON.parse(response);
         $(obj).each(function (index, value) {
           $(obj2).each(function (index2, value2) {
-            if (value.uniqueId == value2.id) {
+            if (value.productId == value2.productId) {
               //console.log(value.uniqueId+":"+value2.id  );
               value.availability = value2.availability;
             }
@@ -170,7 +176,7 @@ function getPrice2(obj) {
           $(obj).each(function (index, value) {
               //console.log(value);
               $(obj2).each(function (index2, value2) {
-                  if (value.uniqueId == value2.id) {
+                  if (value.productId == value2.productId) {
                       //console.log(value.uniqueId+":"+value2.id  );
                       value.price = value2.price;
                       value.offerPrice = value2.offerPrice;
@@ -202,25 +208,25 @@ function productpageonload(){
   //console.log(converttoobj);
   var hecticinsert = "";
   hecticinsert +='<div class="product-details">';  
-  hecticinsert +='<h3>';
-  hecticinsert +=converttoobj[0].name;
+  hecticinsert +='<h3 id="productname">';
+  hecticinsert +=converttoobj[0].productName;
   hecticinsert +='</h3>';
   hecticinsert +='<p>';
-  hecticinsert +='<del>';
+  hecticinsert +='<del id="pricedetails">';
   hecticinsert +="Rs."+converttoobj[0].price;
   hecticinsert +='</del>';
-  hecticinsert +='<span>';
+  hecticinsert +='<span id="offerpricedetails">';
   hecticinsert +="From Rs."+converttoobj[0].offerPrice;
   hecticinsert +='</span>';
   hecticinsert +='</p>';
-  hecticinsert +='<p>';
+  hecticinsert +='<p id="quantityvalue">';
   hecticinsert +="QUANTITY : "+converttoobj[0].volume+converttoobj[0].unit;
   hecticinsert +='</p>';
   hecticinsert +='<div class="cate-grambutton">'; 
   for(let i=0;i<converttoobj.length;i++){
-    var idcreate='idcreate'+(i+1);
+    var dynamiid='dynamic-id'+(i+1);
     if(i==0){
-      hecticinsert +='<button type="button" id="'+idcreate+'" class="btnnormal highlightbtn" onclick="highlightbtn(this.id)">';
+      hecticinsert +='<button type="button" id="'+dynamiid+'" class="btnnormal highlightbtn" onclick="highlightbtn(this.id)">';
       hecticinsert +=converttoobj[i].volume + " " + converttoobj[i].unit;
       hecticinsert +='</button>';
     }
@@ -232,9 +238,20 @@ function productpageonload(){
   }
   hecticinsert +='</div>';
   hecticinsert +='</div>';
+  
+  document.getElementById("product-content").innerHTML= hecticinsert;
+
+  $(document).on("click", ".btnnormal", function() {
+    var buttons = $(".btnnormal"); // Get all buttons with the class "btnnormal"
+    var index = buttons.index($(this));
+    //console.log("Button clicked at index: " + index);
+    document.getElementById("pricedetails").innerHTML="Rs. "+converttoobj[index].price;
+    document.getElementById("quantityvalue").innerHTML="QUANTITY : "+converttoobj[index].volume+converttoobj[index].unit;
+    document.getElementById("offerpricedetails").innerHTML="From Rs. "+converttoobj[index].offerPrice;
+  });
+
   const inputnum = document.getElementById("getvalue");
   inputnum.setAttribute("max", converttoobj[0].availability);
-  document.getElementById("product-content").innerHTML= hecticinsert;
 }
 
 document.getElementById('searchInput2').addEventListener('input', function () {
@@ -327,10 +344,10 @@ $(document).ready(function () {
 
   $(document).click(function (event) {
     if (!$(event.target).closest("#searchInput").length) {
-      $("#productList").css("display", "block");
+      $("#productList").css("display", "none");
     }
     else {
-      $("#productList").css("display", "none");
+      $("#productList").css("display", "block");
     }
   });
 
