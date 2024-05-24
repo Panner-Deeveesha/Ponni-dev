@@ -289,7 +289,7 @@ function productpage(){
 function getByproductname(innerHTML2) {
   var productName =innerHTML2;
   var data = {
-      "productName": productName
+      "name": productName
   }
   $.ajax({
       url: "./php/getbyproductname.php",
@@ -482,10 +482,19 @@ var clickedposition;
 
 
   });
+  
 });
+
 }
 
+$(document).on("click", "#productaddbutton", function() {
+ 
 
+
+  window.location.href = "./cart.html";
+
+ 
+});
   
 
 

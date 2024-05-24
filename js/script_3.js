@@ -100,11 +100,14 @@ function cartadding(){
 }
 
 $(document).ready(function() {
+ 
   $.ajax({
       type: "POST",
       url: "./php/cartdetail.php",
       dataType: "json",
       success: function(products) {
+        cartByproductid (products);
+       
           var cartDiv = "";
           products.forEach(function(product) {
               cartDiv += '<div class="cart-description1">';
@@ -150,6 +153,48 @@ $(document).ready(function() {
       }
   });
 });
+
+
+
+    
+function isJsonString(str) {
+  try {
+      JSON.parse(str);
+  } catch (e) {
+      return false;
+  }
+  return true;
+}
+
+function  cartByproductid(sampleid) {
+ var sampleid=JSON.stringify(sampleid);
+  
+  $.ajax({
+      url: "./php/findbyproductId.php",
+      type: "post",
+      data: {
+        objects:sampleid
+      },
+      success: function (response) {
+        var boo = isJsonString(response);
+       
+        if(boo==true){
+            var obj = JSON.parse(response);
+            
+         
+         console.log(obj);
+           
+        }else{
+            console.log("Error");
+        }   
+
+    },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+  
+}
 function incrementbtn1(){
 	var getvalue=document.getElementById("cartgetvalue").value;
 	var increevalue=++getvalue;
