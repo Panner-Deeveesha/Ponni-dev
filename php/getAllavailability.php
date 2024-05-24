@@ -1,6 +1,6 @@
 <?php
     include "config.php";
-    $sql = "SELECT availability,id FROM availability WHERE isActive=1";
+    $sql = "SELECT availability,productId FROM availability WHERE isActive=1";
 
     $res = $con->query($sql);
 

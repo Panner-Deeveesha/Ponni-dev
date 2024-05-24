@@ -343,7 +343,7 @@ $(document).ready(function () {
   });
 
   $(document).click(function (event) {
-    if (!$(event.target).closest("#searchInput").length) {
+    if ($(event.target).closest("#searchInput").length) {
       $("#productList").css("display", "none");
     }
     else {
