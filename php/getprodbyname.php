@@ -1,7 +1,7 @@
 <?php
     include "config.php";
     $name = $_POST["name"];
-    $sql = "SELECT productName,category,productId,unit,volume FROM products WHERE productName LIKE '%$name%' AND isActive='1'";
+    $sql = "SELECT productName,category,productId,unit,volume,imgPath_1 FROM products WHERE productName LIKE '%$name%' AND isActive='1'";
     $res = $con->query($sql);
 
     if($res->num_rows>0){
