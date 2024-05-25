@@ -84,9 +84,10 @@ function getvalfn(obj){
     var prodprice = obj[i].price;
     var offprice = obj[i].offerPrice;
     var prodcat = obj[i].category;
+    var prodimg = obj[i].imgPath_1;
     var listcreate= document.createElement("li");
     listcreate.id = "acting";
-    t += "<img src=https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Sesame-Oil.jpg class='searimg'>";
+    t += "<img src="+ prodimg+" class='searimg'>";
     t += "<div class='flecls'>"
     t += "<div id='titlesear'>";
     t += prodname;
@@ -322,9 +323,16 @@ function displayProd(searchTerm2) {
 function openNav() {
   document.getElementById("searchsort").style.width = "100%";
   const screenWidth = window.innerWidth;
-  if (screenWidth > 600) {
-    document.getElementById("contentsear").style.width = "45%"; 
-  } else {
+  if (screenWidth > 990) {
+    document.getElementById("searchsort").style.display = "none";
+    document.getElementById("contentsear").style.display = "none"; 
+  } else if(screenWidth > 775){
+    document.getElementById("searchsort").style.display = "block";
+    document.getElementById("contentsear").style.display = "block"; 
+    document.getElementById("contentsear").style.width = "40%";
+  } else{
+    document.getElementById("searchsort").style.display = "block";
+    document.getElementById("contentsear").style.display = "block"; 
     document.getElementById("contentsear").style.width = "80%";
   }
 }

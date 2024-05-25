@@ -267,16 +267,15 @@ function displaycategories(obj){
 
 $(document).on("click", ".btn", function() {
   var innerHTML = $(this).html();
-  getproductname(innerHTML);
- 
+  getproductname(innerHTML); 
+});
+$(document).on("click", ".comonclas", function() {
+  var innerHTML = $(this).html();
+  getproductname(innerHTML); 
 });
 $(document).on("click", ".item-product", function() {
   var temp= $(this).html();
-
-
-  window.location.href = "./ponniproductpage.html?innerHTML="+temp;
-
- 
+  window.location.href = "./ponniproductpage.html?innerHTML="+temp; 
 });
 productpage();
 function productpage(){

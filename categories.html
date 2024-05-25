@@ -22,7 +22,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="indexfunc()">
     <!-- Keerthana working area start-->
     <nav id="navhead">
         <div id="headerfull">
@@ -60,13 +60,6 @@
         </div>
     </nav>
     <div class="blackscreen"></div>
-    <div id="firimage">
-        <div>
-            <img src="./assets/images/mainbanner.png" alt="samplestore" id="displayimg">
-            <img src="assets/images/tab.png" alt="samplestore" id="displayimg2">
-            <img src="assets/images/mobile.png" alt="samplestore" id="displayimg3">
-        </div>
-    </div>
     <div id="searchsort">
         <div id="contentsear">
             <div class="titleforsear">
@@ -141,27 +134,27 @@
             <div class="contentmenuslide">
                 <ul id="shopslide">
                     <li>
-                        <a href="rice.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Rice" class="menuimg" id="ricemenu">
+                        <a href="categories.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Rice" class="menuimg" id="ricemenu">
                         <span>Rice</span></a>
                     </li>
                     <li>
-                        <a href="rice.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Oil" class="menuimg" id="oilmenu">
+                        <a href="categories.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Oil" class="menuimg" id="oilmenu">
                         <span>Oil</span></a>
                     </li>
                     <li>
-                        <a href="rice.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="snackmenu">
+                        <a href="categories.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="snackmenu">
                         <span>Snacks</span></a>
                     </li>
                     <li>
-                        <a href="rice.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="flourmenu">
+                        <a href="categories.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="flourmenu">
                         <span>Flour</span></a>
                     </li>
                     <li>
-                        <a href="rice.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="masalmenu">
+                        <a href="categories.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="masalmenu">
                         <span>Masalas</span></a>
                     </li>
                     <li>
-                        <a href="rice.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="beautymenu">
+                        <a href="categories.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="beautymenu">
                         <span>Beauty Products</span></a>
                     </li>  
                 </ul>
@@ -176,7 +169,7 @@
     <!-- Swetha working area start-->
     <div class="wholecategories2" style="padding-top: 10px;">
         <div class="cate-heading" id="mydiv" style="margin-top: 0px;">
-            <div id="btn-sweets"><span class="btn active">Rice</span></div>
+            <div id="btn-sweets"><span class="btn active" id="fetch-categories">Rice</span></div>
             <div id="btn-savouries"><span class="btn">Oil</span></div>
             <div id="btn-pickels"><span class="btn">Snacks</span></div>
             <div id="btn-honey"><span class="btn">Flour</span></div>
@@ -192,7 +185,8 @@
             <div id="btn-podi" class="cateheadings"><p>Beauty Products</p></div>
         </div>
         <div id="cate-myimages">
-            <div class="selectimages1 passivemove">
+            <div id="samplew"></div>
+            <!--<div class="selectimages1 passivemove">
                 <div class="sweets-images">
                     <div>
                         <a href="ponniproductpage.html">
@@ -700,7 +694,7 @@
             </div>
         </div>
     </div>
-	<!-- Swetha working area end-->
+	 Swetha working area end-->
     <!-- kavya working area start--> 
     <div class="footer-whole">
         <img src="./assets/images/footer v001.jpg" class="footer-banner" >
