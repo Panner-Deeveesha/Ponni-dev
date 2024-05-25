@@ -520,6 +520,7 @@ border:none !important;
           margin-top:30px;
           align-items: center;
           padding-left:10px;
+          margin-left: 15px;
           padding-right:10px;
           padding-bottom:20px;
           border-bottom:1px solid #ddd;
@@ -554,6 +555,10 @@ border:none !important;
   .cart-product1 p:nth-child(2){
       font-size:13px;
       color:#878787;
+      margin-left: 5px;
+  }
+  #cart-price1{
+  margin-left:5px;
   }
   .cart-price del{
    color:#696969;
@@ -1525,6 +1530,20 @@ font-size:20px;
 
    }
    /*-------------Cart Media query-----*/
+   @media only screen and (max-width:1165px){
+   #cart-descriptionid{
+    
+    margin-left:0px;
+    
+}
+   }
+@media only screen and (max-width:1166px){
+    #cart-descriptionid{
+     
+     margin-left:15px;
+     
+ }
+   }
    @media only screen and (max-width:800px){
     .cart-list1 {
   display:none;
