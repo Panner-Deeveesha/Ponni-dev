@@ -1,9 +1,8 @@
 
-
 <?php
     include "config.php";
 
-    $sql = "SELECT * FROM cart WHERE userId=1";
+    $sql = "SELECT count FROM cart WHERE isActive=1";
 
     $res = $con->query($sql);
 
@@ -18,5 +17,3 @@
    
     
 ?>
-
-
