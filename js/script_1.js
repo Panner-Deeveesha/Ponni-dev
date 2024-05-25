@@ -415,7 +415,7 @@ $(document).ready(function () {
     $("#minussym").css("display", "none");
     $("#plussym").css("display", "block");
   });
-  $(document).on("click","#titlesear",function(){
+  $(document).on("click","#acting",function(){
     var getname = $(this).text();
     getprod(getname);
   })
