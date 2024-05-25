@@ -99,60 +99,34 @@ function cartadding(){
 	
 }
 
+
 $(document).ready(function() {
- 
+
   $.ajax({
       type: "POST",
       url: "./php/cartdetail.php",
       dataType: "json",
+
       success: function(products) {
-        cartByproductid (products);
+        console.log(products);
+        var count="";
        
-          var cartDiv = "";
-          products.forEach(function(product) {
-              cartDiv += '<div class="cart-description1">';
-              cartDiv += '<img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/TirunelveliHalwa2.jpg?v=1695623373&width=120">';
-              cartDiv += '<div class="cart-product1">';
-              cartDiv += '<p id="cart-productname">';
-              cartDiv += product.productName;
-              cartDiv += '</p>';
-              cartDiv += '<p>';
-              cartDiv += product.Quantity;
-              cartDiv += '</p>';
-              cartDiv += '<p>';
-              cartDiv += '<img src="./assets/icons/icons8-delete-20.png">';
-              cartDiv += '</p>';
-              cartDiv += '</div>';
-              cartDiv += '</div>';
-              cartDiv += '<div class="cart-price">';
-              cartDiv += '<del>';
-              cartDiv += 'Rs. 189.00';
-              cartDiv += '</del>';
-              cartDiv += '<span class="product-price" id="cart-price1">';
-              cartDiv += product.productprice;
-              cartDiv += '</span>';
-              cartDiv += '</div>';
-              cartDiv += '<div class="cartinputavailability">';
-              cartDiv += '<button onclick="updateTotal(this, -1)">';
-              cartDiv += '-';
-              cartDiv += '</button>';
-              cartDiv += `<input id="cartgetvalue" type="number" class="product-quantity" value='${product.count}'>`;
-              cartDiv += '<button onclick="updateTotal(this, 1)">';
-              cartDiv += '+';
-              cartDiv += '</button>';
-              cartDiv += '</div>';
-              cartDiv += '<div class="cart-totalvalue">';
-              cartDiv += '<p class="total-value">' + product.totsl + '</p>';
-              cartDiv += '</div>';
-              cartDiv += '</div>';
+        cartByproductid (products,count);
+        var count="";
+        products.forEach(function(product){
+        count= product.count;
+        
           });
-          $("#cart-descriptionid").html(cartDiv);
-      },
+           console.log(count);
+          },
+         
+     
       error: function(xhr, status, error) {
           console.error("Error:", error); 
       }
+    });
   });
-});
+
 
 
 
@@ -166,14 +140,15 @@ function isJsonString(str) {
   return true;
 }
 
-function  cartByproductid(sampleid) {
+function  cartByproductid(sampleid,count) {
  var sampleid=JSON.stringify(sampleid);
-  
+  var userid=1;
   $.ajax({
       url: "./php/findbyproductId.php",
       type: "post",
       data: {
         objects:sampleid
+        
       },
       success: function (response) {
         var boo = isJsonString(response);
@@ -183,10 +158,13 @@ function  cartByproductid(sampleid) {
             
          
          console.log(obj);
+          getcartPrice(obj,count);
+           
            
         }else{
             console.log("Error");
-        }   
+        }  
+         
 
     },
       error: function (error) {
@@ -195,12 +173,154 @@ function  cartByproductid(sampleid) {
   });
   
 }
-function incrementbtn1(){
+
+
+
+function getcartPrice(obj) {
+  
+  $.ajax({
+      url: "./php/getPrice.php",
+      type: "get",
+      success: function (response) {
+          var obj2 = JSON.parse(response);
+          //console.log(response);
+          // console.log(obj);
+          $(obj).each(function (index, value) {
+              //console.log(value);
+              $(obj2).each(function (index2, value2) {
+                  if (value.productId == value2.productId) {
+                      //console.log(value.uniqueId+":"+value2.id  );
+                      value.price = value2.price;
+                      value.offerPrice = value2.offerPrice;
+                      //console.log(value);
+                  }
+              });
+              
+          });
+          //showNewLanches(obj);
+         
+         console.log(obj);
+        getcartcount(obj);
+      },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+}
+
+
+function getcartcount(obj) {
+  
+  $.ajax({
+      url: "./php/connectcount.php",
+      type: "get",
+      success: function (response) {
+          var obj2 = JSON.parse(response);
+          //console.log(response);
+         console.log(obj2);
+          $(obj).each(function (index, value) {
+              //console.log(value);
+              $(obj2).each(function (index2, value2) {
+                  if (value.productId == value2.productId) {
+                      //console.log(value.uniqueId+":"+value2.id  );
+                      value.count = value2.count;
+                     
+                      //console.log(value);
+                  }
+              });
+              
+          });
+          //showNewLanches(obj);
+         
+         console.log(obj);
+        displaycartdetails(obj,obj2);
+      },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+}
+
+function displaycartdetails(obj,obj2){
+  var cartItems = {};
+  console.log(obj);
+  var totalSum = 0; 
+   var cartDiv = "";
+    for(let i=0;i<obj.length;i++){
+      var cartincrement='';
+      var productValue = obj[i].offerPrice * obj2[i].count; // Calculate product value
+      totalSum += productValue;
+          cartDiv += '<div class="cart-description1">';
+          cartDiv += '<img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/TirunelveliHalwa2.jpg?v=1695623373&width=120">';
+          cartDiv += '<div  class="cart-product1">';
+          cartDiv += '<p id="cart-productname">';
+          cartDiv += obj[i].productName;
+          cartDiv += '</p>';
+          cartDiv += '<p>';
+          cartDiv += obj[i].volume;
+          cartDiv += '</p>';
+          cartDiv += '<p>';
+          cartDiv += '<img src="./assets/icons/icons8-delete-20.png">';
+          cartDiv += '</p>';
+          cartDiv += '</div>';
+          cartDiv += '</div>';
+          cartDiv += '<div class="cart-price">';
+          cartDiv += '<del>';
+          cartDiv += 'Rs:'+obj[i].price;
+          cartDiv += '</del>';
+          cartDiv += '<span class="product-price" id="cart-price1">';
+          cartDiv += 'Rs:'+obj[i].offerPrice;
+          cartDiv += '</span>';
+          cartDiv += '</div>';
+          cartDiv += '<div class="cartinputavailability">';
+          cartDiv += '<button onclick="updateTotal()">';
+          cartDiv += '-';
+          cartDiv += '</button>';
+          cartDiv += `<input id=${cartincrement} type="number" class="product-quantity" value='${obj2[i].count}'>`;
+          cartDiv += '<button onclick="updateTotal2()">';
+          cartDiv += '+';
+          cartDiv += '</button>';
+          cartDiv += '</div>';
+          cartDiv += '<div class="cart-totalvalue">';
+          cartDiv += `<p class="total-value">Rs:${productValue}</p>`;
+          cartDiv += '</div>';
+          cartDiv += '</div>';
+          
+    }
+      $("#cart-descriptionid").html(cartDiv);
+      $('#wholecarttotal').html("Rs."+totalSum);
+      $('.cart-product1').click(function() {
+        var productId = $(this).data('productid');
+        
+        window.location.href = 'ponniproductpage.html?productId=' + productId;
+    });
+    for (let i = 0; i < obj.length; i++) {
+      var productId = obj[i].productId;
+      if (cartItems.hasOwnProperty(productId)) {
+          cartItems[productId] += obj2[i].count; 
+      } else {
+          cartItems[productId] = obj2[i].count; 
+      }
+  }
+
+ 
+
+    }
+
+
+
+
+
+
+
+
+
+function updateTotal2(){
 	var getvalue=document.getElementById("cartgetvalue").value;
 	var increevalue=++getvalue;
 	document.getElementById("cartgetvalue").value=increevalue;
 }
-function decrementbtn1(){
+function updateTotal(){
 	var leastvalue=document.getElementById("cartgetvalue").value;
 	var degreevalue=--leastvalue;
 	if(degreevalue==0){

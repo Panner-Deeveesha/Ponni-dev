@@ -4,7 +4,7 @@
     $decodedObjects = json_decode($jsonObjects, true); // Decode the JSON string
     foreach ($decodedObjects as $object) {
         $id = $object['productId'];
-        $sql = "SELECT * FROM products WHERE productId IN ('$id')";
+        $sql = "SELECT productName,productId,unit,volume FROM products WHERE productId IN ('$id')";
         $res = $con->query($sql);
         if($res->num_rows>0){
             while($row=$res->fetch_assoc()){

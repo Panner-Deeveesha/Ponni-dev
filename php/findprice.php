@@ -1,10 +1,8 @@
-
-
 <?php
     include "config.php";
-
-    $sql = "SELECT * FROM cart WHERE userId=1";
-
+   
+    $uniqueId = $_POST["productId"];
+		 $sql = "SELECT price,id FROM price WHERE id='$uniqueId' AND isActive='1'";
     $res = $con->query($sql);
 
     if($res->num_rows>0){
@@ -14,9 +12,9 @@
         }
         echo json_encode($response);
 		
+    }else{
+        echo "no record";
     }
-   
+	
     
 ?>
-
-

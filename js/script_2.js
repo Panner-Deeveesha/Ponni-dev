@@ -567,7 +567,7 @@ function isJsonString(str) {
 
 
 
-
+.
 function incrementbtn(){
   const passwordInput = document.getElementById("getvalue");
 const maxLength = passwordInput.max;
