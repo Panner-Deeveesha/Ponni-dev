@@ -376,19 +376,21 @@ addItemToCart();
 $(document).ready(function () {
   $("#searchInput").focus(function () {
     $(".blackscreen").css("display", "block");
+    $("#productList").css("display", "block");
   });
   $(".blackscreen").click(function () {
     $(".blackscreen").css("display", "none");
+    $("#productList").css("display", "none");
   });
 
-  $(document).click(function (event) {
+  /*$(document).click(function (event) {
     if ($(event.target).closest("#searchInput").length) {
       $("#productList").css("display", "none");
     }
     else {
       $("#productList").css("display", "block");
     }
-  });
+  });*/
 
   $("#searchInput2").focus(function () {
     $("#totalstart").css("display", "none");
