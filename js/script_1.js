@@ -86,7 +86,7 @@ function getvalfn(obj){
     var prodcat = obj[i].category;
     var prodimg = obj[i].imgPath_1;
     var listcreate= document.createElement("li");
-    listcreate.id = "acting";
+    listcreate.class = "acting";
     t += "<img src="+ prodimg+" class='searimg'>";
     t += "<div class='flecls'>"
     t += "<div id='titlesear'>";
@@ -415,7 +415,7 @@ $(document).ready(function () {
     $("#minussym").css("display", "none");
     $("#plussym").css("display", "block");
   });
-  $(document).on("click","#acting",function(){
+  $(document).on("click",".acting",function(){
     var getname = $(this).text();
     getprod(getname);
   })
