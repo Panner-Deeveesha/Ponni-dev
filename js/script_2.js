@@ -165,7 +165,7 @@ function getBycategory(innerHTML) {
          
           if(boo==true){
               var obj = JSON.parse(response);
-           
+              console.log(obj);
               getPrice(obj);
              
           }else{
@@ -193,7 +193,7 @@ function getPrice(obj) {
           $(obj).each(function (index, value) {
               //console.log(value);
               $(obj2).each(function (index2, value2) {
-                  if (value.uniqueId == value2.id) {
+                  if (value.productId == value2.productId) {
                       //console.log(value.uniqueId+":"+value2.id  );
                       value.price = value2.price;
                       value.offerPrice = value2.offerPrice;
@@ -227,11 +227,14 @@ function displaycategories(obj){
   
   const uniqueObjects = Array.from(uniqueMap.values());
   
-  
+
    var t = "";
     for(let i=0;i<uniqueObjects.length;i++){
+      
       t +='<div class="sampleitem">';
-     
+      t +='<p class="first-image">';
+      t += '<img src="' + uniqueObjects[i].imgPath_1 + '" onmouseover="this.src=\'' + uniqueObjects[i].imgPath_2 + '\'" onmouseout="this.src=\'' + uniqueObjects[i].imgPath_1 + '\'">';
+      t +='</p>';
       t +='<p class="item-product">';
       t +=uniqueObjects[i].productName;
       t +='</p>';
@@ -245,6 +248,7 @@ function displaycategories(obj){
       t +='</p>';
       
       t +='</div>';
+      
       document.getElementById("samplew").innerHTML=t;
       
     }
@@ -267,15 +271,22 @@ function displaycategories(obj){
 
 $(document).on("click", ".btn", function() {
   var innerHTML = $(this).html();
-  getproductname(innerHTML); 
+  getproductname(innerHTML);
+ 
 });
+
 $(document).on("click", ".comonclas", function() {
   var innerHTML = $(this).html();
-  getproductname(innerHTML); 
+  getproductname(innerHTML);
 });
+
 $(document).on("click", ".item-product", function() {
   var temp= $(this).html();
-  window.location.href = "./ponniproductpage.html?innerHTML="+temp; 
+
+
+  window.location.href = "./ponniproductpage.html?innerHTML="+temp;
+
+ 
 });
 productpage();
 function productpage(){
@@ -296,7 +307,7 @@ function getByproductname(innerHTML2) {
       data: data,
       success: function (response) {
         var boo = isJsonString(response);
-       
+        
         if(boo==true){
             var obj = JSON.parse(response);
             
@@ -385,7 +396,8 @@ function productpagegetPrice(obj) {
 function displayproduct(input){
 console.log(input);
   var s = "";
-
+  var s2 ="";
+  var s3="";
   s +='<div class="product-details">';
    
   s +='<h3 id="productname">';
@@ -421,12 +433,41 @@ console.log(input);
  
   }
   s +='</div>';
-  s +='</div>';
+
+
 
   
 
   document.getElementById("product-content").innerHTML=s;
 
+  s2 +='<div class="carousel-item active" id="firstscrollimg" style="width:80%;height:80%;">';
+  s2 +='<img src="' +input[0].imgPath_3+'" width="100%" height="100%">'
+  s2 +='</div>';
+  s2 +='<div class="carousel-item" id="secondscrollimg" style="width:80%;height:80%;">';
+  s2 +='<img src="' +input[0].imgPath_4+'" width="100%" height="100%">'
+  s2 +='</div>';
+  s2 +='<div class="carousel-item" id="thirdscrollimg" style="width:80%;height:80%;">';
+  s2 +='<img src="' +input[0].imgPath_5+'" width="100%" height="100%">'
+  s2 +='</div>';
+  s2 +='<div class="carousel-item" id="fourthscrollimg" style="width:80%;height:80%;">';
+  s2 +='<img src="' +input[0].imgPath_6+'" width="100%" height="100%">'
+  s2 +='</div>';
+
+  document.getElementById("slidecarouselimg").innerHTML=s2;
+
+  s3 +='<button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active">';
+  s3 +='<img id="scroll1" src="' +input[0].imgPath_3+'">'
+  s3 +='</button>';
+  s3 +='<button type="button" data-bs-target="#demo" data-bs-slide-to="1">';
+  s3 +='<img id="scroll2" src="' +input[0].imgPath_4+'">'
+  s3 +='</button>';
+  s3 +='<button type="button" data-bs-target="#demo" data-bs-slide-to="2">';
+  s3 +='<img id="scroll3" src="' +input[0].imgPath_5+'">'
+  s3 +='</button>';
+  s3 +='<button type="button" data-bs-target="#demo" data-bs-slide-to="3">';
+  s3 +='<img id="scroll4" src="' +input[0].imgPath_6+'">'
+  s3 +='</button>';
+  document.getElementById("slideindicatorsimg").innerHTML=s3;
   const inputnum = document.getElementById("getvalue");
 inputnum.setAttribute("max", input[0].availability);
 console.log(input[0].availability);
