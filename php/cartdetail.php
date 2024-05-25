@@ -1,9 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "root";
- $password="";
-$dbname ="ponnidb";
-$conn =mysqli_connect($servername,$username,$password, $dbname);
+
+include "config.php";
 
 
 if ($conn->connect_error) {
