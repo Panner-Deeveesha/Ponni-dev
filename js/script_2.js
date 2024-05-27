@@ -429,11 +429,6 @@ console.log(input);
  
   }
   s +='</div>';
-
-
-
-  
-
   document.getElementById("product-content").innerHTML=s;
 
   s2 +='<div class="carousel-item active" id="firstscrollimg" style="width:80%;height:80%;">';
