@@ -282,11 +282,7 @@ $(document).on("click", ".comonclas", function() {
 
 $(document).on("click", ".item-product", function() {
   var temp= $(this).html();
-
-
   window.location.href = "./ponniproductpage.html?innerHTML="+temp;
-
- 
 });
 productpage();
 function productpage(){
