@@ -217,8 +217,6 @@ function getPrice(obj) {
 
 
 function displaycategories(obj){
-
-
   const uniqueMap = new Map();
   
   obj.forEach((item) => {
@@ -226,6 +224,7 @@ function displaycategories(obj){
     uniqueMap.set(item.productName, item);
   });
   const uniqueObjects = Array.from(uniqueMap.values());
+
    var t = "";
     for(let i=0;i<uniqueObjects.length;i++){
       
