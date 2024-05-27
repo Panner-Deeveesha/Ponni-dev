@@ -186,10 +186,11 @@ function getPrice(obj) {
   $.ajax({
       url: "./php/getPrice.php",
       type: "get",
+      
       success: function (response) {
           var obj2 = JSON.parse(response);
           //console.log(response);
-          // console.log(obj);
+           console.log(obj2);
           $(obj).each(function (index, value) {
               //console.log(value);
               $(obj2).each(function (index2, value2) {
@@ -224,10 +225,7 @@ function displaycategories(obj){
     
     uniqueMap.set(item.productName, item);
   });
-  
   const uniqueObjects = Array.from(uniqueMap.values());
-  
-
    var t = "";
     for(let i=0;i<uniqueObjects.length;i++){
       
@@ -252,22 +250,10 @@ function displaycategories(obj){
       document.getElementById("samplew").innerHTML=t;
       
     }
-   
-      
-    }
 
+}
 
 //finish index page
-
-
-
-
-
-
-
-
-
-
 
 $(document).on("click", ".btn", function() {
   var innerHTML = $(this).html();
@@ -275,14 +261,19 @@ $(document).on("click", ".btn", function() {
  
 });
 
-$(document).on("click", ".comonclas", function() {
-  var innerHTML = this.querySelector(".spancls").textContent;
-  getproductname(innerHTML);
+$(document).on("click", ".comanclas", function() {
+  var meanuname =  $(this).html();
+  getproductname(meanuname);
+ 
 });
 
 $(document).on("click", ".item-product", function() {
   var temp= $(this).html();
+
+
   window.location.href = "./ponniproductpage.html?innerHTML="+temp;
+
+ 
 });
 productpage();
 function productpage(){
@@ -387,8 +378,6 @@ function productpagegetPrice(obj) {
   });
 }
 
-
-
 function displayproduct(input){
 console.log(input);
   var s = "";
@@ -429,6 +418,7 @@ console.log(input);
  
   }
   s +='</div>';
+
   document.getElementById("product-content").innerHTML=s;
 
   s2 +='<div class="carousel-item active" id="firstscrollimg" style="width:80%;height:80%;">';
@@ -459,6 +449,7 @@ console.log(input);
   s3 +='<img id="scroll4" src="' +input[0].imgPath_6+'">'
   s3 +='</button>';
   document.getElementById("slideindicatorsimg").innerHTML=s3;
+  
   const inputnum = document.getElementById("getvalue");
 inputnum.setAttribute("max", input[0].availability);
 console.log(input[0].availability);
@@ -512,8 +503,6 @@ var clickedposition;
       error:function(xhr,status,error){
         console.log(error);
       }
-
-
   });
   
 });
@@ -522,16 +511,10 @@ var clickedposition;
 
 $(document).on("click", "#productaddbutton", function() {
  
-
-
   window.location.href = "./cart.html";
-
  
 });
   
-
-
-
 function highlightbtn(clickedid){
   var byid=document.getElementById(clickedid);
   
@@ -543,10 +526,8 @@ function highlightbtn(clickedid){
    
      // console.log(input);
     //$(".pricedetails del").innerHTML=input[0].price;
-  }
-
-
-    
+}
+ 
 function isJsonString(str) {
   try {
       JSON.parse(str);
@@ -558,9 +539,7 @@ function isJsonString(str) {
 
 function incrementbtn(){
   const passwordInput = document.getElementById("getvalue");
-const maxLength = passwordInput.max;
-
-
+  const maxLength = passwordInput.max;
 	var getvalue=document.getElementById("getvalue").value;
 	var increevalue=++getvalue;
   if(increevalue>=maxLength){
@@ -576,6 +555,112 @@ function decrementbtn(){
 	}
 	document.getElementById("getvalue").value=degreevalue;
 }
+//registerpage
+
+function clickregbutton(){
+  var inputvalues=document.querySelectorAll(".wholeregisterpage input");
+  for(let i=0;i<inputvalues.length;i++){
+    if(inputvalues.value=" "){
+      document.getElementById("reg-emptyvalue").innerHTML="* All input filed must be filled";
+    }
+  }
+ var passvalue=document.getElementById("reg-pwd").value;
+ var fname=document.getElementById("regi-fname").value;
+ var lname=document.getElementById("regi-lname").value;
+ var emailvalue=document.getElementById("regi-email").value;
+ var contactno=document.getElementById("regi-number").value;
+ var fullname=fname+lname;
+ 
+  if(passvalue.length<5){
+    document.getElementById("reg-commend").innerHTML="* Password must be more than five letters";
+    
+ }
+ else if(contactno.length != 10){
+   document.getElementById("reg-emptyvalue").innerHTML="* Invalid contact number"
+ }
+ else{
+  document.getElementById("reg-emptyvalue").style.display="none";
+  document.getElementById("reg-commend").style.display="none";
+  $.ajax({
+    url: "./php/userRegister.php",
+    type: "post",
+    data: {
+      name:fullname,
+      emailvalue:emailvalue,
+      passvalue:passvalue,
+      contactno:contactno,
+    },
+    success:function(response){
+      
+      alert("Sucessfully Register");
+      window.location.href = "./login.html";
+    },
+    error:function(xhr,status,error){
+      console.log(error);
+    }
+  });
+ }
+}
+function signincheck(){
+  var loginemail=document.getElementById("email").value;
+  var loginpass=document.getElementById("pwd").value;
+  var data = {
+      "email": loginemail,
+      "password":loginpass
+  }
+  $.ajax({
+      url: "./php/checkloginpage.php",
+      type: "post",
+      data: data,
+      success: function (response) {
+          var boo = isJsonString(response);
+         
+          if(boo==true){
+              var obj = JSON.parse(response);
+              console.log(obj);
+              window.location.href = "./index.html";
+             
+          }else{
+              console.log("Error");
+              document.getElementById("login-commend").innerHTML="* Invalid Password and email";
+          }   
+  
+      },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+}
+
+//category page
+
+function categload(){
+  $(document).ready(function() {
+      function getURLParameter(name) {
+          var urlParams = new URLSearchParams(window.location.search);
+          return urlParams.get(name);
+      }
+      // Get the value of the 'value' parameter from the URL
+      var passvalEncoded = getURLParameter('value');
+      
+      // Decode the encoded value
+      var passval = decodeURIComponent(passvalEncoded);
+      
+      // Iterate over each button
+      $("#mydiv div .btn").each(function() {
+          var buttonText = $(this).text(); // Get the text of the button
+          if (buttonText === passval) {
+              $(this).addClass("active");
+              categorypagepass(passval);
+          }
+      });
+  });
+}
+  
+function categorypagepass(passval){
+  var cateproname=passval;
+    getBycategory(cateproname);
+};
 
 
 

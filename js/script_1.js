@@ -89,7 +89,7 @@ function getvalfn(obj){
     listcreate.classList.add("acting");
     t += "<img src="+ prodimg+" class='searimg'>";
     t += "<div class='flecls'>"
-    t += "<div id='titlesear'>";
+    t += "<div class='titlesear'>";
     t += prodname;
     t += "</div>";
     t += "<span id='prodcat'> Category: ";
@@ -288,9 +288,9 @@ function productpageonload(){
   $(document).on("click", "#productaddbutton", function() {
 
     var userid=103;
-   var isActive=1;
+    var isActive=1;
     var normalbtn=document.getElementsByClassName("btnnormal");
-  var clickedposition;
+    var clickedposition;
     for(let i=0;i<normalbtn.length;i++){
     if(normalbtn[i].classList.contains("highlightbtn"))
       {
@@ -450,9 +450,15 @@ $(document).ready(function () {
   });
 
   $(document).on("click",".acting",function(){
-    var getname = this.querySelector("#titlesear").textContent;
+    var getname = $(this).find(".titlesear").text();
     getprod(getname);
-  })
+  });
+
+  $(document).on("click", ".comonclas", function() {
+    var passval = $(this).find(".spancls").text();
+    window.location.href = "./categories.html?value=" + passval;
+  });
+  
   /*$("#iconsearch").click(function(){
     $(".blackscreen").css("top","0");
     $(".blackscreen").css("z-index","99");

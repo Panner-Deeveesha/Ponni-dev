@@ -166,22 +166,19 @@
             </div>
         </div>
     </div>
-   <div class="wholeloginpage">
-   <p id="login-heading">LOGIN</p>
-   <div class="login-innerdiv">
-    <input type="email" id="email" name="email" placeholder="Email"><br>
-    <input type="password" id="pwd" name="pwd" placeholder="Password">
-	<p><a href="password.html">Forget Your Password?</a></p>
-	<button>SIGN IN</button>
-     <p>	<a href="register.html">New Customer ? Create Your account</a></p>
-   </div>
-   
-   
-   
-   </div>
 
-
-
+    <div class="wholeloginpage">
+        <p id="login-heading">LOGIN</p>
+        <div class="login-innerdiv">
+            <input type="email" id="email" name="email" placeholder="Email"><br>
+            <input type="password" id="pwd" name="pwd" placeholder="Password">
+            <p id="login-commend"></p>
+            <p><a href="password.html">Forget Your Password?</a></p>
+            <button id="signinbutton" onclick="signincheck()">SIGN IN</button>
+            <p>	<a href="register.html">New Customer ? Create Your account</a></p>
+        </div>
+    </div>
+     
     <div style="margin-top:30px" class="footer-main">
            <div style="padding-top:50px"class="footer-main2">
                <div class="footer-contact">
@@ -337,6 +334,7 @@
            
            </div>
 		   </div>
+           <script src="./js/jquery.min.js"></script>
            <script src="./js/script_1.js"></script>
     <script src="./js/script_2.js"></script>
     <script src="./js/script_3.js"></script>

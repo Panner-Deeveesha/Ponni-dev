@@ -8,7 +8,9 @@ body{
  font-family: 'Poppins', sans-serif;	
 
 }
-
+.wholeloginpage #login-commend{
+    color: red;
+}
 
 .wholeloginpage #login-heading{
 	
@@ -40,7 +42,8 @@ body{
 .login-innerdiv p{
 	color:#707070;
 	margin-top:20px;
-    margin-bottom: 20pxs;
+   
+    font-size:15px;
 }
 .login-innerdiv a{
 	text-decoration:none;
@@ -67,7 +70,7 @@ body{
 	border:none;
 	color:#fff;
 	padding:8px 20px;
-	font-size:17px;
+	font-size:15px;
 	border-radius:10px;
     margin-top: 20px;
     
@@ -92,12 +95,21 @@ body{
 	text-align:center;
 	
 }
+.wholeregisterpage #reg-commend{
+ 
+  color: red;
+
+}
+.wholeregisterpage #reg-emptyvalue{
+  color: red;
+
+}
 .register-innerdiv{
 	width:500px;
 	height:500px;
 	margin-left:auto;
 	margin-right:auto;
-	margin-top:200px;
+	margin-top:100px;
 	color:#707070;
 }
 .register-innerdiv input{
@@ -113,6 +125,7 @@ body{
 .register-innerdiv p{
 	color:#707070;
 	margin-top:20px;
+    font-size:15px;
 }
 .register-innerdiv a:link {
   color:#707070;
@@ -138,7 +151,7 @@ body{
 	color:#fff;
 	margin-top:30px;
 	padding:8px 20px;
-	font-size:17px;
+	font-size:15px;
 	border-radius:10px;
 }
 .register-innerdiv button:hover{

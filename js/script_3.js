@@ -78,7 +78,7 @@ document.getElementById("paymobile").onclick = function() {
 };
 function cartadding(){
     var productName =document.getElementsByClassName("cate-productlist").innerHTML;
-    var productPrice = document.querySelector('.cate-amount span'); ;
+    var productPrice = document.querySelector('.cate-amount span'); 
        var productcount=document.getElementById("getvalue").value;
 	   
     // Send product details to server using AJAX
