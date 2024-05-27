@@ -436,16 +436,19 @@ $(document).ready(function () {
   });
 
   $("#plussym").click(function () {
-    $(".contentmenuslide #shopslide").slideDown("slow");
+    $(".contentmenuslide #shopslide").slideToggle("slow");
     $("#shopslide").css("display", "flex");
-    $("#minussym").css("display", "block");
-    $("#plussym").css("display", "none");
+    $("#minussym").toggle();
+    $("#plussym").toggle();
   });
-  $("#minussym").click(function () {
-    $(".contentmenuslide #shopslide").slideUp("slow");
-    $("#minussym").css("display", "none");
-    $("#plussym").css("display", "block");
+
+  $("#shopnowid").click(function () {
+    $(".contentmenuslide #shopslide").slideToggle("slow");
+    $("#shopslide").css("display", "flex");
+    $("#minussym").toggle();
+    $("#plussym").toggle();
   });
+
   $(document).on("click",".acting",function(){
     var getname = this.querySelector("#titlesear").textContent;
     getprod(getname);

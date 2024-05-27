@@ -276,7 +276,7 @@ $(document).on("click", ".btn", function() {
 });
 
 $(document).on("click", ".comonclas", function() {
-  var innerHTML = $(this).html();
+  var innerHTML = this.querySelector(".spancls").textContent;
   getproductname(innerHTML);
 });
 
