@@ -213,9 +213,6 @@ function getPrice(obj) {
   });
 }
 
-
-
-
 function displaycategories(obj){
   const uniqueMap = new Map();
   
