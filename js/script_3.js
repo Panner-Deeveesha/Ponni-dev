@@ -76,56 +76,30 @@ document.getElementById("paymobile").onclick = function() {
   document.getElementById("paycontinue2").style.display="none"; 
   document.getElementById("paymentwalletid").style.display="none"; 
 };
-function cartadding(){
-    var productName =document.getElementsByClassName("cate-productlist").innerHTML;
-    var productPrice = document.querySelector('.cate-amount span'); 
-       var productcount=document.getElementById("getvalue").value;
-	   
-    // Send product details to server using AJAX
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "cart.php", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            console.log("Product added to cart successfully");
-        }
-    };
-    var data = "productName=" + encodeURIComponent(productName) + "&productPrice=" + encodeURIComponent(productPrice)+"&productcount=" + encodeURIComponent(productcount);
-   console.log(data);
 
-
-
-   xhr.send(data);
-	
-}
 
 
 $(document).ready(function() {
-
+  var userId = 1;
   $.ajax({
-      type: "POST",
-      url: "./php/cartdetail.php",
-      dataType: "json",
-
-      success: function(products) {
-        console.log(products);
-        var count="";
-       
-        cartByproductid (products,count);
-        var count="";
-        products.forEach(function(product){
-        count= product.count;
-        
-          });
-           console.log(count);
-          },
-         
+    type: "POST",
+    url: "./php/cartdetail.php",
+    dataType: "json",
+    data: {
+      userid: userId
+    },
+    success: function(products) {
+      console.log(products);
      
-      error: function(xhr, status, error) {
-          console.error("Error:", error); 
-      }
-    });
+      cartByproductid(products);
+     
+    },
+    error: function(xhr, status, error) {
+      console.error("Error:", error);
+    }
   });
+});
+
 
 
 
@@ -140,16 +114,22 @@ function isJsonString(str) {
   return true;
 }
 
-function  cartByproductid(sampleid,count) {
- var sampleid=JSON.stringify(sampleid);
-  var userid=1;
+function  cartByproductid(products) {
+
+  
+  console.log(products);
+  
+  var data={
+    productslist:products
+  };
+
   $.ajax({
       url: "./php/findbyproductId.php",
       type: "post",
-      data: {
-        objects:sampleid
+     data:data,
+      
         
-      },
+      
       success: function (response) {
         var boo = isJsonString(response);
        
@@ -158,13 +138,12 @@ function  cartByproductid(sampleid,count) {
             
          
          console.log(obj);
-          getcartPrice(obj,count);
+          getcartPrice(obj);
            
            
         }else{
             console.log("Error");
-        }  
-         
+        }     
 
     },
       error: function (error) {
@@ -210,20 +189,50 @@ function getcartPrice(obj) {
 
 
 function getcartcount(obj) {
-  
+  var userId=1;
   $.ajax({
       url: "./php/connectcount.php",
       type: "get",
+      data: {
+        userid:userId
+        
+      },
       success: function (response) {
-          var obj2 = JSON.parse(response);
+          
+        var obj2 = JSON.parse(response);
+
+
+        var productCounts = {};
+
+        obj2.forEach(function(product) {
+          var productId = product.productId;
+          var count = parseInt(product.count);
+  
+       
+          if (productId in productCounts) {
+            productCounts[productId] += count;
+          } else {
+      
+            productCounts[productId] = count;
+          }
+        });
+  
+        console.log(productCounts);
+        
+        var productCountsEntries = Object.entries(productCounts); 
           //console.log(response);
-         console.log(obj2);
+         console.log(productCountsEntries);
+      
           $(obj).each(function (index, value) {
               //console.log(value);
-              $(obj2).each(function (index2, value2) {
-                  if (value.productId == value2.productId) {
+              $(productCountsEntries).each(function (index2, entry) {
+                  
+                var productId = entry[0];
+                var count = entry[1];
+                if (value.productId == productId) {
                       //console.log(value.uniqueId+":"+value2.id  );
-                      value.count = value2.count;
+                      value.productId = productId;
+                      value.count =count;
                      
                       //console.log(value);
                   }
@@ -233,7 +242,7 @@ function getcartcount(obj) {
           //showNewLanches(obj);
          
          console.log(obj);
-        displaycartdetails(obj,obj2);
+        displaycartdetails(obj);
       },
       error: function (error) {
           console.log(error);
@@ -241,20 +250,20 @@ function getcartcount(obj) {
   });
 }
 
-function displaycartdetails(obj,obj2){
+function displaycartdetails(obj){
   var cartItems = {};
-  console.log(obj);
+
   var totalSum = 0; 
    var cartDiv = "";
     for(let i=0;i<obj.length;i++){
       var cartincrement='';
-      var productValue = obj[i].offerPrice * obj2[i].count; // Calculate product value
+      var productValue = obj[i].offerPrice * obj[i].count; 
       totalSum += productValue;
           cartDiv += '<div class="cart-description1">';
-          cartDiv += '<img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/TirunelveliHalwa2.jpg?v=1695623373&width=120">';
+          cartDiv += `<img src='${obj[i].imgPath_1}' width="100px" height="100px">`;
           cartDiv += '<div  class="cart-product1">';
           cartDiv += '<p id="cart-productname">';
-          cartDiv += obj[i].productName;
+          cartDiv += '<a href="ponniproductpage.html">'+obj[i].productName+'</a>';
           cartDiv += '</p>';
           cartDiv += '<p>';
           cartDiv += obj[i].volume;
@@ -273,13 +282,11 @@ function displaycartdetails(obj,obj2){
           cartDiv += '</span>';
           cartDiv += '</div>';
           cartDiv += '<div class="cartinputavailability">';
-          cartDiv += '<button onclick="updateTotal()">';
-          cartDiv += '-';
-          cartDiv += '</button>';
-          cartDiv += `<input id=${cartincrement} type="number" class="product-quantity" value='${obj2[i].count}'>`;
-          cartDiv += '<button onclick="updateTotal2()">';
-          cartDiv += '+';
-          cartDiv += '</button>';
+          cartDiv += `<button onclick="updateTotal(${i}, 'decrement')">-</button>`
+    
+          cartDiv += `<input id='cartincrement${i}' type="number" class="product-quantity" value='${obj[i].count}'>`;
+          cartDiv += `<button onclick="updateTotal(${i}, 'increment')">+</button>`;
+  
           cartDiv += '</div>';
           cartDiv += '<div class="cart-totalvalue">';
           cartDiv += `<p class="total-value">Rs:${productValue}</p>`;
@@ -294,37 +301,33 @@ function displaycartdetails(obj,obj2){
         
         window.location.href = 'ponniproductpage.html?productId=' + productId;
     });
-    for (let i = 0; i < obj.length; i++) {
-      var productId = obj[i].productId;
-      if (cartItems.hasOwnProperty(productId)) {
-          cartItems[productId] += obj2[i].count; 
-      } else {
-          cartItems[productId] = obj2[i].count; 
-      }
-  }
-
- 
-
+  
     }
 
 
+    function updateTotal(index, action) {
+      var inputElement = document.getElementById('cartincrement' + index);
+      var currentValue = parseInt(inputElement.value);
+  
+
+      if (action === 'decrement' && currentValue === 1) return;
+  
+      if (action === 'decrement') {
+          inputElement.value = currentValue - 1;
+      } else {
+          inputElement.value = currentValue + 1;
+      }
+
+      var productValue = parseInt(inputElement.value) * obj[index].offerPrice;
+      document.getElementById('productValue' + index).innerText = 'Rs: ' + productValue;
+
+      var totalSum = 0;
+      for (let i = 0; i < obj.length; i++) {
+          var quantity = parseInt(document.getElementById('cartincrement' + i).value);
+          totalSum += obj[i].offerPrice * quantity;
+      }
+      $('#wholecarttotal').html("Rs: " + totalSum);
+  }
 
 
 
-
-
-
-
-function updateTotal2(){
-	var getvalue=document.getElementById("cartgetvalue").value;
-	var increevalue=++getvalue;
-	document.getElementById("cartgetvalue").value=increevalue;
-}
-function updateTotal(){
-	var leastvalue=document.getElementById("cartgetvalue").value;
-	var degreevalue=--leastvalue;
-	if(degreevalue==0){
-		degreevalue=1;
-	}
-	document.getElementById("cartgetvalue").value=degreevalue;
-}

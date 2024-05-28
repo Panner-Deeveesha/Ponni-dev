@@ -520,7 +520,6 @@ border:none !important;
           margin-top:30px;
           align-items: center;
           padding-left:10px;
-          margin-left: 15px;
           padding-right:10px;
           padding-bottom:20px;
           border-bottom:1px solid #ddd;
@@ -536,7 +535,7 @@ border:none !important;
   }
   .cart-description1{
       display:flex;
-      width: 40.66666667%;
+     width:38.666667%;
       
   }
   .cart-product1{
