@@ -15,6 +15,5 @@
             echo "no record";
         }
     }
-    echo json_encode($response);
-    
+    echo json_encode($response);    
 ?>

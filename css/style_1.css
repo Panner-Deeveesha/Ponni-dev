@@ -107,6 +107,7 @@ body{
     text-align: justify;
     display: flex;
     padding: 10px;
+    cursor: pointer;
 }
 #productList div{
     text-overflow: ellipsis;
@@ -402,10 +403,13 @@ del{
     text-decoration: none;
     color: #000;
 }
-#ethomenureg{
+#shopnowid{
+    cursor: pointer;
+}
+#lastmenureg{
     display: grid;
 }
-#ethomenureg span{
+#lastmenureg span{
     margin: 5px;
     margin-left: 14px;
 }

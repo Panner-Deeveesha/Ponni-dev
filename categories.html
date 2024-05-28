@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ponni Natural Foods</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/style_1.css">
     <link rel="stylesheet" href="./css/style_2.css">
@@ -22,7 +23,7 @@
         }
     </style>
 </head>
-<body onload="indexfunc()">
+<body onload="categload()">
     <!-- Keerthana working area start-->
     <nav id="navhead">
         <div id="headerfull">
@@ -125,7 +126,7 @@
                 <img src="./assets/icons/rocket.png" alt="NewItems" id="Items">
                 <span>New Items & Best Seller</span>
             </div>
-            <div class="menureg">
+            <div class="menureg" id="shopnowid">
                 <img src="./assets/icons/shoppingbag.png" alt="ShopNow" id="shipbag">
                 <span>Shop Now</span>
                 <span class="menu-plus" id="plussym">+</span>
@@ -133,29 +134,29 @@
             </div>
             <div class="contentmenuslide">
                 <ul id="shopslide">
-                    <li>
-                        <a href="categories.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Rice" class="menuimg" id="ricemenu">
-                        <span>Rice</span></a>
+                    <li class="comonclas">
+                        <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Rice" class="menuimg" id="ricemenu">
+                        <span class="spancls">Rice</span>
                     </li>
-                    <li>
-                        <a href="categories.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Oil" class="menuimg" id="oilmenu">
-                        <span>Oil</span></a>
+                    <li class="comonclas">
+                        <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Oil" class="menuimg" id="oilmenu">
+                        <span class="spancls">Oil</span>
                     </li>
-                    <li>
-                        <a href="categories.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="snackmenu">
-                        <span>Snacks</span></a>
+                    <li class="comonclas">
+                        <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="snackmenu">
+                        <span class="spancls">Snacks</span>
                     </li>
-                    <li>
-                        <a href="categories.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="flourmenu">
-                        <span>Flour</span></a>
+                    <li class="comonclas">
+                        <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="flourmenu">
+                        <span class="spancls">Flour</span>
                     </li>
-                    <li>
-                        <a href="categories.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="masalmenu">
-                        <span>Masalas</span></a>
+                    <li class="comonclas">
+                        <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="masalmenu">
+                        <span class="spancls">Masalas</span>
                     </li>
-                    <li>
-                        <a href="categories.html"><img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="beautymenu">
-                        <span>Beauty Products</span></a>
+                    <li class="comonclas">
+                        <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="beautymenu">
+                        <span class="spancls">Beauty Products</span>
                     </li>  
                 </ul>
             </div>
@@ -169,7 +170,7 @@
     <!-- Swetha working area start-->
     <div class="wholecategories2" style="padding-top: 10px;">
         <div class="cate-heading" id="mydiv" style="margin-top: 0px;">
-            <div id="btn-sweets"><span class="btn active" id="fetch-categories">Rice</span></div>
+            <div id="btn-sweets"><span class="btn" id="fetch-categories">Rice</span></div>
             <div id="btn-savouries"><span class="btn">Oil</span></div>
             <div id="btn-pickels"><span class="btn">Snacks</span></div>
             <div id="btn-honey"><span class="btn">Flour</span></div>

@@ -86,13 +86,13 @@ function getvalfn(obj){
     var prodcat = obj[i].category;
     var prodimg = obj[i].imgPath_1;
     var listcreate= document.createElement("li");
-    listcreate.id = "acting";
+    listcreate.classList.add("acting");
     t += "<img src="+ prodimg+" class='searimg'>";
     t += "<div class='flecls'>"
-    t += "<div id='titlesear'>";
+    t += "<div class='titlesear'>";
     t += prodname;
     t += "</div>";
-    t += "<span id='prodcat'>Category: ";
+    t += "<span id='prodcat'> Category: ";
     t += prodcat;
     t += "</span>";
     t += "</div>"
@@ -208,6 +208,8 @@ function productpageonload(){
   var converttoobj = JSON.parse(serializedData);
   //console.log(converttoobj);
   var hecticinsert = "";
+  var t2 = "";
+  var t3 = "";
   hecticinsert +='<div class="product-details">';  
   hecticinsert +='<h3 id="productname">';
   hecticinsert +=converttoobj[0].productName;
@@ -242,6 +244,35 @@ function productpageonload(){
   
   document.getElementById("product-content").innerHTML= hecticinsert;
 
+  t2 +='<div class="carousel-item active" id="firstscrollimg" style="width:80%;height:80%;">';
+  t2 +='<img src="' +converttoobj[0].imgPath_3+'" width="100%" height="100%">'
+  t2 +='</div>';
+  t2 +='<div class="carousel-item" id="secondscrollimg" style="width:80%;height:80%;">';
+  t2 +='<img src="' +converttoobj[0].imgPath_4+'" width="100%" height="100%">'
+  t2 +='</div>';
+  t2 +='<div class="carousel-item" id="thirdscrollimg" style="width:80%;height:80%;">';
+  t2 +='<img src="' +converttoobj[0].imgPath_5+'" width="100%" height="100%">'
+  t2 +='</div>';
+  t2 +='<div class="carousel-item" id="fourthscrollimg" style="width:80%;height:80%;">';
+  t2 +='<img src="' +converttoobj[0].imgPath_6+'" width="100%" height="100%">'
+  t2 +='</div>';
+
+  document.getElementById("slidecarouselimg").innerHTML=t2;
+
+  t3 +='<button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active">';
+  t3 +='<img id="scroll1" src="' +converttoobj[0].imgPath_3+'">'
+  t3 +='</button>';
+  t3 +='<button type="button" data-bs-target="#demo" data-bs-slide-to="1">';
+  t3 +='<img id="scroll2" src="' +converttoobj[0].imgPath_4+'">'
+  t3 +='</button>';
+  t3 +='<button type="button" data-bs-target="#demo" data-bs-slide-to="2">';
+  t3 +='<img id="scroll3" src="' +converttoobj[0].imgPath_5+'">'
+  t3 +='</button>';
+  t3 +='<button type="button" data-bs-target="#demo" data-bs-slide-to="3">';
+  t3 +='<img id="scroll4" src="' +converttoobj[0].imgPath_6+'">'
+  t3 +='</button>';
+  document.getElementById("slideindicatorsimg").innerHTML=t3;
+
   $(document).on("click", ".btnnormal", function() {
     var buttons = $(".btnnormal"); // Get all buttons with the class "btnnormal"
     var index = buttons.index($(this));
@@ -257,9 +288,9 @@ function productpageonload(){
   $(document).on("click", "#productaddbutton", function() {
 
     var userid=103;
-   var isActive=1;
+    var isActive=1;
     var normalbtn=document.getElementsByClassName("btnnormal");
-  var clickedposition;
+    var clickedposition;
     for(let i=0;i<normalbtn.length;i++){
     if(normalbtn[i].classList.contains("highlightbtn"))
       {
@@ -405,20 +436,29 @@ $(document).ready(function () {
   });
 
   $("#plussym").click(function () {
-    $(".contentmenuslide #shopslide").slideDown("slow");
+    $(".contentmenuslide #shopslide").slideToggle("slow");
     $("#shopslide").css("display", "flex");
-    $("#minussym").css("display", "block");
-    $("#plussym").css("display", "none");
+    $("#minussym").toggle();
+    $("#plussym").toggle();
   });
-  $("#minussym").click(function () {
-    $(".contentmenuslide #shopslide").slideUp("slow");
-    $("#minussym").css("display", "none");
-    $("#plussym").css("display", "block");
+
+  $("#shopnowid").click(function () {
+    $(".contentmenuslide #shopslide").slideToggle("slow");
+    $("#shopslide").css("display", "flex");
+    $("#minussym").toggle();
+    $("#plussym").toggle();
   });
-  $(document).on("click","#titlesear",function(){
-    var getname = $(this).text();
+
+  $(document).on("click",".acting",function(){
+    var getname = $(this).find(".titlesear").text();
     getprod(getname);
-  })
+  });
+
+  $(document).on("click", ".comonclas", function() {
+    var passval = $(this).find(".spancls").text();
+    window.location.href = "./categories.html?value=" + passval;
+  });
+  
   /*$("#iconsearch").click(function(){
     $(".blackscreen").css("top","0");
     $(".blackscreen").css("z-index","99");
