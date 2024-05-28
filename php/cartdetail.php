@@ -2,8 +2,8 @@
 
 <?php
     include "config.php";
-
-    $sql = "SELECT * FROM cart WHERE userId=1";
+    $userid = $_POST['userid'];
+    $sql = "SELECT productId,count,userID FROM cart WHERE userId='$userid'AND isActive='1' ";
 
     $res = $con->query($sql);
 
