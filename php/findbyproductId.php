@@ -1,20 +1,39 @@
 <?php
     include "config.php";
-    $jsonObjects = $_POST['objects']; // Get the JSON data
-    $decodedObjects = json_decode($jsonObjects, true); // Decode the JSON string
-    foreach ($decodedObjects as $object) {
-        $id = $object['productId'];
-        $sql = "SELECT productName,productId,unit,volume FROM products WHERE productId IN ('$id')";
-        $res = $con->query($sql);
-        if($res->num_rows>0){
-            while($row=$res->fetch_assoc()){
-                $response[] = $row;
-                //echo json_encode($response);
-            }
-        }else{
-            echo "no record";
-        }
+
+    $productslist = $_POST['productslist'];
+
+    $response = array();
+
+    $productIds = array();
+
+ 
+    foreach ($productslist as $product) {
+        $productIds[] = $product['productId'];
     }
+
+  
+    $escapedProductIds = array();
+    foreach ($productIds as $productId) {
+        $escapedProductIds[] = mysqli_real_escape_string($con, $productId);
+    }
+    $escapedProductIdsString = "'" . implode("','", $escapedProductIds) . "'";
+    $query = "SELECT productId, productName,imgPath_1,volume FROM products WHERE productId IN ($escapedProductIdsString)";
+
+    $res = $con->query($query);
+
+    if ($res) {
+      
+        while ($row = mysqli_fetch_assoc($res)) {
+           
+            $response[] = $row;
+        }
+    } else {
+        
+        $response[] = array("error" => "Error executing query: " . mysqli_error($con));
+    }
+
     echo json_encode($response);
-    
+    mysqli_close($con);
 ?>
+
