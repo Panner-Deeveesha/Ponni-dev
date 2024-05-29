@@ -112,7 +112,9 @@ body{
 #productList div{
     text-overflow: ellipsis;
 }
-
+.titlesear{
+    text-transform: capitalize;
+}
 #offpriceid{
     display: inline-block;
     color: #f41010;
@@ -484,6 +486,36 @@ del{
     color: #fff;
     background-color: #2b4522;
     border: 1px solid #2b4522;
+}
+
+/* CANCEL PAGE */
+
+#wholecancelation, #wholetc{
+    width: 60%;
+    margin: 30px auto;
+    margin-bottom: 0px;
+    font-size: 16px;
+    line-height: 26px;
+}
+.rte h2, .rte h3{
+    color: #558146;
+    text-align: center;
+    margin: 30px;
+}
+.rte p{
+    margin: 30px;
+    text-align: justify;
+}
+.rte p:last-of-type{
+    margin-bottom: 0px;
+}
+.rte ul{
+    width: 80%;
+    margin: 10px auto;
+}
+.policy-title h1{
+    text-align: center;
+    color: #558146;
 }
 @media only screen and (max-width:990px){
     #ponnititle{
