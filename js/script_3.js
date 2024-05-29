@@ -1,3 +1,4 @@
+
 $("#footer-plus1").click(function () {
   $(".footer-main3 .footer-contact").slideDown("slow");
   $("#footer-minus1").css("display", "block");
@@ -239,24 +240,24 @@ function getcartcount(obj) {
 }
 
 
-function displaycartdetails(obj){
+function displaycartdetails(uniqueObj){
   var cartItems = {};
 
   var totalSum = 0; 
    var cartDiv = "";
-    for(let i=0;i<obj.length;i++){
+    for(let i=0;i<uniqueObj.length;i++){
       var cartincrement='';
-      var productValue = obj[i].offerPrice * obj[i].count; 
+      var productValue = uniqueObj[i].offerPrice * uniqueObj[i].count; 
       totalSum += productValue;
          
           cartDiv += '<div class="cart-description1">';
-          cartDiv += `<img src='${obj[i].imgPath_1}' width="100px" height="100px">`;
+          cartDiv += `<img src='${uniqueObj[i].imgPath_1}' width="100px" height="100px">`;
           cartDiv += '<div  class="cart-product1">';
           cartDiv += '<p class="cart-productname" >';
-          cartDiv += obj[i].productName;
+          cartDiv += uniqueObj[i].productName;
           cartDiv += '</p>';
           cartDiv += '<p>';
-          cartDiv += obj[i].volume;
+          cartDiv += uniqueObj[i].volume;
           cartDiv += '</p>';
           cartDiv += '<p>';
           cartDiv += '<img src="./assets/icons/icons8-delete-20.png">';
@@ -265,16 +266,16 @@ function displaycartdetails(obj){
           cartDiv += '</div>';
           cartDiv += '<div class="cart-price">';
           cartDiv += '<del>';
-          cartDiv += 'Rs:'+obj[i].price;
+          cartDiv += 'Rs:'+uniqueObj[i].price;
           cartDiv += '</del>';
           cartDiv += '<span class="product-price" id="cart-price1">';
-          cartDiv += 'Rs:'+obj[i].offerPrice;
+          cartDiv += 'Rs:'+uniqueObj[i].offerPrice;
           cartDiv += '</span>';
           cartDiv += '</div>';
           cartDiv += '<div class="cartinputavailability">';
           cartDiv += `<button onclick="updateTotal(${i}, 'decrement')">-</button>`
     
-          cartDiv += `<input id='cartincrement${i}' type="number" class="product-quantity" value='${obj[i].count}'>`;
+          cartDiv += `<input id='cartincrement${i}' type="number" class="product-quantity" value='${uniqueObj[i].count}'>`;
           cartDiv += `<button onclick="updateTotal(${i}, 'increment')">+</button>`;
   
           cartDiv += '</div>';
@@ -287,36 +288,43 @@ function displaycartdetails(obj){
     }
       $("#cart-descriptionid").html(cartDiv);
       $('#wholecarttotal').html("Rs."+totalSum);
+
+
+      window.updateTotal = function(index, action) {
+
+        var quantityInput = $(`#cartincrement${index}`);
+        var currentValue = parseInt(quantityInput.val());
+        if (action === 'increment') {
+          quantityInput.val(currentValue + 1);
+        } else if (action === 'decrement' && currentValue > 0) {
+          quantityInput.val(currentValue - 1);
+        }
+  
+        updateTotalSum();
+      };
+    
+    
+      function updateTotalSum() {
+        totalSum = 0;
+        for (let i = 0; i < uniqueObj.length; i++) {
+          var productValue = uniqueObj[i].offerPrice * parseInt($(`#cartincrement${i}`).val());
+          totalSum += productValue;
+          $(`.total-value:eq(${i})`).text(`Rs:${productValue}`);
+        }
+        $('#wholecarttotal').html("Rs." + totalSum);
+      }
      
   
     }
-    function updateTotal(index, action) {
-   
-      var currentCount = parseInt($("#cartincrement" + index).val());
-      
-      
-      if (action === 'increment') {
-          currentCount++;
-      } else if (action === 'decrement') {
-          if (currentCount > 1) {
-              currentCount--;
-          }
-      }
-      
-     
-      $("#cartincrement" + index).val(currentCount);
+    $(document).on("click", ".cart-productname", function() {
   
-      var newProductValue = obj[index].offerPrice * currentCount;
-      
-     
-      $(".total-value").eq(index).text("Rs:" + newProductValue);
-      
-     
-      var newTotalSum = 0;
-      for (let i = 0; i < obj.length; i++) {
-          newTotalSum += obj[i].offerPrice * parseInt($("#cartincrement" + i).val());
-      }
+      var temp1= $(this).text();
+      var temp2=$("product-quantity").text();
     
-      $('#wholecarttotal').html("Rs." + newTotalSum);
-  }
+      window.location.href = "./ponniproductpage.html?innerHTML="+temp1+temp2;
+    
+     
+    });
+  
+  
   
