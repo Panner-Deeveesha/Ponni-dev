@@ -493,12 +493,23 @@ del{
 
 /* CANCEL PAGE */
 
-#wholecancelation, #wholetc, #wholecontact{
+#wholecancelation, #wholetc{
     width: 60%;
     margin: 30px auto;
     margin-bottom: 0px;
     font-size: 16px;
     line-height: 26px;
+}
+#wholecontact{
+    width: 40%;
+    margin: 30px auto;
+    margin-bottom: 0px;
+    font-size: 16px;
+    line-height: 0.5in;
+    padding: 20px;
+}
+.table-res P{
+    margin-left: 40px;
 }
 .rte h2, .rte h3{
     color: #558146;
@@ -612,8 +623,14 @@ del{
     #cartCount {
         right: 2.8%;
     }
-    #wholecancelation, #wholetc, #wholecontact{
+    #wholecancelation, #wholetc{
         width: 92%;
+    }
+    #wholecontact{
+        width: 80%;
+    }
+    .table-res P{
+        margin-left: 10px;
     }
 }
 @media only screen and (max-width:500px){
