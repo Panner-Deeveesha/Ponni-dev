@@ -243,7 +243,7 @@ function displaycategories(obj){
       
       t +='</div>';
       
-      document.getElementById("samplew").innerHTML=t;
+      document.getElementById("samplework").innerHTML=t;
       
     }
 

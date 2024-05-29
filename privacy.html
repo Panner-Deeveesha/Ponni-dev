@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Privacy Policy</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style_1.css">
+    <link rel="stylesheet" href="./css/style_2.css">
+    <link rel="stylesheet" href="./css/style_3.css">
+	<link rel="stylesheet" href="./css/owlcarousel.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Radio Canada' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Poppins';font-size: 22px;
+        }
+    </style>
+</head>
+
+<body onload="indexfunc()">
+    <!-- Keerthana working area start-->
+    <nav id="navhead">
+        <div id="headerfull">
+            <div id="ponnititle">
+                <p>PONNI NATURAL FOODS</p>
+            </div>
+            <div id="menutotleft">
+                <img src="assets/icons/menu-blck.png" alt="Cart" id="menublck" onclick="openmenu()">
+            </div>
+            <div id="ponnilogo">
+                <img src="assets/images/Logo trim.png" alt="Logo" id="logoimg">
+            </div>
+            <div id="headicons">
+                <div id="searchtot">
+                    <button id="searchbutton">
+                        <input id="searchInput" type="text" placeholder="Search for..">
+                        <img src="assets/icons/search.png" id="iconsearch" onclick="openNav()">
+                    </button>
+                    <div class="serchlist">
+                        <ul id="productList">
+
+                        </ul>
+                    </div>
+                </div>
+                <div id="carttot">
+                    <a href="cart.html">
+                        <p id="cartCount">0</p>
+                        <img src="assets/icons/cart-black.png" alt="Cart" id="cartblck">
+                    </a>
+                </div>
+                <div id="menutot">
+                    <img src="assets/icons/menu-blck.png" alt="Cart" id="menublck" onclick="openmenu()">
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="blackscreen"></div>
+    <div id="searchsort">
+        <div id="contentsear">
+            <div class="titleforsear">
+                <span class="tit">Search our Site</span>
+                <img src="assets/icons/icons8-close-25.png" alt="close" class="closeid" onclick="closeNav()">
+            </div>
+            <div id="seartype">
+                <input id="searchInput2" type="text" placeholder="Search for..">
+                <span id="inspirespan">Need Some Inspiration?</span>
+            </div>
+            <div id="serchlist2">
+                <ul id="productList2">
+
+                </ul>
+            </div>
+            <div id="totalstart">
+                <div class="itemone">
+                    <div class="photopic">
+                        <img src="https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Sesame-Oil.jpg" alt="oil" class="searchimage">
+                    </div>
+                    <div class="contentforpic">
+                        <span>Wood Pressed Gingely Oil</span>
+                        <del>Rs. 500.00</del>
+                        <span>From Rs. 480.00</span>
+                    </div>
+                </div>
+                <div class="itemone">
+                    <div class="photopic">
+                        <img src="https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Groundnut-oil.jpg" alt="oil" class="searchimage">
+                    </div>
+                    <div class="contentforpic">
+                        <span>Wood Pressed Groundnut Oil</span>
+                        <del>Rs. 500.00</del>
+                        <span>From Rs. 480.00</span>
+                    </div>
+                </div>
+                <div class="itemone">
+                    <div class="photopic">
+                        <img src="https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Coconut-Oil.jpg" alt="oil" class="searchimage">
+                    </div>
+                    <div class="contentforpic">
+                        <span>Wood Pressed Coconut Oil</span>
+                        <del>Rs. 500.00</del>
+                        <span>From Rs. 480.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="menusort">
+        <div id="menusear">
+            <div class="titleforsear">
+                <span class="tit">Menu</span>
+                <img src="assets/icons/icons8-close-25.png" alt="close" class="closeid" onclick="closemenu()">
+            </div>
+            <div class="menureg">
+                <a href="login.html">
+                    <img src="./assets/icons/maleuser.png" alt="Login" id="userimg">
+                    <span>Login/Register</span>
+                </a>
+            </div>
+            <div class="menureg">
+                <img src="./assets/icons/rocket.png" alt="NewItems" id="Items">
+                <span>New Items & Best Seller</span>
+            </div>
+            <div class="menureg" id="shopnowid">
+                <img src="./assets/icons/shoppingbag.png" alt="ShopNow" id="shipbag">
+                <span>Shop Now</span>
+                <span class="menu-plus" id="plussym">+</span>
+                <span class="menu-minus" id="minussym">-</span>
+            </div>
+            <div class="contentmenuslide">
+                <ul id="shopslide">
+                    <li class="comonclas">
+                        <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="categories" class="menuimg" id="categoriesmenu">
+                        <span class="spancls">Rice</span>
+                    </li>
+                    <li class="comonclas">
+                        <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Oil" class="menuimg" id="oilmenu">
+                        <span class="spancls">Oil</span>
+                    </li>
+                    <li class="comonclas">
+                        <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="snackmenu">
+                        <span class="spancls">Snacks</span>
+                    </li>
+                    <li class="comonclas">
+                        <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="flourmenu">
+                        <span class="spancls">Flour</span>
+                    </li>
+                    <li class="comonclas">
+                        <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="masalmenu">
+                        <span class="spancls">Masalas</span>
+                    </li>
+                    <li class="comonclas">
+                        <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="beautymenu">
+                        <span class="spancls">Beauty Products</span>
+                    </li>  
+                </ul>
+            </div>
+            <div class="menureg" id="lastmenureg">
+                <span style="color: grey;">Get In Touch</span>
+                <span>care@ponni.com</span>
+            </div>
+        </div>
+    </div>
+    <!-- Keerthana working area end-->
+    <div class="privacy-content">
+        <h3>Privacy policy</h3>
+        <p>This Privacy Policy describes how www.Ponni.com (the “Site” or “we”) a product of Fouvi Technology Private Limited, collects, uses, and discloses your Personal Information when you visit or make a purchase from the Site.</p>
+        <h3>Collecting Personal Information</h3>
+        <p>When you visit the Site, we collect certain information about your device, your interaction with the Site, and information necessary to process your purchases. We may also collect additional information if you contact us for customer support. In this Privacy Policy, we refer to any information that can uniquely identify an individual (including the information below) as “Personal Information”. See the list below for more information about what Personal Information we collect and why.</p>
+        <h5>Device information</h5>   
+        <p><b>Examples of Personal Information collected:</b> Version of web browser, IP address, time zone, cookie information, what sites or products you view, search terms, and how you interact with the Site.
+         <br>  <b>Purpose of collection:</b> To load the Site accurately for you, and to perform analytics on Site usage to optimize our Site.
+         <br>  <b>Source of collection:</b> Collected automatically when you access our Site using cookies, log files, web beacons, tags, or pixels.
+         <br>  <b>Disclosure for a business purpose: </b>Shared with our processor Shopify.</p>
+        <h5>Order information</h5>    
+        <p><b>Examples of Personal Information collected:</b> Name, billing address, shipping address, payment information, email address, and phone number.
+        <br><b>Purpose of collection: </b> To provide products or services to you to fulfill our contract, to process your payment information, arrange for shipping, and provide you with invoices and/or order confirmations, communicate with you, screen our orders for potential risk or fraud, and when in line with the preferences you have shared with us, provide you with information or advertising relating to our products or services.
+        <br><b>Source of collection:</b> Collected from you.
+        <br><b>Disclosure for a business purpose:</b> Shared with our processor Shopify & Payment gateways.</p>
+        <h5>Customer support information</h5>
+        <p><b>Examples of Personal Information collected:</b> Name, billing address, shipping address, payment information, email address, and phone number.
+         <br> <b>Purpose of collection:</b>To provide customer support / help with ordering.
+         <br> <b>Source of collection: </b>Collected from you.
+         <br> <b>Disclosure for a business purpose:</b>Shared with our processor Shopify
+        </p>    
+        <h3>Minors</h3>
+        <p>The Site is not intended for individuals under the age of 13. We do not intentionally collect Personal Information from children. If you are the parent or guardian and believe your child has provided us with Personal Information, please contact us at the address below to request deletion.</p>
+        <h3>Sharing Personal Information</h3>
+        <p>We share your Personal Information with service providers to help us provide our services and fulfill our contracts with you, as described above. For example:    
+         We use Shopify to power our online store. You can read more about how Shopify uses your Personal Information here: https://www.shopify.com/legal/privacy.
+         We may share your Personal Information to comply with applicable laws and regulations, to respond to a subpoena, search warrant or other lawful request for information we receive, or to otherwise protect our rights.</p>
+        <h3>Behavioural Advertising</h3>
+        <p>As described above, we use your Personal Information to provide you with targeted advertisements or marketing communications we believe may be of interest to you. For example:    
+         We use Google Analytics to help us understand how our customers use the Site. You can read more about how Google uses your Personal Information here: https://policies.google.com/privacy?hl=en. You can also opt-out of Google Analytics here: https://tools.google.com/dlpage/gaoptout.
+         We share information about your use of the Site, your purchases, and your interaction with our ads on other websites with our advertising partners. We collect and share some of this information directly with our advertising partners, and in some cases through the use of cookies or other similar technologies (which you may consent to, depending on your location).
+         For more information about how targeted advertising works, you can visit the Network Advertising Initiative’s (“NAI”) educational page at http://www.networkadvertising.org/understanding-online-advertising/how-does-it-work.
+        <h3>Using Personal Information</h3>   
+        <p>We use your personal Information to provide our services to you, which includes: offering products for sale, processing payments, shipping and fulfillment of your order, and keeping you up to date on new products, services, and offers.</p>
+        <h3>Lawful basis</h3> 
+        <p>Pursuant to the General Data Protection Regulation (“GDPR”), if you are a resident of the European Economic Area (“EEA”), we process your personal information under the following lawful bases:
+             Your consent;
+             The performance of the contract between you and the Site;
+             Compliance with our legal obligations;
+             To protect your vital interests;
+             To perform a task carried out in the public interest;
+             For our legitimate interests, which do not override your fundamental rights and freedoms.</p>
+        <h3>Retention</h3>
+        <p>When you place an order through the Site, we will retain your Personal Information for our records unless and until you ask us to erase this information. For more information on your right of erasure, please see the ‘Your rights’ section below.</p>    
+        <h3>Automatic decision-making</h3>
+        <p>If you are a resident of the EEA, you have the right to object to processing based solely on automated decision-making (which includes profiling), when that decision-making has a legal effect on you or otherwise significantly affects you.     
+         We do not engage in fully automated decision-making that has a legal or otherwise significant effect using customer data.         
+         Our processor Shopify uses limited automated decision-making to prevent fraud that does not have a legal or otherwise significant effect on you.        
+         Services that include elements of automated decision-making include:         
+         Temporary denylist of IP addresses associated with repeated failed transactions. This denylist persists for a small number of hours.
+         Temporary denylist of credit cards associated with denylisted IP addresses. This denylist persists for a small number of days.</p>
+    </div>
+    <!-- kavya working area start-->   
+    <div class="footer-whole">
+        <img src="./assets/images/footer v001.jpg" class="footer-banner" >
+        <img src="./assets/images/footer tab final.png" class="footer-banner1" >
+        <img src="./assets/images/footer mobile v001 (1).png" class="footer-banner2" >
+        <div class="footer-main">
+            <div class="footer-main2">
+                <div class="footer-contact">
+                    <img src="./assets/images/Logo trim.png" width="90px">
+                    <p>Corporate Office:<br>
+                        No.44, Mullai Nagar Bus Stop,<br> Thanakkankulam, Near Ford Showroom<br>
+                        Madurai - 625006
+                    </p>
+                    <div class="footer-icon">  
+                        <img src="./assets/icons/icons8-f-20.png" class="footer-icon1">
+                        <img src="./assets/icons/instagram.png" class="footer-icon2">
+                        <img src="./assets/icons/icons8-youtube-20.png" class="footer-icon3">
+                    </div>	  
+                </div>
+                <div class="footer-about">
+                    <h3>ABOUT US</h3>
+                    <ul class="footer-linklist">
+                        <li><a href="">OUR STORY</a></li>                  
+                        <li><a href="">CAREERS</a></li>     
+                        <li><a href="">GET A PACK GIVE A PACK </a> </li>					                                            
+                        <li><a href="">CUSTOMER REVIEWS </a></li>                                            
+                        <li><a href="">REFER A FRIEND</a>  </li>                        
+                        <li><a href="">CORPORATE GIFTING</a></li>                                                                                                                           
+                        <li><a href="">NEWS &amp; MEDIA </a> </li>
+                    </ul>                                          
+                </div>
+                <div class="footer-duties">
+                    <h3 >SUPPORT</h3>
+                    <ul>
+                        <li><a href="">FAQS</a></li>
+                        <li><a href=""> DUTIES & CLEARANCE</a></li>                              
+                        <li><a href="">PARTNER WITH US</a></li>                                   
+                    </ul>
+                </div>           
+                <div class="footer-lastsection">
+                    <h3 >PURE GOODNESS FROM THE LAND <h3>
+                    <p>Sign up to get exclusive offers,<br>
+                        the latest Ponni specials, and more!
+                    </p>
+                    <div class="footer-emailsection">
+                        <input type="email" placeholder="Your email address">
+                        <button>Subscribe</button>
+                    </div>
+                    <div class="footer-creditcards">
+                        <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg">
+                        <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/paypal-49e4c1e03244b6d2de0d270ca0d22dd15da6e92cc7266e93eb43762df5aa355d.svg">
+                        <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/maestro-d2055c6b416c46cf134f393e1df6e0ba31722b623870f954afd392092207889c.svg">
+                        <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/american_express-12858714bc10cdf384b62b8f41d20f56d8c32c1b8fed98b662f2bfc158dcbcf0.svg">
+                        <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/discover-cc9808e50193c7496e7a5245eb86d5e06f02e2476c0fe70f2c40016707d35461.svg">
+                    </div>
+                </div>           
+            </div>
+            <div class="footer-main3">
+                <div>
+                    <h3 class="footer-get">GET IN TOUCH<span class="footer-plus"id="footer-plus1">+</span><span class="footer-minus" id="footer-minus1">-</span></h3>
+                </div>
+                <div class="footer-contact" style="margin-top:30px";>
+                    <img src="./assets/images/Logo trim.png" width="90px">
+                    <p>Corporate Office:<br>
+                        No.44, Mullai Nagar Bus Stop,<br> Thanakkankulam, Near Ford Showroom<br>
+                        Madurai - 625006
+                    </p>
+                    <div class="footer-icon">  
+                            <img src="./assets/icons/icons8-f-20.png" class="footer-icon1">
+                            <img src="./assets/icons/instagram.png" class="footer-icon2">
+                            <img src="./assets/icons/icons8-youtube-20.png" class="footer-icon3">
+                        </div>	  
+                    </div>               
+                    <div class="footer-about">
+                        <h3>ABOUT US <span class="footer-plus" id="footer-plus2">+</span><span class="footer-minus" id="footer-minus2">-</span></h3>
+                        <ul class="footer-linklist">
+                            <li><a href=""> OUR STORY</a></li>                                              
+                            <li><a href="">CAREERS</a></li>                                                                                                 
+                            <li><a href="">GET A PACK GIVE A PACK </a> </li>					                                            
+                            <li><a href="">CUSTOMER REVIEWS </a></li>                                              
+                            <li><a href="">REFER A FRIEND</a>  </li>                          
+                            <li><a href="">CORPORATE GIFTING</a></li>                                         
+                            <li><a href="">NEWS &amp; MEDIA </a> </li>
+                        </ul>                                            
+                    </div>           
+                    <div class="footer-duties">
+                        <h3>SUPPORT<span class="footer-plus" id="footer-plus3">+</span><span class="footer-minus" id="footer-minus3">-</span></h3>
+                        <ul class="footer-dutieslist">
+                            <li><a href="">FAQS</a></li>
+                            <li><a href=""> DUTIES & CLEARANCE</a></li>                              
+                            <li><a href="">PARTNER WITH US</a></li>                                   
+                        </ul>
+                    </div>           
+                    <div class="footer-lastsection">          
+                        <h3>PURE GOODNESS FROM THE LAND <span class="footer-plus" id="footer-plus4">+</span><span class="footer-minus" id="footer-minus4">-</span><h3>
+                        <div class="footer-lastsectioncontent" >
+                            <p>Sign up to get exclusive offers,<br>
+                                the latest Ponni specials, and more!
+                            </p>
+                            <div class="footer-emailsection">
+                                <input type="email" placeholder="Your email address">
+                                <button>Subscribe</button>
+                            </div>
+                            <div class="footer-creditcards">
+                                <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg">
+                                <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/paypal-49e4c1e03244b6d2de0d270ca0d22dd15da6e92cc7266e93eb43762df5aa355d.svg">
+                                <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/maestro-d2055c6b416c46cf134f393e1df6e0ba31722b623870f954afd392092207889c.svg">
+                                <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/american_express-12858714bc10cdf384b62b8f41d20f56d8c32c1b8fed98b662f2bfc158dcbcf0.svg">
+                                <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/discover-cc9808e50193c7496e7a5245eb86d5e06f02e2476c0fe70f2c40016707d35461.svg">          
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="footer-copyrights">
+            <div class="copyrightscontent">
+                <div class="copyrights1"><p>care@Ponni.com</p></div>
+                <div class="terms">
+                    <li><a href="privacy.html">PRIVACY</a></li>
+                    <li><a href="tc.html">TERMS</a></li>
+                    <li><a href="cancel.html">REFUNDS</a></li>
+                    <li><a href="ship.html">SHIPPING</a></li>
+                </div>
+            </div>          
+        </div>
+    </div>
+	<!-- kavya working area end--> 
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/script_1.js"></script>
+    <script src="./js/script_2.js"></script>
+    <script src="./js/script_3.js"></script>
+    <script src="./js/owlnpm.js"></script>
+	<script src="./js/owlcarousel.js"></script>
+	<script src="./js/testslide2.js"></script>
+</body>
+</html>

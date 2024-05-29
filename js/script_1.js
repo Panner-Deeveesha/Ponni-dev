@@ -80,7 +80,7 @@ function getvalfn(obj){
   for(i=0;i<num;i++){
     var t = "";
     var prodname = obj[i].productName;
-    var productname = prodname.charAt(0).toUpperCase() + prodname.slice(1);
+    //var productname = prodname.charAt(0).toUpperCase() + prodname.slice(1);
     var produnit = obj[i].unit;
     var prodvol = obj[i].volume;
     var prodcat = obj[i].category;
@@ -90,7 +90,7 @@ function getvalfn(obj){
     t += "<img src="+ prodimg+" class='searimg'>";
     t += "<div class='flecls'>"
     t += "<div class='titlesear'>";
-    t += productname;
+    t += prodname;
     t += "</div>";
     t += "<span id='prodcat'>";
     t += prodvol + " " + produnit;
