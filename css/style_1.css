@@ -102,6 +102,9 @@ body{
     vertical-align:middle; 
     padding:5px;
 }
+#productname{
+    text-transform: capitalize;
+}
 #productList li{
 	list-style:none;
     text-align: justify;
