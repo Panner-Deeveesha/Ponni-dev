@@ -1,39 +1,25 @@
+
 <?php
-    include "config.php";
+include "config.php";
 
-    $productslist1 = $_POST['productslist'];
 
-    $response1 = array();
 
-    $productIds1 = array();
 
- 
-    foreach ($productslist1 as $product1) {
-        $productIds1[] = $product1['productId'];
+$sql = "SELECT productName,productId,unit,volume,imgPath_1 FROM products WHERE isActive=1";
+
+$res = $con->query($sql);
+
+if($res->num_rows>0){
+    while($row=$res->fetch_assoc()){
+        $response[] = $row;
+        //echo json_encode($response);
     }
+    echo json_encode($response);
+    
+}
 
-  
-    $escapedProductIds1 = array();
-    foreach ($productIds1 as $productId1) {
-        $escapedProductIds1[] = mysqli_real_escape_string($con, $productId1);
-    }
-    $escapedProductIdsString1 = "'" . implode("','", $escapedProductIds1) . "'";
-    $query = "SELECT productId, productName,imgPath_1,volume FROM products WHERE productId IN ($escapedProductIdsString1)";
-
-    $res = $con->query($query);
-
-    if ($res) {
-      
-        while ($row = mysqli_fetch_assoc($res)) {
-           
-            $response1[] = $row;
-        }
-    } else {
-        
-        $response1[] = array("error" => "Error executing query: " . mysqli_error($con));
-    }
-
-    echo json_encode($response1);
-    mysqli_close($con);
 ?>
+
+
+
 
