@@ -493,7 +493,7 @@ del{
 
 /* CANCEL PAGE */
 
-#wholecancelation, #wholetc{
+#wholecancelation, #wholetc, #wholecontact{
     width: 60%;
     margin: 30px auto;
     margin-bottom: 0px;
@@ -612,7 +612,7 @@ del{
     #cartCount {
         right: 2.8%;
     }
-    #wholecancelation, #wholetc{
+    #wholecancelation, #wholetc, #wholecontact{
         width: 92%;
     }
 }
