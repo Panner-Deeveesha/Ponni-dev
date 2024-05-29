@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Terms and Conditions</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style_1.css">
+    <link rel="stylesheet" href="./css/style_2.css">
+    <link rel="stylesheet" href="./css/style_3.css">
+	<link rel="stylesheet" href="./css/owlcarousel.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Radio Canada' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Poppins';font-size: 22px;
+        }
+    </style>
+</head>
+
+<body onload="indexfunc()">
+    <!-- Keerthana working area start-->
+    <nav id="navhead">
+        <div id="headerfull">
+            <div id="ponnititle">
+                <p>PONNI NATURAL FOODS</p>
+            </div>
+            <div id="menutotleft">
+                <img src="assets/icons/menu-blck.png" alt="Cart" id="menublck" onclick="openmenu()">
+            </div>
+            <div id="ponnilogo">
+                <img src="assets/images/Logo trim.png" alt="Logo" id="logoimg">
+            </div>
+            <div id="headicons">
+                <div id="searchtot">
+                    <button id="searchbutton">
+                        <input id="searchInput" type="text" placeholder="Search for..">
+                        <img src="assets/icons/search.png" id="iconsearch" onclick="openNav()">
+                    </button>
+                    <div class="serchlist">
+                        <ul id="productList">
+
+                        </ul>
+                    </div>
+                </div>
+                <div id="carttot">
+                    <a href="cart.html">
+                        <p id="cartCount">0</p>
+                        <img src="assets/icons/cart-black.png" alt="Cart" id="cartblck">
+                    </a>
+                </div>
+                <div id="menutot">
+                    <img src="assets/icons/menu-blck.png" alt="Cart" id="menublck" onclick="openmenu()">
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="blackscreen"></div>
+    <div id="searchsort">
+        <div id="contentsear">
+            <div class="titleforsear">
+                <span class="tit">Search our Site</span>
+                <img src="assets/icons/icons8-close-25.png" alt="close" class="closeid" onclick="closeNav()">
+            </div>
+            <div id="seartype">
+                <input id="searchInput2" type="text" placeholder="Search for..">
+                <span id="inspirespan">Need Some Inspiration?</span>
+            </div>
+            <div id="serchlist2">
+                <ul id="productList2">
+
+                </ul>
+            </div>
+            <div id="totalstart">
+                <div class="itemone">
+                    <div class="photopic">
+                        <img src="https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Sesame-Oil.jpg" alt="oil" class="searchimage">
+                    </div>
+                    <div class="contentforpic">
+                        <span>Wood Pressed Gingely Oil</span>
+                        <del>Rs. 500.00</del>
+                        <span>From Rs. 480.00</span>
+                    </div>
+                </div>
+                <div class="itemone">
+                    <div class="photopic">
+                        <img src="https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Groundnut-oil.jpg" alt="oil" class="searchimage">
+                    </div>
+                    <div class="contentforpic">
+                        <span>Wood Pressed Groundnut Oil</span>
+                        <del>Rs. 500.00</del>
+                        <span>From Rs. 480.00</span>
+                    </div>
+                </div>
+                <div class="itemone">
+                    <div class="photopic">
+                        <img src="https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Coconut-Oil.jpg" alt="oil" class="searchimage">
+                    </div>
+                    <div class="contentforpic">
+                        <span>Wood Pressed Coconut Oil</span>
+                        <del>Rs. 500.00</del>
+                        <span>From Rs. 480.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="menusort">
+        <div id="menusear">
+            <div class="titleforsear">
+                <span class="tit">Menu</span>
+                <img src="assets/icons/icons8-close-25.png" alt="close" class="closeid" onclick="closemenu()">
+            </div>
+            <div class="menureg">
+                <a href="login.html">
+                    <img src="./assets/icons/maleuser.png" alt="Login" id="userimg">
+                    <span>Login/Register</span>
+                </a>
+            </div>
+            <div class="menureg">
+                <img src="./assets/icons/rocket.png" alt="NewItems" id="Items">
+                <span>New Items & Best Seller</span>
+            </div>
+            <div class="menureg" id="shopnowid">
+                <img src="./assets/icons/shoppingbag.png" alt="ShopNow" id="shipbag">
+                <span>Shop Now</span>
+                <span class="menu-plus" id="plussym">+</span>
+                <span class="menu-minus" id="minussym">-</span>
+            </div>
+            <div class="contentmenuslide">
+                <ul id="shopslide">
+                    <li class="comonclas">
+                        <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="categories" class="menuimg" id="categoriesmenu">
+                        <span class="spancls">Rice</span>
+                    </li>
+                    <li class="comonclas">
+                        <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Oil" class="menuimg" id="oilmenu">
+                        <span class="spancls">Oil</span>
+                    </li>
+                    <li class="comonclas">
+                        <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="snackmenu">
+                        <span class="spancls">Snacks</span>
+                    </li>
+                    <li class="comonclas">
+                        <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="flourmenu">
+                        <span class="spancls">Flour</span>
+                    </li>
+                    <li class="comonclas">
+                        <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="masalmenu">
+                        <span class="spancls">Masalas</span>
+                    </li>
+                    <li class="comonclas">
+                        <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="beautymenu">
+                        <span class="spancls">Beauty Products</span>
+                    </li>  
+                </ul>
+            </div>
+            <div class="menureg" id="lastmenureg">
+                <span style="color: grey;">Get In Touch</span>
+                <span>care@ponni.com</span>
+            </div>
+        </div>
+    </div>
+    <!-- Keerthana working area end-->
+    <div id="wholecontact">
+        
+    </div>
+     <!-- kavya working area start-->   
+    <div class="footer-whole">
+        <img src="./assets/images/footer v001.jpg" class="footer-banner" >
+        <img src="./assets/images/footer tab final.png" class="footer-banner1" >
+        <img src="./assets/images/footer mobile v001 (1).png" class="footer-banner2" >
+        <div class="footer-main">
+            <div class="footer-main2">
+                <div class="footer-contact">
+                    <img src="./assets/images/Logo trim.png" width="90px">
+                    <p>Corporate Office:<br>
+                        No.44, Mullai Nagar Bus Stop,<br> Thanakkankulam, Near Ford Showroom<br>
+                        Madurai - 625006
+                    </p>
+                    <div class="footer-icon">  
+                        <img src="./assets/icons/icons8-f-20.png" class="footer-icon1">
+                        <img src="./assets/icons/instagram.png" class="footer-icon2">
+                        <img src="./assets/icons/icons8-youtube-20.png" class="footer-icon3">
+                    </div>	  
+                </div>
+                <div class="footer-about">
+                    <h3>ABOUT US</h3>
+                    <ul class="footer-linklist">
+                        <li><a href="">OUR STORY</a></li>                  
+                        <li><a href="">CAREERS</a></li>     
+                        <li><a href="">GET A PACK GIVE A PACK </a> </li>					                                            
+                        <li><a href="">CUSTOMER REVIEWS </a></li>                                            
+                        <li><a href="">REFER A FRIEND</a>  </li>                        
+                        <li><a href="">CORPORATE GIFTING</a></li>                                                                                                                           
+                        <li><a href="">NEWS &amp; MEDIA </a> </li>
+                    </ul>                                          
+                </div>
+                <div class="footer-duties">
+                    <h3 >SUPPORT</h3>
+                    <ul>
+                        <li><a href="">FAQS</a></li>
+                        <li><a href=""> DUTIES & CLEARANCE</a></li>                              
+                        <li><a href="">PARTNER WITH US</a></li>                                   
+                    </ul>
+                </div>           
+                <div class="footer-lastsection">
+                    <h3 >PURE GOODNESS FROM THE LAND <h3>
+                    <p>Sign up to get exclusive offers,<br>
+                        the latest Ponni specials, and more!
+                    </p>
+                    <div class="footer-emailsection">
+                        <input type="email" placeholder="Your email address">
+                        <button>Subscribe</button>
+                    </div>
+                    <div class="footer-creditcards">
+                        <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg">
+                        <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/paypal-49e4c1e03244b6d2de0d270ca0d22dd15da6e92cc7266e93eb43762df5aa355d.svg">
+                        <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/maestro-d2055c6b416c46cf134f393e1df6e0ba31722b623870f954afd392092207889c.svg">
+                        <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/american_express-12858714bc10cdf384b62b8f41d20f56d8c32c1b8fed98b662f2bfc158dcbcf0.svg">
+                        <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/discover-cc9808e50193c7496e7a5245eb86d5e06f02e2476c0fe70f2c40016707d35461.svg">
+                    </div>
+                </div>           
+            </div>
+            <div class="footer-main3">
+                <div>
+                    <h3 class="footer-get">GET IN TOUCH<span class="footer-plus"id="footer-plus1">+</span><span class="footer-minus" id="footer-minus1">-</span></h3>
+                </div>
+                <div class="footer-contact" style="margin-top:30px";>
+                    <img src="./assets/images/Logo trim.png" width="90px">
+                    <p>Corporate Office:<br>
+                        No.44, Mullai Nagar Bus Stop,<br> Thanakkankulam, Near Ford Showroom<br>
+                        Madurai - 625006
+                    </p>
+                    <div class="footer-icon">  
+                            <img src="./assets/icons/icons8-f-20.png" class="footer-icon1">
+                            <img src="./assets/icons/instagram.png" class="footer-icon2">
+                            <img src="./assets/icons/icons8-youtube-20.png" class="footer-icon3">
+                        </div>	  
+                    </div>               
+                    <div class="footer-about">
+                        <h3>ABOUT US <span class="footer-plus" id="footer-plus2">+</span><span class="footer-minus" id="footer-minus2">-</span></h3>
+                        <ul class="footer-linklist">
+                            <li><a href="">OUR STORY</a></li>                                              
+                            <li><a href="">CAREERS</a></li>                                                                                                 
+                            <li><a href="">GET A PACK GIVE A PACK </a> </li>					                                            
+                            <li><a href="">CUSTOMER REVIEWS </a></li>                                              
+                            <li><a href="">REFER A FRIEND</a>  </li>                          
+                            <li><a href="">CORPORATE GIFTING</a></li>                                         
+                            <li><a href="">NEWS &amp; MEDIA </a> </li>
+                        </ul>                                            
+                    </div>           
+                    <div class="footer-duties">
+                        <h3>SUPPORT<span class="footer-plus" id="footer-plus3">+</span><span class="footer-minus" id="footer-minus3">-</span></h3>
+                        <ul class="footer-dutieslist">
+                            <li><a href="">FAQS</a></li>
+                            <li><a href=""> DUTIES & CLEARANCE</a></li>                              
+                            <li><a href="">PARTNER WITH US</a></li>                                   
+                        </ul>
+                    </div>           
+                    <div class="footer-lastsection">          
+                        <h3>PURE GOODNESS FROM THE LAND <span class="footer-plus" id="footer-plus4">+</span><span class="footer-minus" id="footer-minus4">-</span><h3>
+                        <div class="footer-lastsectioncontent" >
+                            <p>Sign up to get exclusive offers,<br>
+                                the latest Ponni specials, and more!
+                            </p>
+                            <div class="footer-emailsection">
+                                <input type="email" placeholder="Your email address">
+                                <button>Subscribe</button>
+                            </div>
+                            <div class="footer-creditcards">
+                                <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg">
+                                <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/paypal-49e4c1e03244b6d2de0d270ca0d22dd15da6e92cc7266e93eb43762df5aa355d.svg">
+                                <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/maestro-d2055c6b416c46cf134f393e1df6e0ba31722b623870f954afd392092207889c.svg">
+                                <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/american_express-12858714bc10cdf384b62b8f41d20f56d8c32c1b8fed98b662f2bfc158dcbcf0.svg">
+                                <img src="https://www.Ponni.in/cdn/shopifycloud/shopify/assets/payment_icons/discover-cc9808e50193c7496e7a5245eb86d5e06f02e2476c0fe70f2c40016707d35461.svg">          
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="footer-copyrights">
+            <div class="copyrightscontent">
+                <div class="copyrights1"><p>care@Ponni.com</p></div>
+                <div class="terms">
+                    <li><a href="privacy.html">PRIVACY</a></li>
+                    <li><a href="tc.html">TERMS</a></li>
+                    <li><a href="cancel.html">REFUNDS</a></li>
+                    <li><a href="ship.html">SHIPPING</a></li>
+                </div>
+            </div>          
+        </div>
+    </div>
+	<!-- kavya working area end-->  
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/script_1.js"></script>
+    <script src="./js/script_2.js"></script>
+    <script src="./js/script_3.js"></script>
+    <script src="./js/owlnpm.js"></script>
+	<script src="./js/owlcarousel.js"></script>
+	<script src="./js/testslide2.js"></script>
+</body>
+</html>

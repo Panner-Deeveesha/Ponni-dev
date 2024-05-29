@@ -612,6 +612,9 @@ del{
     #cartCount {
         right: 2.8%;
     }
+    #wholecancelation, #wholetc{
+        width: 92%;
+    }
 }
 @media only screen and (max-width:500px){
     .itemone{
