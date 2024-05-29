@@ -260,11 +260,11 @@ $(document).on("click", ".btn", function() {
 $(document).on("click", ".comanclas", function() {
   var meanuname =  $(this).html();
   getproductname(meanuname);
- 
 });
 
-$(document).on("click", ".item-product", function() {
-  var temp= $(this).html();
+$(document).on("click", ".sampleitem", function() {
+  
+  var temp= $(this).find(".item-product").text();
 
 
   window.location.href = "./ponniproductpage.html?innerHTML="+temp;
@@ -646,8 +646,8 @@ function categload(){
       $("#mydiv div .btn").each(function() {
           var buttonText = $(this).text(); // Get the text of the button
           if (buttonText === passval) {
-              $(this).addClass("active");
-              categorypagepass(passval);
+            $(this).addClass("active");
+            categorypagepass(passval);
           }
       });
   });
@@ -655,7 +655,8 @@ function categload(){
   
 function categorypagepass(passval){
   var cateproname=passval;
-    getBycategory(cateproname);
+  indexfunc();
+  getBycategory(cateproname);
 };
 
 

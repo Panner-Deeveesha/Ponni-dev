@@ -610,6 +610,9 @@ body{
 	margin-top:30px;
 	display:flex;
 }
+.flexbox1{
+    margin-right:50px;
+}
 .carousel {
   display:flex;
   width:700px;

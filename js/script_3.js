@@ -84,7 +84,7 @@ $(document).ready(function() {
   $.ajax({
     type: "POST",
     url: "./php/cartdetail.php",
-    dataType: "json",
+
     data: {
       userid: userId
     },
@@ -117,22 +117,20 @@ function isJsonString(str) {
 function  cartByproductid(products) {
 
   
-  console.log(products);
   
-  var data={
-    productslist:products
-  };
-
+  var objects2 = products;
+ 
+  var myObject2 = JSON.parse(objects2);
   $.ajax({
       url: "./php/findbyproductId.php",
       type: "post",
-     data:data,
+     data:{ productslist: myObject2},
       
         
       
       success: function (response) {
         var boo = isJsonString(response);
-       
+       console.log(boo);
         if(boo==true){
             var obj = JSON.parse(response);
             

@@ -36,13 +36,12 @@ function displayProducts(replacedString) {
 }
 
 function Pricecheck(obj) {
-  var jsonObjects = JSON.stringify(obj);
-  //console.log(obj);
+  var objects = obj;
   //console.log(jsonObjects);
   $.ajax({
       url: "./php/pricebyunique.php",
       type: "post",
-      data: { objects: jsonObjects },
+      data: { objects: objects },
       success: function (response) {
         var obj2 = JSON.parse(response);
         //console.log(response);
@@ -81,8 +80,9 @@ function getvalfn(obj){
   for(i=0;i<num;i++){
     var t = "";
     var prodname = obj[i].productName;
-    var prodprice = obj[i].price;
-    var offprice = obj[i].offerPrice;
+    var productname = prodname.charAt(0).toUpperCase() + prodname.slice(1);
+    var produnit = obj[i].unit;
+    var prodvol = obj[i].volume;
     var prodcat = obj[i].category;
     var prodimg = obj[i].imgPath_1;
     var listcreate= document.createElement("li");
@@ -90,10 +90,10 @@ function getvalfn(obj){
     t += "<img src="+ prodimg+" class='searimg'>";
     t += "<div class='flecls'>"
     t += "<div class='titlesear'>";
-    t += prodname;
+    t += productname;
     t += "</div>";
-    t += "<span id='prodcat'> Category: ";
-    t += prodcat;
+    t += "<span id='prodcat'>";
+    t += prodvol + " " + produnit;
     t += "</span>";
     t += "</div>"
     //t += "<del id='delval'> ";

@@ -1,24 +1,24 @@
 <?php
     include "config.php";
 
-    $productslist = $_POST['productslist'];
+    $productslist1 = $_POST['productslist'];
 
-    $response = array();
+    $response1 = array();
 
-    $productIds = array();
+    $productIds1 = array();
 
  
-    foreach ($productslist as $product) {
-        $productIds[] = $product['productId'];
+    foreach ($productslist1 as $product1) {
+        $productIds1[] = $product1['productId'];
     }
 
   
-    $escapedProductIds = array();
-    foreach ($productIds as $productId) {
-        $escapedProductIds[] = mysqli_real_escape_string($con, $productId);
+    $escapedProductIds1 = array();
+    foreach ($productIds1 as $productId1) {
+        $escapedProductIds1[] = mysqli_real_escape_string($con, $productId1);
     }
-    $escapedProductIdsString = "'" . implode("','", $escapedProductIds) . "'";
-    $query = "SELECT productId, productName,imgPath_1,volume FROM products WHERE productId IN ($escapedProductIdsString)";
+    $escapedProductIdsString1 = "'" . implode("','", $escapedProductIds1) . "'";
+    $query = "SELECT productId, productName,imgPath_1,volume FROM products WHERE productId IN ($escapedProductIdsString1)";
 
     $res = $con->query($query);
 
@@ -26,14 +26,14 @@
       
         while ($row = mysqli_fetch_assoc($res)) {
            
-            $response[] = $row;
+            $response1[] = $row;
         }
     } else {
         
-        $response[] = array("error" => "Error executing query: " . mysqli_error($con));
+        $response1[] = array("error" => "Error executing query: " . mysqli_error($con));
     }
 
-    echo json_encode($response);
+    echo json_encode($response1);
     mysqli_close($con);
 ?>
 

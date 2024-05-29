@@ -1,5 +1,30 @@
 <?php
     include "config.php";
+    $productslist = $_POST['objects'];
+    $response = array();
+    $productIds = array();
+    foreach ($productslist as $product) {
+        $productIds[] = $product['productId'];
+    }
+    $escapedProductIds = array();
+    foreach ($productIds as $productId) {
+        $escapedProductIds[] = mysqli_real_escape_string($con, $productId);
+    }
+    $escapedProductIdsString = "'" . implode("','", $escapedProductIds) . "'";
+    $query = "SELECT * FROM price WHERE productId IN ($escapedProductIdsString)";
+    $res = $con->query($query);
+    if ($res) {
+        while ($row = mysqli_fetch_assoc($res)) {
+            $response[] = $row;
+        }
+    } else {
+        $response[] = array("error" => "Error executing query: " . mysqli_error($con));
+    }
+    echo json_encode($response);
+    mysqli_close($con);
+
+
+    /*include "config.php";
     $jsonObjects = $_POST['objects']; // Get the JSON data
     $decodedObjects = json_decode($jsonObjects, true); // Decode the JSON string
     foreach ($decodedObjects as $object) {
@@ -15,5 +40,5 @@
             echo "no record";
         }
     }
-    echo json_encode($response);    
+    echo json_encode($response);*/
 ?>
