@@ -624,7 +624,10 @@ del{
         right: 2.8%;
     }
     #wholecancelation, #wholetc{
-        width: 92%;
+        width: 95%;
+    }
+    .rte p{
+        margin: 30px 10px;
     }
     #wholecontact{
         width: 80%;
