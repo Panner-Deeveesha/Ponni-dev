@@ -614,6 +614,7 @@ function signincheck(){
           if(boo==true){
               var obj = JSON.parse(response);
               console.log(obj);
+              localStorage.setItem('token', obj.token);
               window.location.href = "./index.html";
              
           }else{
@@ -627,6 +628,45 @@ function signincheck(){
       }
   });
 }
+// Check mouse movement every 1 second (adjust as needed)
+
+setInterval(checkMouseMovement, 180000);
+
+// Variable to store the last recorded position of the mouse
+let lastMousePosition = {
+  x: null,
+  y: null
+};
+
+// Function to handle mouse movement
+function handleMouseMove(event) {
+  // Update the last recorded mouse position
+  lastMousePosition.x = event.pageX;
+  lastMousePosition.y = event.pageY;
+
+}
+
+// Event listener for mousemove event
+document.addEventListener('mousemove', handleMouseMove);
+
+// Function to check if the mouse is moving
+function isMouseMoving() {
+  // Check if the last recorded position is different from the current position
+  return lastMousePosition.x !== null && lastMousePosition.y !== null &&
+         (lastMousePosition.x !== event.pageX || lastMousePosition.y !== event.pageY);
+}
+
+// Function to periodically check if the mouse is moving
+function checkMouseMovement() {
+  if (isMouseMoving()) {
+      console.log('Mouse is moving.');
+  } else {
+    window.location.href = "./login.html";
+             
+      console.log('Mouse is not moving.');
+  }
+}
+
 
 //category page
 
