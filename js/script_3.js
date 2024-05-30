@@ -116,36 +116,30 @@ function isJsonString(str) {
 
 function cartByproductid(products) {
   console.log(products);
-  var obj = products;
-  console.log(typeof(obj));
 
+ 
   $.ajax({
-    url: "./php/findbyproductId.php",
-    type: "get",
-    success: function (response) {
-      var obj2 = JSON.parse(response);
-      console.log(typeof(obj2));
-      console.log(obj2);
-
-      var productMap = {};
-      obj2.forEach(function(product) {
-        productMap[product.productId] = product;
-      });
-
-      obj.forEach(function(product, index) {
-      
-        var matchingProduct = productMap[product.productId];
-        
-        matchingProduct && Object.assign(product, matchingProduct);
-      });
-    
-      console.log(obj);
-      console.log(typeof(obj));
-      getcartPrice(obj);
-    },
-    error: function (error) {
-      console.log(error);
-    }
+      url: "./php/findbyproductId.php",
+      type: "post",
+      data: {
+        products:products
+      },
+      success: function (response) {
+          var boo = isJsonString(response);
+         
+          if(boo==true){
+              var obj = JSON.parse(response);
+              console.log(obj);
+              getcartPrice(obj);
+             
+          }else{
+              console.log("Error");
+          }   
+  
+      },
+      error: function (error) {
+          console.log(error);
+      }
   });
 }
 
@@ -243,9 +237,9 @@ function displaycartdetails(uniqueObj){
       var cartincrement='';
       var productValue = uniqueObj[i].offerPrice * uniqueObj[i].count; 
       totalSum += productValue;
-         
+         cartDiv +='<div class="cart-all">';
           cartDiv += '<div class="cart-description1">';
-          cartDiv += `<img src='${uniqueObj[i].imgPath_1}' width="100px" height="100px">`;
+          cartDiv += `<img src='${uniqueObj[i].imgPath_1}' width="120px" height="120px">`;
           cartDiv += '<div  class="cart-product1">';
           cartDiv += '<p class="cart-productname" >';
           cartDiv += uniqueObj[i].productName;
@@ -253,7 +247,7 @@ function displaycartdetails(uniqueObj){
           cartDiv += '<p>';
           cartDiv += uniqueObj[i].volume;
           cartDiv += '</p>';
-          cartDiv += '<p>';
+          cartDiv += `<p class="delete-item" data-index="${i}">`;
           cartDiv += '<img src="./assets/icons/icons8-delete-20.png">';
           cartDiv += '</p>';
           cartDiv += '</div>';
@@ -277,12 +271,18 @@ function displaycartdetails(uniqueObj){
           cartDiv += `<p class="total-value">Rs:${productValue}</p>`;
           cartDiv += '</div>';
           cartDiv += '</div>';
-          
+          cartDiv+='</div>';
           
     }
       $("#cart-descriptionid").html(cartDiv);
       $('#wholecarttotal').html("Rs."+totalSum);
+     
 
+      $(".delete-item").click(function() {
+        var index = $(this).data("index"); 
+        uniqueObj.splice(index, 1); 
+        displaycartdetails(uniqueObj); 
+      });
 
       window.updateTotal = function(index, action) {
 
@@ -307,7 +307,7 @@ function displaycartdetails(uniqueObj){
         }
         $('#wholecarttotal').html("Rs." + totalSum);
       }
-     
+    
   
     }
     $(document).on("click", ".cart-productname", function() {
