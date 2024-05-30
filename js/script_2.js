@@ -551,6 +551,7 @@ function decrementbtn(){
 	}
 	document.getElementById("getvalue").value=degreevalue;
 }
+<<<<<<< Updated upstream
 //registerpage
 
 function clickregbutton(){
@@ -698,6 +699,8 @@ function categorypagepass(passval){
   indexfunc();
   getBycategory(cateproname);
 };
+=======
+>>>>>>> Stashed changes
 
 
 
