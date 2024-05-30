@@ -357,7 +357,7 @@ function openNav() {
   if (screenWidth > 990) {
     document.getElementById("searchsort").style.display = "none";
     document.getElementById("contentsear").style.display = "none"; 
-  } else if(screenWidth > 775){
+  }else if(screenWidth > 775){
     document.getElementById("searchsort").style.display = "block";
     document.getElementById("contentsear").style.display = "block"; 
     document.getElementById("contentsear").style.width = "40%";
