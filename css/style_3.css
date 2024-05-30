@@ -1,3 +1,4 @@
+
 .Testimonial-content{
 	   
     background-color:#f3f3f3;  
@@ -190,12 +191,13 @@ border:none !important;
    .footer-duties h3 {
        font-size: 14px;
        letter-spacing: 1.6px;
+       transform: translateY(-1px);
    }
 
    .footer-lastsection h3 {
        font-size: 14px;
        letter-spacing: 1.6px;
-       transform: translateY(2px);
+       transform: translateY(0px);
    }
 
    .footer-icon {
