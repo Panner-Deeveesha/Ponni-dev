@@ -91,7 +91,7 @@ $(document).ready(function() {
     success: function(products) {
       console.log(products);
      
-      cartByproductId(products);
+      cartByproductid(products);
      
     },
     error: function(xhr, status, error) {
@@ -114,32 +114,41 @@ function isJsonString(str) {
   return true;
 }
 
-function cartByproductId(products) {
-    
-    $.ajax({
-        url: "./php/findbyproductId.php",
-        type: "GET",
-        dataType: "json",
-        success: function(response) {
-            
-            products.forEach(function(product) {
-           
-                var matchingProduct = response.find(function(item) {
-                    return item.productId === product.productId;
-                });
+function cartByproductid(products) {
+  console.log(products);
+  var obj = products;
+  console.log(typeof(obj));
 
-                if (matchingProduct) {
-                    Object.assign(product, matchingProduct);
-                }
-            });
-             console.log(products);
-            getcartPrice(products);
-        },
-        error: function(xhr, status, error) {
-            console.error("AJAX request failed:", status, error);
-        }
-    });
+  $.ajax({
+    url: "./php/findbyproductId.php",
+    type: "get",
+    success: function (response) {
+      var obj2 = JSON.parse(response);
+      console.log(typeof(obj2));
+      console.log(obj2);
+
+      var productMap = {};
+      obj2.forEach(function(product) {
+        productMap[product.productId] = product;
+      });
+
+      obj.forEach(function(product, index) {
+      
+        var matchingProduct = productMap[product.productId];
+        
+        matchingProduct && Object.assign(product, matchingProduct);
+      });
+    
+      console.log(obj);
+      console.log(typeof(obj));
+      getcartPrice(obj);
+    },
+    error: function (error) {
+      console.log(error);
+    }
+  });
 }
+
 
 
 
@@ -164,7 +173,7 @@ function getcartPrice(obj) {
               });
               
           });
-         
+          //showNewLanches(obj);
          
          console.log(obj);
         getcartcount(obj);
