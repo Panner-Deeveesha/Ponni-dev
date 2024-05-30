@@ -373,6 +373,29 @@ function closeNav() {
   document.getElementById("contentsear").style.width = "0";
 }
 
+function presscheck(checkinput){
+  var data = {
+    "name": checkinput
+}
+$.ajax({
+  url: "./php/getprodbyname.php",
+  type: "post",
+  data: data,
+  success: function (response) {
+    var boo = isJsonString(response);
+    if(boo==true){
+        var obj = JSON.parse(response);
+        Pricecheck(obj);
+    }else{
+        console.log("Error");
+    }   
+  },
+  error: function (error) {
+    console.log(error);
+  }
+});
+}
+
 function openmenu() {
   const screenWidth = window.innerWidth;
   if (screenWidth > 990) {
@@ -456,6 +479,15 @@ $(document).ready(function () {
   $(document).on("click", ".comonclas", function() {
     var passval = $(this).find(".spancls").text();
     window.location.href = "./categories.html?value=" + passval;
+  });
+
+  $(document).on("click","#iconsearch",function(){
+    let checkinput = document.getElementById("searchInput").value;
+    if(checkinput){
+      presscheck(checkinput);
+    }else{
+      alert("ENTER TEXT");
+    }
   });
   
   /*$("#iconsearch").click(function(){
