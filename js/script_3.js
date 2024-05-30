@@ -1,4 +1,3 @@
-
 $("#footer-plus1").click(function () {
   $(".footer-main3 .footer-contact").slideDown("slow");
   $("#footer-minus1").css("display", "block");
@@ -92,7 +91,7 @@ $(document).ready(function() {
     success: function(products) {
       console.log(products);
      
-      cartByproductid(products);
+      cartByproductId(products);
      
     },
     error: function(xhr, status, error) {
@@ -115,69 +114,32 @@ function isJsonString(str) {
   return true;
 }
 
-function  cartByproductid(products) {
-
-
-    console.log("Initial products:", products);
-    var obj=products;
-
+function cartByproductId(products) {
+    
     $.ajax({
         url: "./php/findbyproductId.php",
-        type: "get",
-        success: function (response) {
-            console.log("Response from AJAX:", response);
-            var obj2 = JSON.parse(response);
-            console.log("Parsed response:", obj2);
-
-            if (!obj2 || obj2.length === 0) {
-                console.log("Error: obj2 is empty or undefined.");
-                return;
-            }
-
-            if (!Array.isArray(obj) || obj.length === 0) {
-                console.log("Error: products array is empty or undefined.");
-                return;
-            }
-
+        type: "GET",
+        dataType: "json",
+        success: function(response) {
+            
+            products.forEach(function(product) {
            
-            for (var i = 0; i < obj.length; i++) {
-                var value = obj[i];
-                if (!value || typeof value !== 'object') {
-                    console.log("Error: Invalid product found in products array at index", i);
-                    continue;
-                }
+                var matchingProduct = response.find(function(item) {
+                    return item.productId === product.productId;
+                });
 
-              
-                var found = false;
-                for (var j = 0; j < obj2.length; j++) {
-                    var value2 = obj2[j];
-                    if (value.productId === value2.productId) {
-                       
-                        value.productId = value2.productId;
-                        value.productName = value2.productName;
-                        value.volume = value2.volume;
-                        value.imgPath_1 = value2.imgPath_1;
-                        found = true;
-                        break;
-                    }
+                if (matchingProduct) {
+                    Object.assign(product, matchingProduct);
                 }
-
-                if (!found) {
-                    console.log("Warning: No matching product found for productId:", value.productId);
-                }
-            }
-
-            console.log("Updated products:",obj);
-            getcartPrice(obj);
+            });
+             console.log(products);
+            getcartPrice(products);
         },
-        error: function (error) {
-            console.log("Error in AJAX request:", error);
+        error: function(xhr, status, error) {
+            console.error("AJAX request failed:", status, error);
         }
     });
 }
-
-  
-
 
 
 
@@ -202,7 +164,7 @@ function getcartPrice(obj) {
               });
               
           });
-          //showNewLanches(obj);
+         
          
          console.log(obj);
         getcartcount(obj);
