@@ -165,7 +165,7 @@ function getBycategory(innerHTML) {
          
           if(boo==true){
               var obj = JSON.parse(response);
-              console.log(obj);
+              //console.log(obj);
               getPrice(obj);
              
           }else{
@@ -190,7 +190,7 @@ function getPrice(obj) {
       success: function (response) {
           var obj2 = JSON.parse(response);
           //console.log(response);
-           console.log(obj2);
+           //console.log(obj2);
           $(obj).each(function (index, value) {
               //console.log(value);
               $(obj2).each(function (index2, value2) {

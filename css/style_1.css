@@ -680,6 +680,9 @@ del{
         width: 95%;
         margin-top: 0px;
     }
+    .simpleid:nth-of-type(2) .textareacon{
+        margin-right: 0px;
+    }
 }
 @media only screen and (max-width:390px){
     #ponnilogo{
