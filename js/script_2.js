@@ -257,6 +257,12 @@ $(document).on("click", ".btn", function() {
  
 });
 
+$(document).on("click", ".cateheadings", function() {
+  var innerHTML2 = $(this).find("p").text();
+  getproductname(innerHTML2);
+ 
+});
+
 $(document).on("click", ".comanclas", function() {
   var meanuname =  $(this).html();
   getproductname(meanuname);
@@ -467,7 +473,7 @@ inputnum.setAttribute("max", input[index].availability);
   
 $(document).on("click", "#productaddbutton", function() {
 
-  var userid=103;
+  var userid=1;
  var isActive=1;
   var normalbtn=document.getElementsByClassName("btnnormal");
 var clickedposition;
