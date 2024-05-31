@@ -276,13 +276,30 @@ function displaycartdetails(uniqueObj){
     }
       $("#cart-descriptionid").html(cartDiv);
       $('#wholecarttotal').html("Rs."+totalSum);
-     
+    
 
       $(".delete-item").click(function() {
-        var index = $(this).data("index"); 
-        uniqueObj.splice(index, 1); 
-        displaycartdetails(uniqueObj); 
-      });
+        var productId = uniqueObj[$(this).data("index")].productId; 
+         console.log(productId);
+         var index = $(this).data("index"); 
+         uniqueObj.splice(index, 1); 
+        $.ajax({
+            type: "POST",
+            url: "./php/deleteitem.php", 
+            data: {
+              action: "delete",
+              productId: productId 
+            },
+            success: function(response) {
+                console.log(response);
+                displaycartdetails(uniqueObj);
+            },
+            error: function(xhr, status, error) {
+                
+                console.error(xhr.responseText);
+            }
+        });
+    });
 
       window.updateTotal = function(index, action) {
 
