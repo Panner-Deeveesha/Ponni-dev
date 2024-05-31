@@ -164,10 +164,11 @@ border:none !important;
    }
 
    .footer-main {
-       transform: translate(0, -10px);
+       
        background-color: #4d6b20;
        color: white;
-       height: 350px;
+    padding-top:30px;
+    padding-bottom:60px;
 
 
    }
@@ -175,7 +176,7 @@ border:none !important;
    .footer-about h3 {
        font-size: 14px;
        letter-spacing: 1.6px;
-       transform: translateY(5px);
+       
    }
 
    .footer-main2 {
@@ -191,13 +192,13 @@ border:none !important;
    .footer-duties h3 {
        font-size: 14px;
        letter-spacing: 1.6px;
-       transform: translateY(-1px);
+      
    }
 
    .footer-lastsection h3 {
        font-size: 14px;
        letter-spacing: 1.6px;
-       transform: translateY(0px);
+   
    }
 
    .footer-icon {
@@ -261,11 +262,12 @@ border:none !important;
  
    .footer-about ul {
        margin-top: 15px;
-
+          padding:0;
    }
 
    .footer-about li {
        list-style: none;
+    
    }
 
    .footer-about a {
@@ -279,7 +281,7 @@ border:none !important;
    }
 
    .footer-duties ul {
-
+    padding:0;
        margin-top: 15px;
    }
 
@@ -410,7 +412,8 @@ border:none !important;
 
    .footer-main3 {
        display: none;
-       padding: 10px;
+       padding-top:35px;
+       padding-bottom:40px;
        padding-left: 20px;
    }
 
@@ -1235,7 +1238,7 @@ font-size:16px;
 .footer-main2 {
     color: white;
     display: flex;
-    max-width: 900px;
+    max-width: 1050px;
     margin-left: auto;
     margin-right: auto;
    
@@ -1271,6 +1274,9 @@ font-size:16px;
   
     width: 250px;
     
+}
+.footer-about{
+    width:100px;
 }
 }
 	 
@@ -1320,6 +1326,8 @@ font-size:20px;
            background-color: #4d6b20;
            color: white;
            height: auto;
+           padding-top:0px;
+           padding-bottom:0px;
 
        }
 
