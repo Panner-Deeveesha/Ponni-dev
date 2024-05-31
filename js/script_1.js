@@ -285,48 +285,10 @@ function productpageonload(){
 
   const inputnum = document.getElementById("getvalue");
   inputnum.setAttribute("max", converttoobj[0].availability);
-
-  $(document).on("click", "#productaddbutton", function() {
-
-    var userid=103;
-    var isActive=1;
-    var normalbtn=document.getElementsByClassName("btnnormal");
-    var clickedposition;
-    for(let i=0;i<normalbtn.length;i++){
-    if(normalbtn[i].classList.contains("highlightbtn"))
-      {
-        clickedposition=i;
-      }
-  
-    }
-    productId=converttoobj[clickedposition].productId;
-    
-     var productcount=document.getElementById("getvalue").value;
-     console.log(productcount);
-  
-    
-    $.ajax({
-        url: "./php/addtocart.php",
-        type: "post",
-        data: {
-          productId:productId,
-          productcount:productcount,
-          userid:userid,
-          isActive:isActive,
-        },
-        success:function(response){
-          console.log("success");
-        },
-        error:function(xhr,status,error){
-          console.log(error);
-        }
-  
-  
-    });
-  });
 }
 
 var clicksearch = document.getElementById("productList2");
+var displayval = document.getElementById("totalstart");
 
 document.getElementById('searchInput2').addEventListener('input', function () {
   const searchTerm2 = this.value;
@@ -354,7 +316,7 @@ function displayProd(replacedString2) {
           var obj = JSON.parse(response);
           secondpricecheck(obj);
       }else{
-          console.log("Error");
+        displayval.innerHTML = "Sorry! No Products Found";
       }   
     },
     error: function (error) {
@@ -558,7 +520,7 @@ $(document).ready(function () {
       prolist.innerHTML = "Enter Product Name!";
     }
   });
-  
+
   /*$("#iconsearch").click(function(){
     $(".blackscreen").css("top","0");
     $(".blackscreen").css("z-index","99");
