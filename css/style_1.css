@@ -86,6 +86,7 @@ body{
 	position:absolute;
     width: 18%;
 	z-index: 1;
+    font-size: 18px;
 }
 #productList{
 	display:none;
@@ -352,14 +353,18 @@ body{
 .photopic{
     width: 15%;
     height: auto;
+    margin-left: 10px;
+    vertical-align: middle;
 }
 .searchimage{
     width: 100px;
     height: 80px;
+    vertical-align: middle;
 }
 .contentforpic{
     width: 60%;
     height: auto;
+    vertical-align: middle;
 }
 .contentforpic span{
     font-size: 16px;
@@ -369,6 +374,7 @@ body{
 del{
     color: #878787;
     font-size: 16px;
+    display: block;
 }
 .contentforpic span:nth-of-type(2){
     color: #f41010;

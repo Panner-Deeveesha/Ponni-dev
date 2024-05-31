@@ -26,7 +26,8 @@ function displayProducts(replacedString) {
           var obj = JSON.parse(response);
           Pricecheck(obj);
       }else{
-          console.log("Error");
+        $("#productList").css("font-size","large");
+        ulit.innerHTML = "Sorry! No Products Found";
       }   
     },
     error: function (error) {
@@ -325,30 +326,117 @@ function productpageonload(){
   });
 }
 
+var clicksearch = document.getElementById("productList2");
+
 document.getElementById('searchInput2').addEventListener('input', function () {
   const searchTerm2 = this.value;
-  displayProd(searchTerm2);
+  const tolen2 = searchTerm2.length;
+  clicksearch.innerHTML = " ";
+  //console.log(tolen);
+  var replacedString2 = searchTerm2.replace(/ /g, "_");
+  if(tolen2 >= 3){
+    displayProd(replacedString2);
+  }
 });
 
-function displayProd(searchTerm2) {
+function displayProd(replacedString2) {
+  var name = replacedString2.replace(/_/g, " ");
+  var data = {
+      "name": name
+  }
 	$.ajax({
-    url: "./php/getAllProducts.php",
-    type: "get",
+    url: "./php/getprodbyname.php",
+    type: "post",
+    data: data,
     success: function (response) {
-      var obj = JSON.parse(response);
-      //var uniqueId = [];
-      // $( obj ).each(function(index,value  ) {
-      //console.log(value.uniqueId);
-      // uniqueId.push(value.uniqueId);
-      // });
-      console.log(obj);
+      var boo = isJsonString(response);
+      if(boo==true){
+          var obj = JSON.parse(response);
+          secondpricecheck(obj);
+      }else{
+          console.log("Error");
+      }   
     },
     error: function (error) {
       console.log(error);
     }
   });
-   var num = obj.length;
-   console.log(num);
+}
+
+function secondpricecheck(obj) {
+  var objects = obj;
+  //console.log(jsonObjects);
+  $.ajax({
+      url: "./php/pricebyunique.php",
+      type: "post",
+      data: { objects: objects },
+      success: function (response) {
+        var obj2 = JSON.parse(response);
+        //console.log(response);
+        //console.log(obj2);
+        $(obj).each(function (index, value) {
+          //console.log(value);
+            $(obj2).each(function (index2, value2) {
+              if (value.productId == value2.productId) {
+                //console.log(value.uniqueId+":"+value2.id  );
+                value.price = value2.price;
+                value.offerPrice = value2.offerPrice;
+                //console.log(value);
+              }
+            });
+            //showNewLanches(obj);
+        });
+
+        //console.log(obj);
+        displayval(obj);
+      },
+      error: function (error) {
+        console.log(error);
+      }
+    });
+
+}
+
+function displayval(obj){
+  //console.log(obj);
+  var totvalue = obj.length;
+  /*const uniqueMap = new Map();
+  obj.forEach((item) => {
+    uniqueMap.set(item.name,item);
+  });
+  const uniqueObj =  Array.from(uniqueMap.values());*/
+  for(i=0;i<totvalue;i++){
+    var emptyval = "";
+    var secondprodname = obj[i].productName;
+    //var productname = prodname.charAt(0).toUpperCase() + prodname.slice(1);
+    var secondprodunit = obj[i].unit;
+    var secondprodvol = obj[i].volume;
+    var prodcat = obj[i].category;
+    var secondprodimg = obj[i].imgPath_1;
+    var secondlistcreate= document.createElement("li");
+    secondlistcreate.classList.add("itemone");
+    emptyval += "<div class='photopic'>"
+    emptyval += "<img src="+ secondprodimg+" class='searchimage'>";
+    emptyval += "</div>";
+    emptyval += "<div class='contentforpic'>"
+    emptyval += "<span class='titlesear'>";
+    emptyval += secondprodname;
+    emptyval += "</span>";
+    emptyval += "<span id='prodcat'>";
+    emptyval += secondprodvol + " " + secondprodunit;
+    emptyval += "</span>";
+    emptyval += "</div>";
+    //t += "<del id='delval'> ";
+    //t += prodprice;
+    //t += "</del>";
+    //t += " <span id='offpriceid'>";
+    //t += offprice;
+    //t += "</span>";
+    secondlistcreate.innerHTML = emptyval;
+    //listcreate.innerHTML = "<img src=https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Sesame-Oil.jpg class='searimg'>" + "<div id='titlesear'>" + prodname + "</div>" + "<del id='delval'> " + prodprice + "</del>" + " <span id='offpriceid'>" + offprice + "</span>";
+    clicksearch.appendChild(secondlistcreate);
+  }
+  
 }
 
 function openNav() {
@@ -371,29 +459,6 @@ function openNav() {
 function closeNav() {
   document.getElementById("searchsort").style.width = "0%";
   document.getElementById("contentsear").style.width = "0";
-}
-
-function presscheck(checkinput){
-  var data = {
-    "name": checkinput
-}
-$.ajax({
-  url: "./php/getprodbyname.php",
-  type: "post",
-  data: data,
-  success: function (response) {
-    var boo = isJsonString(response);
-    if(boo==true){
-        var obj = JSON.parse(response);
-        Pricecheck(obj);
-    }else{
-        console.log("Error");
-    }   
-  },
-  error: function (error) {
-    console.log(error);
-  }
-});
 }
 
 function openmenu() {
@@ -483,10 +548,14 @@ $(document).ready(function () {
 
   $(document).on("click","#iconsearch",function(){
     let checkinput = document.getElementById("searchInput").value;
-    if(checkinput){
-      presscheck(checkinput);
-    }else{
-      alert("ENTER TEXT");
+    let prolist = document.getElementById("productList");
+    const screenWidth = window.innerWidth;
+    if(!checkinput && screenWidth > 990 ){
+      $(".serchlist").css("display","block");
+      $("#productList").css("display","block");
+      $(".blackscreen").css("display", "block");
+      prolist.style.fontSize = "18px";
+      prolist.innerHTML = "Enter Product Name!";
     }
   });
   
