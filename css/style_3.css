@@ -1276,8 +1276,8 @@ font-size:16px;
     width: 250px;
     
 }
-.footer-about{
-    width:100px;
+.footer-main2 .footer-about{
+    width:100px !important;
 }
 }
 	 
@@ -1652,6 +1652,7 @@ width:100%;
  }
  .whole-cart {
   margin-top: 39px;
+  padding: 5px;
 }
  
  }
