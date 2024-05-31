@@ -348,18 +348,16 @@ function secondpricecheck(obj) {
             });
             //showNewLanches(obj);
         });
-
         //console.log(obj);
-        displayval(obj);
+        displayoncheck(obj);
       },
       error: function (error) {
         console.log(error);
       }
-    });
-
+  });
 }
 
-function displayval(obj){
+function displayoncheck(obj){
   //console.log(obj);
   var totvalue = obj.length;
   /*const uniqueMap = new Map();

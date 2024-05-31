@@ -256,13 +256,11 @@ $(document).on("click", ".btn", function() {
   getproductname(innerHTML);
  
 });
-
 $(document).on("click", ".cateheadings", function() {
   var innerHTML2 = $(this).find("p").text();
   getproductname(innerHTML2);
  
 });
-
 $(document).on("click", ".comanclas", function() {
   var meanuname =  $(this).html();
   getproductname(meanuname);
@@ -621,6 +619,7 @@ function signincheck(){
               var obj = JSON.parse(response);
               console.log(obj);
               localStorage.setItem('token', obj.token);
+              posttoken(obj);
               window.location.href = "./index.html";
              
           }else{
@@ -633,6 +632,28 @@ function signincheck(){
           console.log(error);
       }
   });
+}
+function posttoken(obj){
+  console.log(obj);
+  console.log(obj.token);
+  console.log(obj[0].id);
+  var loginid=JSON.parse(obj[0].id);
+  var logintoken=obj.token;
+  var data = {
+    "id": loginid,
+    "token":logintoken
+}
+$.ajax({
+    url: "./php/tokenpost.php",
+    type: "post",
+    data: data,
+    success: function () {
+      alert("token added");
+    },
+    error: function (error) {
+        console.log(error);
+    }
+});
 }
 // Check mouse movement every 1 second (adjust as needed)
 
