@@ -248,8 +248,8 @@ function displaycartdetails(uniqueObj){
           cartDiv += '<p>';
           cartDiv += 'Quantatity:'+uniqueObj[i].volume+uniqueObj[i].unit;
           cartDiv += '</p>';
-          cartDiv += `<p class="delete-item" data-index="${i}">`;
-          cartDiv += '<img src="./assets/icons/icons8-delete-20.png">';
+          cartDiv += '<p >';
+          cartDiv += `<img src="./assets/icons/icons8-delete-20.png" class="delete-item" data-index="${i}">`;
           cartDiv += '</p>';
           cartDiv += '</div>';
           cartDiv += '</div>';
