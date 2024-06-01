@@ -1,4 +1,5 @@
 
+
 .Testimonial-content{
 	   
     background-color:#f3f3f3;  
@@ -39,6 +40,8 @@
 
   
 }
+
+
 .testimonial-star2 .reviewstars{
 	width:30px !important;
 	
@@ -528,14 +531,12 @@ border:none !important;
   }
   .cart-all{
     display:flex !important;
-    display:flex;
+    padding-bottom:10px;
     justify-content:space-between;
-    margin-top:30px;
-    align-items: center;
+    margin-top:10px;
+    align-items:center;
     padding-left:10px;
     padding-right:10px;
-    padding-bottom:20px;
-
     flex-wrap: wrap;
   }
   .cart-description1 img:hover{
@@ -548,7 +549,7 @@ border:none !important;
   }
   .cart-description1{
       display:flex;
-     width:40.666667%;
+     width:37.666667%;
       
   }
   .cart-product1{
@@ -581,7 +582,7 @@ border:none !important;
       font-size:14px;
   }
   .cart-totalvalue p{
-       font-size:14px !important;
+       font-size:14.5px ;
   }
   
   .cartinputavailability button {
@@ -611,9 +612,13 @@ border:none !important;
       width: 125px;
       border: 1px solid #ddd;
       border-radius: 5px;
-      margin-top: 20px;
+   
       padding-top:1px;
       padding-bottom:1px;
+  }
+  .cart-totalvalue{
+    font-weight:bold;
+    font-size:15px;
   }
   .cartordernote{
           margin-top: 60px;

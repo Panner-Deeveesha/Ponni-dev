@@ -1,3 +1,4 @@
+
 $("#footer-plus1").click(function () {
   $(".footer-main3 .footer-contact").slideDown("slow");
   $("#footer-minus1").css("display", "block");
@@ -245,7 +246,7 @@ function displaycartdetails(uniqueObj){
           cartDiv += uniqueObj[i].productName;
           cartDiv += '</p>';
           cartDiv += '<p>';
-          cartDiv += uniqueObj[i].volume;
+          cartDiv += 'Quantatity:'+uniqueObj[i].volume+uniqueObj[i].unit;
           cartDiv += '</p>';
           cartDiv += `<p class="delete-item" data-index="${i}">`;
           cartDiv += '<img src="./assets/icons/icons8-delete-20.png">';
@@ -254,7 +255,6 @@ function displaycartdetails(uniqueObj){
           cartDiv += '</div>';
           cartDiv += '<div class="cart-price">';
           cartDiv += '<del>';
-          cartDiv += 'Rs:'+uniqueObj[i].price;
           cartDiv += '</del>';
           cartDiv += '<span class="product-price" id="cart-price1">';
           cartDiv += 'Rs:'+uniqueObj[i].offerPrice;
@@ -338,4 +338,4 @@ function displaycartdetails(uniqueObj){
     });
   
   
-  
+   
