@@ -1,6 +1,7 @@
 
 
 
+
 $("#footer-plus1").click(function () {
   $(".footer-main3 .footer-contact").slideDown("slow");
   $("#footer-minus1").css("display", "block");
@@ -242,7 +243,7 @@ function displaycartdetails(uniqueObj){
       totalSum += productValue;
          cartDiv +='<div class="cart-all">';
           cartDiv += '<div class="cart-description1">';
-          cartDiv += `<img src='${uniqueObj[i].imgPath_1}' width="120px" height="120px">`;
+          cartDiv += `<img class='imagenav'src='${uniqueObj[i].imgPath_1}' width="120px" height="120px">`;
           cartDiv += '<div  class="cart-product1">';
           cartDiv += '<p class="cart-productname" >';
           cartDiv += uniqueObj[i].productName;
@@ -330,12 +331,19 @@ function displaycartdetails(uniqueObj){
     $(document).on("click", ".cart-productname", function() {
   
       var temp1= $(this).text();
-      var temp2=$("product-quantity").text();
     
-      window.location.href = "./ponniproductpage.html?innerHTML="+temp1+temp2;
+    
+      window.location.href = "./ponniproductpage.html?innerHTML="+temp1;
     
      
     });
+    $(document).on("click", ".imagenav", function() {
   
+      var productName = $(this).closest('.cart-all').find('.cart-productname').text()
+    
+      window.location.href = "./ponniproductpage.html?innerHTML="+ productName;
+    
+     
+    });
   
    
