@@ -648,7 +648,7 @@ $.ajax({
     type: "post",
     data: data,
     success: function () {
-      alert("token added");
+      console.log("success");
     },
     error: function (error) {
         console.log(error);
