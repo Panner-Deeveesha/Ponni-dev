@@ -1,4 +1,6 @@
 
+
+
 $("#footer-plus1").click(function () {
   $(".footer-main3 .footer-contact").slideDown("slow");
   $("#footer-minus1").css("display", "block");
@@ -246,18 +248,16 @@ function displaycartdetails(uniqueObj){
           cartDiv += uniqueObj[i].productName;
           cartDiv += '</p>';
           cartDiv += '<p>';
-          cartDiv += 'Quantatity:'+uniqueObj[i].volume+uniqueObj[i].unit;
+          cartDiv += 'Quantatity:'+" "+uniqueObj[i].volume+"  "+uniqueObj[i].unit;
           cartDiv += '</p>';
-          cartDiv += '<p >';
           cartDiv += `<img src="./assets/icons/icons8-delete-20.png" class="delete-item" data-index="${i}">`;
-          cartDiv += '</p>';
           cartDiv += '</div>';
           cartDiv += '</div>';
           cartDiv += '<div class="cart-price">';
           cartDiv += '<del>';
           cartDiv += '</del>';
           cartDiv += '<span class="product-price" id="cart-price1">';
-          cartDiv += 'Rs:'+uniqueObj[i].offerPrice;
+          cartDiv += 'Rs:'+" "+uniqueObj[i].offerPrice;
           cartDiv += '</span>';
           cartDiv += '</div>';
           cartDiv += '<div class="cartinputavailability">';
@@ -268,7 +268,7 @@ function displaycartdetails(uniqueObj){
   
           cartDiv += '</div>';
           cartDiv += '<div class="cart-totalvalue">';
-          cartDiv += `<p class="total-value">Rs:${productValue}</p>`;
+          cartDiv += `<p class="total-value">Rs: ${productValue}</p>`;
           cartDiv += '</div>';
           cartDiv += '</div>';
           cartDiv+='</div>';
