@@ -375,10 +375,10 @@ function displayoncheck(obj){
     var secondprodimg = obj[i].imgPath_1;
     var secondlistcreate= document.createElement("li");
     secondlistcreate.classList.add("itemone");
-    emptyval += "<div class='photopic'>"
+    emptyval += "<div class='photopic'>";
     emptyval += "<img src="+ secondprodimg+" class='searchimage'>";
     emptyval += "</div>";
-    emptyval += "<div class='contentforpic'>"
+    emptyval += "<div class='contentforpic'>";
     emptyval += "<span class='titlesear'>";
     emptyval += secondprodname;
     emptyval += "</span>";
@@ -454,10 +454,22 @@ let quantityInputs = 0;
 updateCartCount();*/
 
 function addItemToCart() {
-  quantityInputs++; // Increment count
-  cartCountElement.textContent = quantityInputs; // Update the span content
+  $.ajax({
+    url: "./php/cart.php", // Replace with your actual URL
+    type: 'POST',
+    success: function(data) {
+      var obj = JSON.parse(data);
+      $('#cartCount').text(obj[0]);
+    },
+    error: function(xhr, status, error) {
+        console.error('Error fetching cart count:', error);
+    }
+});
 }
-addItemToCart();
+
+$(document).ready(function() {
+  addItemToCart();
+});
 
 $(document).ready(function () {
   $("#searchInput").focus(function () {
@@ -482,19 +494,18 @@ $(document).ready(function () {
     $("#totalstart").css("display", "none");
   });
 
-  $("#plussym").click(function () {
-    $(".contentmenuslide #shopslide").slideToggle("slow");
-    $("#shopslide").css("display", "flex");
-    $("#minussym").toggle();
-    $("#plussym").toggle();
+$("#shopnowid").click(function () {
+  $(".contentmenuslide #shopslide").slideToggle("slow", function() {
+    if ($("#shopslide").is(":visible")) {
+      $("#shopslide").css("display", "flex");
+      $("#minussym").css("display","block");
+      $("#plussym").css("display","none");
+    } else {
+      $("#minussym").css("display","none");
+      $("#plussym").css("display","block");
+    }
   });
-
-  $("#shopnowid").click(function () {
-    $(".contentmenuslide #shopslide").slideToggle("slow");
-    $("#shopslide").css("display", "flex");
-    $("#minussym").toggle();
-    $("#plussym").toggle();
-  });
+});
 
   $(document).on("click",".acting",function(){
     var getname = $(this).find(".titlesear").text();
@@ -519,7 +530,14 @@ $(document).ready(function () {
     }
   });
 
-  /*$("#iconsearch").click(function(){
+  /*$(document).ready(function(){
+    $('.menureg').click(function(){
+        $('.menureg').removeClass('addborder'); 
+        $(this).addClass('addborder'); 
+    });
+  });
+
+  $("#iconsearch").click(function(){
     $(".blackscreen").css("top","0");
     $(".blackscreen").css("z-index","99");
     $("#navhead").css("z-index","5");
