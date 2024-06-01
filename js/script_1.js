@@ -453,22 +453,22 @@ let quantityInputs = 0;
 }
 updateCartCount();*/
 
-$(document).ready(function() {
-  function getCartCount() {
-      $.ajax({
-          url: 'cart.php',
-          type: 'GET',
-          success: function(response) {
-              $('#cartCount').text(response); 
-          },
-          error: function(xhr, status, error) {
-              console.error('Error fetching cart count:', error);
-          }
-      });
-  }
+function addItemToCart() {
+  $.ajax({
+    url: "./php/cart.php", // Replace with your actual URL
+    type: 'GET',
+    success: function(data) {
+      var obj = JSON.parse(data);
+      $('#cartCount').text(obj[0]);
+    },
+    error: function(xhr, status, error) {
+        console.error('Error fetching cart count:', error);
+    }
+});
+}
 
-  getCartCount();
-  setInterval(getCartCount, 5000); 
+$(document).ready(function() {
+  addItemToCart();
 });
 
 $(document).ready(function () {

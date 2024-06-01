@@ -552,7 +552,11 @@ ship page
     grid-template-columns: auto auto auto auto;
 
 }
-
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .honey-images p {
     width: 250px;
     text-align: center;
@@ -823,9 +827,6 @@ width:20px;
 }
 .product-details span{
     color: #ec0101;
- 
-    padding-left: 15px;
-
 }
 .cate-productlist{
 	font-size:20px;
@@ -1065,6 +1066,7 @@ width:20px;
  }
  .product-carousel p{
 	 font-weight:600;
+     text-align: center;
  }
 .product-carousel span{
 	color:#ec0101;
@@ -1117,6 +1119,7 @@ width:20px;
  }
  .cate-recentphotos p{
 	 font-weight:600;
+     text-align: center;
  }
 .cate-recentphotos span{
 	color:#ec0101;

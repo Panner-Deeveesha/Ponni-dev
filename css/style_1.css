@@ -412,7 +412,7 @@ del{
 .menureg{
     display: flex;
     width: 100%;
-    border-bottom: 1px solid #e2e0e0;
+    border: 1px solid #e2e0e0;
     cursor: pointer;
 }
 .menureg:hover{
@@ -483,6 +483,7 @@ del{
     list-style-type: none;
     display: block;
     padding: 10px;
+    border: 1px solid #e2e0e0;
 }
 #shopslide li:hover{
     border: 1px solid #a7a7a7;
