@@ -552,11 +552,6 @@ ship page
     grid-template-columns: auto auto auto auto;
 
 }
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
 .honey-images p {
     width: 250px;
     text-align: center;
