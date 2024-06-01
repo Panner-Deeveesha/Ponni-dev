@@ -22,11 +22,3 @@ owl2.owlCarousel({
         }
     }
 });
-owl2.on('mousewheel', '.owl-stage', function (e) {
-    if (e.deltaY>0) {
-        owl2.trigger('next.owl');
-    } else {
-        owl2.trigger('prev.owl');
-    }
-    e.preventDefault();
-});
