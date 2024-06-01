@@ -12,7 +12,7 @@
         $escapedProductIds[] = mysqli_real_escape_string($con, $productId);
     }
     $escapedProductIdsString = "'" . implode("','", $escapedProductIds) . "'";
-    $query = "SELECT productName,productId,volume,imgPath_1 FROM products WHERE productId IN ($escapedProductIdsString)";
+    $query = "SELECT productName,productId,volume,unit,imgPath_1 FROM products WHERE productId IN ($escapedProductIdsString)";
     $res = $con->query($query);
     if ($res) {
         while ($row = mysqli_fetch_assoc($res)) {
@@ -26,6 +26,8 @@
 
 
 ?>
+
+
 
 
 
