@@ -21,6 +21,10 @@ body{
     text-align: center;
     padding-top: 10px;
 }
+/*.addborder{
+    border: 1px solid #000;
+    background-color: #d6d6d6;
+}*/
 #logoimg{
     width: 150px; 
     height: 80px; 
@@ -81,6 +85,7 @@ body{
     padding: 7px;
     border:1px solid #ced4da;
     background: none;
+    cursor: pointer;
 }
 .serchlist{
 	position:absolute;
@@ -146,6 +151,7 @@ body{
 #cartblck{
     width: 25px;
     height: auto;
+    cursor: pointer;
 }
 #menutot{
     width: 10%;
@@ -156,6 +162,7 @@ body{
 #menublck{
     width: 25px;
     height: auto;
+    cursor: pointer;
 }
 .blackscreen{
 	display:none;
@@ -406,6 +413,10 @@ del{
     display: flex;
     width: 100%;
     border-bottom: 1px solid #e2e0e0;
+    cursor: pointer;
+}
+.menureg:hover{
+    border: 1px solid #000;
 }
 .menureg:nth-of-type(4) span:first-of-type{
     width: 80%;
@@ -472,6 +483,9 @@ del{
     list-style-type: none;
     display: block;
     padding: 10px;
+}
+#shopslide li:hover{
+    border: 1px solid #a7a7a7;
 }
 #shopslide li a{
     text-decoration: none;
