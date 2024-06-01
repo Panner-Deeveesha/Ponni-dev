@@ -655,6 +655,11 @@ $.ajax({
     }
 });
 }
+
+function removetoken(){
+  localStorage.removeItem('token');
+}
+
 // Check mouse movement every 1 second (adjust as needed)
 
 setInterval(checkMouseMovement, 120000);
