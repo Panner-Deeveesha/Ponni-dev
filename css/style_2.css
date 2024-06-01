@@ -288,6 +288,21 @@ ship page
     cursor: pointer;
     background-color: #3e8e41;
 }
+.sweets-images:hover{
+    cursor: pointer;
+}
+.product-carousel .productname:hover{
+    cursor: pointer;
+}
+.product-carousel .productamount:hover{
+    cursor: pointer;
+}
+.cate-recentphotos .productname:hover{
+    cursor: pointer;
+}
+.cate-recentphotos .productamount:hover{
+    cursor: pointer;
+}
 .wholecategories {
     font-family: 'Poppins', sans-serif;
     background-color: #fff9e3;
@@ -1009,14 +1024,13 @@ width:20px;
 .product-carousel .owl-nav .owl-prev{
 	 position:absolute;
 	top:38%;
-	width:40px;
-	height:40px;
-	left:0%;
+	width:0px;
+	height:0px;
+	left:-20%;
 	opacity:1;
 	font-size:25px;
 	z-index:10;
-	padding:10px;
-	background-color:#fff;
+	
 	border-radius:50%;
 		color:black;
 }
@@ -1042,10 +1056,9 @@ width:20px;
 	opacity:1;
 	font-size:25px;
 	z-index:10;
-	padding:0px;
-	background-color:none!important;
-	
-		color:black;
+    padding:10px;
+	background-color:#fff;
+	color:black;
 }
 .product-carousel .owl-carousel .owl-dot {
 	 display:none;
@@ -1061,8 +1074,8 @@ width:20px;
 .cate-recentphotos .owl-nav .owl-prev{
 	 position:absolute;
 	top:38%;
-	width:40px;
-	height:40px;
+	width:0px;
+	height:0px;
 	left:0%;
 	opacity:1;
 	font-size:25px;
@@ -1088,8 +1101,8 @@ width:20px;
 .cate-recentphotos .owl-nav .owl-next{
 	position:absolute;
 	top:38%;
-	width:40px;
-	height:40px;
+	width:0px;
+	height:0px;
 	right:1%;
 	opacity:1;
 	font-size:25px;
