@@ -1066,6 +1066,7 @@ width:20px;
  }
  .product-carousel p{
 	 font-weight:600;
+     text-align: center;
  }
 .product-carousel span{
 	color:#ec0101;
@@ -1118,6 +1119,7 @@ width:20px;
  }
  .cate-recentphotos p{
 	 font-weight:600;
+     text-align: center;
  }
 .cate-recentphotos span{
 	color:#ec0101;
