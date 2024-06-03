@@ -482,7 +482,7 @@ function getIPAddress(callback) {
 
 // Function to save IP address in local storage
 function saveIPAddressToLocalStorage(ipAddress) {
-  localStorage.setItem('Local IP', ipAddress);
+  localStorage.setItem('Local_IP', ipAddress);
   console.log('Local Ip Address:', ipAddress);
 }
 
