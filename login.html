@@ -23,7 +23,7 @@
    
 		
 </head>
-<body onload="getAndSaveIPAddress();">
+<body onload="getAndSaveIPAddress(); removetoken()">
     <nav id="navhead">
         <div id="headerfull">
             <div id="ponnititle">
@@ -172,7 +172,9 @@
         <p id="login-heading">LOGIN</p>
         <div class="login-innerdiv">
             <input type="email" id="email" name="email" placeholder="Email"><br>
+            
             <input type="password" id="pwd" name="pwd" placeholder="Password">
+            <img id="logintoggleButton" src="./assets/icons/icons8-eye-20.png">
             <p id="login-commend"></p>
             <p><a href="password.html">Forget Your Password?</a></p>
             <button id="signinbutton" onclick="signincheck()">SIGN IN</button>
@@ -296,5 +298,19 @@
            <script src="./js/script_1.js"></script>
     <script src="./js/script_2.js"></script>
     <script src="./js/script_3.js"></script>
+    <script>
+        const passwordField2 = document.getElementById('pwd');
+const toggleButton2 = document.getElementById('logintoggleButton');
+
+toggleButton2.addEventListener('click', function() {
+  if (passwordField2.type === 'password') {
+    passwordField2.type = 'text';
+    toggleButton2.textContent = 'Hide';
+  } else {
+    passwordField2.type = 'password';
+    toggleButton2.textContent = 'Show';
+  }
+});
+    </script>
 </body>
 </html>

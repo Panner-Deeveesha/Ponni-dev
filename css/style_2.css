@@ -78,6 +78,7 @@ ship page
 .login-innerdiv{
 	width:500px;
 	height:500px;
+    position:relative;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:200px;
@@ -92,6 +93,12 @@ ship page
 	margin-right:auto;
 	margin-top:20px;
 	
+}
+#logintoggleButton {
+    position: absolute;
+    right: 23%;
+    top: 22%;
+    transform: translateY(-50%);
 }
 .login-innerdiv p{
 	color:#707070;
@@ -161,10 +168,12 @@ ship page
 .register-innerdiv{
 	width:500px;
 	height:500px;
+    position: relative;
 	margin-left:auto;
 	margin-right:auto;
-	margin-top:100px;
+	margin-top:20px;
 	color:#707070;
+    margin-bottom:100px;
 }
 .register-innerdiv input{
 	padding:15px;
@@ -198,7 +207,19 @@ ship page
  
  
 }
-.register-innerdiv button{
+
+  #confirmreg-pwd {
+   
+    padding-right: 40px; /* Adjust this value based on the button's width */
+  }
+  
+  #toggleButton {
+    position: absolute;
+    right:27%; /* Adjust this value based on the desired positioning */
+    top: 49%;
+    transform: translateY(-50%);
+  }
+.register-innerdiv #reg-button{
 	width:400px;
 	background-color:#36491e;
 	border:none;
@@ -208,7 +229,7 @@ ship page
 	font-size:15px;
 	border-radius:10px;
 }
-.register-innerdiv button:hover{
+.register-innerdiv #reg-button:hover{
     cursor: pointer;
     background-color: #3e8e41;
 }
@@ -2289,8 +2310,14 @@ width:20px;
       height: 450px;
       margin-left: auto;
       margin-right: auto;
-      margin-top: 100px;
+     
       color: #707070;
+    }
+    #toggleButton {
+        position: absolute;
+        right: 23%;
+        top: 54%;
+        transform: translateY(-50%);
     }
     .register-innerdiv input {
       padding: 15px;
@@ -2301,7 +2328,7 @@ width:20px;
       margin-right: auto;
       margin-top: 20px;
     }
-    .register-innerdiv button {
+    .register-innerdiv #reg-button{
       width: 90%;
       background-color: #000;
       border: none;

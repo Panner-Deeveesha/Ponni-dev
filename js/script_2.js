@@ -555,7 +555,20 @@ function decrementbtn(){
 	}
 	document.getElementById("getvalue").value=degreevalue;
 }
+
 //registerpage
+const passwordField = document.getElementById('reg-pwd');
+const toggleButton = document.getElementById('toggleButton');
+
+toggleButton.addEventListener('click', function() {
+  if (passwordField.type === 'password') {
+    passwordField.type = 'text';
+    toggleButton.textContent = 'Hide';
+  } else {
+    passwordField.type = 'password';
+    toggleButton.textContent = 'Show';
+  }
+});
 
 function clickregbutton(){
   var inputvalues=document.querySelectorAll(".wholeregisterpage input");
@@ -565,6 +578,7 @@ function clickregbutton(){
     }
   }
  var passvalue=document.getElementById("reg-pwd").value;
+ var confirmpass=document.getElementById("confirmreg-pwd").value;
  var fname=document.getElementById("regi-fname").value;
  var lname=document.getElementById("regi-lname").value;
  var emailvalue=document.getElementById("regi-email").value;
@@ -572,11 +586,15 @@ function clickregbutton(){
  var fullname=fname+lname;
  
   if(passvalue.length<5){
+    document.getElementById("reg-emptyvalue").style.display="none";
     document.getElementById("reg-commend").innerHTML="* Password must be more than five letters";
     
  }
+ else if(passvalue != confirmpass){
+  document.getElementById("reg-commend").innerHTML="* Password and confirm password must be same";
+ }
  else if(contactno.length != 10){
-   document.getElementById("reg-emptyvalue").innerHTML="* Invalid contact number"
+   document.getElementById("reg-emptyvalue").innerHTML="* Invalid contact number";
  }
  else{
   document.getElementById("reg-emptyvalue").style.display="none";
@@ -601,6 +619,7 @@ function clickregbutton(){
   });
  }
 }
+
 function signincheck(){
   var loginemail=document.getElementById("email").value;
   var loginpass=document.getElementById("pwd").value;
@@ -617,10 +636,8 @@ function signincheck(){
          
           if(boo==true){
               var obj = JSON.parse(response);
-              console.log(obj);
-              localStorage.setItem('token', obj.token);
               posttoken(obj);
-              window.location.href = "./index.html";
+              localStorage.setItem('token', obj.token);   
              
           }else{
               console.log("Error");
@@ -634,9 +651,7 @@ function signincheck(){
   });
 }
 function posttoken(obj){
-  console.log(obj);
-  console.log(obj.token);
-  console.log(obj[0].id);
+ 
   var loginid=JSON.parse(obj[0].id);
   var logintoken=obj.token;
   var data = {
@@ -648,7 +663,7 @@ $.ajax({
     type: "post",
     data: data,
     success: function () {
-      console.log("success");
+      window.location.href = "./index.html";
     },
     error: function (error) {
         console.log(error);
@@ -657,7 +672,24 @@ $.ajax({
 }
 
 function removetoken(){
-  localStorage.removeItem('token');
+  
+  const token = localStorage.getItem('token');
+  var data = {
+    
+    "token":token
+}
+  $.ajax({
+    url: "./php/removeToken.php",
+    type: "post",
+    data: data,
+    success: function () {
+      localStorage.removeItem('token');
+     
+    },
+    error: function (error) {
+        console.log(error);
+    }
+});
 }
 
 // Check mouse movement every 1 second (adjust as needed)
