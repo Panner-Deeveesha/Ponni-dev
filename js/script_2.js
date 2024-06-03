@@ -468,11 +468,8 @@ inputnum.setAttribute("max", input[index].availability);
 
   });
 
-  
+ 
 $(document).on("click", "#productaddbutton", function() {
-
-  var userid=1;
- var isActive=1;
   var normalbtn=document.getElementsByClassName("btnnormal");
 var clickedposition;
   for(let i=0;i<normalbtn.length;i++){
@@ -487,26 +484,83 @@ var clickedposition;
    var productcount=document.getElementById("getvalue").value;
    console.log(productcount);
 
-  
-  $.ajax({
-      url: "./php/addtocart.php",
+  var getuserid;
+  const token = localStorage.getItem('token');
+  if (token) {
+    var data = {
+      "token": token
+      
+  }
+    $.ajax({
+      url: "./php/getuserId.php",
       type: "post",
-      data: {
-        productId:productId,
-        productcount:productcount,
-        userid:userid,
-        isActive:isActive,
-      },
-      success:function(response){
-        console.log("sucess");
-      },
-      error:function(xhr,status,error){
-        console.log(error);
+      data: data,
+      success: function (response) {
+        var boo = isJsonString(response);
+        
+        if(boo==true){
+            var obj = JSON.parse(response);
+           
+           getuserid=obj[0].id;
+          console.log(getuserid);
+          setcarttable(getuserid,productId,productcount)
+           
+        }else{
+            console.log("Error");
+        }   
+
+    },
+      error: function (error) {
+          console.log(error);
       }
   });
-  
+   
+} 
+else {
+    var ipAddress=localStorage.getItem('Local_IP');
+    console.log(ipAddress);
+    setcartaddress(ipAddress,productId,productcount);
+}  
 });
 
+}
+function setcartaddress(ipAddress,productId,productcount){
+
+  $.ajax({
+    url: "./php/cartbyipaddress.php",
+    type: "post",
+    data: {
+      productId:productId,
+      productcount:productcount,
+        ipAddress:ipAddress,
+     
+    },
+    success:function(response){
+      console.log("sucess");
+    },
+    error:function(xhr,status,error){
+      console.log(error);
+    }
+});
+}
+function setcarttable(userid,productId,productcount){
+ 
+  $.ajax({
+    url: "./php/addtocart.php",
+    type: "post",
+    data: {
+      productId:productId,
+      productcount:productcount,
+      userid:userid,
+     
+    },
+    success:function(response){
+      console.log("sucess");
+    },
+    error:function(xhr,status,error){
+      console.log(error);
+    }
+});
 }
 
 $(document).on("click", "#productaddbutton", function() {
@@ -557,18 +611,7 @@ function decrementbtn(){
 }
 
 //registerpage
-const passwordField = document.getElementById('reg-pwd');
-const toggleButton = document.getElementById('toggleButton');
 
-toggleButton.addEventListener('click', function() {
-  if (passwordField.type === 'password') {
-    passwordField.type = 'text';
-    toggleButton.textContent = 'Hide';
-  } else {
-    passwordField.type = 'password';
-    toggleButton.textContent = 'Show';
-  }
-});
 
 function clickregbutton(){
   var inputvalues=document.querySelectorAll(".wholeregisterpage input");

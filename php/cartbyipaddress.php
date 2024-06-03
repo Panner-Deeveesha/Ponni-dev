@@ -2,7 +2,7 @@
 include "config.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $productId = $_POST['productId'];
-$userid= $_POST['userid'];
+$ipAddress= $_POST['ipAddress'];
 $productcount = $_POST['productcount'];
 
 }
@@ -12,7 +12,7 @@ if ($con->connect_error) {
 }
 
 // Insert product details into database
-$sql ="INSERT INTO `cart`(`userid`,`productId`,`count`,`isActive`)VALUES('$userid','$productId','$productcount','1')"; 
+$sql ="INSERT INTO `cart`(`ipAddress`,`productId`,`count`,`isActive`)VALUES('$ipAddress','$productId','$productcount','1')"; 
 $excute= mysqli_query($con,$sql);
 if($excute) {
   echo "newrecord created successfully";
