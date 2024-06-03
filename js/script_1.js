@@ -471,6 +471,32 @@ $(document).ready(function() {
   addItemToCart();
 });
 
+function getIPAddress(callback) {
+  $.getJSON('https://api.ipify.org?format=json', function(data) {
+    callback(null, data.ip);
+  })
+  .fail(function(jqXHR, textStatus, errorThrown) {
+    callback(errorThrown, null);
+  });
+}
+
+// Function to save IP address in local storage
+function saveIPAddressToLocalStorage(ipAddress) {
+  localStorage.setItem('Local IP', ipAddress);
+  console.log('Local Ip Address:', ipAddress);
+}
+
+// Main function to get and save IP address
+function getAndSaveIPAddress() {
+  getIPAddress(function(error, ipAddress) {
+    if (error) {
+      console.error('Error getting IP address:', error);
+    } else {
+      saveIPAddressToLocalStorage(ipAddress);
+    }
+  });
+}
+
 $(document).ready(function () {
   $("#searchInput").focus(function () {
     $(".blackscreen").css("display", "block");
