@@ -75,12 +75,7 @@ function paydownarrow(){
 
 
 }
-document.getElementById("paymobile").onclick = function() {
-  document.getElementById("payment-adress").style.display="none";
-  document.getElementById("payementphone1").style.display="block";
-  document.getElementById("paycontinue2").style.display="none"; 
-  document.getElementById("paymentwalletid").style.display="none"; 
-};
+
 
 
  
