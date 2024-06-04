@@ -132,15 +132,15 @@ body{
     display: inline-block;
 }
 #carttot{
-    width: 10%;
+    width: 6%;
     align-content: center;
     text-align: center;
     margin-left: 20px;
 }
 #cartCount {
     position: absolute;
-    top: 22px;
-    right: 6%;
+    top: 21px;
+    right: 7.2%;
     background: #f0d343;
     color: black;
     padding: 0px 5px;
@@ -153,16 +153,39 @@ body{
     height: auto;
     cursor: pointer;
 }
-#menutot{
-    width: 10%;
+#cartblck:hover{
+    width: 28px;
+    height: auto;
+}
+#wishtot{
+    width: 6%;
     align-content: center;
     text-align: center;
-    margin-left: 5px;
+    margin-left: 10px;
+}
+#wishblck{
+    width: 25px;
+    height: auto;
+    cursor: pointer;
+}
+#wishblck:hover{
+    width: 28px;
+    height: auto;
+}
+#menutot{
+    width: 6%;
+    align-content: center;
+    text-align: center;
+    margin-left: 10px;
 }
 #menublck{
     width: 25px;
     height: auto;
     cursor: pointer;
+}
+#menublck:hover{
+    width: 28px;
+    height: auto;
 }
 .blackscreen{
 	display:none;
@@ -594,6 +617,21 @@ del{
     color: #4d6b20;
     padding: 8px;
 }
+
+/*Wishlist Page*/
+
+.cate-heading {
+    margin-bottom: 20px;
+}
+#wisheading{
+    width: 100%;
+    height: auto;
+    padding: 25px;
+    color: #4d6b20;
+    font-size: 25px;
+    text-align: center;
+}
+
 @media only screen and (max-width:990px){
     #ponnititle{
        display: none;
@@ -623,17 +661,21 @@ del{
         padding: 0;
         position: static;
         margin-bottom: 10px;
-        margin-left: 40px;
+        margin-left: 30px;
     }
     #carttot{
         width: 15%;
         margin-left: 0px;
     }
     #cartCount {
-        right: 2%;
+        right: 8.6%;
     }
     #cartblck {
         margin-left: 10px;
+    }
+    #wishtot{
+        width: 15%;
+        margin-left: 0px;
     }
     #menutot{
         display: none;
@@ -688,10 +730,15 @@ del{
         margin-bottom: 20px;
     }
     #carttot{
-        width: 25%;
+        width: 15%;
+        margin: 0px 10px;
+    }
+    #wishtot{
+        width: 15%;
+        margin-left: 10px;
     }
     #cartCount {
-        right: 2.8%;
+        right: 11%;
     }
     #wholecancelation, #wholetc{
         width: 95%;
@@ -741,11 +788,17 @@ del{
         height: 75px;
     }
     #searchtot{
-        width: 28%;
+        width: 20%;
         margin-right: 5px;
     }
     #carttot{
-        margin: 5px;
+        margin: 0px 10px;
+    }
+    #cartCount {
+        right: 12%;
+    }
+    #wishtot{
+        margin: 0px 10px;
     }
 }
 @media only screen and (max-width:440px){
@@ -772,10 +825,14 @@ del{
         height: 60px;
     }
     #cartCount{
-        right: 3%;
+        top: 20px;
+        right: 12%;
     }
     #menutotleft {
         padding-left: 10px;
+    }
+    #headicons{
+        padding-right: 10px;
     }
 }
 @media only screen and (max-width:310px){
@@ -784,18 +841,33 @@ del{
         padding-left: 0px;
         padding-top: 0px;
     }
+    #menutotleft {
+        width: 20%;
+    }
     #logoimg{
         width: 80px;
         height: 50px;
     }
     #headicons{
         width: 30%;
+        padding-right: 10px;
     }
     #searchtot{
-        margin-right: 10px;
+        margin-left: 0px;
+        width: 30%;
+    }
+    #iconsearch {
+        margin-left: 0px;
+    }
+    #cartblck {
+        margin-left: 0px;
     }
     #carttot{
-        margin-left: 10px;
-        margin-right: 10px;
+        width: 33%;
+        margin: 0px;
+    }
+    #wishtot{
+        width: 30%;
+        margin: 0px;
     }
 }
