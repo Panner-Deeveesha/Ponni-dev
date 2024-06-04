@@ -170,6 +170,9 @@ function getBycategory(innerHTML) {
              
           }else{
               console.log("Error");
+              document.getElementById("samplework").style.display="none";
+              document.getElementById("noneproducts").style.display="block";
+              document.getElementById("noneproducts").innerHTML="Products not found";
           }   
   
       },
@@ -214,6 +217,8 @@ function getPrice(obj) {
 }
 
 function displaycategories(obj){
+  document.getElementById("samplework").style.display="grid";
+  document.getElementById("noneproducts").style.display="none";
   const uniqueMap = new Map();
   
   obj.forEach((item) => {
