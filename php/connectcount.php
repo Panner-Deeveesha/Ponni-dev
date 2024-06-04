@@ -1,8 +1,8 @@
 
 <?php
     include "config.php";
-
-    $sql = "SELECT count ,productId FROM cart WHERE userid='1' AND isActive=1";
+    $ip = $con->real_escape_string($_POST['ip']);
+    $sql = "SELECT count ,productId FROM cart  WHERE ipAddress='$ip' AND isActive=1";
 
     $res = $con->query($sql);
 

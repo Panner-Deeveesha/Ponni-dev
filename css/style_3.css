@@ -1,5 +1,6 @@
 
 
+
 .Testimonial-content{
 	   
     background-color:#f3f3f3;  
@@ -482,14 +483,8 @@ border:none !important;
    }
 
 /*-------CART cSSSS-----*/
-*{
-    margin:0;
-    padding:0;
-    box-sizing:borderbox;
-    }
-    body{
-      font-family: 'Poppins',Sans-Serif;
-  }
+
+
   .cart-headline{
   background-color:rgb(129,176,50,0.8);
   

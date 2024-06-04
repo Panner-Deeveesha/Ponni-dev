@@ -2,6 +2,7 @@
 
 
 
+
 $("#footer-plus1").click(function () {
   $(".footer-main3 .footer-contact").slideDown("slow");
   $("#footer-minus1").css("display", "block");
@@ -82,30 +83,84 @@ document.getElementById("paymobile").onclick = function() {
 };
 
 
+ 
+function cartdetails() {
+  var token = localStorage.getItem('token');
+  console.log(token);
+  
+  if (token) {
+      console.log('Token:', token);
+      $.ajax({
+          url: './php/checkuser.php',
+          type: 'POST',
+          data: {
+              token: token
+          },
+          success: function(response) {
+              console.log(response);
+              var product1 = JSON.parse(response);
+              console.log(typeof(product1));
+              findUserId(product1);
+          },
+          error: function(xhr, status, error) {
+              console.error('Error:', error);
+          }
+      });
+  } else {
+      console.log('Token not found in local storage');
+      var ipAddress = localStorage.getItem('Local_IP');
+      if (ipAddress) {
+          console.log('IP Address:', ipAddress);
+          unregisterUser(ipAddress);
+      } else {
+          console.log('IP Address not found in local storage');
+      }
+  }
+}
 
-$(document).ready(function() {
-  var userId = 1;
+function findUserId(product1) {
+  console.log(product1);
+  var userCart = product1[0].Id;
   $.ajax({
-    type: "POST",
-    url: "./php/cartdetail.php",
-    dataType: "json",
-    data: {
-      userid: userId
-    },
-    success: function(products) {
-      console.log(products);
-     
-      cartByproductid(products);
-     
-    },
-    error: function(xhr, status, error) {
-      console.error("Error:", error);
-    }
+      url: './php/finduserid.php',
+      type: 'POST',
+      data: {
+          id: userCart
+      },
+      success: function(response) {
+          console.log(response);
+          var product1 = JSON.parse(response);
+          // Assuming cartByProductId is defined elsewhere
+         cartByproductid(product1)
+      },
+      error: function(xhr, status, error) {
+          console.error('Error:', error);
+      }
   });
-});
+}
 
+function unregisterUser(ip) {
+  console.log(ip);
 
-
+ var ip= ip;
+ 
+  $.ajax({
+      url: './php/unregisteruser.php',
+      type: 'POST',
+      data: {
+          ip: ip
+      },
+      success: function(response) {
+          console.log(response);
+          var product = JSON.parse(response);
+          // Assuming cartByProductId is defined elsewhere
+          cartByproductid(product);
+      },
+      error: function(xhr, status, error) {
+          console.error('Error:', error);
+      }
+  });
+}
 
 
     
@@ -119,38 +174,63 @@ function isJsonString(str) {
 }
 
 function cartByproductid(products) {
-  console.log(products);
+  console.log(typeof(products));
 
- 
+  // Object to store product counts
+  var productCounts = {};
+
+  // Accumulate counts for each product
+  products.forEach(function(product) {
+    var productId = product.productId;
+    var count = parseInt(product.count);
+
+    if (productId in productCounts) {
+      productCounts[productId] += count;
+    } else {
+      productCounts[productId] = count;
+    }
+  });
+
   $.ajax({
-      url: "./php/findbyproductId.php",
-      type: "post",
-      data: {
-        products:products
-      },
-      success: function (response) {
-          var boo = isJsonString(response);
-         
-          if(boo==true){
-              var obj = JSON.parse(response);
-              console.log(obj);
-              getcartPrice(obj);
-             
-          }else{
-              console.log("Error");
-          }   
-  
-      },
-      error: function (error) {
-          console.log(error);
+    url: "./php/findbyproductId.php",
+    type: "post",
+    data: {
+      products: products
+    },
+    success: function (response) {
+      var boo = isJsonString(response);
+
+      if (boo == true) {
+        var obj = JSON.parse(response);
+        console.log(obj);
+
+        // Merge count information from productCounts into obj
+        obj.forEach(function(objProduct) {
+          var productId = objProduct.productId;
+          if (productId in productCounts) {
+            objProduct.count = productCounts[productId];
+          }
+        });
+
+        getcartPrice(obj);
+
+      } else {
+        console.log("Error");
       }
+
+    },
+    error: function (error) {
+      console.log(error);
+    }
   });
 }
 
 
 
 
-function getcartPrice(obj) {
+
+function getcartPrice(uniqueObj) {
+  console.log(uniqueObj);
   
   $.ajax({
       url: "./php/getPrice.php",
@@ -159,13 +239,14 @@ function getcartPrice(obj) {
           var obj2 = JSON.parse(response);
           //console.log(response);
           // console.log(obj);
-          $(obj).each(function (index, value) {
+          $(uniqueObj).each(function (index, value) {
               //console.log(value);
               $(obj2).each(function (index2, value2) {
                   if (value.productId == value2.productId) {
                       //console.log(value.uniqueId+":"+value2.id  );
                       value.price = value2.price;
                       value.offerPrice = value2.offerPrice;
+                      
                       //console.log(value);
                   }
               });
@@ -173,8 +254,8 @@ function getcartPrice(obj) {
           });
           //showNewLanches(obj);
          
-         console.log(obj);
-        getcartcount(obj);
+         console.log(uniqueObj);
+       displaycartdetails(uniqueObj);
       },
       error: function (error) {
           console.log(error);
@@ -183,53 +264,10 @@ function getcartPrice(obj) {
 }
 
 
-function getcartcount(obj) {
-  $.ajax({
-    url: "./php/connectcount.php",
-    type: "get",
-    success: function(response) {
-      var obj2 = JSON.parse(response);
-      var productCounts = {};
-      obj2.forEach(function(product) {
-        var productId = product.productId;
-        var count = parseInt(product.count);
 
-        if (productId in productCounts) {
-          productCounts[productId] += count;
-        } else {
-          productCounts[productId] = count;
-        }
-      });
+ 
 
-      console.log(productCounts);
 
-      $(obj).each(function(index, value) {
-        var productId = value.productId;
-        var count = productCounts[productId];
-        if (count !== undefined) {
-          value.count = count;
-        }
-      });
-
-    
-      var uniqueProducts = {};
-      var uniqueObj = [];
-      $(obj).each(function(index, value) {
-        if (!(value.productId in uniqueProducts)) {
-          uniqueProducts[value.productId] = true;
-          uniqueObj.push(value);
-        }
-      });
-
-      console.log(uniqueObj);
-
-      displaycartdetails(uniqueObj);
-    },
-    error: function(error) {
-      console.log(error);
-    }
-  });
-}
 
 
 function displaycartdetails(uniqueObj){
