@@ -76,42 +76,86 @@ function paydownarrow(){
 
 }
 
+function mergeuser(){
+  var token = localStorage.getItem('token');
+  var ipAddress = localStorage.getItem('Local_IP');
+  console.log(token);
+  console.log(ipAddress);
+  $.ajax({
+    url: './php/mergeuserid.php',
+    type: 'POST',
+    data: {
+        token: token,
+        ipAddress:ipAddress
+
+    },
+    success: function(response) {
+        console.log(response);
+        var product1 = JSON.parse(response);
+        console.log(typeof(product1));
+        cartByproductid(product1);
+        countcheckforcart(product1);
+    },
+    error: function(xhr, status, error) {
+        console.error('Error:', error);
+    }
+});
+
+
+}
 
 
  
 function cartdetails() {
   var token = localStorage.getItem('token');
+  var ipAddress = localStorage.getItem('Local_IP');
+  
   console.log(token);
   
-  if (token) {
-      console.log('Token:', token);
+  if (!token){
+    console.log('Token not found in local storage');
+    var ipAddress = localStorage.getItem('Local_IP');
+    if (ipAddress) {
+      console.log('IP Address:', ipAddress);
+      unregisterUser(ipAddress);
+    } else {
+      console.log('IP Address not found in local storage');
+    }
+  }
+  else {
+    if (ipAddress&&token) {
+    
+      mergeuser();
+    } else {
+      checkuser();
+
+    }
+  }
+}
+
+function checkuser(){
+  var token = localStorage.getItem('token');
+  console.log('Token:', token);
       $.ajax({
           url: './php/checkuser.php',
           type: 'POST',
           data: {
               token: token
+
           },
           success: function(response) {
               console.log(response);
               var product1 = JSON.parse(response);
               console.log(typeof(product1));
               findUserId(product1);
+              countcheckforcart(product1);
           },
           error: function(xhr, status, error) {
               console.error('Error:', error);
           }
       });
-  } else {
-      console.log('Token not found in local storage');
-      var ipAddress = localStorage.getItem('Local_IP');
-      if (ipAddress) {
-          console.log('IP Address:', ipAddress);
-          unregisterUser(ipAddress);
-      } else {
-          console.log('IP Address not found in local storage');
-      }
-  }
-}
+  } 
+
 
 function findUserId(product1) {
   console.log(product1);
@@ -126,6 +170,7 @@ function findUserId(product1) {
           console.log(response);
           var product1 = JSON.parse(response);
           // Assuming cartByProductId is defined elsewhere
+          countcheckforcart(product1);
          cartByproductid(product1)
       },
       error: function(xhr, status, error) {
@@ -150,6 +195,7 @@ function unregisterUser(ip) {
           var product = JSON.parse(response);
           // Assuming cartByProductId is defined elsewhere
           cartByproductid(product);
+          countcheckforcart(product1);
       },
       error: function(xhr, status, error) {
           console.error('Error:', error);
@@ -358,7 +404,7 @@ function displaycartdetails(uniqueObj){
         }
         $('#wholecarttotal').html("Rs." + totalSum);
       }
-    carticoncount(uniqueObj);
+     
   
     }
     $(document).on("click", ".cart-productname", function() {
@@ -379,11 +425,6 @@ function displaycartdetails(uniqueObj){
      
     });
 
-  function carticoncount(countobj){
-    var cartCounts = document.getElementById('cartCount');
-    cartCounts.forEach(function(element) {
-        element.innerText = countobj.length;
-    });
-  }
+
   
    
