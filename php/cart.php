@@ -1,6 +1,7 @@
 <?php
 include "config.php";
-$sql = "SELECT COUNT(*) as count FROM cart"; 
+$userId = $_POST["userid"]; 
+$sql = "SELECT COUNT(*) as count FROM cart where userId = '$userId'"; 
 
 $res = $con->query($sql);
 
