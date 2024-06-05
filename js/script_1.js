@@ -287,6 +287,25 @@ function productpageonload(){
   inputnum.setAttribute("max", converttoobj[0].availability);
 }
 
+function countcheckforcart(userid){
+  var userId=userid[0].Id;
+  var data = {
+    "userid": userId,
+  }
+  $.ajax({
+      url: "./php/cart.php",
+      type: "post",
+      data: data,
+      success: function(response) {
+          var obj = JSON.parse(response);
+          $("#cartCount").text(obj[0]);
+      },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+}
+
 var clicksearch = document.getElementById("productList2");
 var displayval = document.getElementById("totalstart");
 
@@ -441,36 +460,6 @@ function closemenu() {
   document.getElementById("menusear").style.width = "0";
 }
 
-const cartCountElement = document.getElementById('cartCount');
-let quantityInputs = 0;
-
-/*function updateCartCount() {
-  cartItemCount = Array.from(quantityInputs).reduce(
-      (total, input) => total + parseInt(input.value),
-      1
-  );
-  cartCountElement.innerText = cartItemCount;
-}
-updateCartCount();*/
-
-function addItemToCart() {
-  $.ajax({
-    url: "./php/cart.php", // Replace with your actual URL
-    type: 'GET',
-    success: function(data) {
-      var obj = JSON.parse(data);
-      $('#cartCount').text(obj[0]);
-    },
-    error: function(xhr, status, error) {
-        console.error('Error fetching cart count:', error);
-    }
-});
-}
-
-$(document).ready(function() {
-  addItemToCart();
-});
-
 function getIPAddress(callback) {
   $.getJSON('https://api.ipify.org?format=json', function(data) {
     callback(null, data.ip);
@@ -498,6 +487,8 @@ function getAndSaveIPAddress() {
 }
 
 $(document).ready(function () {
+  cartdetails();
+
   $("#searchInput").focus(function () {
     $(".blackscreen").css("display", "block");
     $("#productList").css("display", "block");
