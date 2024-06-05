@@ -358,7 +358,7 @@ function displaycartdetails(uniqueObj){
         }
         $('#wholecarttotal').html("Rs." + totalSum);
       }
-    
+    carticoncount(uniqueObj);
   
     }
     $(document).on("click", ".cart-productname", function() {
@@ -378,5 +378,12 @@ function displaycartdetails(uniqueObj){
     
      
     });
+
+  function carticoncount(countobj){
+    var cartCounts = document.getElementById('cartCount');
+    cartCounts.forEach(function(element) {
+        element.innerText = countobj.length;
+    });
+  }
   
    

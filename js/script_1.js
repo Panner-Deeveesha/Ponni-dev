@@ -64,7 +64,7 @@ function Pricecheck(obj) {
         getvalfn(obj);
       },
       error: function (error) {
-        console.log(error);
+        //console.log(error);
       }
     });
 
@@ -126,11 +126,11 @@ function getprod(getname) {
           //console.log(obj);
           getAvail(obj);
       }else{
-          console.log("Error");
+          //console.log("Error");
       }   
     },
     error: function (error) {
-      console.log(error);
+      //console.log(error);
     }
   });
 }
@@ -482,8 +482,8 @@ function getIPAddress(callback) {
 
 // Function to save IP address in local storage
 function saveIPAddressToLocalStorage(ipAddress) {
-  localStorage.setItem('Local IP', ipAddress);
-  console.log('Local Ip Address:', ipAddress);
+  localStorage.setItem('Local_IP', ipAddress);
+  //console.log('Local Ip Address:', ipAddress);
 }
 
 // Main function to get and save IP address

@@ -309,6 +309,15 @@ ship page
     cursor: pointer;
     background-color: #3e8e41;
 }
+#noneproducts{
+    width: 20%;
+    margin-left: auto;
+    margin-top: 90px;
+    font-size: 28px;
+    color:#6d9928;
+    font-weight: 700;
+    margin-right: auto;
+}
 .sweets-images:hover{
     cursor: pointer;
 }
@@ -2279,39 +2288,66 @@ width:20px;
         margin-left: auto;
         margin-right: auto;
     }
+    .wholeloginpage #login-heading {
+        background-color: #6d9928;
+        padding: 15px;
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+    }
 	.login-innerdiv {
-    width: 90%;
-    height: 450px;
+    width: 72%;
+    height: 350px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
+    margin-top: 50px;
     color: #707070;
     }
+    .login-innerdiv p{
+        width: 100%;
+       
+        margin-left: auto;
+        margin-right: auto;
+        
+        }
    .login-innerdiv input {
       padding: 15px;
       border: 1px solid #ddd;
       color: #ddd;
-      width: 82%;
+      width: 100%;
       margin-left: auto;
       margin-right: auto;
       margin-top: 20px;
     }
     .login-innerdiv button {
-      width: 90%;
+      width: 100%;
       background-color: #000;
       border: none;
       color: #fff;
-      padding: 10px 20px;
-      font-size: 18px;
+      padding: 10px 10px;
+      font-size: 12px;
       border-radius: 10px;
     }
+    #logintoggleButton {
+        position: absolute;
+        right: 8%;
+        top: 32%;
+        transform: translateY(-50%);
+    }
     .register-innerdiv {
-      width: 90%;
+      width: 72%;
       height: 450px;
       margin-left: auto;
       margin-right: auto;
      
       color: #707070;
+    }
+    .wholeregisterpage #register-heading {
+        background-color: #6d9928;
+        padding: 15px;
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
     }
     #toggleButton {
         position: absolute;
@@ -2320,21 +2356,27 @@ width:20px;
         transform: translateY(-50%);
     }
     .register-innerdiv input {
-      padding: 15px;
+      padding: 10px;
       border: 1px solid #ddd;
       color: #ddd;
-      width: 82%;
+      width: 100%;
       margin-left: auto;
       margin-right: auto;
       margin-top: 20px;
     }
+    .register-innerdiv #toggleButton {
+        position: absolute;
+        right: 8%;
+        top: 47%;
+        transform: translateY(-50%);
+    }
     .register-innerdiv #reg-button{
-      width: 90%;
+      width: 100%;
       background-color: #000;
       border: none;
-      color: #fff;
-      padding: 10px 20px;
-      font-size: 18px;
+      margin-top: 5px;
+      padding: 10px 10px;
+      font-size: 12px;
       border-radius: 10px;
     }
     .password-innerdiv p {
@@ -2343,30 +2385,49 @@ width:20px;
         line-height: 25px;
         margin-top: 20px;
     }
+    .wholepasswordpage #login-heading {
+        background-color: #6d9928;
+        padding: 15px;
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+    }
+    .password-innerdiv .passheading {
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .password-innerdiv p {
+        color: #707070;
+        width: 100%;
+        font-size: 14px;
+        line-height: 25px;
+        margin-top: 10px;
+    }
     .password-innerdiv {
-        width: 90%;
-        height: 450px;
+        width: 80%;
+        height: 320px;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 100px;
-        color: #707070;
+        margin-top: 50px;
+       
       }
       .password-innerdiv input {
-        padding: 15px;
+        padding: 10px;
         border: 1px solid #ddd;
         color: #ddd;
-        width: 82%;
+        width: 100%;
         margin-left: auto;
         margin-right: auto;
         margin-top: 20px;
       }
       .password-innerdiv button {
-        width: 90%;
+        width: 100%;
         background-color: #000;
         border: none;
+        margin-top:10px;
         color: #fff;
-        padding: 10px 20px;
-        font-size: 18px;
+        padding: 8px;
+        font-size: 12px;
         border-radius: 10px;
       }
 }
@@ -3087,7 +3148,126 @@ width:20px;
 }	
 }
 @media only screen and (max-width:315px){
-	
+    .password-innerdiv input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        color: #ddd;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+    }
+    .wholepasswordpage #login-heading {
+       
+        padding: 15px;
+       
+        font-size: 20px;
+       
+    }
+    .password-innerdiv {
+        width: 80%;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+        color: #707070;
+    }
+    .password-innerdiv button {
+        width: 100%;
+        background-color: #000;
+        border: none;
+        color: #fff;
+        padding:8px;
+        margin-top: 5px;
+        font-size: 12px;
+        border-radius: 10px;
+    }
+    .password-innerdiv p {
+        color: #707070;
+        width: 100%;
+        font-size: 13px;
+        line-height: 25px;
+        margin-top: 10px;
+    }
+    .password-innerdiv .passheading {
+        font-size: 16px;
+        font-weight: 600;
+    }
+	.login-innerdiv input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        color: #ddd;
+        width: 100%;
+        
+        margin-top: 20px;
+    }
+    .login-innerdiv {
+        width: 72%;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+        color: #707070;
+    }
+    .login-innerdiv button {
+        width: 100%;
+        background-color: #000;
+        border: none;
+        
+        padding: 8px ;
+        font-size: 12px;
+        border-radius: 10px;
+    }
+    .register-innerdiv input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        color: #ddd;
+        width: 100%;
+        
+        margin-top: 20px;
+    }
+    .register-innerdiv {
+        width: 72%;
+        height: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+        color: #707070;
+    }
+    .register-innerdiv #toggleButton {
+        position: absolute;
+        right: 5%;
+        top: 52%;
+        transform: translateY(-50%);
+    }
+    .register-innerdiv button {
+        width: 100%;
+        background-color: #000;
+        border: none;
+        
+        padding: 8px ;
+        font-size: 12px;
+        border-radius: 10px;
+    }
+    .wholeloginpage #login-heading {
+        background-color: #6d9928;
+        padding: 10px;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+    }
+    .register-innerdiv p {
+        width: 100%;
+        font-size: 12px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .login-innerdiv p {
+        width: 100%;
+        font-size: 12px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 	.first-image {
         width: 120px !important;
         height: 120px;
