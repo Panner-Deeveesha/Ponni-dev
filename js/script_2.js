@@ -141,7 +141,31 @@ $(document).ready(function () {
   
 });
 
-
+function popup(imgsrc,mgs,content){
+  var popup="";
+  popup +='<div class="fullpopup">';
+  popup +='<img id="cancelbtn" src="./assets/icons/cancel.png">';
+  popup +='<div class="popupcontent">';
+  popup +='<div>';
+  popup +='<img id="mgsimg" src="'+imgsrc+'">';
+  popup +='</div>';
+  popup +='<div>';
+  popup +='<p id="mgscontent">';
+  popup +=mgs;
+  popup +='</p>';
+  popup +='<p id="mgsinnercontent">';
+  popup +=content;
+  popup +='</p>';
+  popup +='</div>';
+  popup +='</div>';
+  popup +='</div>';
+  document.getElementById("popup").style.display="block";
+  document.getElementById("popup").innerHTML=popup;
+  $("#cancelbtn").click(function(){
+    document.getElementById("popup").style.display="none";
+   
+  });
+}
 
 
 //start index page
@@ -165,7 +189,7 @@ function getBycategory(innerHTML) {
          
           if(boo==true){
               var obj = JSON.parse(response);
-              //console.log(obj);
+              console.log(obj);
               getPrice(obj);
              
           }else{
@@ -173,11 +197,15 @@ function getBycategory(innerHTML) {
               document.getElementById("samplework").style.display="none";
               document.getElementById("noneproducts").style.display="block";
               document.getElementById("noneproducts").innerHTML="Products not found";
+              var imgsrc="./assets/icons/error.png"
+              var mgs="Error";
+              var content="No Product Found";
+              popup(imgsrc,mgs,content);
           }   
   
       },
       error: function (error) {
-          //console.log(error);
+          console.log(error);
       }
   });
 }
@@ -193,7 +221,7 @@ function getPrice(obj) {
       success: function (response) {
           var obj2 = JSON.parse(response);
           //console.log(response);
-           //console.log(obj2);
+           console.log(obj2);
           $(obj).each(function (index, value) {
               //console.log(value);
               $(obj2).each(function (index2, value2) {
@@ -211,7 +239,7 @@ function getPrice(obj) {
           displaycategories(obj);
       },
       error: function (error) {
-          //console.log(error);
+          console.log(error);
       }
   });
 }
@@ -307,12 +335,12 @@ function getByproductname(innerHTML2) {
            getAvailability(obj);
            
         }else{
-            //console.log("Error");
+            console.log("Error");
         }   
 
     },
       error: function (error) {
-          //console.log(error);
+          console.log(error);
       }
   });
   
@@ -339,14 +367,14 @@ function getAvailability(obj){
               
           });
           //showNewLanches(obj);
-         //console.log(obj);
+         console.log(obj);
        
          productpagegetPrice(obj);
           
       
       },
       error: function (error) {
-          //console.log(error);
+          console.log(error);
       }
   });
   
@@ -378,7 +406,7 @@ function productpagegetPrice(obj) {
       
       },
       error: function (error) {
-          //console.log(error);
+          console.log(error);
       }
   });
 }
@@ -457,7 +485,7 @@ console.log(input);
   
   const inputnum = document.getElementById("getvalue");
 inputnum.setAttribute("max", input[0].availability);
-//console.log(input[0].availability);
+console.log(input[0].availability);
 
   $(document).on("click", ".btnnormal", function() {
     var buttons = $(".btnnormal"); // Get all buttons with the class "btnnormal"
@@ -487,7 +515,7 @@ var clickedposition;
   productId=input[clickedposition].productId;
   
    var productcount=document.getElementById("getvalue").value;
-   //console.log(productcount);
+   console.log(productcount);
 
   var getuserid;
   const token = localStorage.getItem('token');
@@ -507,23 +535,23 @@ var clickedposition;
             var obj = JSON.parse(response);
            
            getuserid=obj[0].id;
-          //console.log(getuserid);
+          console.log(getuserid);
           setcarttable(getuserid,productId,productcount)
            
         }else{
-            //console.log("Error");
+            console.log("Error");
         }   
 
     },
       error: function (error) {
-          //console.log(error);
+          console.log(error);
       }
   });
    
 } 
 else {
     var ipAddress=localStorage.getItem('Local_IP');
-    //console.log(ipAddress);
+    console.log(ipAddress);
     setcartaddress(ipAddress,productId,productcount);
 }  
 });
@@ -541,10 +569,10 @@ function setcartaddress(ipAddress,productId,productcount){
      
     },
     success:function(response){
-      //console.log("sucess");
+      console.log("sucess");
     },
     error:function(xhr,status,error){
-      //console.log(error);
+      console.log(error);
     }
 });
 }
@@ -560,10 +588,10 @@ function setcarttable(userid,productId,productcount){
      
     },
     success:function(response){
-      //console.log("sucess");
+      console.log("sucess");
     },
     error:function(xhr,status,error){
-      //console.log(error);
+      console.log(error);
     }
 });
 }
@@ -657,17 +685,22 @@ function clickregbutton(){
       contactno:contactno,
     },
     success:function(response){
-      
-      alert("Sucessfully Register");
-      window.location.href = "./login.html";
+      var imgsrc="./assets/icons/success.png";
+      var mgs="SUCCESS";
+      var content="Your account is Register please Login";
+     popup(imgsrc,mgs,content);
+     setInterval(openlogin,9000);
+   
     },
     error:function(xhr,status,error){
-      //console.log(error);
+      console.log(error);
     }
   });
  }
 }
-
+function openlogin(){
+  window.location.href = "./login.html"
+}
 function signincheck(){
   var loginemail=document.getElementById("email").value;
   var loginpass=document.getElementById("pwd").value;
@@ -688,13 +721,13 @@ function signincheck(){
               localStorage.setItem('token', obj.token);   
              
           }else{
-              //console.log("Error");
+              console.log("Error");
               document.getElementById("login-commend").innerHTML="* Invalid Password and email";
           }   
   
       },
       error: function (error) {
-          //console.log(error);
+          console.log(error);
       }
   });
 }
@@ -711,7 +744,8 @@ $.ajax({
     type: "post",
     data: data,
     success: function () {
-      window.location.href = "./index.html";
+      
+window.location.href = "./index.html";
     },
     error: function (error) {
         console.log(error);
@@ -735,7 +769,7 @@ function removetoken(){
      
     },
     error: function (error) {
-        //console.log(error);
+        console.log(error);
     }
 });
 }
@@ -775,7 +809,7 @@ function checkMouseMovement() {
   } else {
     window.location.href = "./login.html";
              
-      //console.log('Mouse is not moving.');
+      console.log('Mouse is not moving.');
   }
 }
 
