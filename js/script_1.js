@@ -555,7 +555,7 @@ $("#shopnowid").click(function () {
       prolist.innerHTML = "Enter Product Name!";
     }
   });
-
+  
   /*$(document).ready(function(){
     $('.menureg').click(function(){
         $('.menureg').removeClass('addborder'); 
