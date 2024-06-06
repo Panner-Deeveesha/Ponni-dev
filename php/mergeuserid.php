@@ -15,7 +15,7 @@ $cartItemCount = $row_check_cart['count'];
 
 if ($cartItemCount > 0) {
 
-    $sql_user = "SELECT Id FROM users WHERE token='$token' AND isActive=1";
+    $sql_user = "SELECT Id FROM users WHERE token='$token' AND isActive='1'";
     $res_user = $con->query($sql_user);
 
     if ($res_user->num_rows > 0) {
@@ -23,10 +23,10 @@ if ($cartItemCount > 0) {
         $user_id = $row_user['Id'];
 
         
-        $sql_update_cart = "UPDATE cart SET userId='$user_id' WHERE ipAddress='$ipAddress'";
+        $sql_update_cart = "UPDATE cart SET userId='$user_id' WHERE ipAddress='$ipAddress' AND isActive='1'";
         if($con->query($sql_update_cart) === TRUE){
           
-            $sql_cart = "SELECT productId,userId,count FROM cart WHERE userId='$user_id'";
+            $sql_cart = "SELECT productId,userId,count FROM cart WHERE userId='$user_id' AND isActive='1'";
             $res_cart = $con->query($sql_cart);
 
             if($res_cart->num_rows > 0){

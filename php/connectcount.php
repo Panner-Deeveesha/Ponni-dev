@@ -2,7 +2,7 @@
 <?php
     include "config.php";
     $ip = $con->real_escape_string($_POST['ip']);
-    $sql = "SELECT count ,productId FROM cart  WHERE ipAddress='$ip' AND isActive=1";
+    $sql = "SELECT count ,productId FROM cart  WHERE ipAddress='$ip' AND isActive='1'";
 
     $res = $con->query($sql);
 

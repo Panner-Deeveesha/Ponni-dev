@@ -6,7 +6,7 @@ $token = $_POST["token"];
 $ipAddress = $_POST["ipAddress"];
 
 
-$sql_check_cart = "SELECT COUNT(*) as count FROM cart WHERE ipAddress='$ipAddress'";
+$sql_check_cart = "SELECT COUNT(*) as count FROM cart WHERE ipAddress='$ipAddress' AND isActive='1'";
 $res_check_cart = $con->query($sql_check_cart);
 
 // Fetch the result
