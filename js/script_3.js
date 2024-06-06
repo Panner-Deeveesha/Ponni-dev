@@ -79,8 +79,8 @@ function paydownarrow(){
 function mergeuser(){
   var token = localStorage.getItem('token');
   var ipAddress = localStorage.getItem('Local_IP');
-  console.log(token);
-  console.log(ipAddress);
+ 
+ 
   $.ajax({
     url: './php/mergeuserid.php',
     type: 'POST',
@@ -90,9 +90,9 @@ function mergeuser(){
 
     },
     success: function(response) {
-        console.log(response);
+   
         var product1 = JSON.parse(response);
-        console.log(typeof(product1));
+        
         cartByproductid(product1);
         countcheckforcart(product1);
     },
@@ -100,7 +100,6 @@ function mergeuser(){
         console.error('Error:', error);
     }
 });
-
 
 }
 
@@ -110,56 +109,83 @@ function cartdetails() {
   var token = localStorage.getItem('token');
   var ipAddress = localStorage.getItem('Local_IP');
   
-  console.log(token);
   
   if (!token){
     console.log('Token not found in local storage');
     var ipAddress = localStorage.getItem('Local_IP');
     if (ipAddress) {
-      console.log('IP Address:', ipAddress);
+      
       unregisterUser(ipAddress);
-    } else {
-      console.log('IP Address not found in local storage');
     }
   }
   else {
     if (ipAddress&&token) {
     
-      mergeuser();
-    } else {
-      checkuser();
-
-    }
+      checkuser1();
+    } 
+  
   }
 }
 
-function checkuser(){
+function checkuser1(){
   var token = localStorage.getItem('token');
-  console.log('Token:', token);
-      $.ajax({
-          url: './php/checkuser.php',
-          type: 'POST',
-          data: {
-              token: token
 
-          },
-          success: function(response) {
-              console.log(response);
-              var product1 = JSON.parse(response);
-              console.log(typeof(product1));
-              findUserId(product1);
-              countcheckforcart(product1);
-          },
-          error: function(xhr, status, error) {
-              console.error('Error:', error);
-          }
-      });
+  var ipAddress = localStorage.getItem('Local_IP');
+  if(token){
+    $.ajax({
+      url: './php/ipaddress.php',
+      type: 'POST',
+      data: {
+          token: token,
+          ipAddress:ipAddress
+      },
+      success: function(response) {
+          
+          var jsonResponse = JSON.parse(response); 
+          var hasProducts = jsonResponse.hasProducts;
+      if (hasProducts===false){
+        checkuser(token);   
+      }
+      else{
+   
+       mergeuser(token,ipAddress); 
+      }
+    },
+      error: function(xhr, status, error) {
+          console.error('Error:', error);
+      }
+  });
+
+  }
+  
   } 
+ function checkuser(token){
+  
+  $.ajax({
+    url: './php/checkuser.php',
+    type: 'POST',
+    data: {
+        token: token,
+        
+    },
+    success: function(response) {
+      
+        var product1 = JSON.parse(response); 
+        findUserId(product1);
+
+    },
+        error: function(xhr, status, error) {
+          console.error('Error:', error);
+      }
+  });
+
+ }
 
 
 function findUserId(product1) {
-  console.log(product1);
+
   var userCart = product1[0].Id;
+  
   $.ajax({
       url: './php/finduserid.php',
       type: 'POST',
@@ -167,7 +193,7 @@ function findUserId(product1) {
           id: userCart
       },
       success: function(response) {
-          console.log(response);
+       
           var product1 = JSON.parse(response);
           // Assuming cartByProductId is defined elsewhere
           countcheckforcart(product1);
@@ -191,11 +217,11 @@ function unregisterUser(ip) {
           ip: ip
       },
       success: function(response) {
-          console.log(response);
+       
           var product = JSON.parse(response);
           // Assuming cartByProductId is defined elsewhere
           cartByproductid(product);
-          countcheckforcart(product1);
+          countcheckforcart(product);
       },
       error: function(xhr, status, error) {
           console.error('Error:', error);
@@ -215,7 +241,7 @@ function isJsonString(str) {
 }
 
 function cartByproductid(products) {
-  console.log(typeof(products));
+ 
 
   // Object to store product counts
   var productCounts = {};
@@ -243,7 +269,7 @@ function cartByproductid(products) {
 
       if (boo == true) {
         var obj = JSON.parse(response);
-        console.log(obj);
+      
 
         // Merge count information from productCounts into obj
         obj.forEach(function(objProduct) {
@@ -295,7 +321,7 @@ function getcartPrice(uniqueObj) {
           });
           //showNewLanches(obj);
          
-         console.log(uniqueObj);
+        
        displaycartdetails(uniqueObj);
       },
       error: function (error) {
@@ -360,7 +386,7 @@ function displaycartdetails(uniqueObj){
 
       $(".delete-item").click(function() {
         var productId = uniqueObj[$(this).data("index")].productId; 
-         console.log(productId);
+      
          var index = $(this).data("index"); 
          uniqueObj.splice(index, 1); 
         $.ajax({

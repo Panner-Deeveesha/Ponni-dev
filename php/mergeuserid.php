@@ -1,3 +1,4 @@
+
 <?php
 include "config.php";
 
@@ -25,7 +26,7 @@ if ($cartItemCount > 0) {
         $sql_update_cart = "UPDATE cart SET userId='$user_id' WHERE ipAddress='$ipAddress'";
         if($con->query($sql_update_cart) === TRUE){
           
-            $sql_cart = "SELECT productId, count FROM cart WHERE userId='$user_id'";
+            $sql_cart = "SELECT productId,userId,count FROM cart WHERE userId='$user_id'";
             $res_cart = $con->query($sql_cart);
 
             if($res_cart->num_rows > 0){
