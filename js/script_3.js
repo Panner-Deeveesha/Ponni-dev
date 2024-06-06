@@ -3,6 +3,7 @@
 
 
 
+
 $("#footer-plus1").click(function () {
   $(".footer-main3 .footer-contact").slideDown("slow");
   $("#footer-minus1").css("display", "block");
@@ -94,7 +95,7 @@ function mergeuser(){
         var product1 = JSON.parse(response);
         
         cartByproductid(product1);
-        countcheckforcart(product1);
+       
     },
     error: function(xhr, status, error) {
         console.error('Error:', error);
@@ -113,18 +114,15 @@ function cartdetails() {
   if (!token){
     console.log('Token not found in local storage');
     var ipAddress = localStorage.getItem('Local_IP');
-    if (ipAddress) {
-      
       unregisterUser(ipAddress);
-    }
+ 
   }
   else {
-    if (ipAddress&&token) {
-    
-      checkuser1();
-    } 
   
-  }
+      checkuser1();
+    }
+  
+  
 }
 
 function checkuser1(){
@@ -144,7 +142,7 @@ function checkuser1(){
           var jsonResponse = JSON.parse(response); 
           var hasProducts = jsonResponse.hasProducts;
       if (hasProducts===false){
-        checkuser(token);   
+        useridFind(token);   
       }
       else{
    
@@ -195,8 +193,8 @@ function findUserId(product1) {
       success: function(response) {
        
           var product1 = JSON.parse(response);
-          // Assuming cartByProductId is defined elsewhere
-          countcheckforcart(product1);
+         
+         
          cartByproductid(product1)
       },
       error: function(xhr, status, error) {
@@ -219,9 +217,9 @@ function unregisterUser(ip) {
       success: function(response) {
        
           var product = JSON.parse(response);
-          // Assuming cartByProductId is defined elsewhere
+   
           cartByproductid(product);
-          countcheckforcart(product);
+          
       },
       error: function(xhr, status, error) {
           console.error('Error:', error);
@@ -243,10 +241,9 @@ function isJsonString(str) {
 function cartByproductid(products) {
  
 
-  // Object to store product counts
+
   var productCounts = {};
 
-  // Accumulate counts for each product
   products.forEach(function(product) {
     var productId = product.productId;
     var count = parseInt(product.count);
@@ -271,7 +268,6 @@ function cartByproductid(products) {
         var obj = JSON.parse(response);
       
 
-        // Merge count information from productCounts into obj
         obj.forEach(function(objProduct) {
           var productId = objProduct.productId;
           if (productId in productCounts) {
@@ -339,7 +335,7 @@ function getcartPrice(uniqueObj) {
 
 function displaycartdetails(uniqueObj){
   var cartItems = {};
-
+var carticoncount=uniqueObj.length;
   var totalSum = 0; 
    var cartDiv = "";
     for(let i=0;i<uniqueObj.length;i++){
@@ -430,7 +426,7 @@ function displaycartdetails(uniqueObj){
         }
         $('#wholecarttotal').html("Rs." + totalSum);
       }
-     
+      countcheckforcart(carticoncount);
   
     }
     $(document).on("click", ".cart-productname", function() {
@@ -452,5 +448,12 @@ function displaycartdetails(uniqueObj){
     });
 
 
-  
+    function paynowbtn(){
+      var token = localStorage.getItem('token');
+    
+      var ipAddress = localStorage.getItem('Local_IP');
+
+
+
+    }
    

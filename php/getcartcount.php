@@ -4,7 +4,7 @@
 
  
 
-    $sql = "SELECT count FROM cart WHERE isActive=1";
+    $sql = "SELECT count FROM cart WHERE isActive='1'";
 
     $res = $con->query($sql);
 

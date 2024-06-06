@@ -3,21 +3,15 @@ include "config.php";
 
 $uniqueId = $_POST["productId"];
 
-    $sql = "DELETE FROM cart WHERE ProductId='$uniqueId'";
+$sql = "UPDATE cart SET isActive ='0' WHERE ProductId='$uniqueId'";
 
-  
-    $res = $con->query($sql);
+$res = $con->query($sql);
 
-    if($res->num_rows>0){
-        while($row=$res->fetch_assoc()){
-            $response[] = $row;
-			//echo json_encode($response);
-        }
-        echo json_encode($response);
-		
-    }else{
-        echo "no record";
-    }
-	
-    
+if ($res === TRUE) {
+    echo "Record updated successfully";
+} else {
+    echo "Error updating record: " . $con->error;
+}
 ?>
+
+

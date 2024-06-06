@@ -5,7 +5,7 @@
 
     $token = $con->real_escape_string($_POST['token']);
 
-    $sql = "SELECT Id FROM users  WHERE token='$token' AND isActive=1";
+    $sql = "SELECT Id FROM users  WHERE token='$token' AND isActive='1'";
     
 
     $res = $con->query($sql);
