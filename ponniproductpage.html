@@ -17,7 +17,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body onload="getAndSaveIPAddress();">
+<body onload="getAndSaveIPAddress(); displaycartdetails(uniqueObj)">
     <nav id="navhead">
         <div id="headerfull">
             <div id="ponnititle">
@@ -31,7 +31,7 @@
             </div>
             <div id="headicons">
                 <div id="searchtot">
-                    <button id="searchbutton">
+                    <button id="searchbutton" style="padding: 0px;">
                         <input id="searchInput" type="text" placeholder="Search for..">
                         <img src="assets/icons/search.png" id="iconsearch" onclick="openNav()">
                     </button>
@@ -43,7 +43,7 @@
                 </div>
                 <div id="carttot">
                     <a href="cart.html">
-                        <p id="cartCount">0</p>
+                        <p id="cartCount" style="top: 23.5px;">0</p>
                         <img src="assets/icons/cart-black.png" alt="Cart" id="cartblck" onmouseover="this.src='./assets/icons/cart-green.png'" onmouseout="this.src='./assets/icons/cart-black.png'">
                     </a>
                 </div>

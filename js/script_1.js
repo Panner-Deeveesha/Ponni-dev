@@ -333,7 +333,8 @@ function productpageonload(){
 }
 
 function countcheckforcart(totcount){
-  $("cartCount").text(totcount);
+  var countforicon = totcount;
+  $("#cartCount").text(countforicon);
 }
 
 var clicksearch = document.getElementById("productList2");
