@@ -421,13 +421,15 @@ ship page
     font-size: 25px;
 }
 #mydiv{
-    width: 400px;
+  
     margin: 0px auto;
     text-align: center;
 }
+#headingdiv{
+    margin-top: 20px;
+}
 .cate-heading {
-    margin-left: auto;
-    margin-right: auto;
+   
     margin-top: 40px;
 
 }
@@ -441,6 +443,7 @@ ship page
 }*/
 
 .cate-heading span {
+    text-transform: capitalize;
     font-size: 18px;
     text-align: center;
     padding: 3px 25px 3px 25px;
@@ -776,6 +779,7 @@ input::-webkit-inner-spin-button {
 .breadcrumbs p{
 	width:1200px;
 	margin-left:auto;
+    margin-bottom: 0px;
 	margin-right:auto;
 }
 .productflex{
@@ -918,15 +922,17 @@ width:20px;
 
 }
 .product-details p{
-    font-size:20px;
+    font-size:16px;
     margin-top:20px;
     font-weight:600;
 }
 .product-details del{
+   display: inline-block;
     color: #878787;
    
 }
 .product-details span{
+    padding-left:10px;
     color: #ec0101;
 }
 .cate-productlist{
@@ -989,6 +995,13 @@ width:20px;
     margin-top: 20px;
     padding-top: 3px;
     padding-bottom: 3px;
+}
+.likeicon{
+    margin-top: 20px;
+    padding-left: 10px;
+}
+.likeicon:hover{
+ cursor: pointer;
 }
 .inputavailability button {
     width: 20px;
@@ -1646,8 +1659,8 @@ width:20px;
     font-weight: 600;
     color: #fff;
     border-radius: 5px;
-    background-color: #00b8c5;
-    border: 1px solid #00b8c5;
+    background-color: #4d6b20;
+    border: 1px solid #4d6b20;
 }
 }
 @media only screen and (max-width:910px) {
@@ -1785,11 +1798,7 @@ width:20px;
     background-color: #2b4522;
     border: 1px solid #2b4522;
     }
-	.cate-heading2 .cateheadings p{
-		width:30%;
-		margin-left: auto;
-        margin-right: auto;
-	}
+	
 	.cate-heading2  #btn-podi p{
 		width:70%;
 		margin-left: auto;
@@ -2174,11 +2183,7 @@ width:20px;
 
 
 @media only screen and (max-width:520px) {
-    .cate-heading2 .cateheadings p {
-        width: 40%;
-        margin-left: auto;
-        margin-right: auto;
-    }
+    
      .cate-heading2 #btn-masalas p {
         width: 70%;
         margin-left: auto;
@@ -3189,6 +3194,20 @@ width:20px;
         width: 130px;
         text-align: center;
         margin-top: 10px;
+    }
+    .cate-heading2 div {
+        width: 100%;
+        font-size: 13px;
+        padding: 3px 15px 3px 15px;
+        border: 1px solid #4d6b20;
+        border-radius: 35px;
+    }
+    .cate-lastcontent p {
+        width: 85%;
+        font-size: 14px;
+        font-weight: 600;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 @media only screen and (max-width:320px){
