@@ -4,6 +4,7 @@
 
 
 
+
 $("#footer-plus1").click(function () {
   $(".footer-main3 .footer-contact").slideDown("slow");
   $("#footer-minus1").css("display", "block");
@@ -45,37 +46,17 @@ $("#footer-minus4").click(function () {
   $("#footer-plus4").css("display", "block");
 });
 
-function Checkout(){
-  document.getElementById("modal").style.display="block";
-}
 
 function cancelpayment(){
   document.getElementById("modal").style.display="none";
 }
 function continuenxt(){
-  document.getElementById("payementphone1").style.display="none";
-  document.getElementById("payment-adress").style.display="block";
-  document.getElementById("paycontinue2").style.display="block"; 
-}
-function continuenxt2(){
+ 
   document.getElementById("payment-adress").style.display="none";
-  document.getElementById("paycontinue2").style.display="none"; 
   document.getElementById("paymentwalletid").style.display="block"; 
 }
-function payuparrow(){
-  document.getElementById("paydownarrow").style.display="block";
-  document.getElementById("payuparrow").style.display="none";
-  document.getElementById("cart-paymentproductid").style.display="none";
 
 
-}
-function paydownarrow(){
-  document.getElementById("paydownarrow").style.display="none";
-  document.getElementById("payuparrow").style.display="block";
-  document.getElementById("cart-paymentproductid").style.display="block";
-
-
-}
 
 function mergeuser(){
   var token = localStorage.getItem('token');
@@ -319,6 +300,7 @@ function getcartPrice(uniqueObj) {
          
         
        displaycartdetails(uniqueObj);
+      
       },
       error: function (error) {
           console.log(error);
@@ -427,6 +409,7 @@ var carticoncount=uniqueObj.length;
         $('#wholecarttotal').html("Rs." + totalSum);
       }
       countcheckforcart(carticoncount);
+      paynowdetails(uniqueObj,totalSum);
   
     }
     $(document).on("click", ".cart-productname", function() {
@@ -447,13 +430,106 @@ var carticoncount=uniqueObj.length;
      
     });
 
+    function Checkout(){
+      document.getElementById("modal").style.display="block";
 
-    function paynowbtn(){
-      var token = localStorage.getItem('token');
+      var tokenlist= localStorage.getItem('token');
     
-      var ipAddress = localStorage.getItem('Local_IP');
+      var ip= localStorage.getItem('Local_IP');
 
 
+      if(!tokenlist){
+      document.getElementById("payementphone1").style.display="block"
+
+      }
+
+      else{
+        document.getElementById("payementphone1").style.display="none" 
+        document.getElementById("payment-adress").style.display="block"   
+      }
+    
+    }
+    function paynowdetails(obj,totalSum){
+
+       let paydiv="";
+
+     
+        
+      paydiv+='<div class="order-summary-wrapper " id="cart-paymentproductid">';
+     
+      paydiv +='<div class="cart-paymentproduct">';
+     paydiv +='<ul class="cartscroll">';
+     for(let i=0;i<obj.length;i++){
+     paydiv +='<li  class="payproductdetail">';
+     paydiv +='<div class="paymentproduct-img">';
+     paydiv += '<img src="' + obj[i].imgPath_1 + '" width="40px" alt="thirattipal" class="">';
+      paydiv+='</div>';
+     paydiv+='<div class="product-details ">';
+     paydiv+='<div class="title ">'+obj[i].productName+'</div>';
+     paydiv+='<div class="price">'+'Price:'+obj[i].offerPrice +'</div>';
+     paydiv+='<span >'+'Quantity:'+obj[i].volume+obj[i].unit+'</span>';
+     paydiv+='</div>';  
+     paydiv+='</li>';
+     }
+     paydiv+='</ul>';
+     paydiv+='</div>';
+    
+   
+    paydiv+='<div class="order-summary">';
+    paydiv+=' <div class="order-summary-details">';
+    paydiv+='<ul>';
+    paydiv+='<li class="subtotal ">';
+    paydiv+= '<span>'+'Subtotal'+'</span>';
+    paydiv+=' <span>'+totalSum+'</span>';
+    paydiv+=' </li>';  
+    paydiv+='<li class="shipping ">'
+    paydiv+='<span>'+'Shipping'+'</span>'; 
+    paydiv+='<span>'+'To be calculated'+'</span>';
+    paydiv+='</li>';
+    paydiv+='<li class="to-pay">'+'<span>'+'To Pay'+'</span>';
+    paydiv+= '<span>'+totalSum+'</span>';
+    paydiv+='</li>';
+    paydiv+='</ul>';
+    paydiv+='</div>';
+    paydiv+='</div> ';
+    paydiv+='</div>';
+    $("#order-pay").html(paydiv);
 
     }
    
+    function continuenxt(){
+
+      var tokenlist1= localStorage.getItem('token');
+      document.getElementById("payment-adress").style.display="none";
+      document.getElementById("paymentwalletid").style.display="block"; 
+    var pin=  document.getElementById("pincode").value;
+   var city=document.getElementById("city").value;
+   var state=document.getElementById("state").value;
+   var street=document.getElementById("street").value;
+   var district=document.getElementById("district").value;
+   var doornum=document.getElementById("doornum").value;
+   console.log(pin,city,state,fullname,address);
+   $.ajax({
+    type: "POST",
+    url: "./php/paynowuser.php", 
+    data: {
+      token: tokenlist1,
+     pin:pin,
+     city:city,
+     state:state,
+     doornum:doornum,
+     street:street,
+     district:district
+    },
+    success: function(response) {
+        console.log(response);
+       
+    },
+    error: function(xhr, status, error) {
+        
+        console.error(xhr.responseText);
+    }
+});
+
+ 
+    }

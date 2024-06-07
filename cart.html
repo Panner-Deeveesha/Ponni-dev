@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -282,45 +283,47 @@
         <div class="paymain-content ">
             <h3> <a href="register.html">Please Sign In</a></h3>
         </div>
-        
-   
+    
           </div>
       <div class="payment-adress" id="payment-adress">
        <div class="addressheader">
-        <h3>Add New Address</h3>
+        <h3>Add Delivery Address</h3>
         <p>* Mandatory Fields</p>
        </div>
        <div class="payment-adressinputs">
-        <input type="text"  name="pincode" value id="payment-pin"  placeholder="Pincode*"required>
+        <input type="text"  name="doornum"  id="doornum"  placeholder="Door No/ Buliding or Block No*"required>
         
        
        <div class="addresscity">
         <div class="addresscity1">
-        <input class="" id="city" type="text" required="" placeholder="City*" maxlength="250">
+        <input class="" id="street" type="text" required="" placeholder="StreetName*" maxlength="250">
          </div> 
          <div class="addresscity2">
-            <input id="state" type="text" readonly="" placeholder="State*" required="">
+            <input id="city" type="text"  placeholder="City*" required="">
        </div>
         </div>
-        <div class="userdetail">
+        <input id="district" type="text" placeholder="District*" required=""><br>
+        <input  type="text" id="pincode" placeholder="Pincode*" required="">
 
-            <input name="full-name" id="full-name" placeholder="FullName*"required="" type="text" maxlength="100">
-            <input name="email" id="email"  required=""  placeholder="Email*" type="text" maxlength="100">
-            <input name="address" id="address" placeholder="Address*" required="" type="text" maxlength="1000">
-            <div class="line-inputs "><span>Address Type</span> 
-                <div class="button-group-wrap ">
+            
+        <div class="button-group-wrap ">
+                   <span>AddressType</span>
                     <div class="home-radio" ><input type="radio" id="home" name="input-type" value="home" >
                          <label for="home">Home</label></div>
                           <div class="work-radio" ><input type="radio" id="work" name="input-type" value="work" > 
                             <label for="work">Work</label></div></div> 
-                           </div>
-                           <div class="paycontinue1"> <button onclick="continuenxt()">Continue</button> </div>
+                           
+
+         <div class="cartpermanant"><input name="sameaddress"type="checkbox"><label for="sameaddress">Set As permanant Address</label></div>
+
+         <div class="paycontinue1"> <button onclick="continuenxt()">Continue</button> </div>
+
         </div>
    
       </div>
       
       
-      </div>
+     
       
       
       <div class="paymentwallet" id="paymentwalletid">
@@ -381,16 +384,16 @@
    
   
    <div class="payment-content2">
-    <div class="order-summary-container">
+   <div class="order-summary-container">
         
             <div class="summary-title-inner ">
               
             <div class="globalImg">
                 <div class="cartcancel"> <img src="./assets/icons/icons8-wrong-25 (1).png" onclick="cancelpayment()"></div>
-           <img src="./assets/icons/icons8-cart-18.png" class="paycart"><span class="title svelte-fsdfae">order summary</span><img src="./assets/icons/icons8-less-than-18 (1).png" onclick="payuparrow()" id="payuparrow"><img onclick="paydownarrow()" src="./assets/icons/icons8-less-than-18.png" id="paydownarrow"></span></div>  
+           <img src="./assets/icons/icons8-cart-18.png" class="paycart"><span class="">order summary</span><img src="./assets/icons/icons8-less-than-18 (1).png"  id="payuparrow"><img  src="./assets/icons/icons8-less-than-18.png" id="paydownarrow"></div>  
             </div>
-            
-             <div class="order-summary-wrapper " id="cart-paymentproductid">
+            <div id="order-pay">
+            <!--- <div class="order-summary-wrapper " id="cart-paymentproductid">
                
                 <div class="cart-paymentproduct " >
                    
@@ -402,7 +405,7 @@
                          <div class="product-details ">
                             <div class="title ">A2 Milk Therattipal - 200g</div>
                              <div class="price">Price:₹289.00</div>
-                              <span >Quantity: 1</span></div>  </li>
+                              <span >Quantity: 1</span></div> </li>
                               
                   </ul>
             
@@ -413,6 +416,7 @@
         <li class="subtotal "><span>Subtotal</span><span>₹458.00</span></li>    
           <li class="shipping "><span>Shipping</span> <span>To be calculated</span></li> 
                  <li class="to-pay"><span>To Pay</span> <span>₹458.00</span></li></ul></div></div>
+                 </div>-->
                 </div>
             </div>
       
@@ -429,7 +433,7 @@
   </div>
 	</div>
    
-           
+       </div>    
     <div class="footer-main" style="margin-top:30px">
         <div class="footer-main2" style="padding-top:50px">
             <div class="footer-contact">

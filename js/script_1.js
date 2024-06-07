@@ -401,7 +401,6 @@ function displayoncheck(obj){
     //listcreate.innerHTML = "<img src=https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Sesame-Oil.jpg class='searimg'>" + "<div id='titlesear'>" + prodname + "</div>" + "<del id='delval'> " + prodprice + "</del>" + " <span id='offpriceid'>" + offprice + "</span>";
     clicksearch.appendChild(secondlistcreate);
   }
-  
 }
 
 function openNav() {

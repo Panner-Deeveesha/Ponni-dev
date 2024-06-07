@@ -65,7 +65,7 @@ function printheading(obj){
   headcate2 += "</div>";
   mydiv2.innerHTML = headcate2;
   getproductname(categoryfirst);
-
+  categload();
   var header = document.getElementById("headingdiv");
   var btns = header.getElementsByClassName("btn");
   for (var i = 0; i < btns.length; i++) {
@@ -84,6 +84,7 @@ function printheading(obj){
       this.className += " active2";
     });
   }
+  
 }
 
 
@@ -483,7 +484,7 @@ function productpagegetPrice(obj) {
 }
 
 function displayproduct(input){
-//console.log(input);
+console.log(input);
   var s = "";
   var s2 ="";
   var s3="";
@@ -493,6 +494,7 @@ function displayproduct(input){
   s +=input[0].productName;
   s +='</h3>';
   s +='<p>';
+  
   s +='<del id="pricedetails">';
   s +="Rs."+input[0].price;
   s +='</del>';
@@ -626,7 +628,7 @@ else {
     setcartaddress(ipAddress,productId,productcount);
 }  
 });
-
+listproductdetails(input);
 }
 function setcartaddress(ipAddress,productId,productcount){
 
@@ -898,11 +900,12 @@ function categload(){
       
       // Decode the encoded value
       var passval = decodeURIComponent(passvalEncoded);
-      
+      var textconver = passval.toUpperCase();
       // Iterate over each button
-      $("#mydiv div .btn").each(function() {
-          var buttonText = $(this).text(); // Get the text of the button
-          if (buttonText === passval) {
+      $("#mydiv span").each(function() {
+          var buttonText = this.textContent.toUpperCase(); // Get the text of the button
+          if (buttonText === textconver) {
+            $("#mydiv span").removeClass("active");
             $(this).addClass("active");
             categorypagepass(passval);
           }
@@ -912,10 +915,67 @@ function categload(){
   
 function categorypagepass(passval){
   var cateproname=passval;
-  indexfunc();
   getBycategory(cateproname);
 };
+var myImage = document.getElementById('heartimg');
 
 
+var imageSources = ["./assets/icons/heart.png", "./assets/icons/colorheart.png"];
 
+// Initialize a flag to keep track of the current image
+var currentImageIndex = 0;
+
+// Attach an event listener for the click event
+myImage.addEventListener('click', function() {
+    // Toggle the current image index
+    currentImageIndex = (currentImageIndex + 1) % imageSources.length;
+    
+    // Change the src attribute to the new image's source
+    myImage.src = imageSources[currentImageIndex];
+});
+
+
+function listproductdetails (input){
+console.log(input);
+  $(document).on("click", "#heartimg", function() {
+    var token=localStorage.getItem('token');
+    getuserid(token);
+  });
+}
+
+
+function getuserid(token){
+  var data = {
+    "token": token
+}
+$.ajax({
+    url: "./php/getuserid.php",
+    type: "post",
+    data: data,
+    success: function (response) {
+        var boo = isJsonString(response);
+       
+        if(boo==true){
+            var obj = JSON.parse(response);
+           
+            console.log(obj);
+           
+        }else{
+            //console.log("Error");
+            document.getElementById("samplework").style.display="none";
+            document.getElementById("noneproducts").style.display="block";
+            document.getElementById("noneproducts").innerHTML="Products not found";
+            var imgsrc="./assets/icons/success.png"
+            var mgs="success";
+            var content="Product Added To wishList";
+            popup(imgsrc,mgs,content);
+        }   
+
+    },
+    error: function (error) {
+        console.log(error);
+    }
+});
+
+}
 

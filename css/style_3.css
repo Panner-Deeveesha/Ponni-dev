@@ -1,6 +1,7 @@
 
 
 
+
 .Testimonial-content{
 	   
     background-color:#f3f3f3;  
@@ -789,7 +790,7 @@ border:none !important;
       line-height: 30px;
       font-weight: 600;
       text-align: center;
-      height: 100%;
+      height:250px;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
@@ -919,6 +920,7 @@ border:none !important;
     border: none;
 
 }
+
   .paymentpolicy p{
   
   color:#979eb5;
@@ -986,7 +988,9 @@ border:none !important;
   }
   #cart-paymentproductid{
     display:block;
+    
   }
+ 
   #paydownarrow{
     display: none;
     vertical-align:middle;
@@ -1040,7 +1044,17 @@ border:none !important;
     font-size: 13px;
     color:#050038;
     
-  } 
+  }
+  .cart-paymentproduct li{
+    margin-top:20px;
+  }
+  .cart-paymentproduct .product-details {
+    margin-left:25px;
+  }
+  .cartscroll{
+    overflow-y: scroll;
+    height: 100px;
+  }
   .order-summary-details .to-pay{
   margin-top: 10px;
     padding-top: 15px;
@@ -1077,7 +1091,10 @@ border:none !important;
   cursor: pointer;
    
 }
-.payment-adressinputs #payment-pin{
+.payment-adressinputs{
+    padding:10px;
+}
+.payment-adressinputs #doornum{
     width: 100%;
     position: relative;
       margin-top:10px;
@@ -1088,7 +1105,7 @@ border:none !important;
     border-radius: 0.25rem;
     display: flex;
     align-items: center;
-    font-size:16px;
+ 
 
 }
 .payment-adressinputs .addresscity{
@@ -1134,7 +1151,23 @@ border:none !important;
     overflow: hidden;
     
 }
-
+.payment-adressinputs #district {
+    width:100%;
+    padding: 0.3rem 0.75rem;
+    border: 0.7px solid #b0b0b0;
+    box-sizing: border-box;
+    min-height: 50px;
+    border-radius: 0.25rem;
+}
+.payment-adressinputs #pincode {
+    margin-top:20px;
+    width:100%;
+    padding: 0.3rem 0.75rem;
+    border: 0.7px solid #b0b0b0;
+    box-sizing: border-box;
+    min-height: 50px;
+    border-radius: 0.25rem;
+}
 .payment-adressinputs #pinlabel{
     position:absolute;
     top:34%;
@@ -1142,29 +1175,30 @@ border:none !important;
     font-size: 12px;
     line-height: 18px;
 }
-.payment-adressinputs #statelabel{
-    position:absolute;
-    top:41%;
-    margin-left: 10px;
-    font-size: 12px;
-    line-height: 18px;
-}
-.payment-adressinputs #citylabel{
-    position:absolute;
-    top:41%;
-    margin-left: 10px;
-    font-size: 12px;
-    line-height: 18px;
-}
+
 .button-group-wrap{
     display: flex;
     justify-content:space-between;
     column-gap:20px;
+    margin-top:20px;
+    font-size:14px;
 }
 .payment-content1 .payment-adress{
     display:none;
-    height:230px;
+    height:300px;
     overflow-y:scroll ;
+}
+.payment-adressinputs .cartpermanant{
+font-size:16px;
+   margin-top:20px; 
+
+}
+.cartpermanant input{
+ width:15px;
+ height:15px;
+}
+.cartpermanant label{
+margin-left:10px;
 }
 .line-inputs{
     display:flex;
@@ -1176,34 +1210,10 @@ border:none !important;
 font-size:16px;
 
 }
-.userdetail input[type=text]{
-    width: 100%;
-    position: relative;
-    margin-bottom: 1.25rem;
-    padding: 0.3rem 0.75rem;
-    border: 0.7px solid #b0b0b0;
-    box-sizing: border-box;
-    border-radius: 0.25rem;
-    display: flex;
-    align-items: center;
-    min-height: 50px;
-    overflow: hidden;
-    background: var(--white);
 
 
-
-}
-.userdetail .home-radio{ 
-
-    font-size: 15px;
-    
-}
-.userdetail .work-radio{ 
-
-      font-size: 15px;
-  }
-.userdetail .button-group-wrap{
-  max-width:250px;
+.button-group-wrap{
+  max-width:450px;
   margin-left: auto;
   margin-right:auto;
 
