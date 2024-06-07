@@ -65,7 +65,7 @@ function printheading(obj){
   headcate2 += "</div>";
   mydiv2.innerHTML = headcate2;
   getproductname(categoryfirst);
-
+  categload();
   var header = document.getElementById("headingdiv");
   var btns = header.getElementsByClassName("btn");
   for (var i = 0; i < btns.length; i++) {
@@ -84,7 +84,7 @@ function printheading(obj){
       this.className += " active2";
     });
   }
-  categload();
+  
 }
 
 
@@ -899,11 +899,12 @@ function categload(){
       
       // Decode the encoded value
       var passval = decodeURIComponent(passvalEncoded);
-      
+      var textconver = passval.toUpperCase();
       // Iterate over each button
-      $("#mydiv span .btn").each(function() {
-          var buttonText = $(this).text(); // Get the text of the button
-          if (buttonText === passval) {
+      $("#mydiv span").each(function() {
+          var buttonText = this.textContent.toUpperCase(); // Get the text of the button
+          if (buttonText === textconver) {
+            $("#mydiv span").removeClass("active");
             $(this).addClass("active");
             categorypagepass(passval);
           }
