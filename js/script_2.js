@@ -84,6 +84,7 @@ function printheading(obj){
       this.className += " active2";
     });
   }
+  categload();
 }
 
 
@@ -900,7 +901,7 @@ function categload(){
       var passval = decodeURIComponent(passvalEncoded);
       
       // Iterate over each button
-      $("#mydiv div .btn").each(function() {
+      $("#mydiv span .btn").each(function() {
           var buttonText = $(this).text(); // Get the text of the button
           if (buttonText === passval) {
             $(this).addClass("active");
@@ -912,7 +913,6 @@ function categload(){
   
 function categorypagepass(passval){
   var cateproname=passval;
-  indexfunc();
   getBycategory(cateproname);
 };
 
