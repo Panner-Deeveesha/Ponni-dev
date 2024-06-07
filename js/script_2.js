@@ -1,5 +1,5 @@
 
-var c= "rice";
+var c= "oil";
 var productBuy ="";
 function indexfunc(){
   getproductname(c);
@@ -189,11 +189,11 @@ function getBycategory(innerHTML) {
          
           if(boo==true){
               var obj = JSON.parse(response);
-              console.log(obj);
+              //console.log(obj);
               getPrice(obj);
              
           }else{
-              console.log("Error");
+              //console.log("Error");
               document.getElementById("samplework").style.display="none";
               document.getElementById("noneproducts").style.display="block";
               document.getElementById("noneproducts").innerHTML="Products not found";
@@ -221,7 +221,7 @@ function getPrice(obj) {
       success: function (response) {
           var obj2 = JSON.parse(response);
           //console.log(response);
-           console.log(obj2);
+           //console.log(obj2);
           $(obj).each(function (index, value) {
               //console.log(value);
               $(obj2).each(function (index2, value2) {
@@ -367,7 +367,7 @@ function getAvailability(obj){
               
           });
           //showNewLanches(obj);
-         console.log(obj);
+         //console.log(obj);
        
          productpagegetPrice(obj);
           
@@ -412,7 +412,7 @@ function productpagegetPrice(obj) {
 }
 
 function displayproduct(input){
-console.log(input);
+//console.log(input);
   var s = "";
   var s2 ="";
   var s3="";
@@ -485,7 +485,7 @@ console.log(input);
   
   const inputnum = document.getElementById("getvalue");
 inputnum.setAttribute("max", input[0].availability);
-console.log(input[0].availability);
+//console.log(input[0].availability);
 
   $(document).on("click", ".btnnormal", function() {
     var buttons = $(".btnnormal"); // Get all buttons with the class "btnnormal"
@@ -515,7 +515,7 @@ var clickedposition;
   productId=input[clickedposition].productId;
   
    var productcount=document.getElementById("getvalue").value;
-   console.log(productcount);
+   //console.log(productcount);
 
   var getuserid;
   const token = localStorage.getItem('token');
@@ -535,7 +535,7 @@ var clickedposition;
             var obj = JSON.parse(response);
            
            getuserid=obj[0].id;
-          console.log(getuserid);
+          //console.log(getuserid);
           setcarttable(getuserid,productId,productcount)
            
         }else{
@@ -551,7 +551,7 @@ var clickedposition;
 } 
 else {
     var ipAddress=localStorage.getItem('Local_IP');
-    console.log(ipAddress);
+    //console.log(ipAddress);
     setcartaddress(ipAddress,productId,productcount);
 }  
 });
@@ -569,7 +569,7 @@ function setcartaddress(ipAddress,productId,productcount){
      
     },
     success:function(response){
-      console.log("sucess");
+      //console.log("sucess");
     },
     error:function(xhr,status,error){
       console.log(error);
@@ -588,7 +588,7 @@ function setcarttable(userid,productId,productcount){
      
     },
     success:function(response){
-      console.log("sucess");
+      //console.log("sucess");
     },
     error:function(xhr,status,error){
       console.log(error);
@@ -805,11 +805,11 @@ function isMouseMoving() {
 // Function to periodically check if the mouse is moving
 function checkMouseMovement() {
   if (isMouseMoving()) {
-      console.log('Mouse is moving.');
+      //console.log('Mouse is moving.');
   } else {
     window.location.href = "./login.html";
              
-      console.log('Mouse is not moving.');
+      //console.log('Mouse is not moving.');
   }
 }
 
