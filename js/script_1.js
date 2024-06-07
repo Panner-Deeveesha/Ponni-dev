@@ -1,49 +1,4 @@
 var ulit = document.getElementById("productList");
-var mydiv = document.getElementById("mydiv");
-
-function getcategorydynamically(){
-  $.ajax({
-    url: "./php/getcategorydynamic.php",
-    type: "get",
-    success: function (response) {
-      var obj = JSON.parse(response);
-        //console.log(obj);
-        //var uniqueId = [];
-      /*$(obj).each(function(index,value) {
-        console.log(value.category);
-        // uniqueId.push(value.uniqueId);
-        // });
-        //console.log(obj);
-      })*/
-      printheading(obj);
-    },
-    error: function (error) {
-        console.log(error);
-    }
-});
-}
-
-
-function printheading(obj){
-  var objlen = obj.length;
-  var numColumns = 1; // Default to 1 column
-  if (objlen > 1) {
-    numColumns = objlen;
-  }
-  var columnWidth = 60 / numColumns + "%";
-  var headcate = "";
-  headcate += "<div class='cate-heading' style='width: '"+ columnWidth +">";
-  headcate += "<span class='btn active'>";
-  headcate += obj[0].category;
-  headcate += "</span>";
-  for(i=1;i<objlen;i++){
-    headcate += "<span class='btn'>";
-    headcate += obj[i].category;
-    headcate += "</span>";
-  }
-  headcate += "</div>";
-  mydiv.innerHTML = headcate;
-}
 
 document.getElementById('searchInput').addEventListener('input', function () {
   const searchTerm = this.value;

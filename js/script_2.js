@@ -1,9 +1,72 @@
 
-var c= "oil";
-var productBuy ="";
-function indexfunc(){
-  getproductname(c);
-  var header = document.getElementById("mydiv");
+var mydiv = document.getElementById("headingdiv");
+var mydiv2 = document.getElementById("headingdiv2");
+function getcategorydynamically(){
+  $.ajax({
+    url: "./php/getcategorydynamic.php",
+    type: "get",
+    success: function (response) {
+      var obj = JSON.parse(response);
+        //console.log(obj);
+        //var uniqueId = [];
+      /*$(obj).each(function(index,value) {
+        console.log(value.category);
+        // uniqueId.push(value.uniqueId);
+        // });
+        //console.log(obj);
+      })*/
+      printheading(obj);
+    },
+    error: function (error) {
+        console.log(error);
+    }
+});
+}
+
+
+function printheading(obj){
+  
+  var categoryfirst= obj[0].category;
+  var objlen = obj.length;
+
+  var numColumns = 1; // Default to 1 column
+  if (objlen > 1) {
+    numColumns = objlen;
+  }
+  var columnWidth = 100 / numColumns + "%";
+  var headcate = "";
+  headcate += "<div id='mydiv' class='cate-heading'>";
+  headcate += "<span class='btn active'>";
+  headcate += obj[0].category;
+  headcate += "</span>";
+  for(i=1;i<objlen;i++){
+    headcate += "<span class='btn'>";
+    headcate += obj[i].category;
+    headcate += "</span>";
+  }
+  headcate += "</div>";
+  mydiv.innerHTML = headcate;
+
+
+  var headcate2 = "";
+  headcate2 += "<div id='mydiv2' class='cate-heading2'>";
+  headcate2 += "<div class='cateheadings active2'>";
+  headcate2 +="<p>";
+  headcate2 += obj[0].category;
+  headcate2 +="</p>";
+  headcate2 += "</div>";
+  for(i=1;i<objlen;i++){
+    headcate2 += "<div class='cateheadings'>";
+    headcate2 +="<p>";
+    headcate2 += obj[i].category;
+    headcate2 +="</p>";
+    headcate2 += "</div>";
+  }
+  headcate2 += "</div>";
+  mydiv2.innerHTML = headcate2;
+  getproductname(categoryfirst);
+
+  var header = document.getElementById("headingdiv");
   var btns = header.getElementsByClassName("btn");
   for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function () {
@@ -22,6 +85,14 @@ function indexfunc(){
     });
   }
 }
+
+
+var productBuy ="";
+
+ 
+  
+  
+
 $(document).ready(function () {
   
   /*$("#btn-sweets").click(function () {
@@ -170,8 +241,8 @@ function popup(imgsrc,mgs,content){
 
 //start index page
 
-function getproductname(c){
-var cateproname=c;
+function getproductname(categoryfirst){
+var cateproname=categoryfirst;
   getBycategory(cateproname);
 }
 
