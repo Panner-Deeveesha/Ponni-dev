@@ -1,4 +1,5 @@
 var ulit = document.getElementById("productList");
+var startTime = new Date().getTime();
 
 document.getElementById('searchInput').addEventListener('input', function () {
   const searchTerm = this.value;
@@ -285,6 +286,7 @@ function productpageonload(){
 
   const inputnum = document.getElementById("getvalue");
   inputnum.setAttribute("max", converttoobj[0].availability);
+  checkTime(converttoobj);
 }
 
 function countcheckforcart(totcount){
@@ -470,6 +472,70 @@ function getAndSaveIPAddress() {
     }
   });
 }
+
+var inputlist = "";
+function checkTime(inputs) {
+  inputlist = inputs;
+  var currentTime = new Date().getTime();
+  var elapsedTime = (currentTime - startTime) / 1000; // Convert milliseconds to seconds
+  if (elapsedTime >= 10) {
+    addtorecentdata(inputlist);
+  } else {
+    setTimeout(function() {
+      checkTime(inputs);
+    }, 1000);
+  }
+}
+
+/*function addtorecentdata(inputs){
+  //console.log(inputs);
+  var productId=inputs[0].productId;
+  var productName=inputs[0].productName;
+  var userid=localStorage.getItem("token");
+  var data = {
+      "id": productId,
+      "userid":userid,
+      "productName":productName
+  }
+  $.ajax({
+      url: "./php/addDatatoRecent.php",
+      type: "post",
+      data: data,
+      success: function (response) {
+          var boo = isJsonString(response);
+          if(boo==true){
+              var obj = JSON.parse(response);
+              console.log(obj);
+          }else{
+              console.log("Error");
+          }    
+      },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+}
+
+function recentlyview(inputs){
+  var recentlyinput = "";
+  for(i=0;i<inputs.length;i++){
+    recentlyinput += '<p class="first-image">';
+    recentlyinput += '<img src="' + inputs[i].imgPath_3 + '" onmouseover="this.src=\'' + inputs[i].imgPath_4 + '\'" onmouseout="this.src=\'' + inputs[i].imgPath_3 + '\'">';
+    recentlyinput += '</p>';
+    recentlyinput += '<p class="productname">';
+    recentlyinput += inputs[i].productName;
+    recentlyinput += '</p>';
+    recentlyinput += '<p class="productamount">';
+    recentlyinput += '<del>';
+    recentlyinput += 'Rs.' + inputs[i].price + '.00';
+    recentlyinput += '</del>';
+    recentlyinput += '<span>';
+    recentlyinput += 'From Rs.' + inputs[i].offerPrice + '.00';
+    recentlyinput += '</span>';
+    recentlyinput += '</p>';
+    document.getElementById("recentContent").innerHTML = recentlyinput;
+  }
+}*/
 
 $(document).ready(function () {
   cartdetails();
