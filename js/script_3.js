@@ -2,6 +2,7 @@
 
 
 
+
 $("#footer-plus1").click(function () {
   $(".footer-main3 .footer-contact").slideDown("slow");
   $("#footer-minus1").css("display", "block");
@@ -121,7 +122,7 @@ function checkuser1(){
           var jsonResponse = JSON.parse(response); 
           var hasProducts = jsonResponse.hasProducts;
       if (hasProducts===false){
-        useridFind(token);   
+      finduser(token);   
       }
       else{
    
@@ -136,7 +137,7 @@ function checkuser1(){
   }
   
   } 
- function checkuser(token){
+ function finduser(token){
   
   $.ajax({
     url: './php/checkuser.php',
@@ -183,7 +184,7 @@ function findUserId(product1) {
 }
 
 function unregisterUser(ip) {
-  console.log(ip);
+ 
 
  var ip= ip;
  
@@ -546,7 +547,7 @@ var carticoncount=uniqueObj.length;
      district:district
     },
     success: function(response) {
-        console.log(response);
+        
        
     },
     error: function(xhr, status, error) {
