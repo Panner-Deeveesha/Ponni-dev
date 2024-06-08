@@ -537,6 +537,33 @@ function recentlyview(inputs){
   }
 }*/
 
+/*wishListfor();
+
+function wishListfor(){
+  var token31 = localStorage.getItem('token');
+  console.log(token31);
+  var data = {
+    "token": token31
+  }
+$.ajax({
+    url: "./php/getuserId.php",
+    type: "post",
+    data: data,
+    success: function (response) {
+        var boo = isJsonString(response);
+        if(boo==true){
+            var obj = JSON.parse(response);
+            console.log(obj);
+        }else{
+            console.log("Error");
+        }    
+    },
+    error: function (error) {
+        console.log(error);
+    }
+});
+}*/
+
 $(document).ready(function () {
   cartdetails();
 
