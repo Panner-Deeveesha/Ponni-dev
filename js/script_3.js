@@ -91,7 +91,7 @@ function cartdetails() {
   
   
   if (!token){
-    console.log('Token not found in local storage');
+  
     var ipAddress = localStorage.getItem('Local_IP');
       unregisterUser(ipAddress);
  
@@ -272,8 +272,7 @@ function cartByproductid(products) {
 
 
 function getcartPrice(uniqueObj) {
-  console.log(uniqueObj);
-  
+
   $.ajax({
       url: "./php/getPrice.php",
       type: "get",
@@ -438,6 +437,7 @@ var carticoncount=uniqueObj.length;
 
       if(!tokenlist){
       document.getElementById("payementphone1").style.display="block"
+      
 
       }
 
@@ -447,12 +447,26 @@ var carticoncount=uniqueObj.length;
         var element = document.getElementById("payaddress");
         element.classList.add("paynowactive");
         
-  var element2 = document.getElementById("paypayment");
-  element2.classList.remove("paynowactive");
+         var element2 = document.getElementById("paypayment");
+        element2.classList.remove("paynowactive");
+
+       $("#payaddress").click(function() {
+            document.getElementById("payment-adress").style.display="block";
+           document.getElementById("paymentwalletid").style.display="none"; 
+              var element3 = document.getElementById("payaddress");
+             element3.classList.add("paynowactive");
+  
+            var element4 = document.getElementById("paypayment");
+              element4.classList.remove("paynowactive");
+
+            });
+
        
       }
     
     }
+
+
     function paynowdetails(obj,totalSum){
 
        let paydiv="";
@@ -500,16 +514,11 @@ var carticoncount=uniqueObj.length;
     $("#order-pay").html(paydiv);
 
     }
-    function payaddress(){
-
-      document.getElementById("payment-adress").style.display="block";
-      document.getElementById("paymentwalletid").style.display="none"; 
-
-    }
+    
 
 
    function checkCheckbox(){
-    var errorMessage=document.getElementById("errorMessage")
+    var errorMessage=document.getElementById("errorMessage");
       var tokenlist1= localStorage.getItem('token');
      
     var pin=  document.getElementById("pincode").value;
@@ -547,17 +556,35 @@ var carticoncount=uniqueObj.length;
 });
    }
 
-function continuenxt(){
-
-  document.getElementById("payment-adress").style.display="none";
-  document.getElementById("paymentwalletid").style.display="block"; 
-
-  var element = document.getElementById("paypayment");
-  element.classList.add("paynowactive");
-
-  var element2 = document.getElementById("payaddress");
-  element2.classList.remove("paynowactive");
-}
-
-
+   function continuenxt() {
+    var errorMessage1 = document.getElementById("errorMessage");
+    var checkbox = document.getElementById("cartcheck");
+    var pin1 = document.getElementById("pincode").value;
+    var city1 = document.getElementById("city").value;
+    var street1 = document.getElementById("street").value;
+    var district1 = document.getElementById("district").value;
+    var doornum1 = document.getElementById("doornum").value;
+  
+    errorMessage1.innerHTML = "";
+  
+    // Validation checks
+    if (!pin1 || !city1 || !street1 || !district1 || !doornum1) {
+      errorMessage1.innerHTML = "Please fill in all the details.";
+      return;
+    }
+    if (!checkbox.checked) {
+      errorMessage1.innerHTML = "Please check the checkbox.";
+      return;
+    }
+  
     
+    document.getElementById("payment-adress").style.display = "none";
+    document.getElementById("paymentwalletid").style.display = "block";
+  
+    var element = document.getElementById("paypayment");
+    element.classList.add("paynowactive");
+  
+    var element2 = document.getElementById("payaddress");
+    element2.classList.remove("paynowactive");
+  }
+  
