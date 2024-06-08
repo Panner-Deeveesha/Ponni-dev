@@ -962,7 +962,9 @@ border:none !important;
 .paynowactive{
     color:#81b032;
 }
-
+.paymain-content a{
+    color:#81b032;
+}
   .cart-modal{
       
       display:flex;
