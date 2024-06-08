@@ -652,7 +652,7 @@ checkTime(input);
 listproductdetails(input);
 }
 
-/*function likedproducts(){
+function likedproducts(){
   var token=localStorage.getItem('token');
   var data = {
     "token": token
@@ -680,7 +680,7 @@ $.ajax({
         console.log(error);
     }
 });
-}*/
+}
 
 function setcartaddress(ipAddress,productId,productcount){
 
