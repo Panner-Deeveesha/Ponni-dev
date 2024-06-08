@@ -954,6 +954,15 @@ border:none !important;
       background-repeat: no-repeat;
       background-position: -1px -26px;
   }
+
+#errorMessage{
+    font-size:15px;
+    color:red;
+}
+.paynowactive{
+    color:#81b032;
+}
+
   .cart-modal{
       
       display:flex;
