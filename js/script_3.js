@@ -184,7 +184,7 @@ function findUserId(product1) {
 }
 
 function unregisterUser(ip) {
-  console.log(ip);
+ 
 
  var ip= ip;
  
@@ -547,7 +547,7 @@ var carticoncount=uniqueObj.length;
      district:district
     },
     success: function(response) {
-        console.log(response);
+        
        
     },
     error: function(xhr, status, error) {
