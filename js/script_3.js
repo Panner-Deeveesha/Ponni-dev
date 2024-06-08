@@ -2,9 +2,6 @@
 
 
 
-
-
-
 $("#footer-plus1").click(function () {
   $(".footer-main3 .footer-contact").slideDown("slow");
   $("#footer-minus1").css("display", "block");
@@ -49,6 +46,7 @@ $("#footer-minus4").click(function () {
 
 function cancelpayment(){
   document.getElementById("modal").style.display="none";
+  document.getElementById("paymentwalletid").style.display="none";
 }
 function continuenxt(){
  
@@ -445,7 +443,13 @@ var carticoncount=uniqueObj.length;
 
       else{
         document.getElementById("payementphone1").style.display="none" 
-        document.getElementById("payment-adress").style.display="block"   
+        document.getElementById("payment-adress").style.display="block"  
+        var element = document.getElementById("payaddress");
+        element.classList.add("paynowactive");
+        
+  var element2 = document.getElementById("paypayment");
+  element2.classList.remove("paynowactive");
+       
       }
     
     }
@@ -496,19 +500,31 @@ var carticoncount=uniqueObj.length;
     $("#order-pay").html(paydiv);
 
     }
-   
-    function continuenxt(){
+    function payaddress(){
 
+      document.getElementById("payment-adress").style.display="block";
+      document.getElementById("paymentwalletid").style.display="none"; 
+
+    }
+
+
+   function checkCheckbox(){
+    var errorMessage=document.getElementById("errorMessage")
       var tokenlist1= localStorage.getItem('token');
-      document.getElementById("payment-adress").style.display="none";
-      document.getElementById("paymentwalletid").style.display="block"; 
+     
     var pin=  document.getElementById("pincode").value;
    var city=document.getElementById("city").value;
-   var state=document.getElementById("state").value;
    var street=document.getElementById("street").value;
    var district=document.getElementById("district").value;
    var doornum=document.getElementById("doornum").value;
-   console.log(pin,city,state,fullname,address);
+
+     
+   errorMessage.innerHTML = ""; 
+   if ( !pin || !city || !street || !district || !doornum) {
+    errorMessage.innerHTML += "Please fill in all the details.";
+    return; 
+}
+  
    $.ajax({
     type: "POST",
     url: "./php/paynowuser.php", 
@@ -516,7 +532,6 @@ var carticoncount=uniqueObj.length;
       token: tokenlist1,
      pin:pin,
      city:city,
-     state:state,
      doornum:doornum,
      street:street,
      district:district
@@ -530,6 +545,19 @@ var carticoncount=uniqueObj.length;
         console.error(xhr.responseText);
     }
 });
+   }
 
- 
-    }
+function continuenxt(){
+
+  document.getElementById("payment-adress").style.display="none";
+  document.getElementById("paymentwalletid").style.display="block"; 
+
+  var element = document.getElementById("paypayment");
+  element.classList.add("paynowactive");
+
+  var element2 = document.getElementById("payaddress");
+  element2.classList.remove("paynowactive");
+}
+
+
+    

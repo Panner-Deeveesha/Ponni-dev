@@ -274,9 +274,9 @@
     </div>
 	<div class="cart-process">
 
-	<div><span id="paymobile" >Mobile ...</span></div>
-	<div><span id="payaddress">Address...</span></div>
-	<div></div><span id="paypayment">pay</span></div>
+	<div><span id="payaddress" onclick="payaddress()">Address  ...</span></div>
+	<div><span id="paypayment">pay</span></div>
+    </div>
     </div>
     <div class="payementphone" id="payementphone1">
     
@@ -314,8 +314,8 @@
                             <label for="work">Work</label></div></div> 
                            
 
-         <div class="cartpermanant"><input name="sameaddress"type="checkbox"><label for="sameaddress">Set As permanant Address</label></div>
-
+         <div class="cartpermanant"><input id ="cartcheck"name="sameaddress"type="checkbox" onchange="checkCheckbox()"><label for="sameaddress">Set As permanant Address</label></div>
+          <div id="errorMessage"></div>
          <div class="paycontinue1"> <button onclick="continuenxt()">Continue</button> </div>
 
         </div>
