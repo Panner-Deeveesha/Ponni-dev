@@ -648,6 +648,7 @@ myImage.addEventListener('click', function() {
     console.log(currentImageIndex);
 });
 
+checkTime(input);
 listproductdetails(input);
 }
 
