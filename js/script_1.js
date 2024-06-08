@@ -357,6 +357,7 @@ function secondpricecheck(obj) {
         });
         //console.log(obj);
         displayoncheck(obj);
+        printonwish(obj);
       },
       error: function (error) {
         console.log(error);
@@ -537,7 +538,7 @@ function recentlyview(inputs){
   }
 }*/
 
-/*wishListfor();
+wishListfor();
 
 function wishListfor(){
   var token31 = localStorage.getItem('token');
@@ -545,15 +546,40 @@ function wishListfor(){
   var data = {
     "token": token31
   }
-$.ajax({
-    url: "./php/getuserId.php",
+  $.ajax({
+      url: "./php/getuserId.php",
+      type: "post",
+      data: data,
+      success: function (response) {
+          var boo = isJsonString(response);
+          if(boo==true){
+              var obj = JSON.parse(response);
+              getinwishlist(obj);
+          }else{
+              console.log("Error");
+          }    
+      },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+}
+
+function getinwishlist(obj){
+  var id = obj[0].id;
+  console.log(typeof(id));
+  var data = {
+    "userId" : id
+  }
+  $.ajax({
+    url: "./php/getuserIdforwishlist.php",
     type: "post",
     data: data,
     success: function (response) {
         var boo = isJsonString(response);
         if(boo==true){
             var obj = JSON.parse(response);
-            console.log(obj);
+            getdetailsInproduct(obj);
         }else{
             console.log("Error");
         }    
@@ -561,8 +587,66 @@ $.ajax({
     error: function (error) {
         console.log(error);
     }
-});
-}*/
+  });
+}
+
+function getdetailsInproduct(obj){
+  var objects = obj;
+  $.ajax({
+    url: "./php/getProductdetails.php",
+    type: "post",
+    data: { objects: objects },
+    success: function (response) {
+        var boo = isJsonString(response);
+        if(boo==true){
+            var obj = JSON.parse(response);
+            secondpricecheck(obj);
+        }else{
+            console.log("Error");
+        }    
+    },
+    error: function (error) {
+        console.log(error);
+    }
+  });
+}
+
+function printonwish(obj){
+  document.getElementById("samplework").style.display="grid";
+  document.getElementById("noneproducts").style.display="none";
+  const uniqueMap = new Map();
+  
+  obj.forEach((item) => {
+    
+    uniqueMap.set(item.productName, item);
+  });
+  const uniqueObjects = Array.from(uniqueMap.values());
+
+   var t = "";
+    for(let i=0;i<uniqueObjects.length;i++){
+      
+      t +='<div class="sampleitem">';
+      t +='<p class="first-image">';
+      t += '<img src="' + uniqueObjects[i].imgPath_1 + '" onmouseover="this.src=\'' + uniqueObjects[i].imgPath_2 + '\'" onmouseout="this.src=\'' + uniqueObjects[i].imgPath_1 + '\'">';
+      t +='</p>';
+      t +='<p class="item-product">';
+      t +=uniqueObjects[i].productName;
+      t +='</p>';
+      t +='<p>';
+      t +='<del>';
+      t +="Rs."+uniqueObjects[i].price;
+      t +='</del>';
+      t +='<span>';
+      t +="From Rs."+uniqueObjects[i].offerPrice;
+      t +='</span>';
+      t +='</p>';
+      
+      t +='</div>';
+      
+      document.getElementById("samplework").innerHTML=t;
+      
+    }
+}
 
 $(document).ready(function () {
   cartdetails();
