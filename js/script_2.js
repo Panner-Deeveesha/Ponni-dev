@@ -483,6 +483,7 @@ function productpagegetPrice(obj) {
   });
 }
 
+
 function displayproduct(input){
 console.log(input);
   var s = "";
@@ -493,6 +494,7 @@ console.log(input);
   s +='<h3 id="productname">';
   s +=input[0].productName;
   s +='</h3>';
+  s +='<img id="heartimg" src="./assets/icons/heart.png">';
   s +='<p>';
   
   s +='<del id="pricedetails">';
@@ -628,8 +630,58 @@ else {
     setcartaddress(ipAddress,productId,productcount);
 }  
 });
+var myImage = document.getElementById('heartimg');
+
+
+var imageSources = ["./assets/icons/heart.png", "./assets/icons/colorheart.png"];
+
+// Initialize a flag to keep track of the current image
+var currentImageIndex = 0;
+
+// Attach an event listener for the click event
+myImage.addEventListener('click', function() {
+    // Toggle the current image index
+    currentImageIndex = (currentImageIndex + 1) % imageSources.length;
+    
+    // Change the src attribute to the new image's source
+    myImage.src = imageSources[currentImageIndex];
+    console.log(currentImageIndex);
+});
+
+checkTime(input);
 listproductdetails(input);
 }
+
+/*function likedproducts(){
+  var token=localStorage.getItem('token');
+  var data = {
+    "token": token
+   
+}
+$.ajax({
+    url: "./php/getuserid.php",
+    type: "post",
+    data: data,
+    success: function (response) {
+        var boo = isJsonString(response);
+       
+        if(boo==true){
+            var obj = JSON.parse(response);
+            console.log(obj);
+           //onloadwishitem(obj)
+           
+        }else{
+            console.log("Error");
+            
+        }   
+
+    },
+    error: function (error) {
+        console.log(error);
+    }
+});
+}*/
+
 function setcartaddress(ipAddress,productId,productcount){
 
   $.ajax({
@@ -847,44 +899,7 @@ function removetoken(){
 });
 }
 
-// Check mouse movement every 1 second (adjust as needed)
 
-setInterval(checkMouseMovement, 120000);
-
-// Variable to store the last recorded position of the mouse
-let lastMousePosition = {
-  x: null,
-  y: null
-};
-
-// Function to handle mouse movement
-function handleMouseMove(event) {
-  // Update the last recorded mouse position
-  lastMousePosition.x = event.pageX;
-  lastMousePosition.y = event.pageY;
-
-}
-
-// Event listener for mousemove event
-document.addEventListener('mousemove', handleMouseMove);
-
-// Function to check if the mouse is moving
-function isMouseMoving() {
-  // Check if the last recorded position is different from the current position
-  return lastMousePosition.x !== null && lastMousePosition.y !== null &&
-         (lastMousePosition.x !== event.pageX || lastMousePosition.y !== event.pageY);
-}
-
-// Function to periodically check if the mouse is moving
-function checkMouseMovement() {
-  if (isMouseMoving()) {
-      //console.log('Mouse is moving.');
-  } else {
-    window.location.href = "./login.html";
-             
-      //console.log('Mouse is not moving.');
-  }
-}
 
 
 //category page
@@ -917,36 +932,22 @@ function categorypagepass(passval){
   var cateproname=passval;
   getBycategory(cateproname);
 };
-var myImage = document.getElementById('heartimg');
-
-
-var imageSources = ["./assets/icons/heart.png", "./assets/icons/colorheart.png"];
-
-// Initialize a flag to keep track of the current image
-var currentImageIndex = 0;
-
-// Attach an event listener for the click event
-myImage.addEventListener('click', function() {
-    // Toggle the current image index
-    currentImageIndex = (currentImageIndex + 1) % imageSources.length;
-    
-    // Change the src attribute to the new image's source
-    myImage.src = imageSources[currentImageIndex];
-});
 
 
 function listproductdetails (input){
-console.log(input);
+console.log(input[0].productName);
+var wishproduct=input[0].productName;
   $(document).on("click", "#heartimg", function() {
     var token=localStorage.getItem('token');
-    getuserid(token);
+    getuserid(token,wishproduct);
   });
 }
 
 
-function getuserid(token){
+function getuserid(token,wishproduct){
   var data = {
     "token": token
+   
 }
 $.ajax({
     url: "./php/getuserid.php",
@@ -958,17 +959,11 @@ $.ajax({
         if(boo==true){
             var obj = JSON.parse(response);
            
-            console.log(obj);
+            setproductswish(obj,wishproduct);
            
         }else{
-            //console.log("Error");
-            document.getElementById("samplework").style.display="none";
-            document.getElementById("noneproducts").style.display="block";
-            document.getElementById("noneproducts").innerHTML="Products not found";
-            var imgsrc="./assets/icons/success.png"
-            var mgs="success";
-            var content="Product Added To wishList";
-            popup(imgsrc,mgs,content);
+            console.log("Error");
+            
         }   
 
     },
@@ -978,4 +973,21 @@ $.ajax({
 });
 
 }
+function setproductswish(obj,wishproduct){
+  var id=obj[0].id;
 
+  $.ajax({
+    url: "./php/setwishproducts.php",
+    type: "post",
+    data: {
+      userid:id,
+      wishproduct:wishproduct 
+    },
+    success:function(response){
+      console.log("sucess");
+    },
+    error:function(xhr,status,error){
+      console.log(error);
+    }
+});
+}
