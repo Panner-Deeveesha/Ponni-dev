@@ -547,7 +547,7 @@ function wishListfor(){
     "token": token31
   }
   $.ajax({
-      url: "./php/getuserId.php",
+      url: "./php/getuserid.php",
       type: "post",
       data: data,
       success: function (response) {

@@ -600,7 +600,7 @@ var clickedposition;
       
   }
     $.ajax({
-      url: "./php/getuserId.php",
+      url: "./php/getuserid.php",
       type: "post",
       data: data,
       success: function (response) {
