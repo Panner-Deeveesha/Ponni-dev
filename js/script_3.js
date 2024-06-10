@@ -57,34 +57,9 @@ function continuenxt(){
 
 
 
-function mergeuser(){
-  var token = localStorage.getItem('token');
-  var ipAddress = localStorage.getItem('Local_IP');
- 
- 
-  $.ajax({
-    url: './php/mergeuserid.php',
-    type: 'POST',
-    data: {
-        token: token,
-        ipAddress:ipAddress
-
-    },
-    success: function(response) {
-   
-        var product1 = JSON.parse(response);
-        
-        cartByproductid(product1);
-       
-    },
-    error: function(xhr, status, error) {
-        console.error('Error:', error);
-    }
-});
-
-}
 
 
+  cartdetails();
  
 function cartdetails() {
   var token = localStorage.getItem('token');
@@ -94,7 +69,28 @@ function cartdetails() {
   if (!token){
   
     var ipAddress = localStorage.getItem('Local_IP');
-      unregisterUser(ipAddress);
+     
+      var ip= ipAddress;
+ 
+      $.ajax({
+          url: './php/unregisteruser.php',
+          type: 'POST',
+          data: {
+              ip: ip
+          },
+          success: function(response) {
+            
+            var product =JSON.parse(response);    
+       
+              cartByproductid(product);
+              
+          },
+          error: function(xhr, status, error) {
+              console.error('Error:', error);
+          }
+      });
+
+
  
   }
   else {
@@ -102,8 +98,9 @@ function cartdetails() {
       checkuser1();
     }
   
-  
 }
+
+
 
 function checkuser1(){
   var token = localStorage.getItem('token');
@@ -158,6 +155,32 @@ function checkuser1(){
   });
 
  }
+ function mergeuser(){
+  var token = localStorage.getItem('token');
+  var ipAddress = localStorage.getItem('Local_IP');
+ 
+ 
+  $.ajax({
+    url: './php/mergeuserid.php',
+    type: 'POST',
+    data: {
+        token: token,
+        ipAddress:ipAddress
+
+    },
+    success: function(response) {
+   
+        var product1 = JSON.parse(response);
+        
+        cartByproductid(product1);
+       
+    },
+    error: function(xhr, status, error) {
+        console.error('Error:', error);
+    }
+});
+
+}
 
 
 function findUserId(product1) {
@@ -183,29 +206,7 @@ function findUserId(product1) {
   });
 }
 
-function unregisterUser(ip) {
- 
 
- var ip= ip;
- 
-  $.ajax({
-      url: './php/unregisteruser.php',
-      type: 'POST',
-      data: {
-          ip: ip
-      },
-      success: function(response) {
-       
-          var product = JSON.parse(response);
-   
-          cartByproductid(product);
-          
-      },
-      error: function(xhr, status, error) {
-          console.error('Error:', error);
-      }
-  });
-}
 
 
     
