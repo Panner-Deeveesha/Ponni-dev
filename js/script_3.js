@@ -3,6 +3,7 @@
 
 
 
+
 $("#footer-plus1").click(function () {
   $(".footer-main3 .footer-contact").slideDown("slow");
   $("#footer-minus1").css("display", "block");
@@ -590,3 +591,147 @@ var carticoncount=uniqueObj.length;
     element2.classList.remove("paynowactive");
   }
   
+
+  function youmaylike(){
+
+ var tokenlist= localStorage.getItem('token');
+ $.ajax({
+  type: "POST",
+  url: "./php/youmaylike.php", 
+  data: {
+  token:tokenlist
+
+  },
+  success: function(response) {
+      console.log(response);
+      obj=JSON.parse(response);
+      likeproductsname(obj);
+     
+  },
+  error: function(xhr, status, error) {
+      
+      console.error(xhr.responseText);
+  }
+});
+
+
+  }
+
+  function  likeproductsname(obj){
+    var products=obj;
+
+    $.ajax({
+      url: "./php/findbyproductId.php",
+      type: "post",
+      data: {
+        products: products
+      },
+      success: function (response) {
+        console.log(response);
+       product=JSON.parse(response);
+       youmayprice(product);
+      },
+      error: function (error) {
+        console.log(error);
+      }
+    });
+
+
+  }
+
+
+  function  youmayprice(obj){
+    $.ajax({
+      url: "./php/getPrice.php",
+      type: "get",
+      success: function (response) {
+          var obj2 = JSON.parse(response);
+          //console.log(response);
+          // console.log(obj);
+          $(obj).each(function (index, value) {
+              //console.log(value);
+              $(obj2).each(function (index2, value2) {
+                  if (value.productId == value2.productId) {
+                      //console.log(value.uniqueId+":"+value2.id  );
+                      value.price = value2.price;
+                      value.offerPrice = value2.offerPrice;
+                      
+                      //console.log(value);
+                  }
+              });
+              
+          });
+    
+         
+        
+          displayyoumay(obj);
+      
+      },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+
+  }
+  function displayyoumay(products) {
+    var carouselContent = '';
+    for (var i = 0; i < products.length; i++) {
+        carouselContent += '<div class="item">';
+        carouselContent += '<div class="product">';
+        carouselContent += '<p class="first-image">';
+        carouselContent += '<img src="' + products[i].imgPath_1 + '">';
+        carouselContent += '</p>';
+        carouselContent += '<p class="productname">';
+        carouselContent += products[i].productName;
+        carouselContent += '</p>';
+        carouselContent += '<p class="productamount">';
+        carouselContent += '<del>';
+        carouselContent += 'Rs.' + products[i].price + '.00';
+        carouselContent += '</del>';
+        carouselContent += '<span>';
+        carouselContent += 'From Rs.' + products[i].offerPrice + '.00';
+        carouselContent += '</span>';
+        carouselContent += '</p>';
+        carouselContent += '</div>'; 
+        carouselContent += '</div>'; 
+    }
+
+    
+    var carouselContainer = document.querySelector('.product-list1');
+    carouselContainer.innerHTML = carouselContent;
+
+    $('.product-list1').owlCarousel({
+        items: 1,
+        loop: true,
+        margin: 10,
+        dots: false,
+        nav: true,
+        navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        responsive:{
+            0:{
+                items: 1
+            },
+            600:{
+                items: 2
+            },
+            800:{
+              items: 3
+          },
+            1000:{
+                items:4
+            }
+        },
+    });
+}
+
+
+
+
+
+		
+		 

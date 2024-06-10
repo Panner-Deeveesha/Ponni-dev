@@ -1,3 +1,4 @@
+
 body{
 	margin:0px;	
 	
@@ -988,6 +989,31 @@ width:20px;
 	display:flex;
 	
 }
+/*kavya*/
+.product-list1 .owl-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+.product-list1 .owl-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-list1 .owl-item p {
+    margin: 0;
+}
+
+
+
+
+/*kavya css end*/
+
+
 .inputavailability {
     width: 125px;
     border: 1px solid #ddd;
@@ -1113,6 +1139,7 @@ width:20px;
 	font-size:25px;
 	font-weight:700;
 }
+
 .cate-recent{
 	width:350px;
 	margin-left:auto;
@@ -1127,6 +1154,7 @@ width:20px;
 	width:1200px;
 	margin-left:auto;
 	margin-right:auto;
+    
 	margin-top:30px;
 }
 .cate-recentphotos{
