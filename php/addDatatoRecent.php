@@ -2,7 +2,7 @@
 include "config.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $id = $_POST['id'];
-$userId= $_POST['userId'];
+$userId= $_POST['userid'];
 $productName = $_POST['productName'];
 }
 if ($con->connect_error) {

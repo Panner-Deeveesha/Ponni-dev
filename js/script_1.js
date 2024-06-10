@@ -108,7 +108,6 @@ function getvalfn(obj){
     //listcreate.innerHTML = "<img src=https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Sesame-Oil.jpg class='searimg'>" + "<div id='titlesear'>" + prodname + "</div>" + "<del id='delval'> " + prodprice + "</del>" + " <span id='offpriceid'>" + offprice + "</span>";
     ulit.appendChild(listcreate);
   }
-  
 }
 
 function getprod(getname) {
@@ -188,7 +187,7 @@ function getPrice2(obj) {
               });
               //showNewLanches(obj);
           });
-        navigatepage(obj);
+        //navigatepage(obj);
       },
       error: function (error) {
           console.log(error);
@@ -196,25 +195,34 @@ function getPrice2(obj) {
   });
 }
 
-function navigatepage(obj){
+$(document).on("click", ".acting", function() {  
+  var temp= $(this).find(".titlesear").text();
+  window.location.href = "./ponniproductpage.html?innerHTML="+temp;  
+});
+
+/*function navigatepage(obj){
   var wholeobj = obj;
   const serializedObject = encodeURIComponent(JSON.stringify(wholeobj));
   const url = `ponniproductpage.html?data=${serializedObject}`;
   window.location.href = url;
 }
 
-function productpageonload(){
+
+function dataserial(){
   const urlParams = new URLSearchParams(window.location.search);
   const serializedData = urlParams.get("data");
-  const deserializedObject = JSON.parse(decodeURIComponent(serializedData));
+  productpageonload(serializedData);
+}*/
+
+/*function productpageonload(serializedData){
   var converttoobj = JSON.parse(serializedData);
-  //console.log(converttoobj);
+  console.log(converttoobj);
   var hecticinsert = "";
   var t2 = "";
   var t3 = "";
   hecticinsert +='<div class="product-details">';  
   hecticinsert +='<h3 id="productname">';
-  hecticinsert +=converttoobj[0].productName;
+  hecticinsert += converttoobj[0].productName;
   hecticinsert +='</h3>';
   hecticinsert +='<p>';
   hecticinsert +='<del id="pricedetails">';
@@ -287,7 +295,7 @@ function productpageonload(){
   const inputnum = document.getElementById("getvalue");
   inputnum.setAttribute("max", converttoobj[0].availability);
   checkTime(converttoobj);
-}
+}*/
 
 function countcheckforcart(totcount){
   var countforicon = totcount;
@@ -474,13 +482,13 @@ function getAndSaveIPAddress() {
   });
 }
 
-var inputlist = "";
+/*var inputlist = "";
 function checkTime(inputs) {
   inputlist = inputs;
   var currentTime = new Date().getTime();
   var elapsedTime = (currentTime - startTime) / 1000; // Convert milliseconds to seconds
   if (elapsedTime >= 10) {
-    addtorecentdata(inputlist);
+    tocheckfortoken(inputlist);
   } else {
     setTimeout(function() {
       checkTime(inputs);
@@ -488,11 +496,39 @@ function checkTime(inputs) {
   }
 }
 
-/*function addtorecentdata(inputs){
-  //console.log(inputs);
+function tocheckfortoken(inputs){
+  var userid=localStorage.getItem("token");
+  if(userid){
+    console.log(inputs);
+    checkalreadytorecent(inputs,userid);
+  }
+}
+
+function checkalreadytorecent(inputs,userid){
   var productId=inputs[0].productId;
   var productName=inputs[0].productName;
-  var userid=localStorage.getItem("token");
+  var data = {
+      "idproduct": productId,
+      "userwithid":userid,
+      "productName":productName
+  }
+  $.ajax({
+      url: "./php/checkdata.php",
+      type: "post",
+      data: data,
+      success: function (response) {         
+        console.log("Added");
+      },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+}
+
+function addtorecentdata(inputs,userid){
+  console.log(inputs);
+  var productId=inputs[0].productId;
+  var productName=inputs[0].productName;
   var data = {
       "id": productId,
       "userid":userid,
@@ -538,11 +574,9 @@ function recentlyview(inputs){
   }
 }*/
 
-wishListfor();
-
 function wishListfor(){
   var token31 = localStorage.getItem('token');
-  console.log('token31');
+  //console.log('token31');
   var data = {
     "token": token31
   }
@@ -652,8 +686,6 @@ function printonwish(obj){
 }
 
 $(document).ready(function () {
-  cartdetails();
-
   $("#searchInput").focus(function () {
     $(".blackscreen").css("display", "block");
     $("#productList").css("display", "block");
