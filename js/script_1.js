@@ -482,11 +482,11 @@ function getAndSaveIPAddress() {
   });
 }
 
-/*var inputlist = "";
+var inputlist = "";
 function checkTime(inputs) {
   inputlist = inputs;
   var currentTime = new Date().getTime();
-  var elapsedTime = (currentTime - startTime) / 1000; // Convert milliseconds to seconds
+  var elapsedTime = (currentTime - startTime) / 300; // Convert milliseconds to seconds
   if (elapsedTime >= 10) {
     tocheckfortoken(inputlist);
   } else {
@@ -499,53 +499,68 @@ function checkTime(inputs) {
 function tocheckfortoken(inputs){
   var userid=localStorage.getItem("token");
   if(userid){
-    console.log(inputs);
-    checkalreadytorecent(inputs,userid);
+    var data = {
+      "token":userid,
+    }
+    $.ajax({
+        url: "./php/getuserid.php",
+        type: "post",
+        data: data,
+        success: function (response) {   
+          var boo = isJsonString(response);
+          if(boo==true){
+            var obj = JSON.parse(response);
+            checkalreadytorecent(inputs,obj);
+          }else{
+            console.log("Error");
+          }
+        },
+        error: function (error) {
+            console.log(">>"+error);
+        }
+    });
+  }else{
+    console.log("please login");
   }
 }
 
 function checkalreadytorecent(inputs,userid){
   var productId=inputs[0].productId;
-  var productName=inputs[0].productName;
+  var userid = userid[0].id;
   var data = {
       "idproduct": productId,
       "userwithid":userid,
-      "productName":productName
   }
   $.ajax({
       url: "./php/checkdata.php",
       type: "post",
       data: data,
-      success: function (response) {         
-        console.log("Added");
+      success: function (response) {   
+        //console.log(">>"+response);      
+         if (response === "true") {
+          console.log("Unexpected response: " + response);
+        }else {           
+          addtorecentdata(inputs,userid);
+        }
       },
       error: function (error) {
-          console.log(error);
+          console.log(">>"+error);
       }
   });
 }
 
 function addtorecentdata(inputs,userid){
-  console.log(inputs);
   var productId=inputs[0].productId;
-  var productName=inputs[0].productName;
   var data = {
-      "id": productId,
+      "productid": productId,
       "userid":userid,
-      "productName":productName
   }
   $.ajax({
       url: "./php/addDatatoRecent.php",
       type: "post",
       data: data,
       success: function (response) {
-          var boo = isJsonString(response);
-          if(boo==true){
-              var obj = JSON.parse(response);
-              console.log(obj);
-          }else{
-              console.log("Error");
-          }    
+          console.log("New Record Created");    
       },
       error: function (error) {
           console.log(error);
@@ -553,9 +568,115 @@ function addtorecentdata(inputs,userid){
   });
 }
 
+loadvaluesprint();
+function loadvaluesprint(){
+  var token = localStorage.getItem("token");
+  if(token){
+    var data = {
+      "token":token,
+    }
+    $.ajax({
+        url: "./php/getuserid.php",
+        type: "post",
+        data: data,
+        success: function (response) {   
+          var boo = isJsonString(response);
+          if(boo==true){
+            var obj = JSON.parse(response);
+            getdatawithuserrecent(obj);
+          }else{
+            console.log("Error");
+          }
+        },
+        error: function (error) {
+            console.log(">>"+error);
+        }
+    });
+  }
+}
+
+function getdatawithuserrecent(obj){
+  //console.log(obj);
+  var userid = obj[0].id;
+  var data = {
+    "userid" : userid
+  }
+  $.ajax({
+    url: "./php/getuserrecentproduct.php",
+    type: "post",
+    data: data,
+    success: function (response) {   
+      var boo = isJsonString(response);
+      if(boo==true){
+        var obj = JSON.parse(response);
+        console.log(obj);
+        getproductswithid(obj);
+      }else{
+        console.log("Error");
+      }
+    },
+    error: function (error) {
+        console.log(">>"+error);
+    }
+});
+}
+
+function getproductswithid(obj){
+  var objects = obj;
+  $.ajax({
+    url: "./php/getProductId.php",
+    type: "post",
+    data: { objects: objects },
+    success: function (response) {
+        var boo = isJsonString(response);
+        if(boo==true){
+            var obj = JSON.parse(response);
+            console.log(obj);
+            getpriceforrecent(obj);
+        }else{
+            console.log("Response Is Object");
+        }    
+    },
+    error: function (error) {
+        console.log('No Product Found');
+    }
+  });
+}
+function getpriceforrecent(obj){
+  var objects = obj;
+  //console.log(jsonObjects);
+  $.ajax({
+      url: "./php/pricebyunique.php",
+      type: "post",
+      data: { objects: objects },
+      success: function (response) {
+        var obj2 = JSON.parse(response);
+        //console.log(response);
+        //console.log(obj2);
+        $(obj).each(function (index, value) {
+          //console.log(value);
+            $(obj2).each(function (index2, value2) {
+              if (value.productId == value2.productId) {
+                //console.log(value.uniqueId+":"+value2.id  );
+                value.price = value2.price;
+                value.offerPrice = value2.offerPrice;
+                //console.log(value);
+              }
+            });
+            //showNewLanches(obj);
+        });
+        //console.log(obj);
+        recentlyview(obj);
+      },
+      error: function (error) {
+        console.log(error);
+      }
+  });
+}
+
 function recentlyview(inputs){
-  var recentlyinput = "";
   for(i=0;i<inputs.length;i++){
+    recentlyinput = " ";
     recentlyinput += '<p class="first-image">';
     recentlyinput += '<img src="' + inputs[i].imgPath_3 + '" onmouseover="this.src=\'' + inputs[i].imgPath_4 + '\'" onmouseout="this.src=\'' + inputs[i].imgPath_3 + '\'">';
     recentlyinput += '</p>';
@@ -572,7 +693,7 @@ function recentlyview(inputs){
     recentlyinput += '</p>';
     document.getElementById("recentContent").innerHTML = recentlyinput;
   }
-}*/
+}
 
 function wishListfor(){
   var token31 = localStorage.getItem('token');
