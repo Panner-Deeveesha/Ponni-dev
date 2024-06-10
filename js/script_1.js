@@ -542,7 +542,7 @@ wishListfor();
 
 function wishListfor(){
   var token31 = localStorage.getItem('token');
-  console.log(token31);
+  console.log('token31');
   var data = {
     "token": token31
   }
@@ -567,7 +567,8 @@ function wishListfor(){
 
 function getinwishlist(obj){
   var id = obj[0].id;
-  console.log(typeof(id));
+  var string = typeof id;
+  //console.log(typeof(id));
   var data = {
     "userId" : id
   }
@@ -576,12 +577,13 @@ function getinwishlist(obj){
     type: "post",
     data: data,
     success: function (response) {
+      console.log("ss" + response);
         var boo = isJsonString(response);
         if(boo==true){
             var obj = JSON.parse(response);
             getdetailsInproduct(obj);
         }else{
-            console.log("Error");
+           $("#samplework").text("No Products Found");
         }    
     },
     error: function (error) {
@@ -602,11 +604,12 @@ function getdetailsInproduct(obj){
             var obj = JSON.parse(response);
             secondpricecheck(obj);
         }else{
-            console.log("Error");
+            console.log("Response Is Object");
+            secondpricecheck(obj);
         }    
     },
     error: function (error) {
-        console.log(error);
+        console.log('No Product Found');
     }
   });
 }

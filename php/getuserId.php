@@ -1,7 +1,7 @@
 <?php
     include "config.php";
     $token = $_POST["token"];
-		 $sql = "SELECT id FROM users WHERE token='$token' AND isActive='1'";
+	$sql = "SELECT id FROM users WHERE token='$token' AND isActive='1'";
     $res = $con->query($sql);
 
     if($res->num_rows>0){
@@ -12,7 +12,7 @@
         echo json_encode($response);
 		
     }else{
-        echo "no record";
+        echo "no userId found for specific token";
     }
 	
 ?>
