@@ -542,7 +542,7 @@ function checkalreadytorecent(inputs,userid){
           $(".cate-recent").css("display","block"); 
           loadvaluesprint();        
         }else {           
-          $(".cate-recent").css("display","block");
+          $(".cate-recent").css("display","none");
           addtorecentdata(inputs,userid);
         }
       },
