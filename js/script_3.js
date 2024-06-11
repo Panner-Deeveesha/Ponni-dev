@@ -88,9 +88,7 @@ function cartdetails() {
       
               cartByproductid(product);
             }
-            else{
-              console.log("error");
-            }
+            
             
           },
           error: function(xhr, status, error) {
@@ -136,7 +134,7 @@ function checkuser1(){
       }
     }
     else{
-      console.log("error");
+      
     }
     },
       error: function(xhr, status, error) {
@@ -165,9 +163,7 @@ function checkuser1(){
         var product1 = JSON.parse(response);
         findUserId(product1);
       }
-    else{
-      console.log("Error");
-  } 
+  
        
 
     },
@@ -199,9 +195,7 @@ function checkuser1(){
         var product1 = JSON.parse(response);
      cartByproductid(product1);
       }
-    else{
-      console.log("Error");
-  } 
+   
         
        
     },
@@ -231,9 +225,7 @@ function findUserId(product1) {
             var product1 = JSON.parse(response);
          cartByproductid(product1);
           }
-        else{
-          console.log("Error");
-      } 
+       
       },
       error: function(xhr, status, error) {
           console.error('Error:', error);
@@ -649,9 +641,7 @@ var carticoncount=uniqueObj.length;
 
       likeproductsname(obj);
       }
-      else{
-        console.log("Error"); 
-      }
+      
       
      
   },
@@ -681,9 +671,7 @@ var carticoncount=uniqueObj.length;
        youmayprice(product);
 
        }
-       else{
-        console.log("error");
-       }
+      
       },
       error: function (error) {
         console.log(error);
