@@ -564,7 +564,6 @@ function addtorecentdata(inputs,userid){
       data: data,
       success: function (response) {
         console.log("New Record Created");  
-        loadvaluesprint();  
       },
       error: function (error) {
           console.log(error);
