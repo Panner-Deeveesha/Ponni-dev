@@ -80,11 +80,16 @@ function cartdetails() {
               ip: ip
           },
           success: function(response) {
-            
+            var boo = isJsonString(response);
+            if(boo==true){
             var product =JSON.parse(response);    
-       
+      
               cartByproductid(product);
-              
+            }
+            else{
+              console.log("error");
+            }
+            
           },
           error: function(xhr, status, error) {
               console.error('Error:', error);
@@ -116,7 +121,8 @@ function checkuser1(){
           ipAddress:ipAddress
       },
       success: function(response) {
-          
+        var boo = isJsonString(response);
+        if(boo==true){
           var jsonResponse = JSON.parse(response); 
           var hasProducts = jsonResponse.hasProducts;
       if (hasProducts===false){
@@ -126,6 +132,10 @@ function checkuser1(){
    
        mergeuser(token,ipAddress); 
       }
+    }
+    else{
+      console.log("error");
+    }
     },
       error: function(xhr, status, error) {
           console.error('Error:', error);
@@ -146,8 +156,17 @@ function checkuser1(){
     },
     success: function(response) {
       
-        var product1 = JSON.parse(response); 
+      var boo = isJsonString(response);
+          
+         
+      if (boo == true) {
+        var product1 = JSON.parse(response);
         findUserId(product1);
+      }
+    else{
+      console.log("Error");
+  } 
+       
 
     },
         error: function(xhr, status, error) {
@@ -171,9 +190,17 @@ function checkuser1(){
     },
     success: function(response) {
    
+      var boo = isJsonString(response);
+          
+         
+      if (boo == true) {
         var product1 = JSON.parse(response);
+     cartByproductid(product1);
+      }
+    else{
+      console.log("Error");
+  } 
         
-        cartByproductid(product1);
        
     },
     error: function(xhr, status, error) {
@@ -195,11 +222,16 @@ function findUserId(product1) {
           id: userCart
       },
       success: function(response) {
-       
-          var product1 = JSON.parse(response);
+        var boo = isJsonString(response);
+          
          
-         
-         cartByproductid(product1)
+          if (boo == true) {
+            var product1 = JSON.parse(response);
+         cartByproductid(product1);
+          }
+        else{
+          console.log("Error");
+      } 
       },
       error: function(xhr, status, error) {
           console.error('Error:', error);
@@ -605,15 +637,19 @@ var carticoncount=uniqueObj.length;
   },
   success: function(response) {
       console.log(response);
-      var obj=JSON.parse(response);
+      var boo = isJsonString(response);
 
+      if(boo==true){
+      var obj=JSON.parse(response);
     
         $('.cate-like').css("display", "block"); 
         $('.product-carousel').css("display", "block"); 
-        
-    
 
       likeproductsname(obj);
+      }
+      else{
+        console.log("Error"); 
+      }
       
      
   },
@@ -637,8 +673,15 @@ var carticoncount=uniqueObj.length;
       },
       success: function (response) {
         console.log(response);
+        var boo=isJsonString(response);
+       if(boo==true){
       var product=JSON.parse(response);
        youmayprice(product);
+
+       }
+       else{
+        console.log("error");
+       }
       },
       error: function (error) {
         console.log(error);
