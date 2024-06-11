@@ -702,38 +702,39 @@ function recentlyview(inputs){
   }
   document.querySelector(".product-list2").innerHTML = recentlyinput;
 
+  var responsiveItems = {}; 
+
+  // Define responsive items based on the number of products
+  if (inputs.length <= 1) {
+      responsiveItems = {
+          0: { items: 1 },
+          900: { items: 1, dots: true, nav: false }
+      };
+  } else if (inputs.length <= 2) {
+      responsiveItems = {
+          0: { items: 1 },
+          600: { items: 2, dots: true, nav: false }
+      };
+  } else if (inputs.length <= 3) {
+      responsiveItems = {
+          0: { items: 1 },
+          600: { items: 2, dots: true, nav: false },
+          800: { items: 3 }
+      };
+  } else {
+      responsiveItems = {
+          0: { items: 1 },
+          600: { items: 2, dots: true, nav: false },
+          800: { items: 4}
+      };
+  }
+
   $('.product-list2').owlCarousel({
-    items: 1,
-    loop: true,
-    margin: 10,
-    dots: false,
-    nav: true,
-    navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
-    animateOut: 'fadeOut',
-    animateIn: 'fadeIn',
-    autoplay: true,
-    autoplayTimeout: 3000,
-    autoplayHoverPause: true,
-    responsive:{
-        0:{
-            items: 1
-        },
-        600:{
-            items: 2
-        },
-        800:{
-          items: 3
-      },
-        1000:{
-            items:4
-        }
-    },
-});
-
-
-
-
-
+      loop: true,
+      margin: 10,
+      responsive: responsiveItems,
+      
+  });
 }
 
 function wishListfor(){
