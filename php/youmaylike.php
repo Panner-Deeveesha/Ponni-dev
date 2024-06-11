@@ -14,7 +14,7 @@ if($res->num_rows > 0){
     $userId = $row['Id'];
 
     
-    $sql_cart = "SELECT productId, userId, count FROM cart WHERE userId='$userId' AND paid='yes' AND delivered='yes' AND isActive='1'";
+    $sql_cart = "SELECT productId, userId, count FROM cart WHERE userId='$userId' AND paid='yes' AND delivered='yes' AND isActive='0'";
     $res_cart = $con->query($sql_cart);
 
     if($res_cart->num_rows > 0){

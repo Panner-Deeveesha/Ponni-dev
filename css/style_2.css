@@ -562,7 +562,7 @@ ship page
     font-size: 16px;
 }
 .productname{
-	height:50px;
+	height:30px;
 }
 .sweets-images span {
     color: #ec0101;
@@ -575,8 +575,8 @@ ship page
 }
 
 .first-image {
-    width: 250px;
-    height: 250px;
+    width: 280px;
+    height: 280px;
     overflow: hidden;
     margin: 0px;
 }
@@ -1117,8 +1117,8 @@ width:20px;
 	cursor:pointer;
 }
 .first-image {
-    width: 250px;
-    height: 250px;
+    width: 280px;
+    height: 280px;
     overflow: hidden;
     margin: 0px;
 }
