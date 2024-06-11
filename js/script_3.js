@@ -4,6 +4,8 @@
 
 
 
+
+
 $("#footer-plus1").click(function () {
   $(".footer-main3 .footer-contact").slideDown("slow");
   $("#footer-minus1").css("display", "block");
@@ -80,11 +82,16 @@ function cartdetails() {
               ip: ip
           },
           success: function(response) {
-            
+            var boo = isJsonString(response);
+            if(boo==true){
             var product =JSON.parse(response);    
-       
+      
               cartByproductid(product);
-              
+            }
+            else{
+              console.log("error");
+            }
+            
           },
           error: function(xhr, status, error) {
               console.error('Error:', error);
@@ -116,7 +123,8 @@ function checkuser1(){
           ipAddress:ipAddress
       },
       success: function(response) {
-          
+        var boo = isJsonString(response);
+        if(boo==true){
           var jsonResponse = JSON.parse(response); 
           var hasProducts = jsonResponse.hasProducts;
       if (hasProducts===false){
@@ -126,6 +134,10 @@ function checkuser1(){
    
        mergeuser(token,ipAddress); 
       }
+    }
+    else{
+      console.log("error");
+    }
     },
       error: function(xhr, status, error) {
           console.error('Error:', error);
@@ -146,8 +158,17 @@ function checkuser1(){
     },
     success: function(response) {
       
-        var product1 = JSON.parse(response); 
+      var boo = isJsonString(response);
+          
+         
+      if (boo == true) {
+        var product1 = JSON.parse(response);
         findUserId(product1);
+      }
+    else{
+      console.log("Error");
+  } 
+       
 
     },
         error: function(xhr, status, error) {
@@ -171,9 +192,17 @@ function checkuser1(){
     },
     success: function(response) {
    
+      var boo = isJsonString(response);
+          
+         
+      if (boo == true) {
         var product1 = JSON.parse(response);
+     cartByproductid(product1);
+      }
+    else{
+      console.log("Error");
+  } 
         
-        cartByproductid(product1);
        
     },
     error: function(xhr, status, error) {
@@ -195,11 +224,16 @@ function findUserId(product1) {
           id: userCart
       },
       success: function(response) {
-       
-          var product1 = JSON.parse(response);
+        var boo = isJsonString(response);
+          
          
-         
-         cartByproductid(product1)
+          if (boo == true) {
+            var product1 = JSON.parse(response);
+         cartByproductid(product1);
+          }
+        else{
+          console.log("Error");
+      } 
       },
       error: function(xhr, status, error) {
           console.error('Error:', error);
@@ -593,6 +627,7 @@ var carticoncount=uniqueObj.length;
   
 
   function youmaylike(){
+  
 
  var tokenlist= localStorage.getItem('token');
  $.ajax({
@@ -604,8 +639,20 @@ var carticoncount=uniqueObj.length;
   },
   success: function(response) {
       console.log(response);
-      obj=JSON.parse(response);
+      var boo = isJsonString(response);
+
+      if(boo==true){
+      var obj=JSON.parse(response);
+    
+        $('.cate-like').css("display", "block"); 
+        $('.product-carousel').css("display", "block"); 
+
       likeproductsname(obj);
+      }
+      else{
+        console.log("Error"); 
+      }
+      
      
   },
   error: function(xhr, status, error) {
@@ -628,8 +675,15 @@ var carticoncount=uniqueObj.length;
       },
       success: function (response) {
         console.log(response);
-       product=JSON.parse(response);
+        var boo=isJsonString(response);
+       if(boo==true){
+      var product=JSON.parse(response);
        youmayprice(product);
+
+       }
+       else{
+        console.log("error");
+       }
       },
       error: function (error) {
         console.log(error);
@@ -675,6 +729,7 @@ var carticoncount=uniqueObj.length;
   }
   function displayyoumay(products) {
     var carouselContent = '';
+
     for (var i = 0; i < products.length; i++) {
         carouselContent += '<div class="item">';
         carouselContent += '<div class="product">';
@@ -692,46 +747,60 @@ var carticoncount=uniqueObj.length;
         carouselContent += 'From Rs.' + products[i].offerPrice + '.00';
         carouselContent += '</span>';
         carouselContent += '</p>';
-        carouselContent += '</div>'; 
-        carouselContent += '</div>'; 
+        carouselContent += '</div>';
+        carouselContent += '</div>';
     }
 
-    
     var carouselContainer = document.querySelector('.product-list1');
     carouselContainer.innerHTML = carouselContent;
 
+    var responsiveItems = {}; 
+
+    if (products.length <= 1) {
+        responsiveItems = {
+            0: { items: 1 },
+            900: { items: 1, dots: true, nav: false }
+        };
+    } else if (products.length <= 2) {
+        responsiveItems = {
+            0: { items: 1 },
+            600: { items: 2, dots: true, nav: false }
+        };
+    } else if (products.length <= 3) {
+        responsiveItems = {
+            0: { items: 1 },
+            600: { items: 2, dots: true, nav: false },
+            800: { items: 3 }
+        };
+    } else {
+        responsiveItems = {
+            0: { items: 1 },
+            600: { items: 2, dots: true, nav: false },
+            800: { items: 4}
+        };
+    }
+
     $('.product-list1').owlCarousel({
-        items: 1,
         loop: true,
         margin: 10,
-        dots: false,
-        nav: true,
-        navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
-        animateOut: 'fadeOut',
-        animateIn: 'fadeIn',
-        autoplay: true,
-        autoplayTimeout: 3000,
-        autoplayHoverPause: true,
-        responsive:{
-            0:{
-                items: 1
-            },
-            600:{
-                items: 2
-            },
-            800:{
-              items: 3
-          },
-            1000:{
-                items:4
-            }
-        },
+        responsive: responsiveItems,
+        
     });
 }
+$(document).on("click", ".productname", function() {
+  
+  var temp1= $(this).text();
 
 
+  window.location.href = "./ponniproductpage.html?innerHTML="+temp1;
 
+ 
+});
+$(document).on("click", ".first-image", function() {
 
+  var productName = $(this).closest('.item').find('.productname').text()
 
-		
-		 
+  window.location.href = "./ponniproductpage.html?innerHTML="+ productName;
+
+ 
+});

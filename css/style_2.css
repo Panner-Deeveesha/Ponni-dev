@@ -1,4 +1,5 @@
 
+
 body{
 	margin:0px;	
 	
@@ -1138,6 +1139,7 @@ width:20px;
 	margin-top:30px;
 	font-size:25px;
 	font-weight:700;
+    display:none;
 }
 
 .cate-recent{
@@ -1209,6 +1211,17 @@ width:20px;
  .product-carousel p{
 	 font-weight:600;
      text-align: center;
+ }
+ .product-carousel .owl-prev span{
+    font-size:60px !important;
+    color:#9a9a9a;
+    font-weight:500;
+   
+ }
+ .product-carousel .owl-next span{
+    font-size:60px !important;
+    color:#9a9a9a;
+    font-weight:500;
  }
 .product-carousel span{
 	color:#ec0101;

@@ -503,11 +503,12 @@ function tocheckfortoken(inputs){
       "token":userid,
     }
     $.ajax({
-        url: "./php/getuserid.php",
+        url: "./php/getuserId.php",
         type: "post",
         data: data,
         success: function (response) {   
           var boo = isJsonString(response);
+          console.log(response);
           if(boo==true){
             var obj = JSON.parse(response);
             checkalreadytorecent(inputs,obj);
@@ -538,8 +539,10 @@ function checkalreadytorecent(inputs,userid){
       success: function (response) {   
         //console.log(">>"+response);      
          if (response === "true") {
-          console.log("Unexpected response: " + response);
+          $(".cate-recent").css("display","block"); 
+          loadvaluesprint();        
         }else {           
+          $(".cate-recent").css("display","block");
           addtorecentdata(inputs,userid);
         }
       },
@@ -560,7 +563,8 @@ function addtorecentdata(inputs,userid){
       type: "post",
       data: data,
       success: function (response) {
-          console.log("New Record Created");    
+        console.log("New Record Created");  
+        loadvaluesprint();  
       },
       error: function (error) {
           console.log(error);
@@ -568,7 +572,7 @@ function addtorecentdata(inputs,userid){
   });
 }
 
-loadvaluesprint();
+
 function loadvaluesprint(){
   var token = localStorage.getItem("token");
   if(token){
@@ -576,7 +580,7 @@ function loadvaluesprint(){
       "token":token,
     }
     $.ajax({
-        url: "./php/getuserid.php",
+        url: "./php/getuserId.php",
         type: "post",
         data: data,
         success: function (response) {   
@@ -675,8 +679,10 @@ function getpriceforrecent(obj){
 }
 
 function recentlyview(inputs){
+  recentlyinput = " ";
   for(i=0;i<inputs.length;i++){
-    recentlyinput = " ";
+    recentlyinput += '<div class="item">';
+    recentlyinput += '<div class="product">';
     recentlyinput += '<p class="first-image">';
     recentlyinput += '<img src="' + inputs[i].imgPath_3 + '" onmouseover="this.src=\'' + inputs[i].imgPath_4 + '\'" onmouseout="this.src=\'' + inputs[i].imgPath_3 + '\'">';
     recentlyinput += '</p>';
@@ -691,8 +697,43 @@ function recentlyview(inputs){
     recentlyinput += 'From Rs.' + inputs[i].offerPrice + '.00';
     recentlyinput += '</span>';
     recentlyinput += '</p>';
-    document.getElementById("recentContent").innerHTML = recentlyinput;
+    recentlyinput += '</div>';
+    recentlyinput += '</div>';
   }
+  document.querySelector(".product-list2").innerHTML = recentlyinput;
+
+  $('.product-list2').owlCarousel({
+    items: 1,
+    loop: true,
+    margin: 10,
+    dots: false,
+    nav: true,
+    navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+    animateOut: 'fadeOut',
+    animateIn: 'fadeIn',
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    responsive:{
+        0:{
+            items: 1
+        },
+        600:{
+            items: 2
+        },
+        800:{
+          items: 3
+      },
+        1000:{
+            items:4
+        }
+    },
+});
+
+
+
+
+
 }
 
 function wishListfor(){
@@ -702,7 +743,7 @@ function wishListfor(){
     "token": token31
   }
   $.ajax({
-      url: "./php/getuserid.php",
+      url: "./php/getuserId.php",
       type: "post",
       data: data,
       success: function (response) {
