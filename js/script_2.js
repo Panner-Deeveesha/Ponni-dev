@@ -383,11 +383,17 @@ $(document).on("click", ".sampleitem", function() {
 productpage();
 function productpage(){
   const searchParams = new URLSearchParams(window.location.search);
+  const token = localStorage.getItem('token');
   if(searchParams.has('innerHTML')){
+   
+    
       getByproductname(searchParams.get('innerHTML')); 
+    
   }
 
 }
+
+
 function getByproductname(innerHTML2) {
   var productName =innerHTML2;
   var data = {
@@ -403,7 +409,7 @@ function getByproductname(innerHTML2) {
         if(boo==true){
             var obj = JSON.parse(response);
             
-         
+            console.log(obj);
            getAvailability(obj);
            
         }else{
@@ -439,7 +445,7 @@ function getAvailability(obj){
               
           });
           //showNewLanches(obj);
-         //console.log(obj);
+         console.log(obj);
        
          productpagegetPrice(obj);
           
@@ -451,6 +457,7 @@ function getAvailability(obj){
   });
   
 }
+
 function productpagegetPrice(obj) {
   $.ajax({
       url: "./php/getPrice.php",
@@ -472,8 +479,8 @@ function productpagegetPrice(obj) {
               
           });
           //showNewLanches(obj);
-       displayproduct(obj);
-       
+      
+       getuseridforlike(obj);
          
       
       },
@@ -482,10 +489,74 @@ function productpagegetPrice(obj) {
       }
   });
 }
+function getuseridforlike(fullobj){
+  var token=localStorage.getItem('token');
 
 
-function displayproduct(input){
+  var data = {
+     "token": token  
+}
+  $.ajax({
+    url: "./php/getuserId.php",
+    type: "post",
+    data: data,
+    success: function (response) {
+      var boo = isJsonString(response);
+      
+      if(boo==true){
+          var obj = JSON.parse(response);
+         
+         var getuserid=obj[0].id;
+        console.log(getuserid);
+       checkwishlistproduct(getuserid,fullobj);
+         
+      }else{
+          console.log("Error");
+      }   
+
+  },
+    error: function (error) {
+        console.log(error);
+    }
+});
+}
+
+function checkwishlistproduct(getuserid,fullobj){
+  console.log(fullobj);
+  var productname=fullobj[0].productName;
+  var data = {
+      "userid": getuserid,
+      "productname":productname
+  }
+  
+  $.ajax({
+      url: "./php/checkwishproduct.php",
+      type: "post",
+      data: data,
+      success: function (response) {   
+            
+         if (response === "1") {
+         
+          displayproduct(fullobj,response);
+           console.log(response);
+        }else { 
+          
+          displayproduct(fullobj,response);     
+          console.log(response);
+        }
+      },
+      error: function (error) {
+          console.log(">>"+error);
+      }
+  });
+
+
+}
+
+function displayproduct(input,response){
 console.log(input);
+console.log(response);
+
   var s = "";
   var s2 ="";
   var s3="";
@@ -494,7 +565,13 @@ console.log(input);
   s +='<h3 id="productname">';
   s +=input[0].productName;
   s +='</h3>';
-  s +='<img id="heartimg" src="./assets/icons/heart.png">';
+  if(response==0){
+    s +='<img id="heartimg" src="./assets/icons/heart.png">';
+  }
+  else{
+    s +='<img id="heartimg" src="./assets/icons/colorheart.png">'; 
+  }
+ 
   s +='<p>';
   
   s +='<del id="pricedetails">';
@@ -637,7 +714,7 @@ var clickedposition;
    var productcount=document.getElementById("getvalue").value;
    //console.log(productcount);
 
-  var getuserid;
+  var getusertoken;
   const token = localStorage.getItem('token');
   if (token) {
     var data = {
@@ -645,7 +722,7 @@ var clickedposition;
       
   }
     $.ajax({
-      url: "./php/getuserid.php",
+      url: "./php/getuserId.php",
       type: "post",
       data: data,
       success: function (response) {
@@ -654,9 +731,9 @@ var clickedposition;
         if(boo==true){
             var obj = JSON.parse(response);
            
-           getuserid=obj[0].id;
+            getusertoken=obj[0].id;
           //console.log(getuserid);
-          setcarttable(getuserid,productId,productcount)
+          setcarttable(getusertoken,productId,productcount)
            
         }else{
             console.log("Error");
@@ -687,46 +764,80 @@ var currentImageIndex = 0;
 myImage.addEventListener('click', function() {
     // Toggle the current image index
     currentImageIndex = (currentImageIndex + 1) % imageSources.length;
-    
-    // Change the src attribute to the new image's source
-    myImage.src = imageSources[currentImageIndex];
     console.log(currentImageIndex);
+   if(currentImageIndex == 0){
+    myImage.src = imageSources[currentImageIndex];
+    removehighlighticon(input);
+   }
+  else{
+    myImage.src = imageSources[currentImageIndex];
+    listproductdetails (input);
+  }
+  
 });
-
 checkTime(input);
-listproductdetails(input);
-}
 
-function likedproducts(){
+}
+function removehighlighticon(input){
+  var wishproduct=input[0].productName;
+  
   var token=localStorage.getItem('token');
-  var data = {
-    "token": token
-   
+  deletelike(token,wishproduct);
 }
-$.ajax({
-    url: "./php/getuserid.php",
-    type: "post",
-    data: data,
-    success: function (response) {
-        var boo = isJsonString(response);
-       
-        if(boo==true){
-            var obj = JSON.parse(response);
-            console.log(obj);
-           //onloadwishitem(obj)
-           
-        }else{
-            console.log("Error");
-            
-        }   
+function listproductdetails (input){
+  console.log(input[0].productName);
+  var wishproduct=input[0].productName;
+  
+      var token=localStorage.getItem('token');
+      getuserid(token,wishproduct);
+  
+  }
+function deletelike(token,wishproduct){
+    var data = {
+      "token": token
+     
+  }
+  $.ajax({
+      url: "./php/getuserId.php",
+      type: "post",
+      data: data,
+      success: function (response) {
+          var boo = isJsonString(response);
+         
+          if(boo==true){
+              var obj = JSON.parse(response);
+              deletedetails(obj,wishproduct);   
+          }else{
+              console.log("Error");
+              
+          }   
+  
+      },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+  
+  }
+  function deletedetails(obj,wishproduct){
+    var id=obj[0].id;
 
-    },
-    error: function (error) {
+    $.ajax({
+      url: "./php/deletewishproducts.php",
+      type: "post",
+      data: {
+        userid:id,
+        wishproduct:wishproduct 
+      },
+      success:function(response){
+        console.log("sucess");
+      },
+      error:function(xhr,status,error){
         console.log(error);
-    }
-});
-}
+      }
+  });
 
+  }
 function setcartaddress(ipAddress,productId,productcount){
 
   $.ajax({
@@ -979,15 +1090,6 @@ function categorypagepass(passval){
 };
 
 
-function listproductdetails (input){
-console.log(input[0].productName);
-var wishproduct=input[0].productName;
-  $(document).on("click", "#heartimg", function() {
-    var token=localStorage.getItem('token');
-    getuserid(token,wishproduct);
-  });
-}
-
 
 function getuserid(token,wishproduct){
   var data = {
@@ -995,7 +1097,7 @@ function getuserid(token,wishproduct){
    
 }
 $.ajax({
-    url: "./php/getuserid.php",
+    url: "./php/getuserId.php",
     type: "post",
     data: data,
     success: function (response) {
