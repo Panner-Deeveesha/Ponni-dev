@@ -541,6 +541,7 @@ function checkalreadytorecent(inputs,userid){
           $(".cate-recent").css("display","block");
           loadvaluesprint();
         }else {           
+          $(".cate-recent").css("display","none");
           addtorecentdata(inputs,userid);
         }
       },
@@ -561,7 +562,6 @@ function addtorecentdata(inputs,userid){
       type: "post",
       data: data,
       success: function (response) {
-        $(".cate-recent").css("display","none");
         console.log("New Record Created");    
       },
       error: function (error) {
