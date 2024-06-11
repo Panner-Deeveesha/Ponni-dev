@@ -508,6 +508,7 @@ function tocheckfortoken(inputs){
         data: data,
         success: function (response) {   
           var boo = isJsonString(response);
+          console.log(response);
           if(boo==true){
             var obj = JSON.parse(response);
             checkalreadytorecent(inputs,obj);
