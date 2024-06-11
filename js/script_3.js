@@ -4,6 +4,8 @@
 
 
 
+
+
 $("#footer-plus1").click(function () {
   $(".footer-main3 .footer-contact").slideDown("slow");
   $("#footer-minus1").css("display", "block");
@@ -728,8 +730,6 @@ var carticoncount=uniqueObj.length;
   function displayyoumay(products) {
     var carouselContent = '';
 
-
-    
     for (var i = 0; i < products.length; i++) {
         carouselContent += '<div class="item">';
         carouselContent += '<div class="product">';
@@ -747,46 +747,60 @@ var carticoncount=uniqueObj.length;
         carouselContent += 'From Rs.' + products[i].offerPrice + '.00';
         carouselContent += '</span>';
         carouselContent += '</p>';
-        carouselContent += '</div>'; 
-        carouselContent += '</div>'; 
+        carouselContent += '</div>';
+        carouselContent += '</div>';
     }
 
-    
     var carouselContainer = document.querySelector('.product-list1');
     carouselContainer.innerHTML = carouselContent;
 
+    var responsiveItems = {}; 
+
+    if (products.length <= 1) {
+        responsiveItems = {
+            0: { items: 1 },
+            900: { items: 1, dots: true, nav: false }
+        };
+    } else if (products.length <= 2) {
+        responsiveItems = {
+            0: { items: 1 },
+            600: { items: 2, dots: true, nav: false }
+        };
+    } else if (products.length <= 3) {
+        responsiveItems = {
+            0: { items: 1 },
+            600: { items: 2, dots: true, nav: false },
+            800: { items: 3 }
+        };
+    } else {
+        responsiveItems = {
+            0: { items: 1 },
+            600: { items: 2, dots: true, nav: false },
+            800: { items: 4}
+        };
+    }
+
     $('.product-list1').owlCarousel({
-        items: 1,
         loop: true,
         margin: 10,
-        dots: false,
-        nav: true,
-        navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
-        animateOut: 'fadeOut',
-        animateIn: 'fadeIn',
-        autoplay: true,
-        autoplayTimeout: 3000,
-        autoplayHoverPause: true,
-        responsive:{
-            0:{
-                items: 1
-            },
-            600:{
-                items: 2
-            },
-            800:{
-              items: 3
-          },
-            1000:{
-                items:4
-            }
-        },
+        responsive: responsiveItems,
+        
     });
 }
+$(document).on("click", ".productname", function() {
+  
+  var temp1= $(this).text();
 
 
+  window.location.href = "./ponniproductpage.html?innerHTML="+temp1;
 
+ 
+});
+$(document).on("click", ".first-image", function() {
 
+  var productName = $(this).closest('.item').find('.productname').text()
 
-		
-		 
+  window.location.href = "./ponniproductpage.html?innerHTML="+ productName;
+
+ 
+});
