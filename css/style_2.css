@@ -1014,6 +1014,30 @@ width:20px;
 
 /*kavya css end*/
 
+/*keerthana*/
+.product-list2 .owl-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+.product-list2 .owl-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-list2 .owl-item p {
+    margin: 0;
+}
+
+
+
+
+/*keerthana css end*/
+
 
 .inputavailability {
     width: 125px;

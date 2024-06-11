@@ -630,6 +630,7 @@ del{
     color: #4d6b20;
     font-size: 25px;
     text-align: center;
+    font-weight: 700;
 }
 
 @media only screen and (max-width:990px){
