@@ -593,6 +593,7 @@ var carticoncount=uniqueObj.length;
   
 
   function youmaylike(){
+  
 
  var tokenlist= localStorage.getItem('token');
  $.ajax({
@@ -604,8 +605,16 @@ var carticoncount=uniqueObj.length;
   },
   success: function(response) {
       console.log(response);
-      obj=JSON.parse(response);
+      var obj=JSON.parse(response);
+
+    
+        $('.cate-like').css("display", "block"); 
+        $('.product-carousel').css("display", "block"); 
+        
+    
+
       likeproductsname(obj);
+      
      
   },
   error: function(xhr, status, error) {
@@ -628,7 +637,7 @@ var carticoncount=uniqueObj.length;
       },
       success: function (response) {
         console.log(response);
-       product=JSON.parse(response);
+      var product=JSON.parse(response);
        youmayprice(product);
       },
       error: function (error) {
@@ -675,6 +684,9 @@ var carticoncount=uniqueObj.length;
   }
   function displayyoumay(products) {
     var carouselContent = '';
+
+
+    
     for (var i = 0; i < products.length; i++) {
         carouselContent += '<div class="item">';
         carouselContent += '<div class="product">';
