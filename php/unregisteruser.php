@@ -5,7 +5,7 @@
     $ip = $_POST['ip'];
     
     
-    $sql = "SELECT productId, count FROM  cart WHERE ipAddress='$ip' AND isActive='1' ";
+    $sql = "SELECT productId, count FROM  cart WHERE ipAddress='$ip'  AND isActive='1' ";
     
    
     $res = $con->query($sql);
