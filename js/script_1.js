@@ -539,10 +539,10 @@ function checkalreadytorecent(inputs,userid){
       success: function (response) {   
         //console.log(">>"+response);      
          if (response === "true") {
-          $(".cate-recent").css("display","block");
-          loadvaluesprint();
+          $(".cate-recent").css("display","block"); 
+          loadvaluesprint();        
         }else {           
-          $(".cate-recent").css("display","none");
+          $(".cate-recent").css("display","block");
           addtorecentdata(inputs,userid);
         }
       },
@@ -563,7 +563,8 @@ function addtorecentdata(inputs,userid){
       type: "post",
       data: data,
       success: function (response) {
-        console.log("New Record Created");    
+        console.log("New Record Created");  
+        loadvaluesprint();  
       },
       error: function (error) {
           console.log(error);
