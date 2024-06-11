@@ -483,7 +483,7 @@ function getAndSaveIPAddress() {
 }
 
 var inputlist = "";
-/*function checkTime(inputs) {
+function checkTime(inputs) {
   inputlist = inputs;
   var currentTime = new Date().getTime();
   var elapsedTime = (currentTime - startTime) / 10000; // Convert milliseconds to seconds
@@ -494,7 +494,7 @@ var inputlist = "";
       checkTime(inputs);
     }, 1000);
   }
-}*/
+}
 
 function tocheckfortoken(inputs){
   var userid=localStorage.getItem("token");
