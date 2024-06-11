@@ -483,10 +483,10 @@ function getAndSaveIPAddress() {
 }
 
 var inputlist = "";
-function checkTime(inputs) {
+/*function checkTime(inputs) {
   inputlist = inputs;
   var currentTime = new Date().getTime();
-  var elapsedTime = (currentTime - startTime) / 300; // Convert milliseconds to seconds
+  var elapsedTime = (currentTime - startTime) / 10000; // Convert milliseconds to seconds
   if (elapsedTime >= 10) {
     tocheckfortoken(inputlist);
   } else {
@@ -494,7 +494,7 @@ function checkTime(inputs) {
       checkTime(inputs);
     }, 1000);
   }
-}
+}*/
 
 function tocheckfortoken(inputs){
   var userid=localStorage.getItem("token");
@@ -539,11 +539,9 @@ function checkalreadytorecent(inputs,userid){
       success: function (response) {   
         //console.log(">>"+response);      
          if (response === "true") {
-          $(".cate-recent").css("display","block"); 
-          loadvaluesprint();        
-        }else {           
-          $(".cate-recent").css("display","none");
-          addtorecentdata(inputs,userid);
+          $(".cate-recent").css("display","block");  
+        }else {       
+          addtorecentdata(inputs,userid);  
         }
       },
       error: function (error) {
@@ -571,7 +569,7 @@ function addtorecentdata(inputs,userid){
   });
 }
 
-
+loadvaluesprint();
 function loadvaluesprint(){
   var token = localStorage.getItem("token");
   if(token){
@@ -626,6 +624,7 @@ function getdatawithuserrecent(obj){
 
 function getproductswithid(obj){
   var objects = obj;
+  console.log(objects);
   $.ajax({
     url: "./php/getProductId.php",
     type: "post",
@@ -668,7 +667,7 @@ function getpriceforrecent(obj){
             });
             //showNewLanches(obj);
         });
-        //console.log(obj);
+        console.log(obj);
         recentlyview(obj);
       },
       error: function (error) {
@@ -699,6 +698,7 @@ function recentlyview(inputs){
     recentlyinput += '</div>';
     recentlyinput += '</div>';
   }
+  $(".cate-recent").css("display","block"); 
   document.querySelector(".product-list2").innerHTML = recentlyinput;
 
   var responsiveItems = {}; 
