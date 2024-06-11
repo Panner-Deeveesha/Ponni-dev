@@ -544,6 +544,51 @@ console.log(input);
 
   document.getElementById("slidecarouselimg").innerHTML=s2;
 
+  var prodes="";
+
+  prodes +='<p>';
+  prodes +=input[0].productDescription;
+  prodes +='</p>';
+  document.getElementById("dynamic-descr").innerHTML=prodes;
+
+  var prodes2="";
+
+  prodes2 +='<p>';
+  prodes2 +='<b>';
+  prodes2 +='Ingredients - ';
+
+  prodes2 +='</b>';
+  prodes2 +=input[0].ingredients;
+  prodes2 +='</p>';
+
+  prodes2 +='<p>';
+  prodes2 +='<b>';
+  prodes2 +='shelfLife - ';
+
+  prodes2 +='</b>';
+  prodes2 +=input[0].shelfLife;
+  prodes2 +='</p>';
+
+  prodes2 +='<p>';
+  prodes2 +='<b>';
+  prodes2 +='packing - ';
+
+  prodes2 +='</b>';
+  prodes2 +=input[0].packing;
+  prodes2 +='</p>';
+
+  prodes2 +='<p>';
+  prodes2 +='<b>';
+  prodes2 +='sourcedFrom - ';
+
+  prodes2 +='</b>';
+  prodes2 +=input[0].sourcedFrom;
+  prodes2 +='</p>';
+
+  document.getElementById("dynamic-descr2").innerHTML=prodes2;
+
+
+
   s3 +='<button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active">';
   s3 +='<img id="scroll1" src="' +input[0].imgPath_3+'">'
   s3 +='</button>';
