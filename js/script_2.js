@@ -645,7 +645,7 @@ var clickedposition;
       
   }
     $.ajax({
-      url: "./php/getuserid.php",
+      url: "./php/getuserId.php",
       type: "post",
       data: data,
       success: function (response) {
@@ -704,7 +704,7 @@ function likedproducts(){
    
 }
 $.ajax({
-    url: "./php/getuserid.php",
+    url: "./php/getuserId.php",
     type: "post",
     data: data,
     success: function (response) {
@@ -995,7 +995,7 @@ function getuserid(token,wishproduct){
    
 }
 $.ajax({
-    url: "./php/getuserid.php",
+    url: "./php/getuserId.php",
     type: "post",
     data: data,
     success: function (response) {

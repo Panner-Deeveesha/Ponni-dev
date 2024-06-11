@@ -503,7 +503,7 @@ function tocheckfortoken(inputs){
       "token":userid,
     }
     $.ajax({
-        url: "./php/getuserid.php",
+        url: "./php/getuserId.php",
         type: "post",
         data: data,
         success: function (response) {   
@@ -579,7 +579,7 @@ function loadvaluesprint(){
       "token":token,
     }
     $.ajax({
-        url: "./php/getuserid.php",
+        url: "./php/getuserId.php",
         type: "post",
         data: data,
         success: function (response) {   
@@ -742,7 +742,7 @@ function wishListfor(){
     "token": token31
   }
   $.ajax({
-      url: "./php/getuserid.php",
+      url: "./php/getuserId.php",
       type: "post",
       data: data,
       success: function (response) {
