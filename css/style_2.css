@@ -4,6 +4,64 @@ body{
 	margin:0px;	
 	
 }
+.orderdetails{
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+.displaygridorders{
+    display: grid;
+    margin-top: 20px;
+   
+    grid-template-columns: 18% 25% 25% 30%;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 2px 4px 3px 4px #ddd;
+
+    background-color: #fff;
+   
+   
+    cursor: pointer;
+}
+.pricefororders{
+    text-align: left;
+    margin: auto 0px;
+    font-size: 15px;
+}
+.pricefororders del{
+    color: red;
+   
+}
+.pricefororders span{
+    color: gray;
+  
+}
+.orderinnerimg{
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.orderinnerimg .first-image  {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    margin: 0px;
+}
+.ratetheproduct{
+    font-size: 14px;
+    color:black;
+    
+    margin: auto 0px;
+    text-align:center;
+}
+.colorrate{
+    color:green; 
+}
+.orderproductname{
+    font-size: 14px;
+    margin: auto 0px;
+    text-align: left;
+  
+}
 .item-product{
     text-transform:capitalize;
     cursor: pointer;
@@ -82,7 +140,7 @@ privacy page
     width:60%;
     margin-left:auto;
     margin-right: auto;
-    
+    margin-top: 99px;
 }
 .privacy-content h3{
     margin-top: 20px;
@@ -105,7 +163,7 @@ ship page
     width:60%;
     margin-left:auto;
     margin-right: auto;
-    
+    margin-top: 99px;
 }
 .ship-content h2{
     margin-top: 20px;
@@ -129,7 +187,7 @@ ship page
 /*end privay*/
 .wholeloginpage{
  font-family: 'Poppins', sans-serif;	
-
+ margin-top: 99px;
 }
 .wholeloginpage #login-commend{
     color: red;
@@ -1014,6 +1072,9 @@ width:20px;
 
 /*kavya css end*/
 
+.productpage{
+    margin-top: 89px;
+}
 
 .inputavailability {
     width: 125px;
@@ -1283,6 +1344,13 @@ width:20px;
  }
  /*media query for product*/
  @media only screen and (max-width:1300px) {
+    .displaygridorders {
+        display: grid;
+    
+        grid-template-columns: 18% 25% 25% 30%;
+        width: 70%;
+       
+    }
 	 .breadcrumbs p {
     width: 1000px;
     margin-left: auto;
@@ -1460,6 +1528,35 @@ width:20px;
 }
   }
 @media only screen and (max-width:1100px) {
+    .displaygridorders {
+        display: grid;
+        grid-template-columns: 22% 25% 28% 25%;
+        width: 70%;
+    }
+    .ratetheproduct {
+        font-size: 13px;
+       
+    }
+    .pricefororders del {
+        color: red;
+        font-size: 13px;
+    }
+    .orderinnerimg .first-image img{
+        width: 120px;
+        height: 120px;
+        overflow: hidden;
+        margin: 0px;
+    }
+    .orderproductname {
+        font-size: 13px;
+        margin: auto 0px;
+        text-align: left;
+    }
+    .pricefororders {
+        text-align: left;
+        margin: auto 0px;
+        font-size: 13px;
+    }
     .sweets-images {
         width: 85%;
         margin-left: auto;
@@ -1631,6 +1728,11 @@ width:20px;
     }
 }
 @media only screen and (max-width:950px) {
+    .displaygridorders {
+        display: grid;
+        grid-template-columns: 22% 25% 28% 25%;
+        width: 80%;
+    }
 .productflex {
         width: 800px;
         margin-left: auto;
@@ -1727,6 +1829,18 @@ width:20px;
 }
 
 @media only screen and (max-width:850px) {
+    .orderinnerimg .first-image img {
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        margin: 0px;
+    }
+    .pricefororders {
+        text-align: left;
+        margin: auto 0px;
+        font-size: 12px;
+    }
+ 
     .sweets-images {
         width: 100%;
         margin: 0px;
@@ -1813,6 +1927,12 @@ width:20px;
 
 
 @media only screen and (max-width:730px) {
+    .pricefororders p{
+        color: gray;
+        display: inline;
+    }
+    
+    
     .cate-heading {
 		display:none;
     }
@@ -1949,6 +2069,16 @@ width:20px;
     }
 }
 @media only screen and (max-width:630px) {
+    .orderproductname {
+        font-size: 12px;
+        margin: auto 0px;
+        text-align: left;
+    }
+    .displaygridorders {
+        display: grid;
+        grid-template-columns: 27% 25% 22% 25%;
+        width: 85%;
+    }
 	    .breadcrumbs p {
         width: 80%;
         margin-left: auto;
@@ -2184,6 +2314,14 @@ width:20px;
     }
 }
 @media only screen and (max-width:550px){
+    .displaygridorders {
+        display: grid;
+        grid-template-columns: 27% 25% 22% 25%;
+        width: 90%;
+    }
+    .ratetheproduct {
+        font-size: 12px;
+    }
     .carousel-indicators #scroll1 {
         width: 80px;
         height: 80px;
@@ -2549,6 +2687,14 @@ width:20px;
       }
 }
 @media only screen and (max-width:450px){
+    .ratetheproduct {
+        display: none;
+    }
+    .displaygridorders {
+        display: grid;
+        grid-template-columns: 33% 40% 22%;
+        width: 90%;
+    }
 	.first-image {
         width: 200px;
         height: 200px;
@@ -2905,6 +3051,11 @@ width:20px;
 	
 }
 @media only screen and (max-width:390px) {
+    .displaygridorders {
+        display: grid;
+        grid-template-columns: 38% 35% 22%;
+        width: 90%;
+    }
     .cate-heading {
 		display:none;
         
@@ -3252,6 +3403,30 @@ width:20px;
     }
 }
 @media only screen and (max-width:320px){
+    .orderinnerimg .first-image img {
+        width: 80px;
+        height: 80px;
+        overflow: hidden;
+        margin: 0px;
+    }
+   
+.displaygridorders {
+    display: grid;
+    grid-template-columns: 38% 35% 22%;
+    width: 95%;
+}
+    .orderproductname {
+        font-size: 11px;
+        margin: 0px;
+        padding-top: 5px;
+        text-align: left;
+    }
+    .pricefororders {
+        text-align: left;
+        margin: 0px;
+        padding-top: 5px;
+        font-size: 11px;
+    }
 	.first-image {
         width: 100px;
         height: 100px;
@@ -3279,6 +3454,12 @@ width:20px;
 }	
 }
 @media only screen and (max-width:315px){
+    .orderinnerimg .first-image img {
+        width: 80px;
+        height: 80px;
+        overflow: hidden;
+        margin: 0px;
+    }
     .password-innerdiv input {
         padding: 10px;
         border: 1px solid #ddd;

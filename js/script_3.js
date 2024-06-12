@@ -792,3 +792,43 @@ $(document).on("click", ".first-image", function() {
 
  
 });
+
+function getofferbtn(){
+ $(".getofferbanner").css("display","block");
+var endTime = new Date().getTime() + 3 * 24 * 60 * 60 * 1000; 
+ updateCountdown(endTime);
+
+}
+function calculateTime(endTime) {
+  var currentTime = new Date().getTime();
+  var remainingTime = endTime - currentTime;
+
+  var hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+  return { hours, minutes, seconds };
+}
+
+function updateCountdown(endTime) {
+  var time = document.getElementById('offertime');
+  var { hours, minutes, seconds } = calculateTime(endTime);
+
+
+  time.innerHTML = `
+      <span class="countdown-element hours">${hours}h</span>
+      <span class="countdown-element minutes">${minutes}m</span>
+      <span class="countdown-element seconds">${seconds}s</span>
+  `;
+
+
+}
+
+
+var endTime = new Date().getTime() + 3 * 24 * 60 * 60 * 1000; 
+
+setInterval(() => {
+  updateCountdown(endTime);
+}, 1000);
+
+
