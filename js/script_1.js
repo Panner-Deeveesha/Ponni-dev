@@ -676,7 +676,7 @@ function getpriceforrecent(obj){
   });
 }
 
-var productList = document.querySelectorAll(".product-list2");
+
 function recentlyview(inputs){
   recentlyinput = " ";
   for(i=0;i<inputs.length;i++){
@@ -700,7 +700,7 @@ function recentlyview(inputs){
     recentlyinput += '</div>';
   }
   $(".cate-recent").css("display","block"); 
-  productList.innerHTML = recentlyinput;
+  $(".product-list2").html(recentlyinput);
 
   var responsiveItems = {}; 
 
