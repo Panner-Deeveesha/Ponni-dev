@@ -610,7 +610,7 @@ function getdatawithuserrecent(obj){
       var boo = isJsonString(response);
       if(boo==true){
         var obj = JSON.parse(response);
-        console.log(obj);
+        //console.log(obj);
         getproductswithid(obj);
       }else{
         console.log("Error");
@@ -624,7 +624,7 @@ function getdatawithuserrecent(obj){
 
 function getproductswithid(obj){
   var objects = obj;
-  console.log(objects);
+  //console.log(objects);
   $.ajax({
     url: "./php/getProductId.php",
     type: "post",
@@ -633,7 +633,7 @@ function getproductswithid(obj){
         var boo = isJsonString(response);
         if(boo==true){
             var obj = JSON.parse(response);
-            console.log(obj);
+            //console.log(obj);
             getpriceforrecent(obj);
         }else{
             console.log("Response Is Object");
@@ -667,7 +667,7 @@ function getpriceforrecent(obj){
             });
             //showNewLanches(obj);
         });
-        console.log(obj);
+        //console.log(obj);
         recentlyview(obj);
       },
       error: function (error) {
@@ -676,6 +676,7 @@ function getpriceforrecent(obj){
   });
 }
 
+var productList = document.querySelectorAll(".product-list2");
 function recentlyview(inputs){
   recentlyinput = " ";
   for(i=0;i<inputs.length;i++){
@@ -699,7 +700,7 @@ function recentlyview(inputs){
     recentlyinput += '</div>';
   }
   $(".cate-recent").css("display","block"); 
-  document.querySelector(".product-list2").innerHTML = recentlyinput;
+  productList.innerHTML = recentlyinput;
 
   var responsiveItems = {}; 
 
@@ -845,6 +846,47 @@ function printonwish(obj){
       document.getElementById("samplework").innerHTML=t;
       
     }
+}
+
+forhead();
+
+function forhead(){
+  var token33 = localStorage.getItem("token");
+  const screenWidth = window.innerWidth;
+  if(token33){
+    $("#titlelogin").css("display","none");
+    $(".cart-headline").css("margin-top","99px");
+    $(".productpage").css("margin-top","89px");
+    $(".privacy-content").css("margin-top","129px");
+    if(screenWidth > 1070 ){
+      $("#firimage").css("margin-top","90px");
+    }else if(screenWidth > 990){
+      $("#firimage").css("margin-top","99px");
+    }else if(screenWidth > 575){
+      $("#firimage").css("margin-top","99px");
+    }else if(screenWidth > 475){
+      $("#firimage").css("margin-top","110px");
+    }else{
+      $("#firimage").css("margin-top","70px");
+    }
+  }else{
+    $("#titlelogin").css("display","block");
+    $("#firimage").css("margin-top","75px");
+    $(".cart-headline").css("margin-top","99px");
+    $(".productpage").css("margin-top","129px");
+    $(".privacy-content").css("margin-top","99px");
+    if(screenWidth > 990 ){
+      $("#firimage").css("margin-top","130px");
+    }else if(screenWidth > 775){
+      $("#firimage").css("margin-top","120px");
+    }else if(screenWidth > 575){
+      $("#firimage").css("margin-top","139px");
+    }else if(screenWidth > 475){
+      $("#firimage").css("margin-top","139px");
+    }else{
+      $("#firimage").css("margin-top","110px");
+    }
+  }
 }
 
 $(document).ready(function () {

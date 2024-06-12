@@ -19,7 +19,6 @@ body{
 }
 #contenttolog a:hover{
     color: #558146;
-    font-size: 15px;
 }
 #contenttolog{
     width: 50%;
@@ -85,6 +84,7 @@ body{
     display: flex;
     align-items: center;
     padding-right: 20px;
+    position: relative;
 }
 #searchtot{
     width: 50%;
@@ -170,8 +170,8 @@ body{
 }
 #cartCount {
     position: absolute;
-    top: 21px;
-    right: 7.2%;
+    bottom: 32px;
+    right: 17.5%;
     background: #f0d343;
     color: black;
     padding: 0px 5px;
@@ -704,7 +704,8 @@ del{
         margin-left: 0px;
     }
     #cartCount {
-        right: 8.6%;
+        bottom: 35px;
+        right: 20%;
     }
     #cartblck {
         margin-left: 10px;
@@ -744,12 +745,13 @@ del{
         margin-left: 20px;
     }
     #contenttolog a{
-        width: 75%;
+        width: 80%;
     }
 }
 @media only screen and (max-width:630px){
     #ponnilogo {
         width: 25%;
+        height: auto;
     }
     #logoimg{
         width: 130px;
@@ -774,8 +776,8 @@ del{
         margin-left: 10px;
     }
     #cartCount {
-        top: 55px;
-        right: 11%;
+        right: 28%;
+        bottom: 46px;
     }
     #wholecancelation, #wholetc{
         width: 95%;
@@ -826,8 +828,8 @@ del{
         margin: 0px 10px;
     }
     #cartCount {
-        top: 47px;
-        right: 12.5%;
+        right: 31%;
+        bottom: 47px;
     }
     #wishtot{
         margin: 0px 10px;
@@ -837,7 +839,7 @@ del{
         font-size: 10px;
     }
     #contenttolog a{
-        width: 80%;
+        width: 88%;
     }
 }
 @media only screen and (max-width:440px){
@@ -863,9 +865,9 @@ del{
         width: 90px;
         height: 60px;
     }
-    #cartCount{
-        top: 20px;
-        right: 12%;
+    #cartCount {
+        right: 29%;
+        bottom: 47px;
     }
     #menutotleft {
         padding-left: 10px;
@@ -876,7 +878,7 @@ del{
 }
 @media only screen and (max-width:310px){
     #ponnilogo{
-        width: 50%;
+        width: 40%;
         padding-left: 0px;
         padding-top: 0px;
     }
@@ -888,11 +890,10 @@ del{
         height: 50px;
     }
     #headicons{
-        width: 30%;
+        width: 40%;
         padding-right: 10px;
     }
     #searchtot{
-        margin-right: 10px;
         margin-left: 0px;
         width: 30%;
     }
@@ -901,6 +902,10 @@ del{
     }
     #cartblck {
         margin-left: 0px;
+    }
+    #cartCount {
+        right: 35%;
+        bottom: 47px;
     }
     #carttot{
         margin-left: 10px;
