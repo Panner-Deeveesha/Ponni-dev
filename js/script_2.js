@@ -416,7 +416,8 @@ $(document).on("click", "#orderdetails", function() {
 
  
 });
-gettokenfororder();
+
+
 function gettokenfororder(){
   var getusertoken;
   const token = localStorage.getItem('token');
