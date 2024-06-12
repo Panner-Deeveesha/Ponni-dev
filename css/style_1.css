@@ -59,11 +59,14 @@ body{
 }
 #ponnititle{
     width: 40%;
+    margin-top: 5px;
+    padding-left: 20px;
+}
+#ponnititle a{
     font-size: 35px;
     font-weight: 600;
     color: #4d6b20;
-    margin-top: 5px;
-    padding-left: 20px;
+    text-decoration: none;
 }
 .imgclass{
     width: 30px;
@@ -227,7 +230,7 @@ body{
     background-color: rgba(0,0,0,0.7); 
 }
 #firimage{
-    margin-top: 139px;
+    margin-top: 129px;
     width: 100%;
     height: auto;
     background-color: #fff9e3;
@@ -470,7 +473,7 @@ del{
 .menureg:hover{
     border: 1px solid #000;
 }
-.menureg:nth-of-type(5) span:first-of-type{
+.menureg:nth-of-type(6) span:first-of-type{
     width: 80%;
 }
 .menureg a{

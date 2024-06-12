@@ -27,20 +27,19 @@
 
 <body onload="getAndSaveIPAddress();  getcategorydynamically();">
     <!-- Keerthana working area start-->
-    <!--<nav id="titlelogin">
-        <a href="login.html">
-        <p id="contenttolog">Please <strong>Login</strong> To check for special offers!</p></a>
-    </nav>-->
     <nav id="navhead">
+        <div id="titlelogin">
+            <p id="contenttolog"><a href="login.html"><strong>Sign In</strong> for more features!</a></p>
+            </div>
         <div id="headerfull">
             <div id="ponnititle">
-                <p>PONNI NATURAL FOODS</p>
+                <p><a href="./index.html">PONNI NATURAL FOODS</a></p>
             </div>
             <div id="menutotleft">
                 <img src="./assets/icons/menu-blck.png" alt="Cart" id="menublck" onclick="openmenu()" onmouseover="this.src='./assets/icons/menu-green.png'" onmouseout="this.src='./assets/icons/menu-blck.png'">
             </div>
             <div id="ponnilogo">
-                <img src="assets/images/Logo trim.png" alt="Logo" id="logoimg">
+                <a href="./index.html"><img src="assets/images/Logo trim.png" alt="Logo" id="logoimg"></a>
             </div>
             <div id="headicons">
                 <div id="searchtot">
@@ -56,7 +55,7 @@
                 </div>
                 <div id="carttot">
                     <a href="cart.html">
-                        <p id="cartCount">0</p>
+                        <p id="cartCount" style="top: 50px;">0</p>
                         <img src="./assets/icons/cart-black.png" alt="Cart" id="cartblck" onmouseover="this.src='./assets/icons/cart-green.png'" onmouseout="this.src='./assets/icons/cart-black.png'">
                     </a>
                 </div>
@@ -150,6 +149,12 @@
                 <img src="./assets/icons/rocket.png" alt="NewItems" id="Items">
                 <span>New Items & Best Seller</span>
             </div>
+            <div class="menureg">
+                <a href="order.html">
+                    <img src="./assets/icons/orderbox.png" alt="NewItems" id="Items">
+                    <span>My Orders</span>
+                </a>
+            </div>
             <div class="menureg" id="shopnowid">
                 <img src="./assets/icons/shoppingbag.png" alt="ShopNow" id="shipbag">
                 <span>Shop Now</span>
@@ -158,7 +163,7 @@
             </div>
             <div class="contentmenuslide">
                 <ul id="shopslide">
-                    <li class="comonclas">
+                    <!--<li class="comonclas">
                         <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="categories" class="menuimg" id="categoriesmenu">
                         <span class="spancls">Rice</span>
                     </li>
@@ -181,7 +186,7 @@
                     <li class="comonclas">
                         <img src="https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297" alt="Snacks" class="menuimg" id="beautymenu">
                         <span class="spancls">Beauty Products</span>
-                    </li>  
+                    </li> --> 
                 </ul>
             </div>
             <div class="menureg" id="lastmenureg">
@@ -828,25 +833,25 @@
         </div>
     </div>
 
- <div class="getofferbtn" onclick="getofferbtn()">
-    <button type="button" class="getbtn" >
-  <div  class="getofferdiv">
-Get Offer &nbsp;<b>☝︎</b>      
-  </div>
-</button>
-
- </div>
- <div class="getofferbanner">
-   <div class="getofferimg">
-     <div class="getimg"> <img src="https://a.omappapi.com/users/0a2cd3279ffe/images/c87472efe33d1718079326-in-pop-up.jpg?width=480" class="offerimg1">
-        <img src="./assets/icons/multiply1.png" class="getcancel">
-    <div class="timesec">
-     <div id="offertime"></div>
-    </div>
-    </div>
-   </div>
-
- </div>
+    <div class="getofferbtn" onclick="getofferbtn()">
+        <button type="button" class="getbtn" >
+      <div  class="getofferdiv">
+    Get Offer &nbsp;<b>☝︎</b>      
+      </div>
+    </button>
+    
+     </div>
+     <div class="getofferbanner" onclick="offercancel()">
+       <div class="getofferimg">
+         <div class="getimg"> <img src="https://a.omappapi.com/users/0a2cd3279ffe/images/c87472efe33d1718079326-in-pop-up.jpg?width=480" class="offerimg1">
+            <img src="./assets/icons/multiply1.png" class="getcancel" onclick="offercancel()">
+        <div class="timesec">
+         <div id="offertime"></div>
+        </div>
+        </div>
+       </div>
+    
+     </div>
    
 
 
