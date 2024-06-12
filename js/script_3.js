@@ -6,6 +6,7 @@
 
 
 
+
 $("#footer-plus1").click(function () {
   $(".footer-main3 .footer-contact").slideDown("slow");
   $("#footer-minus1").css("display", "block");
@@ -811,28 +812,29 @@ function calculateTime(endTime) {
 }
 
 function updateCountdown() {
-  var endTime = localStorage.getItem('endTime'); 
+  var endTime = localStorage.getItem('endTime');
   if (!endTime) {
-  
     endTime = new Date().getTime() + 3 * 24 * 60 * 60 * 1000;
-    localStorage.setItem('endTime', endTime); 
+    localStorage.setItem('endTime', endTime);
   }
 
   var time = document.getElementById('offertime');
-  var { hours, minutes, seconds } = calculateTime(endTime);
-
-  time.innerHTML = `
-      <span class="countdown-element hours">${hours}h</span>
-      <span class="countdown-element minutes">${minutes}m</span>
-      <span class="countdown-element seconds">${seconds}s</span>
-  `;
+  if (time) { 
+    var { hours, minutes, seconds } = calculateTime(endTime);
+    time.innerHTML = `
+        <span class="countdown-element hours">${hours}h</span>
+        <span class="countdown-element minutes">${minutes}m</span>
+        <span class="countdown-element seconds">${seconds}s</span>
+    `;
+  }
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+  setInterval(() => {
+    updateCountdown();
+  }, 1000);
+});
 
-
-setInterval(() => {
-  updateCountdown();
-}, 1000);
 
 function offercancel(){
 
