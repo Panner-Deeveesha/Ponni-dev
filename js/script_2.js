@@ -399,6 +399,195 @@ $(document).on("click", ".sampleitem", function() {
 
  
 });
+$(document).on("click", ".item-name", function() {
+  
+  var ordertemp=  $(this).html();
+
+
+
+  window.location.href = "./ponniproductpage.html?innerHTML="+ordertemp;
+
+ 
+});
+$(document).on("click", "#orderdetails", function() {
+  window.location.href = "./order.html";
+
+
+
+ 
+});
+gettokenfororder();
+function gettokenfororder(){
+  var getusertoken;
+  const token = localStorage.getItem('token');
+ 
+    var data = {
+      "token": token
+      
+  }
+    $.ajax({
+      url: "./php/getuserId.php",
+      type: "post",
+      data: data,
+      success: function (response) {
+        var boo = isJsonString(response);
+        
+        if(boo==true){
+            var obj = JSON.parse(response);
+           
+            getusertoken=obj[0].id;
+          //console.log(getuserid);
+          getorderlist(getusertoken);
+           
+        }else{
+            console.log("Error");
+        }   
+
+    },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+}
+function getorderlist(getusertoken){
+  var data = {
+    "userid": getusertoken    
+}
+$.ajax({
+  url: "./php/getorderlist.php",
+  type: "post",
+  data: data,
+  success: function (response) {
+    var boo = isJsonString(response);
+    
+    if(boo==true){
+        var obj = JSON.parse(response);
+        console.log(obj);
+      getorderproduct(obj);
+       
+    }else{
+        console.log("Error");
+    }   
+
+},
+  error: function (error) {
+      console.log(error);
+  }
+});
+}
+function getorderproduct(obj){
+ console.log(obj);
+ var products=obj;
+
+ $.ajax({
+   url: "./php/findbyproductId.php",
+   type: "post",
+   data: {
+     products: products
+   },
+   success: function (response) {
+    
+     var boo=isJsonString(response);
+    if(boo==true){
+   var product=JSON.parse(response);
+   console.log(product);
+   getpriceorder(product);
+
+    }
+   
+   },
+   error: function (error) {
+     console.log(error);
+   }
+ });
+
+}
+function getpriceorder(obj){
+  $.ajax({
+    url: "./php/getPrice.php",
+    type: "get",
+    
+    success: function (response) {
+        var obj2 = JSON.parse(response);
+        //console.log(response);
+         //console.log(obj2);
+        $(obj).each(function (index, value) {
+            //console.log(value);
+            $(obj2).each(function (index2, value2) {
+                if (value.productId == value2.productId) {
+                    //console.log(value.uniqueId+":"+value2.id  );
+                    value.price = value2.price;
+                    value.offerPrice = value2.offerPrice;
+                    //console.log(value);
+                }
+            });
+            
+        });
+        //showNewLanches(obj);
+        console.log(obj);
+        displayorderproducts(obj);
+    },
+    error: function (error) {
+        console.log(error);
+    }
+});
+
+}
+function displayorderproducts(obj){
+   var orderdetail="";
+for(let i=0;i<obj.length;i++){
+  orderdetail +="<div class='displaygridorders'>";
+  orderdetail +="<div class='orderinnerimg'>";
+  orderdetail +="<p class='first-image'>";
+  orderdetail +="<img src="+obj[i].imgPath_1+">";
+  orderdetail +="</p>";
+  orderdetail +=" </div>";
+  orderdetail +=" <div class='orderproductname'>";
+  orderdetail +="<p>";
+  orderdetail +="<b class='item-name'>";
+  orderdetail +=obj[i].productName;
+  orderdetail +="</b>";
+  orderdetail +="</p>";
+  orderdetail +="<p>";
+  orderdetail +="orderId:12";
+  orderdetail +="</p>";
+  orderdetail +="<p>";
+  orderdetail +="orderdate:12/06/2024";
+  orderdetail +="</p>";
+  orderdetail +="</div>";
+  orderdetail +="<div class='pricefororders'>";
+  orderdetail +="<p>";
+  orderdetail +="<del>";
+  orderdetail += "Rs : "+obj[i].price;
+  orderdetail +="</del>";
+  orderdetail +="<span>";
+  orderdetail += "Rs : "+obj[i].offerPrice;
+  orderdetail +="</span>";
+  orderdetail +="</p>";
+  orderdetail +="</div>";
+  orderdetail +="<div class='ratetheproduct'>";
+  orderdetail +="<p>";
+  orderdetail +="Track Order";
+  orderdetail +="</p>";
+  orderdetail +="<p class='colorrate'>";
+  orderdetail +="Delivery by june 20 2024";
+  orderdetail +="</p>";
+  orderdetail +="</div>";
+  orderdetail +="</div>";
+ 
+}
+document.getElementById("getdynamicorder").innerHTML=orderdetail;
+
+}
+$(document).on("click", ".orderinnerimg", function() {
+  
+  var ordertemp2= $(this).find(".item-name").text();
+console.log(ordertemp2);
+
+  window.location.href = "./ponniproductpage.html?innerHTML="+ordertemp2;
+
+ 
+});
 productpage();
 function productpage(){
   const searchParams = new URLSearchParams(window.location.search);
