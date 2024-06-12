@@ -140,7 +140,7 @@ privacy page
     width:60%;
     margin-left:auto;
     margin-right: auto;
-    
+    margin-top: 99px;
 }
 .privacy-content h3{
     margin-top: 20px;
@@ -163,7 +163,7 @@ ship page
     width:60%;
     margin-left:auto;
     margin-right: auto;
-    
+    margin-top: 99px;
 }
 .ship-content h2{
     margin-top: 20px;
@@ -187,7 +187,7 @@ ship page
 /*end privay*/
 .wholeloginpage{
  font-family: 'Poppins', sans-serif;	
-
+ margin-top: 99px;
 }
 .wholeloginpage #login-commend{
     color: red;
@@ -1072,6 +1072,9 @@ width:20px;
 
 /*kavya css end*/
 
+.productpage{
+    margin-top: 89px;
+}
 
 .inputavailability {
     width: 125px;

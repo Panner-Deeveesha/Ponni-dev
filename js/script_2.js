@@ -1,6 +1,7 @@
 
 var mydiv = document.getElementById("headingdiv");
 var mydiv2 = document.getElementById("headingdiv2");
+var menucat = document.getElementById("shopslide");
 function getcategorydynamically(){
   $.ajax({
     url: "./php/getcategorydynamic.php",
@@ -64,6 +65,24 @@ function printheading(obj){
   }
   headcate2 += "</div>";
   mydiv2.innerHTML = headcate2;
+
+  var headcate3 = "";
+  headcate3 += "<li class='comonclas'>";
+  headcate3 += "<img src='https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297' class='menuimg'>";
+  headcate3 +="<span class='spancls'>";
+  headcate3 += obj[0].category;
+  headcate3 +="</span>";
+  headcate3 += "</li>";
+  for(i=1;i<objlen;i++){
+    headcate3 += "<li class='comonclas'>";
+    headcate3 += "<img src='https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297' class='menuimg'>";
+    headcate3 += "<span class='spancls'>";
+    headcate3 += obj[i].category;
+    headcate3 += "</span>";
+    headcate3 += "</li>";
+  }
+  menucat.innerHTML = headcate3;
+
   getproductname(categoryfirst);
   categload();
   var header = document.getElementById("headingdiv");
