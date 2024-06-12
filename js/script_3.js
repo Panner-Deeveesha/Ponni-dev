@@ -1,12 +1,4 @@
 
-
-
-
-
-
-
-
-
 $("#footer-plus1").click(function () {
   $(".footer-main3 .footer-contact").slideDown("slow");
   $("#footer-minus1").css("display", "block");
@@ -631,7 +623,7 @@ var carticoncount=uniqueObj.length;
 
   },
   success: function(response) {
-      console.log(response);
+    
       var boo = isJsonString(response);
 
       if(boo==true){
@@ -665,7 +657,7 @@ var carticoncount=uniqueObj.length;
         products: products
       },
       success: function (response) {
-        console.log(response);
+     
         var boo=isJsonString(response);
        if(boo==true){
       var product=JSON.parse(response);
@@ -835,9 +827,15 @@ document.addEventListener('DOMContentLoaded', function() {
   }, 1000);
 });
 
+function offercancel(event){
+  if (!event.target.classList.contains('offerimg1')) {
+    event.stopPropagation();
+    document.querySelector('.getofferbanner').style.display = 'none';
+}
+  
 
-function offercancel(){
+}
 
+function getcancel(){
   $(".getofferbanner").css("display","none");
-
 }
