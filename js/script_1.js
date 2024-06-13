@@ -503,7 +503,7 @@ function checkTime(inputs) {
   } else {
     setTimeout(function() {
       checkTime(inputs);
-    }, 1000);
+    }, 10000);
   }
 }
 
@@ -576,11 +576,7 @@ function addtorecentdata(inputs,userid){
       type: "post",
       data: data,
       success: function (response) {
-        //console.log("New Record Created");  
-        var imgsrc="./assets/icons/success.png";
-        var mgs="Record Created";
-        var content="Success! New Record Created Successfully.";
-        popup(imgsrc,mgs,content);
+        console.log("New Record Created");  
       },
       error: function (error) {
           console.log(error);
@@ -588,7 +584,7 @@ function addtorecentdata(inputs,userid){
   });
 }
 
-loadvaluesprint();
+
 function loadvaluesprint(){
   var token = localStorage.getItem("token");
   if(token){
@@ -625,14 +621,15 @@ function getdatawithuserrecent(obj){
     url: "./php/getuserrecentproduct.php",
     type: "post",
     data: data,
-    success: function (response) {   
+    success: function (response) {  
+      console.log(typeof(response)); 
       var boo = isJsonString(response);
       if(boo==true){
         var obj = JSON.parse(response);
         //console.log(obj);
         getproductswithid(obj);
       }else{
-        console.log("Error");
+        console.log("There is no recent Item");
       }
     },
     error: function (error) {
@@ -744,7 +741,7 @@ function recentlyview(inputs){
       responsiveItems = {
           0: { items: 1 },
           600: { items: 2, dots: true, nav: false },
-          800: { items: 4}
+          800: { items: 3}
       };
   }
 
@@ -759,26 +756,30 @@ function recentlyview(inputs){
 function wishListfor(){
   var token31 = localStorage.getItem('token');
   //console.log('token31');
-  var data = {
-    "token": token31
+  if(token){
+    var data = {
+      "token": token31
+    }
+    $.ajax({
+        url: "./php/getuserId.php",
+        type: "post",
+        data: data,
+        success: function (response) {
+            var boo = isJsonString(response);
+            if(boo==true){
+                var obj = JSON.parse(response);
+                getinwishlist(obj);
+            }else{
+                console.log("Error");
+            }    
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+  }else{
+    $("#noneproducts").text("No Products are there in your Wishlist, Kindly Login!");
   }
-  $.ajax({
-      url: "./php/getuserId.php",
-      type: "post",
-      data: data,
-      success: function (response) {
-          var boo = isJsonString(response);
-          if(boo==true){
-              var obj = JSON.parse(response);
-              getinwishlist(obj);
-          }else{
-              console.log("Error");
-          }    
-      },
-      error: function (error) {
-          console.log(error);
-      }
-  });
 }
 
 function getinwishlist(obj){
@@ -884,6 +885,7 @@ function forhead(){
     $("#loginmenu").css("display","none");
     $("#logoutmenu").css("display","block");
     $(".wholeregisterpage").css("margin-top","99px");
+    $(".wholecategories2").css("margin-top","99px");
     if(screenWidth > 1070 ){
       $("#firimage").css("margin-top","90px");
     }else if(screenWidth > 990){
@@ -896,6 +898,7 @@ function forhead(){
       $("#firimage").css("margin-top","70px");
     }
   }else{
+    $(".wholecategories2").css("margin-top","130px");
     $("#titlelogin").css("display","block");
     $(".cart-headline").css("margin-top","99px");
     $(".productpage").css("margin-top","119px");

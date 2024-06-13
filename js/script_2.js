@@ -1352,14 +1352,26 @@ function categload(){
       var passval = decodeURIComponent(passvalEncoded);
       var textconver = passval.toUpperCase();
       // Iterate over each button
-      $("#mydiv span").each(function() {
+      const screenWidth = window.innerWidth;
+      if (screenWidth > 730) {
+        $("#mydiv span").each(function() {
           var buttonText = this.textContent.toUpperCase(); // Get the text of the button
           if (buttonText === textconver) {
             $("#mydiv span").removeClass("active");
             $(this).addClass("active");
             categorypagepass(passval);
           }
-      });
+        });
+      }else{
+        $("#mydiv2 div").each(function() {
+          var buttonText = this.textContent.toUpperCase(); // Get the text of the button
+          if (buttonText === textconver) {
+            $("#mydiv2 div").removeClass("active2");
+            $(this).addClass("active2");
+            categorypagepass(passval);
+          }
+        });
+      } 
   });
 }
   
