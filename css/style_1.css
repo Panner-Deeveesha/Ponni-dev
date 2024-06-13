@@ -399,6 +399,7 @@ body{
 #productList2 span{
     text-overflow: ellipsis;
     width: 200px;
+    margin-left: 10px;
 }
 #totalstart{
     width: 100%;

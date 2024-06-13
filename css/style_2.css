@@ -1203,6 +1203,7 @@ width:20px;
 	font-size:25px;
 	font-weight:700;
     display:none;
+    text-align: center;
 }
 
 .cate-recent{
@@ -1213,7 +1214,7 @@ width:20px;
 	font-size:25px;
 	font-weight:700;
 	display: none;
-	
+	text-align: center;
 }
 .product-carousel{
 	width:1200px;
@@ -1379,7 +1380,15 @@ width:20px;
     color: #878787;
     display: none;
 } 
- }
+.product-carousel .owl-nav .owl-next {
+   
+    right: 3% !important;  
+}
+.cate-recentphotos .owl-nav .owl-next{
+    right: 3% !important;
+}
+ 
+}
 
 
 
@@ -1561,7 +1570,7 @@ width:20px;
     }
 
     .first-image {
-        width: 250px !important;
+        width: 300px !important;
         height: 300px;
 
         overflow: hidden;
@@ -2120,16 +2129,41 @@ width:20px;
         overflow: hidden;
     }
 	.first-image {
-        width: 250px;
+        width: 300px !important;
         height: 250px;
         overflow: hidden;
         margin: 0px;
     }
+   .product-carousel .first-image{
+    width: 250px !important;
+    height: 250px;
+    overflow: hidden;
+    margin: 0px;
+   }
+   .cate-recentphotos .first-image{
+    width: 250px !important;
+    height: 250px;
+    overflow: hidden;
+    margin: 0px;
+   }
+
 }
 
 
 @media only screen and (max-width:620px) {
     .first-image {
+        width: 230px !important;
+        height: 250px;
+        overflow: hidden;
+        margin: 0px;
+    }
+    .product-carousel   .first-image {
+        width: 230px !important;
+        height: 250px;
+        overflow: hidden;
+        margin: 0px;
+    }
+    .cate-recentphotos  .first-image {
         width: 230px !important;
         height: 250px;
         overflow: hidden;
@@ -2319,7 +2353,10 @@ width:20px;
         width: 92%;
     }
   .product-carousel .owl-nav .owl-next {
-            right: 3% !important;
+            right:5% !important;
+        }
+        .cate-recentphotos .owl-nav .owl-next{
+            right: 5% !important;
         }
     
 }
@@ -2384,6 +2421,18 @@ width:20px;
         overflow: hidden;
         margin: 0px;
     }
+   .product-carousel .first-image {
+        width: 190px !important;
+        height: 190px;
+        overflow: hidden;
+        margin: 0px;
+    }
+    .cate-recentphotos .first-image{
+        width: 190px !important;
+        height: 250px;
+        overflow: hidden;
+        margin: 0px;
+       }
 
     .sweets-images {
 
@@ -2548,6 +2597,18 @@ width:20px;
         overflow: hidden;
         margin: 0px;
     }
+   .product-carousel .first-image {
+        width: 220px !important;
+        height: 220px;
+        overflow: hidden;
+        margin: 0px;
+    }
+	.cate-recentphotos .first-image{
+        width: 220px !important;
+        height: 250px;
+        overflow: hidden;
+        margin: 0px;
+       }
 	
 
 	.cate-heading2 #btn-podi p {
@@ -2726,6 +2787,18 @@ element.style {
         overflow: hidden;
         margin: 0px;
     }
+   .product-carousel .first-image {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        margin: 0px;
+    }
+    .cate-recentphotos .first-image{
+        width: 200px !important;
+        height: 250px;
+        overflow: hidden;
+        margin: 0px;
+       }
 	.cate-addbtn button {
         width: 300px;
         padding: 5px 20px;
@@ -2860,6 +2933,18 @@ element.style {
         overflow: hidden;
         margin: 0px;
     }
+    .product-carousel .first-image {
+        width: 180px !important;
+        height: 200px;
+        overflow: hidden;
+        margin: 0px;
+    }
+    .cate-recentphotos .first-image{
+        width: 180px !important;
+        height: 250px;
+        overflow: hidden;
+        margin: 0px;
+       }
     .sweets-images {
          row-gap: 10px;
 
@@ -3219,6 +3304,18 @@ margin-left: 3%;
         overflow: hidden;
         margin: 0px;
     }
+    .product-carousel .first-image {
+        width: 150px !important;
+        height: 150px;
+        overflow: hidden;
+        margin: 0px;
+    }
+    .cate-recentphotos .first-image {
+        width: 150px !important;
+        height: 150px;
+        overflow: hidden;
+        margin: 0px;
+    }
 
     .sweets-images p {
         width: 150px;
@@ -3341,6 +3438,18 @@ margin-left: 3%;
         overflow: hidden;
         margin: 0px;
     }
+    .product-carousel .first-image {
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+        margin: 0px;
+    }
+  .cate-recentphotos .first-image {
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+        margin: 0px;
+    }
     .productname {
         width: 120px;
         height: 50px;
@@ -3391,6 +3500,18 @@ margin-left: 3%;
         
     }
 	.first-image {
+        width: 130px !important;
+        height: 130px;
+        overflow: hidden;
+        margin: 0px;
+    }
+   .product-carousel .first-image {
+        width: 130px !important;
+        height: 130px;
+        overflow: hidden;
+        margin: 0px;
+    }
+    .cate-recentphotos .first-image {
         width: 130px !important;
         height: 130px;
         overflow: hidden;
@@ -3543,6 +3664,18 @@ margin-left: 3%;
         overflow: hidden;
         margin: 0px;
     }
+   .product-carousel .first-image {
+        width: 100px;
+        height: 150px;
+        overflow: hidden;
+        margin: 0px;
+    }
+    .cate-recentphotos .first-image{
+        width: 100px !important;
+        height: 250px;
+        overflow: hidden;
+        margin: 0px;
+       }
 	
 .product-carousel {
         width: 80%;
@@ -3562,6 +3695,10 @@ margin-left: 3%;
 	font-size:14px;
     font-weight: 600;
 }	
+.cate-recentphotos p{
+    font-size: 14px;
+    font-weight: 600;
+}
 }
 @media only screen and (max-width:315px){
     .fullpopup{

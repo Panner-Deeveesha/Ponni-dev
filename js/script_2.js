@@ -46,7 +46,7 @@ function printheading(obj){
     headcate += "</span>";
   }
   headcate += "</div>";
-  mydiv.innerHTML = headcate;
+  $("#headingdiv").html(headcate);
 
 
   var headcate2 = "";
@@ -64,7 +64,7 @@ function printheading(obj){
     headcate2 += "</div>";
   }
   headcate2 += "</div>";
-  mydiv2.innerHTML = headcate2;
+  $("#headingdiv2").html(headcate2);
 
   var headcate3 = "";
   headcate3 += "<li class='comonclas'>";
@@ -81,7 +81,7 @@ function printheading(obj){
     headcate3 += "</span>";
     headcate3 += "</li>";
   }
-  menucat.innerHTML = headcate3;
+  $("#shopslide").html(headcate3);
 
   getproductname(categoryfirst);
   categload();
@@ -615,6 +615,7 @@ $(document).on("click", ".orderinnerimg", function() {
 function productpage(){
   const searchParams = new URLSearchParams(window.location.search);
   const token = localStorage.getItem('token');
+
   if(searchParams.has('innerHTML')){
    
     
@@ -721,35 +722,42 @@ function productpagegetPrice(obj) {
   });
 }
 function getuseridforlike(fullobj){
+
   var token=localStorage.getItem('token');
 
-
+if(token){
   var data = {
-     "token": token  
+    "token": token  
 }
-  $.ajax({
-    url: "./php/getuserId.php",
-    type: "post",
-    data: data,
-    success: function (response) {
-      var boo = isJsonString(response);
-      
-      if(boo==true){
-          var obj = JSON.parse(response);
-         
-         var getuserid=obj[0].id;
-        console.log(getuserid);
-       checkwishlistproduct(getuserid,fullobj);
-         
-      }else{
-          console.log("Error");
-      }   
+ $.ajax({
+   url: "./php/getuserId.php",
+   type: "post",
+   data: data,
+   success: function (response) {
+     var boo = isJsonString(response);
+     
+     if(boo==true){
+         var obj = JSON.parse(response);
+        
+        var getuserid=obj[0].id;
+       console.log(getuserid);
+      checkwishlistproduct(getuserid,fullobj);
+        
+     }else{
+         console.log("Error");
+     }   
 
-  },
-    error: function (error) {
-        console.log(error);
-    }
+ },
+   error: function (error) {
+       console.log(error);
+   }
 });
+}
+else{
+  var response=0;
+  displayproduct(fullobj,response);
+}
+ 
 }
 
 function checkwishlistproduct(getuserid,fullobj){
@@ -787,7 +795,7 @@ function checkwishlistproduct(getuserid,fullobj){
 function displayproduct(input,response){
 console.log(input);
 console.log(response);
-
+  var token=localStorage.getItem('token');
   var s = "";
   var s2 ="";
   var s3="";
@@ -796,11 +804,14 @@ console.log(response);
   s +='<h3 id="productname">';
   s +=input[0].productName;
   s +='</h3>';
-  if(response==0){
-    s +='<img id="heartimg" src="./assets/icons/heart.png">';
-  }
-  else{
-    s +='<img id="heartimg" src="./assets/icons/colorheart.png">'; 
+  if(token){
+    if(response==0){
+      s +='<img id="heartimg" src="./assets/icons/heart.png">';
+    }
+    else{
+      s +='<img id="heartimg" src="./assets/icons/colorheart.png">'; 
+    }
+   
   }
  
   s +='<p>';
@@ -988,6 +999,8 @@ var myImage = document.getElementById('heartimg');
 
 var imageSources = ["http://localhost/ponni-dev/assets/icons/heart.png", "http://localhost/ponni-dev/assets/icons/colorheart.png"];
 
+var imageSources2 = ["./assets/icons/heart.png", "./assets/icons/colorheart.png"];
+
 // Initialize a flag to keep track of the current image
 var currentImageIndex = 0;
 
@@ -1010,7 +1023,7 @@ myImage.addEventListener('click', function() {
           // Perform your action here, for example:
           console.log('Action performed for image: ' + src);
           console.log(i);
-          var currentImageIndex = i;
+          currentImageIndex = i;
           // You can replace the above console.log with whatever action you want to perform.
       }
   }
@@ -1023,12 +1036,12 @@ myImage.addEventListener('click', function() {
     currentImageIndex = (currentImageIndex + 1) % imageSources.length;
     console.log(currentImageIndex);
    if(currentImageIndex == 1){
-    myImage.src = imageSources[currentImageIndex];
+    myImage.src = imageSources2[currentImageIndex];
     listproductdetails (input);
     
    }
   else{
-    myImage.src = imageSources[currentImageIndex];
+    myImage.src = imageSources2[currentImageIndex];
     removehighlighticon(input);
   }
   
@@ -1339,14 +1352,26 @@ function categload(){
       var passval = decodeURIComponent(passvalEncoded);
       var textconver = passval.toUpperCase();
       // Iterate over each button
-      $("#mydiv span").each(function() {
+      const screenWidth = window.innerWidth;
+      if (screenWidth > 730) {
+        $("#mydiv span").each(function() {
           var buttonText = this.textContent.toUpperCase(); // Get the text of the button
           if (buttonText === textconver) {
             $("#mydiv span").removeClass("active");
             $(this).addClass("active");
             categorypagepass(passval);
           }
-      });
+        });
+      }else{
+        $("#mydiv2 div").each(function() {
+          var buttonText = this.textContent.toUpperCase(); // Get the text of the button
+          if (buttonText === textconver) {
+            $("#mydiv2 div").removeClass("active2");
+            $(this).addClass("active2");
+            categorypagepass(passval);
+          }
+        });
+      } 
   });
 }
   
