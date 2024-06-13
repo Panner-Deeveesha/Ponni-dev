@@ -1,7 +1,7 @@
 <?php
     include "config.php";
     $userid = $_POST["userid"];
-	$sql = "SELECT productId FROM cart WHERE userId='$userid' AND paid='yes'";
+	$sql = "SELECT productId,delivered,estimatedDeliveryDate,DeliveredDate,orderedDate FROM cart WHERE userId='$userid' AND paid='yes'";
     $res = $con->query($sql);
 
     if($res->num_rows>0){

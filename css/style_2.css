@@ -30,6 +30,7 @@ body{
 }
 .pricefororders del{
     color: red;
+    padding-right: 5px;
    
 }
 .pricefororders span{
@@ -3404,6 +3405,12 @@ width:20px;
 }
 @media only screen and (max-width:320px){
     .orderinnerimg .first-image img {
+        width: 80px;
+        height: 80px;
+        overflow: hidden;
+        margin: 0px;
+    }
+    .orderinnerimg .first-image {
         width: 80px;
         height: 80px;
         overflow: hidden;

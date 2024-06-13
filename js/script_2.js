@@ -399,6 +399,7 @@ $(document).on("click", ".sampleitem", function() {
 
  
 });
+
 $(document).on("click", ".item-name", function() {
   
   var ordertemp=  $(this).html();
@@ -491,8 +492,8 @@ function getorderproduct(obj){
      var boo=isJsonString(response);
     if(boo==true){
    var product=JSON.parse(response);
-   console.log(product);
-   getpriceorder(product);
+   console.log(obj,product);
+   getpriceorder(obj,product);
 
     }
    
@@ -503,7 +504,7 @@ function getorderproduct(obj){
  });
 
 }
-function getpriceorder(obj){
+function getpriceorder(delicontent,obj){
   $.ajax({
     url: "./php/getPrice.php",
     type: "get",
@@ -525,8 +526,8 @@ function getpriceorder(obj){
             
         });
         //showNewLanches(obj);
-        console.log(obj);
-        displayorderproducts(obj);
+        console.log(delicontent,obj);
+        displayorderproducts(delicontent,obj);
     },
     error: function (error) {
         console.log(error);
@@ -534,8 +535,19 @@ function getpriceorder(obj){
 });
 
 }
-function displayorderproducts(obj){
+function displayorderproducts(delicontent,obj){
    var orderdetail="";
+   delicontent.sort((a, b) => {
+    // Extracting the product numbers
+    let productIdA = parseInt(a.productId.slice(3));
+    let productIdB = parseInt(b.productId.slice(3));
+
+    // Comparing product numbers
+    return productIdA - productIdB;
+});
+
+console.log(delicontent);
+  console.log(obj);
 for(let i=0;i<obj.length;i++){
   orderdetail +="<div class='displaygridorders'>";
   orderdetail +="<div class='orderinnerimg'>";
@@ -553,7 +565,7 @@ for(let i=0;i<obj.length;i++){
   orderdetail +="orderId:12";
   orderdetail +="</p>";
   orderdetail +="<p>";
-  orderdetail +="orderdate:12/06/2024";
+  orderdetail +="orderdate: "+delicontent[i].orderedDate;
   orderdetail +="</p>";
   orderdetail +="</div>";
   orderdetail +="<div class='pricefororders'>";
@@ -567,12 +579,20 @@ for(let i=0;i<obj.length;i++){
   orderdetail +="</p>";
   orderdetail +="</div>";
   orderdetail +="<div class='ratetheproduct'>";
+if((delicontent[i].delivered) =="no"){
   orderdetail +="<p>";
   orderdetail +="Track Order";
   orderdetail +="</p>";
   orderdetail +="<p class='colorrate'>";
-  orderdetail +="Delivery by june 20 2024";
+  orderdetail +="Delivery by "+ delicontent[i].estimatedDeliveryDate;
   orderdetail +="</p>";
+}
+ else{
+  orderdetail +="<p class='colorrate'>";
+  orderdetail +="Deliverd on "+ delicontent[i].DeliveredDate;
+  orderdetail +="</p>";
+ }
+  
   orderdetail +="</div>";
   orderdetail +="</div>";
  
@@ -581,15 +601,16 @@ document.getElementById("getdynamicorder").innerHTML=orderdetail;
 
 }
 $(document).on("click", ".orderinnerimg", function() {
-  
-  var ordertemp2= $(this).find(".item-name").text();
-console.log(ordertemp2);
+  var itemName = $(this).closest('.displaygridorders').find('.item-name').text();
+  console.log(itemName); // Display the inner text of the .item-name class
 
-  window.location.href = "./ponniproductpage.html?innerHTML="+ordertemp2;
+ 
+
+  window.location.href = "./ponniproductpage.html?innerHTML="+itemName;
 
  
 });
-productpage();
+
 function productpage(){
   const searchParams = new URLSearchParams(window.location.search);
   const token = localStorage.getItem('token');
