@@ -382,6 +382,7 @@ var carticoncount=uniqueObj.length;
     
 
       $(".delete-item").click(function() {
+        
         var productId = uniqueObj[$(this).data("index")].productId; 
       
          var index = $(this).data("index"); 
@@ -395,7 +396,12 @@ var carticoncount=uniqueObj.length;
             },
             success: function(response) {
                 console.log(response);
+              
                 displaycartdetails(uniqueObj);
+                var imgsrc="./assets/icons/success.png";
+                var mgs="success";
+                var content="Product Was Removed from cart";
+                popup(imgsrc,mgs,content);
             },
             error: function(xhr, status, error) {
                 
@@ -504,7 +510,7 @@ var carticoncount=uniqueObj.length;
      paydiv +='<div class="paymentproduct-img">';
      paydiv += '<img src="' + obj[i].imgPath_1 + '" width="40px" alt="thirattipal" class="">';
       paydiv+='</div>';
-     paydiv+='<div class="product-details ">';
+     paydiv+='<div class="cartproduct-details ">';
      paydiv+='<div class="title ">'+obj[i].productName+'</div>';
      paydiv+='<div class="price">'+'Price:'+obj[i].offerPrice +'</div>';
      paydiv+='<span >'+'Quantity:'+obj[i].volume+obj[i].unit+'</span>';
@@ -724,7 +730,7 @@ var carticoncount=uniqueObj.length;
         carouselContent += '<del>';
         carouselContent += 'Rs.' + products[i].price + '.00';
         carouselContent += '</del>';
-        carouselContent += '<span>';
+        carouselContent += '<span class="offerpricepro">';
         carouselContent += 'From Rs.' + products[i].offerPrice + '.00';
         carouselContent += '</span>';
         carouselContent += '</p>';
