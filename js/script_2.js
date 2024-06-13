@@ -986,23 +986,50 @@ else {
 var myImage = document.getElementById('heartimg');
 
 
-var imageSources = ["./assets/icons/heart.png", "./assets/icons/colorheart.png"];
+var imageSources = ["http://localhost/ponni-dev/assets/icons/heart.png", "http://localhost/ponni-dev/assets/icons/colorheart.png"];
 
 // Initialize a flag to keep track of the current image
 var currentImageIndex = 0;
 
 // Attach an event listener for the click event
 myImage.addEventListener('click', function() {
+  var src = this.src; // Retrieve src attribute of clicked image
+            console.log(src); 
+            console.log(currentImageIndex);
+
+
+
+  
+ 
+  for (var i = 0; i < imageSources.length; i++) {
+      // Get the src attribute of the current img tag
+      var src2 = imageSources[i];
+      
+      // Check if the src contains the desired image name
+      if (src2.includes(src)) {
+          // Perform your action here, for example:
+          console.log('Action performed for image: ' + src);
+          console.log(i);
+          var currentImageIndex = i;
+          // You can replace the above console.log with whatever action you want to perform.
+      }
+  }
+
+
+
+
+  console.log(currentImageIndex);
     // Toggle the current image index
     currentImageIndex = (currentImageIndex + 1) % imageSources.length;
     console.log(currentImageIndex);
-   if(currentImageIndex == 0){
+   if(currentImageIndex == 1){
     myImage.src = imageSources[currentImageIndex];
-    removehighlighticon(input);
+    listproductdetails (input);
+    
    }
   else{
     myImage.src = imageSources[currentImageIndex];
-    listproductdetails (input);
+    removehighlighticon(input);
   }
   
 });
@@ -1061,7 +1088,11 @@ function deletelike(token,wishproduct){
         wishproduct:wishproduct 
       },
       success:function(response){
-        console.log("sucess");
+        var imgsrc="./assets/icons/success.png";
+        var mgs="Success";
+        var content="The product is Removed From WishList";
+       popup(imgsrc,mgs,content);
+        
       },
       error:function(xhr,status,error){
         console.log(error);
@@ -1110,7 +1141,12 @@ function setcarttable(userid,productId,productcount){
 
 $(document).on("click", "#productaddbutton", function() {
  
-  window.location.href = "./cart.html";
+
+
+  var imgsrc="./assets/icons/success.png";
+  var mgs="Success";
+  var content="Product Added to Cart";
+  popup(imgsrc,mgs,content);
  
 });
   
@@ -1201,7 +1237,7 @@ function clickregbutton(){
       var mgs="Registration Successful";
       var content="Thank You! You have successfully registered on our website. You can now proceed to the payment process.";
      popup(imgsrc,mgs,content);
-     setInterval(openlogin,900);
+     setInterval(openlogin,1200);
     },
     error:function(xhr,status,error){
       console.log(error);
@@ -1361,7 +1397,11 @@ function setproductswish(obj,wishproduct){
       wishproduct:wishproduct 
     },
     success:function(response){
-      console.log("sucess");
+      var imgsrc="./assets/icons/success.png";
+      var mgs="Success";
+      var content="The product is Added To WishList";
+     popup(imgsrc,mgs,content);
+     
     },
     error:function(xhr,status,error){
       console.log(error);

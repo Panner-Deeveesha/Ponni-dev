@@ -27,8 +27,10 @@ function displayProducts(replacedString) {
           var obj = JSON.parse(response);
           Pricecheck(obj);
       }else{
-        $("#productList").css("font-size","large");
-        ulit.innerHTML = "Sorry! No Products Found";
+        var imgsrc="./assets/icons/error.png";
+        var mgs="Error";
+        var content="Sorry! No Products Found.";
+        popup(imgsrc,mgs,content);
       }   
     },
     error: function (error) {
@@ -331,7 +333,11 @@ function displayProd(replacedString2) {
           var obj = JSON.parse(response);
           secondpricecheck(obj);
       }else{
-        displayval.innerHTML = "Sorry! No Products Found";
+        //displayval.innerHTML = "Sorry! No Products Found";
+        var imgsrc="./assets/icons/error.png";
+        var mgs="Error";
+        var content="Sorry! No Products Found.";
+        popup(imgsrc,mgs,content);
       }   
     },
     error: function (error) {
@@ -526,7 +532,11 @@ function tocheckfortoken(inputs){
         }
     });
   }else{
-    console.log("please login");
+    //console.log("please login");
+    var imgsrc="./assets/icons/error.png";
+    var mgs="Error";
+    var content="Please Login";
+    popup(imgsrc,mgs,content);
   }
 }
 
@@ -566,7 +576,11 @@ function addtorecentdata(inputs,userid){
       type: "post",
       data: data,
       success: function (response) {
-        console.log("New Record Created");  
+        //console.log("New Record Created");  
+        var imgsrc="./assets/icons/success.png";
+        var mgs="Record Created";
+        var content="Success! New Record Created Successfully.";
+        popup(imgsrc,mgs,content);
       },
       error: function (error) {
           console.log(error);
@@ -697,7 +711,7 @@ function recentlyview(inputs){
     recentlyinput += '<del>';
     recentlyinput += 'Rs.' + inputs[i].price + '.00';
     recentlyinput += '</del>';
-    recentlyinput += '<span>';
+    recentlyinput += '<span class="cate-span">';
     recentlyinput += 'From Rs.' + inputs[i].offerPrice + '.00';
     recentlyinput += '</span>';
     recentlyinput += '</p>';
@@ -785,7 +799,11 @@ function getinwishlist(obj){
             var obj = JSON.parse(response);
             getdetailsInproduct(obj);
         }else{
-           $("#samplework").text("No Products Found");
+          //$("#samplework").text("No Products Found");
+          var imgsrc="./assets/icons/error.png";
+          var mgs="Error";
+          var content="Sorry! No Products Found.";
+          popup(imgsrc,mgs,content);
         }    
     },
     error: function (error) {
@@ -806,7 +824,7 @@ function getdetailsInproduct(obj){
             var obj = JSON.parse(response);
             secondpricecheck(obj);
         }else{
-            console.log("Response Is Object");
+            //console.log("Response Is Object");
             secondpricecheck(obj);
         }    
     },
@@ -861,10 +879,11 @@ function forhead(){
   if(token33){
     $("#titlelogin").css("display","none");
     $(".cart-headline").css("margin-top","99px");
-    $(".productpage").css("margin-top","89px");
+    $(".productpage").css("margin-top","80px");
     $(".privacy-content").css("margin-top","129px");
     $("#loginmenu").css("display","none");
     $("#logoutmenu").css("display","block");
+    $(".wholeregisterpage").css("margin-top","99px");
     if(screenWidth > 1070 ){
       $("#firimage").css("margin-top","90px");
     }else if(screenWidth > 990){
@@ -872,15 +891,16 @@ function forhead(){
     }else if(screenWidth > 575){
       $("#firimage").css("margin-top","99px");
     }else if(screenWidth > 475){
-      $("#firimage").css("margin-top","110px");
+      $("#firimage").css("margin-top","99px");
     }else{
       $("#firimage").css("margin-top","70px");
     }
   }else{
     $("#titlelogin").css("display","block");
     $(".cart-headline").css("margin-top","99px");
-    $(".productpage").css("margin-top","129px");
+    $(".productpage").css("margin-top","119px");
     $(".privacy-content").css("margin-top","99px");
+    $(".wholeregisterpage").css("margin-top","99px");
     $("#loginmenu").css("display","block");
     $("#logoutmenu").css("display","none");
     if(screenWidth > 990 ){
@@ -951,8 +971,12 @@ $("#shopnowid").click(function () {
       $(".serchlist").css("display","block");
       $("#productList").css("display","block");
       $(".blackscreen").css("display", "block");
-      prolist.style.fontSize = "18px";
-      prolist.innerHTML = "Enter Product Name!";
+      //prolist.style.fontSize = "18px";
+      //prolist.innerHTML = "Enter Product Name!";
+        var imgsrc="./assets/icons/error.png";
+        var mgs="Error";
+        var content="Please Enter Product Name!";
+        popup(imgsrc,mgs,content);
     }
   });
 

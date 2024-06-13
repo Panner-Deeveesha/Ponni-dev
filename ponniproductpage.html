@@ -58,7 +58,7 @@
             </div>
         </div>
     </nav>
-    <div class="blackscreen"></div>
+    <div class="blackscreen" style="z-index: 3;"></div>
     
     <div id="searchsort">
         <div id="contentsear">
@@ -177,6 +177,7 @@
     </div>
          
     <div class="productpage">
+        <div id="popup"></div>
 	    <div class="breadcrumbs">
 	        <p><a href="index.html">Home </a> / Tamil-Nadu sweets</p>	   
 	    </div>
@@ -250,7 +251,14 @@
                         <button id="productaddbutton">ADD TO CART</button>
                     </div>
                 </div>
-                <p id="cate-des">Duties for Europe & Canada if any should be paid by the customers*</p>  
+                <p id="cate-des"><ul>
+                    <li>
+                        Quality in a product.
+                    </li>
+                    <li>
+                        Trust in a service.
+                    </li>
+                </ul></p>  
             </div>	
 	    </div>
         <div class="cate-ingre">
@@ -565,6 +573,15 @@
 <script src="./js/script_3.js"></script>
 <script src="./js/owlnpm.js"></script>
 <script src="./js/owlcarousel.js"></script>
-
+<script>
+    const screenWidth = window.innerWidth;
+    if(screenWidth < 630){
+        $("#cartCount").css("bottom","20px");
+        $("#ponnilogo").css("padding-top","0px");
+        $("#logoimg").css("width","120px");
+    }else{
+        $("#ponnilogo").css("padding-top","10px");
+    }
+</script>
 </body>
 </html>
