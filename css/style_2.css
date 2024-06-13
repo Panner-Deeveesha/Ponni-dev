@@ -2693,6 +2693,19 @@ width:20px;
       }
 }
 @media only screen and (max-width:450px){
+    
+element.style {
+    width: 80%;
+    height: 80%;
+}
+
+.flexbox1 .carousel-item {
+    
+    width: 89%;
+    margin-left: 0%;
+    margin-right: -100%;
+   
+}
     .ratetheproduct {
         display: none;
     }
@@ -2718,48 +2731,53 @@ width:20px;
         border: 1px solid #4d6b20;
     }
 	.carousel-indicators #scroll1 {
-		width:80px;
-		height:80px;
+        width:70px;
+        height:70px;
         right: 0%;
         bottom: 0;
-        left: 10%;
-        top: 95%;
+        left: 2%;
+        top: 75%;
         z-index: 2;
     }
-	.carousel-indicators #scroll2 {
-		width:70px;
-		height:70px;
+    .carousel-indicators #scroll2 {
+        width:60px;
+        height:60px;
         right: 0%;
         bottom: 0;
         left: 30%;
-        top: 95%;
+        top: 75%;
         z-index: 2;
     }
-	.carousel-indicators #scroll3 {
-		width:70px;
-		height:70px;
+    .carousel-indicators #scroll3 {
+        width:60px;
+        height:60px;
         right: 0%;
         bottom: 0;
         left: 50%;
-        top: 96%;
+        top: 75%;
         z-index: 2;
     }
-	.carousel-indicators #scroll4 {
-		width:70px;
-		height:70px;
+    .carousel-indicators #scroll4 {
+        width:60px;
+        height:60px;
         right: 0%;
         bottom: 0;
         left: 70%;
-        top: 95%;
+        top: 75%;
         z-index: 2;
     }
-	.descr-heading {
-    width: 300px;
-    padding-top: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: 600;
-}
+    .flexbox2 {
+        padding: 20px;
+        margin-top: 20px;
+    }
+    .descr-heading {
+        width: 300px;
+        padding-top: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 600;
+    }
+	
 .descr-heading #heading-one {
     padding: 10px;
     padding-bottom: 10px;
@@ -2772,6 +2790,7 @@ width:20px;
 }
 }
 @media only screen and (max-width:440px) {
+    
     .fullpopup{
         margin: 65% auto;
         width: 69%;
@@ -2992,15 +3011,58 @@ width:20px;
         display:none;
     }
     .flexbox1 .carousel-item {
-        position: relative;
-        display: none;
-        float: left;
+       
         width: 89%;
-        margin-left:10%;
+        margin-left:0%;
         margin-right:-100%;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        transition: transform .6s ease-in-out;
+        
+    }
+    .carousel-indicators #scroll1 {
+        width:70px;
+        height:70px;
+        right: 0%;
+        bottom: 0;
+        left: 2%;
+        top: 75%;
+        z-index: 2;
+    }
+    .carousel-indicators #scroll2 {
+        width:60px;
+        height:60px;
+        right: 0%;
+        bottom: 0;
+        left: 30%;
+        top: 75%;
+        z-index: 2;
+    }
+    .carousel-indicators #scroll3 {
+        width:60px;
+        height:60px;
+        right: 0%;
+        bottom: 0;
+        left: 50%;
+        top: 75%;
+        z-index: 2;
+    }
+    .carousel-indicators #scroll4 {
+        width:60px;
+        height:60px;
+        right: 0%;
+        bottom: 0;
+        left: 70%;
+        top: 75%;
+        z-index: 2;
+    }
+    .flexbox2 {
+        padding: 20px;
+        margin-top: 20px;
+    }
+    .descr-heading {
+        width: 300px;
+        padding-top: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 600;
     }
 	.product-carousel .owl-nav .owl-next {
    display:none;
@@ -3064,7 +3126,58 @@ width:20px;
         margin:0px;
       
     }
-	
+   
+.flexbox1 .carousel-item {
+margin-left: 3%;
+    margin-right: -100%;	
+}
+.carousel-indicators #scroll1 {
+    width:70px;
+    height:70px;
+    right: 0%;
+    bottom: 0;
+    left: 2%;
+    top: 75%;
+    z-index: 2;
+}
+.carousel-indicators #scroll2 {
+    width:60px;
+    height:60px;
+    right: 0%;
+    bottom: 0;
+    left: 30%;
+    top: 75%;
+    z-index: 2;
+}
+.carousel-indicators #scroll3 {
+    width:60px;
+    height:60px;
+    right: 0%;
+    bottom: 0;
+    left: 50%;
+    top: 75%;
+    z-index: 2;
+}
+.carousel-indicators #scroll4 {
+    width:60px;
+    height:60px;
+    right: 0%;
+    bottom: 0;
+    left: 70%;
+    top: 75%;
+    z-index: 2;
+}
+.flexbox2 {
+    padding: 20px;
+    margin-top: 20px;
+}
+.descr-heading {
+    width: 300px;
+    padding-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600;
+}
 }
 @media only screen and (max-width:390px) {
     .displaygridorders {
@@ -3257,42 +3370,7 @@ width:20px;
         background-color:#4d6b20;
         border: 1px solid #4d6b20;
     }
-	.carousel-indicators #scroll1 {
-		width:70px;
-		height:70px;
-        right: 0%;
-        bottom: 0;
-        left: 5%;
-        top: 95%;
-        z-index: 2;
-    }
-	.carousel-indicators #scroll2 {
-		width:60px;
-		height:60px;
-        right: 0%;
-        bottom: 0;
-        left: 30%;
-        top: 95%;
-        z-index: 2;
-    }
-	.carousel-indicators #scroll3 {
-		width:60px;
-		height:60px;
-        right: 0%;
-        bottom: 0;
-        left: 50%;
-        top: 96%;
-        z-index: 2;
-    }
-	.carousel-indicators #scroll4 {
-		width:60px;
-		height:60px;
-        right: 0%;
-        bottom: 0;
-        left: 70%;
-        top: 95%;
-        z-index: 2;
-    }
+	
 }
 @media only screen and (max-width:370px){
     .fullpopup{
