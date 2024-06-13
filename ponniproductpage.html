@@ -58,7 +58,7 @@
             </div>
         </div>
     </nav>
-    <div class="blackscreen"></div>
+    <div class="blackscreen" style="z-index: 3;"></div>
     
     <div id="searchsort">
         <div id="contentsear">
@@ -573,6 +573,15 @@
 <script src="./js/script_3.js"></script>
 <script src="./js/owlnpm.js"></script>
 <script src="./js/owlcarousel.js"></script>
-
+<script>
+    const screenWidth = window.innerWidth;
+    if(screenWidth < 630){
+        $("#cartCount").css("bottom","20px");
+        $("#ponnilogo").css("padding-top","0px");
+        $("#logoimg").css("width","120px");
+    }else{
+        $("#ponnilogo").css("padding-top","10px");
+    }
+</script>
 </body>
 </html>

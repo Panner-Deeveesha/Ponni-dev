@@ -465,7 +465,9 @@ ship page
     background-color: #fff9e3;
     padding-top: 20px;
 }
-
+#heartimg{
+    cursor: pointer;
+}
 .cate-first {
     width: 260px;
     margin-left: auto;
@@ -3081,7 +3083,7 @@ element.style {
      display:none;
 }	
 	.cate-like {
-    width: 250px;
+    width: 210px;
     margin-left: auto;
     margin-right: auto;
     margin-top:10px;
