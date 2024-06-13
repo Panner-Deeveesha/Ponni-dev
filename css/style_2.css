@@ -4,6 +4,7 @@ body{
 	margin:0px;	
 	
 }
+
 .orderdetails{
     margin-top: 20px;
     padding-bottom: 20px;
@@ -69,7 +70,7 @@ body{
 }
 #popup {
     position:fixed;
-    z-index: 1;
+    z-index: 10;
     left: 0;
     top: 0;
     width: 100%;
@@ -99,6 +100,7 @@ body{
     border-radius: 5px;
     background-color: #fff;
     color: #36491e;
+    cursor: pointer;
     margin: 20px auto;
     width: 50%;
 }
@@ -1342,6 +1344,10 @@ width:20px;
  }
  /*media query for product*/
  @media only screen and (max-width:1300px) {
+    .fullpopup{
+        margin: 25% auto;
+        width: 30%;
+    }
     .displaygridorders {
         display: grid;
     
@@ -1403,6 +1409,10 @@ width:20px;
 
 /*media query for index */
 @media only screen and (max-width:1200px) {
+    .fullpopup{
+        margin: 20% auto;
+        width: 30%;
+    }
     .sweets-images {
         width: 1100px;
     }
@@ -1526,6 +1536,10 @@ width:20px;
 }
   }
 @media only screen and (max-width:1100px) {
+    .fullpopup{
+        margin: 25% auto;
+        width: 30%;
+    }
     .displaygridorders {
         display: grid;
         grid-template-columns: 22% 25% 28% 25%;
@@ -1726,6 +1740,10 @@ width:20px;
     }
 }
 @media only screen and (max-width:950px) {
+    .fullpopup{
+        margin: 30% auto;
+        width: 35%;
+    }
     .displaygridorders {
         display: grid;
         grid-template-columns: 22% 25% 28% 25%;
@@ -1827,6 +1845,10 @@ width:20px;
 }
 
 @media only screen and (max-width:850px) {
+    .fullpopup{
+        margin: 30% auto;
+        width: 40%;
+    }
     .orderinnerimg .first-image img {
         width: 100px;
         height: 100px;
@@ -1925,6 +1947,10 @@ width:20px;
 
 
 @media only screen and (max-width:730px) {
+    .fullpopup{
+        margin: 38% auto;
+        width: 55%;
+    }
     .pricefororders p{
         color: gray;
         display: inline;
@@ -2026,8 +2052,9 @@ width:20px;
         font-weight: 600;
         color: #fff;
         border-radius: 5px;
-        background-color: #00b8c5;
-        border: 1px solid #00b8c5;
+        
+        background-color:#4d6b20;;
+        border: 1px solid #4d6b20;;
     }
 .first-image {
     width: 300px;
@@ -2304,6 +2331,10 @@ width:20px;
 }
 
 @media only screen and (max-width:600px){
+    .fullpopup{
+        margin: 45% auto;
+        width: 55%;
+    }
     .privacy-content{
         width: 92%;
     }
@@ -2526,8 +2557,10 @@ width:20px;
     }
 }
 @media only screen and (max-width:500px) {
-
-
+    .fullpopup{
+        margin: 55% auto;
+        width: 69%;
+    }
 	.first-image {
         width: 220px;
         height: 220px;
@@ -2706,8 +2739,8 @@ width:20px;
         font-weight: 600;
         color: #fff;
         border-radius: 5px;
-        background-color: #00b8c5;
-        border: 1px solid #00b8c5;
+        background-color: #4d6b20;
+        border: 1px solid #4d6b20;
     }
 	.carousel-indicators #scroll1 {
 		width:80px;
@@ -2764,6 +2797,10 @@ width:20px;
 }
 }
 @media only screen and (max-width:440px) {
+    .fullpopup{
+        margin: 65% auto;
+        width: 69%;
+    }
       .cate-heading2 #btn-podi p {
         width: 80%;
         margin-left: auto;
@@ -3041,6 +3078,12 @@ width:20px;
 }
 }
 @media only screen and (max-width:400px) {
+    #mgscontent{
+        font-size: 16px;
+    }
+    #mgsinnercontent{
+        font-size: 13px;
+    }
 	 .cate-heading2 #btn-podi p {
         width: 100%;
         margin:0px;
@@ -3236,8 +3279,8 @@ width:20px;
         font-weight: 600;
         color: #fff;
         border-radius: 5px;
-        background-color: #00b8c5;
-        border: 1px solid #00b8c5;
+        background-color:#4d6b20;
+        border: 1px solid #4d6b20;
     }
 	.carousel-indicators #scroll1 {
 		width:70px;
@@ -3277,6 +3320,10 @@ width:20px;
     }
 }
 @media only screen and (max-width:370px){
+    .fullpopup{
+        margin: 75% auto;
+        width: 69%;
+    }
 	#cate-myimages p {
             font-size: 13px;
     }
@@ -3458,6 +3505,10 @@ width:20px;
 }	
 }
 @media only screen and (max-width:315px){
+    .fullpopup{
+        margin: 85% auto;
+        width: 69%;
+    }
     .orderinnerimg .first-image img {
         width: 80px;
         height: 80px;
