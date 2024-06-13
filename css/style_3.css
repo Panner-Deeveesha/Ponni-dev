@@ -395,7 +395,9 @@ border:none !important;
    .copyrights1 p {
        font-size: 17px;
    }
-
+   .terms{
+    transform:translate(0,-6px);
+   }
    .terms a {
        color: #878787;
        font-size: 13px;
@@ -525,6 +527,7 @@ font-size:12px;
     margin-left:auto;
     margin-right:auto;
     position: relative;
+    cursor: pointer;
 }
 .offerimg1{
   width:100%;
