@@ -46,7 +46,7 @@ function printheading(obj){
     headcate += "</span>";
   }
   headcate += "</div>";
-  mydiv.innerHTML = headcate;
+  $("#headingdiv").html(headcate);
 
 
   var headcate2 = "";
@@ -64,7 +64,7 @@ function printheading(obj){
     headcate2 += "</div>";
   }
   headcate2 += "</div>";
-  mydiv2.innerHTML = headcate2;
+  $("#headingdiv2").html(headcate2);
 
   var headcate3 = "";
   headcate3 += "<li class='comonclas'>";
@@ -81,7 +81,7 @@ function printheading(obj){
     headcate3 += "</span>";
     headcate3 += "</li>";
   }
-  menucat.innerHTML = headcate3;
+  $("#shopslide").html(headcate3);
 
   getproductname(categoryfirst);
   categload();
