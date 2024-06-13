@@ -25,7 +25,7 @@
     </style>
 </head>
 
-<body onload="getAndSaveIPAddress();  getcategorydynamically();">
+<body onload=" getAndSaveIPAddress();  getcategorydynamically();">
     <!-- Keerthana working area start-->
     <nav id="navhead">
         <div id="titlelogin">
@@ -133,13 +133,13 @@
                 <span class="tit">Menu</span>
                 <img src="assets/icons/icons8-close-25.png" alt="close" class="closeid" onclick="closemenu()">
             </div>
-            <div class="menureg">
+            <div class="menureg" id="loginmenu">
                 <a href="login.html">
                     <img src="./assets/icons/maleuser.png" alt="Login" id="userimg">
                     <span>Login/Register</span>
                 </a>
             </div>
-            <div class="menureg">
+            <div class="menureg" id="logoutmenu">
                 <a href="login.html" id="logouttoken">
                     <img src="./assets/icons/logout.png" alt="Logout" id="logoutimg" onclick="removetoken()">
                     <span onclick="removetoken()">Logout</span>
@@ -840,8 +840,9 @@
     
      </div>
      <div class="getofferbanner" onclick="offercancel(event)" >
-       <div class="getofferimg">
-         <div class="getimg"> <img src="https://a.omappapi.com/users/0a2cd3279ffe/images/c87472efe33d1718079326-in-pop-up.jpg?width=480" class="offerimg1">
+    <div class="getofferimg">
+        <div class="getimg"> 
+            <img src="" class="offerimg1"  id="offerImage" onclick="navindex()">
             <img src="./assets/icons/multiply1.png" class="getcancel"onclick="getcancel()" >
         <div class="timesec">
          <div id="offertime"></div>

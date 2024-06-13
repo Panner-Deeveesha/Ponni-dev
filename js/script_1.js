@@ -414,6 +414,11 @@ function displayoncheck(obj){
   }
 }
 
+$(document).on("click", ".itemone", function() {  
+  var temp= $(this).find(".titlesear").text();
+  window.location.href = "./ponniproductpage.html?innerHTML="+temp;  
+});
+
 function openNav() {
   document.getElementById("searchsort").style.width = "100%";
   const screenWidth = window.innerWidth;
@@ -858,6 +863,8 @@ function forhead(){
     $(".cart-headline").css("margin-top","99px");
     $(".productpage").css("margin-top","89px");
     $(".privacy-content").css("margin-top","129px");
+    $("#loginmenu").css("display","none");
+    $("#logoutmenu").css("display","block");
     if(screenWidth > 1070 ){
       $("#firimage").css("margin-top","90px");
     }else if(screenWidth > 990){
@@ -871,10 +878,11 @@ function forhead(){
     }
   }else{
     $("#titlelogin").css("display","block");
-    $("#firimage").css("margin-top","75px");
     $(".cart-headline").css("margin-top","99px");
     $(".productpage").css("margin-top","129px");
     $(".privacy-content").css("margin-top","99px");
+    $("#loginmenu").css("display","block");
+    $("#logoutmenu").css("display","none");
     if(screenWidth > 990 ){
       $("#firimage").css("margin-top","130px");
     }else if(screenWidth > 775){
