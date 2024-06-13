@@ -1381,10 +1381,10 @@ width:20px;
 } 
 .product-carousel .owl-nav .owl-next {
    
-    right: 3% !important;
-   
+    right: 3% !important;  
 }
- }
+ 
+}
 
 
 
@@ -2125,16 +2125,29 @@ width:20px;
         overflow: hidden;
     }
 	.first-image {
-        width: 250px;
+        width: 300px !important;
         height: 250px;
         overflow: hidden;
         margin: 0px;
     }
+   .product-carousel .first-image{
+    width: 250px !important;
+    height: 250px;
+    overflow: hidden;
+    margin: 0px;
+   }
+
 }
 
 
 @media only screen and (max-width:620px) {
     .first-image {
+        width: 230px !important;
+        height: 250px;
+        overflow: hidden;
+        margin: 0px;
+    }
+    .product-carousel   .first-image {
         width: 230px !important;
         height: 250px;
         overflow: hidden;
@@ -2389,6 +2402,12 @@ width:20px;
         overflow: hidden;
         margin: 0px;
     }
+   .product-carousel .first-image {
+        width: 190px !important;
+        height: 190px;
+        overflow: hidden;
+        margin: 0px;
+    }
 
     .sweets-images {
 
@@ -2553,6 +2572,13 @@ width:20px;
         overflow: hidden;
         margin: 0px;
     }
+   .product-carousel .first-image {
+        width: 220px !important;
+        height: 220px;
+        overflow: hidden;
+        margin: 0px;
+    }
+	
 	
 
 	.cate-heading2 #btn-podi p {
@@ -2731,6 +2757,12 @@ element.style {
         overflow: hidden;
         margin: 0px;
     }
+   .product-carousel .first-image {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        margin: 0px;
+    }
 	.cate-addbtn button {
         width: 300px;
         padding: 5px 20px;
@@ -2860,6 +2892,12 @@ element.style {
 	  }
 
     .first-image {
+        width: 180px !important;
+        height: 200px;
+        overflow: hidden;
+        margin: 0px;
+    }
+    .product-carousel .first-image {
         width: 180px !important;
         height: 200px;
         overflow: hidden;
@@ -3224,6 +3262,13 @@ margin-left: 3%;
         overflow: hidden;
         margin: 0px;
     }
+    .product-carousel .first-image {
+        width: 150px !important;
+        height: 150px;
+        overflow: hidden;
+        margin: 0px;
+    }
+
 
     .sweets-images p {
         width: 150px;
@@ -3346,6 +3391,18 @@ margin-left: 3%;
         overflow: hidden;
         margin: 0px;
     }
+    .product-carousel .first-image {
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+        margin: 0px;
+    }
+  .product-carousel .first-image {
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+        margin: 0px;
+    }
     .productname {
         width: 120px;
         height: 50px;
@@ -3396,6 +3453,12 @@ margin-left: 3%;
         
     }
 	.first-image {
+        width: 130px !important;
+        height: 130px;
+        overflow: hidden;
+        margin: 0px;
+    }
+   .product-carousel .first-image {
         width: 130px !important;
         height: 130px;
         overflow: hidden;
@@ -3543,6 +3606,12 @@ margin-left: 3%;
         font-size: 11px;
     }
 	.first-image {
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        margin: 0px;
+    }
+   .product-carousel .first-image {
         width: 100px;
         height: 100px;
         overflow: hidden;
