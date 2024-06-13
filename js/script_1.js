@@ -756,7 +756,7 @@ function recentlyview(inputs){
 function wishListfor(){
   var token31 = localStorage.getItem('token');
   //console.log('token31');
-  if(token){
+  if(token31){
     var data = {
       "token": token31
     }
