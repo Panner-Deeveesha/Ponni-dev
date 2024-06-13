@@ -2316,6 +2316,10 @@ width:20px;
     .ship-content{
         width: 92%;
     }
+  .product-carousel .owl-nav .owl-next {
+            right: 3% !important;
+        }
+    
 }
 @media only screen and (max-width:550px){
     .displaygridorders {
