@@ -26,6 +26,9 @@
 <body onload="getcategorydynamically(); getAndSaveIPAddress();">
     <!-- Keerthana working area start-->
     <nav id="navhead">
+        <div id="titlelogin">
+            <p id="contenttolog"><a href="login.html"><strong>Sign In</strong> for more features!</a></p>
+        </div>
         <div id="headerfull">
             <div id="ponnititle">
                 <p><a href="./index.html">PONNI NATURAL FOODS</a></p>
@@ -121,13 +124,13 @@
                 <span class="tit">Menu</span>
                 <img src="assets/icons/icons8-close-25.png" alt="close" class="closeid" onclick="closemenu()">
             </div>
-            <div class="menureg">
+            <div class="menureg"  id="loginmenu">
                 <a href="login.html">
                     <img src="./assets/icons/maleuser.png" alt="Login" id="userimg">
                     <span>Login/Register</span>
                 </a>
             </div>
-            <div class="menureg">
+            <div class="menureg" id="logoutmenu">
                 <a href="login.html" id="logouttoken">
                     <img src="./assets/icons/logout.png" alt="Logout" id="logoutimg" onclick="removetoken()">
                     <span onclick="removetoken()">Logout</span>

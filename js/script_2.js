@@ -235,7 +235,6 @@ $(document).ready(function () {
 function popup(imgsrc,mgs,content){
   var popup="";
   popup +='<div class="fullpopup">';
-  popup +='<img id="cancelbtn" src="./assets/icons/cancel.png">';
   popup +='<div class="popupcontent">';
   popup +='<div>';
   popup +='<img id="mgsimg" src="'+imgsrc+'">';
@@ -249,6 +248,8 @@ function popup(imgsrc,mgs,content){
   popup +='</p>';
   popup +='</div>';
   popup +='</div>';
+  popup +='<div id="cancelbtn">';
+  popup += 'Continue';
   popup +='</div>';
   document.getElementById("popup").style.display="block";
   document.getElementById("popup").innerHTML=popup;
@@ -1197,11 +1198,10 @@ function clickregbutton(){
     },
     success:function(response){
       var imgsrc="./assets/icons/success.png";
-      var mgs="SUCCESS";
-      var content="Your account is Register please Login";
+      var mgs="Registration Successful";
+      var content="Thank You! You have successfully registered on our website. You can now proceed to the payment process.";
      popup(imgsrc,mgs,content);
-     setInterval(openlogin,9000);
-   
+     setInterval(openlogin,900);
     },
     error:function(xhr,status,error){
       console.log(error);

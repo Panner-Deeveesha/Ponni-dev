@@ -120,7 +120,7 @@ body{
 }
 .serchlist{
 	position:absolute;
-    width: 18%;
+    width: inherit;
 	z-index: 1;
     font-size: 18px;
 }
@@ -411,6 +411,7 @@ body{
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    cursor: pointer;
 }
 .photopic{
     width: 15%;
@@ -420,7 +421,7 @@ body{
 }
 .searchimage{
     width: 100px;
-    height: 80px;
+    height: 85px;
     vertical-align: middle;
 }
 .contentforpic{
