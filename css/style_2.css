@@ -1379,6 +1379,11 @@ width:20px;
     color: #878787;
     display: none;
 } 
+.product-carousel .owl-nav .owl-next {
+   
+    right: 3% !important;
+   
+}
  }
 
 
@@ -2319,7 +2324,7 @@ width:20px;
         width: 92%;
     }
   .product-carousel .owl-nav .owl-next {
-            right: 3% !important;
+            right:5% !important;
         }
     
 }

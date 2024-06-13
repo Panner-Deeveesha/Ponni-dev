@@ -432,9 +432,10 @@ var carticoncount=uniqueObj.length;
           $(`.total-value:eq(${i})`).text(`Rs:${productValue}`);
         }
         $('#wholecarttotal').html("Rs." + totalSum);
+          paynowdetails(uniqueObj,totalSum);
       }
       countcheckforcart(carticoncount);
-      paynowdetails(uniqueObj,totalSum);
+    
   
     }
     $(document).on("click", ".cart-productname", function() {
