@@ -1017,7 +1017,7 @@ myImage.addEventListener('click', function() {
           // Perform your action here, for example:
           console.log('Action performed for image: ' + src);
           console.log(i);
-          var currentImageIndex = i;
+          currentImageIndex = i;
           // You can replace the above console.log with whatever action you want to perform.
       }
   }
