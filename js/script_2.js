@@ -721,35 +721,42 @@ function productpagegetPrice(obj) {
   });
 }
 function getuseridforlike(fullobj){
+
   var token=localStorage.getItem('token');
 
-
+if(token){
   var data = {
-     "token": token  
+    "token": token  
 }
-  $.ajax({
-    url: "./php/getuserId.php",
-    type: "post",
-    data: data,
-    success: function (response) {
-      var boo = isJsonString(response);
-      
-      if(boo==true){
-          var obj = JSON.parse(response);
-         
-         var getuserid=obj[0].id;
-        console.log(getuserid);
-       checkwishlistproduct(getuserid,fullobj);
-         
-      }else{
-          console.log("Error");
-      }   
+ $.ajax({
+   url: "./php/getuserId.php",
+   type: "post",
+   data: data,
+   success: function (response) {
+     var boo = isJsonString(response);
+     
+     if(boo==true){
+         var obj = JSON.parse(response);
+        
+        var getuserid=obj[0].id;
+       console.log(getuserid);
+      checkwishlistproduct(getuserid,fullobj);
+        
+     }else{
+         console.log("Error");
+     }   
 
-  },
-    error: function (error) {
-        console.log(error);
-    }
+ },
+   error: function (error) {
+       console.log(error);
+   }
 });
+}
+else{
+  var response=0;
+  displayproduct(fullobj,response);
+}
+ 
 }
 
 function checkwishlistproduct(getuserid,fullobj){
