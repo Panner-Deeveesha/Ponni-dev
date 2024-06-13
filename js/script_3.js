@@ -435,7 +435,7 @@ var carticoncount=uniqueObj.length;
           paynowdetails(uniqueObj,totalSum);
       }
       countcheckforcart(carticoncount);
-    
+      paynowdetails(uniqueObj,totalSum);
   
     }
     $(document).on("click", ".cart-productname", function() {
