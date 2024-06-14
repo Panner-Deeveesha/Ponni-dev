@@ -997,7 +997,9 @@ else {
 var myImage = document.getElementById('heartimg');
 
 
-var imageSources = ["http://localhost/Ponni-dev/assets/icons/heart.png", "http://localhost/Ponni-dev/assets/icons/colorheart.png"];
+
+
+var imageSources = ["https://ponninaturals.com/assets/icons/heart.png", "https://ponninaturals.com/assets/icons/colorheart.png"];
 
 var imageSources2 = ["./assets/icons/heart.png", "./assets/icons/colorheart.png"];
 
