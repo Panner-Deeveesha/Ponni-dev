@@ -333,6 +333,19 @@
             toggleButton.textContent = 'Show';
         }
         });
+
+        var proftotid = document.getElementById("profiletot");
+        const screenWidth = window.innerWidth;
+        if(!proftotid && screenWidth > 990 ){
+            $("#cartCount").css("right","18%");
+        }else if(!proftotid && screenWidth > 630){
+            $("#cartCount").css("right","20%");
+        }else if(!proftotid && screenWidth > 430){
+            $("#cartCount").css({"right":"26%","bottom":"46px"});
+        }else{
+            $("#cartCount").css({"right":"32%","bottom":"46px"});
+        }
+
     </script>
 </body>
 </html>

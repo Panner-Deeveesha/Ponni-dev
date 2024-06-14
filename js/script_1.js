@@ -498,7 +498,7 @@ function checkTime(inputs) {
   inputlist = inputs;
   var currentTime = new Date().getTime();
   var elapsedTime = (currentTime - startTime) / 10000; // Convert milliseconds to seconds
-  if (elapsedTime >= 10) {
+  if (elapsedTime >= 3) {
     tocheckfortoken(inputlist);
   } else {
     setTimeout(function() {
@@ -881,17 +881,18 @@ function forhead(){
     $("#titlelogin").css("display","none");
     $(".cart-headline").css("margin-top","99px");
     $(".productpage").css("margin-top","80px");
-    $(".privacy-content").css("margin-top","129px");
+    $(".privacy-content").css("margin-top","92px");
     $("#loginmenu").css("display","none");
     $("#logoutmenu").css("display","block");
     $(".wholeregisterpage").css("margin-top","99px");
     $(".wholecategories2").css("margin-top","99px");
+    $("#wholecancelation, #wholetc").css("margin-top","124px");
     if(screenWidth > 1070 ){
       $("#firimage").css("margin-top","90px");
     }else if(screenWidth > 990){
       $("#firimage").css("margin-top","99px");
     }else if(screenWidth > 575){
-      $("#firimage").css("margin-top","99px");
+      $("#firimage").css("margin-top","110px");
     }else if(screenWidth > 475){
       $("#firimage").css("margin-top","99px");
     }else{
@@ -902,20 +903,21 @@ function forhead(){
     $("#titlelogin").css("display","block");
     $(".cart-headline").css("margin-top","99px");
     $(".productpage").css("margin-top","119px");
-    $(".privacy-content").css("margin-top","99px");
+    $(".privacy-content").css("margin-top","125px");
     $(".wholeregisterpage").css("margin-top","99px");
     $("#loginmenu").css("display","block");
     $("#logoutmenu").css("display","none");
+    $("#wholecancelation, #wholetc").css("margin-top","135px");
     if(screenWidth > 990 ){
       $("#firimage").css("margin-top","130px");
     }else if(screenWidth > 775){
       $("#firimage").css("margin-top","120px");
     }else if(screenWidth > 575){
-      $("#firimage").css("margin-top","139px");
+      $("#firimage").css("margin-top","130px");
     }else if(screenWidth > 475){
-      $("#firimage").css("margin-top","139px");
+      $("#firimage").css("margin-top","130px");
     }else{
-      $("#firimage").css("margin-top","110px");
+      $("#firimage").css("margin-top","90px");
     }
   }
 }
