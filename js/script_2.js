@@ -423,35 +423,40 @@ $(document).on("click", "#orderdetails", function() {
 function gettokenfororder(){
   var getusertoken;
   const token = localStorage.getItem('token');
- 
-    var data = {
-      "token": token
+ if(token){
+  var data = {
+    "token": token
+    
+}
+  $.ajax({
+    url: "./php/getuserId.php",
+    type: "post",
+    data: data,
+    success: function (response) {
+     
+      var boo = isJsonString(response);
       
-  }
-    $.ajax({
-      url: "./php/getuserId.php",
-      type: "post",
-      data: data,
-      success: function (response) {
-       
-        var boo = isJsonString(response);
-        
-        if(boo==true){
-            var obj = JSON.parse(response);
-           
-            getusertoken=obj[0].id;
-          //console.log(getuserid);
-          getorderlist(getusertoken);
-           
-        }else{
-            console.log("Error");
-        }   
+      if(boo==true){
+          var obj = JSON.parse(response);
+         
+          getusertoken=obj[0].id;
+        //console.log(getuserid);
+        getorderlist(getusertoken);
+         
+      }else{
+          console.log("Error");
+      }   
 
-    },
-      error: function (error) {
-          console.log(error);
-      }
-  });
+  },
+    error: function (error) {
+        console.log(error);
+    }
+});
+ }
+ else{
+  document.getElementById("noproductdisplay").style.display="block";
+ }
+    
 }
 function getorderlist(getusertoken){
   var data = {
