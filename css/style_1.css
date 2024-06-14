@@ -6,6 +6,13 @@ body{
     height: 30px;
     background-color: #e4e4e4;
 }
+#noproduct{
+    text-align: center;
+    display: none;
+    color: #4d6b20;
+    margin-top: 10px;
+    padding: 20px;
+}
 #contenttolog a{
     width: 50%;
     float: right;
