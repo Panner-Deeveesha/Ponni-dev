@@ -778,7 +778,7 @@ function wishListfor(){
         }
     });
   }else{
-    $("#noneproducts").text("No Products are there in your Wishlist, Kindly Login!");
+    $("#noproduct").css("display","block");
   }
 }
 
