@@ -12,7 +12,7 @@
         echo json_encode($response);
 		
     }else{
-        echo "no userId found for specific token";
+        echo "no userImage found for specific token";
     }
 	
 ?>

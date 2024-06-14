@@ -874,7 +874,7 @@ function printonwish(obj){
 }
 var profiletot = document.getElementById("smallimg");
 var profiletot1 = document.getElementById("smallimg1");
-proficondynamic();
+
 function proficondynamic(){
  var token3 = localStorage.getItem("token");
  if(token3){
@@ -886,21 +886,25 @@ function proficondynamic(){
       type: "post",
       data: data,
       success: function (response) {
-        //console.log(typeof(response))
-          var boo = isJsonString(response);
-          if(boo==true){
-              var obj = JSON.parse(response);
-              displayimg(obj);
-          }else{
-              console.log("Error");
-          }    
+        var obj = JSON.parse(response);
+        var obj2 = obj[0].profileImage;
+        if(obj2!=null){
+          var obj = JSON.parse(response);
+          displayimg(obj);
+        }else{
+          if(profiletot){
+            profiletot.src = "./assets/icons/maleuser.png";
+          }
+        } 
       },
       error: function (error) {
           console.log(error);
       }
   });
 }else{
-  profiletot.src = "./assets/icons/maleuser.png";
+  if(profiletot){
+    profiletot.src = "./assets/icons/maleuser.png";
+  }
   //profiletot1.src = "./assets/icons/maleuser.png";
 }
 }
@@ -912,7 +916,7 @@ function displayimg(obj){
   }
 }
 
-proficondynamic2();
+
 function proficondynamic2(){
  var token3 = localStorage.getItem("token");
  if(token3){
@@ -924,21 +928,25 @@ function proficondynamic2(){
       type: "post",
       data: data,
       success: function (response) {
-        //console.log(typeof(response))
-          var boo = isJsonString(response);
-          if(boo==true){
-              var obj = JSON.parse(response);
-              displayimg2(obj);
-          }else{
-              console.log("Error");
-          }    
+        var obj = JSON.parse(response);
+        var obj2 = obj[0].profileImage;
+        if(obj2!=null){
+          var obj = JSON.parse(response);
+          displayimg(obj);
+        }else{
+          if(profiletot1){
+            profiletot1.src = "./assets/icons/maleuser.png";
+          }
+        }   
       },
       error: function (error) {
           console.log(error);
       }
   });
 }else{
-  profiletot.src = "./assets/icons/maleuser.png";
+  if(profiletot1){
+    profiletot1.src = "./assets/icons/maleuser.png";
+  }
   //profiletot1.src = "./assets/icons/maleuser.png";
 }
 }
@@ -950,7 +958,7 @@ function displayimg2(obj){
   }
 }
 
-forhead();
+
 
 function forhead(){
   var token33 = localStorage.getItem("token");
@@ -1062,6 +1070,10 @@ $("#shopnowid").click(function () {
         popup(imgsrc,mgs,content);
     }
   });
+
+  proficondynamic();
+  forhead();
+  proficondynamic2();
 
   /*$(document).ready(function(){
     $('.menureg').click(function(){
