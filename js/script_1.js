@@ -846,7 +846,7 @@ function printonwish(obj){
     uniqueMap.set(item.productName, item);
   });
   const uniqueObjects = Array.from(uniqueMap.values());
-
+  $("#cate-myimages").css("display","grid");
    var t = "";
     for(let i=0;i<uniqueObjects.length;i++){
       
