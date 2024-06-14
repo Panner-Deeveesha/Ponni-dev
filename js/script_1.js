@@ -886,7 +886,7 @@ function proficondynamic(){
       type: "post",
       data: data,
       success: function (response) {
-        console.log(typeof(response))
+        //console.log(typeof(response))
           var boo = isJsonString(response);
           if(boo==true){
               var obj = JSON.parse(response);
@@ -906,7 +906,7 @@ function proficondynamic(){
 }
 
 function displayimg(obj){
-  console.log(obj[0].profileImage);
+  //console.log(obj[0].profileImage);
   if(profiletot){
     profiletot.src = obj[0].profileImage;
   }
@@ -924,7 +924,7 @@ function proficondynamic2(){
       type: "post",
       data: data,
       success: function (response) {
-        console.log(typeof(response))
+        //console.log(typeof(response))
           var boo = isJsonString(response);
           if(boo==true){
               var obj = JSON.parse(response);
@@ -944,7 +944,7 @@ function proficondynamic2(){
 }
 
 function displayimg2(obj){
-  console.log(obj[0].profileImage);
+  //console.log(obj[0].profileImage);
   if(profiletot1){
     profiletot1.src = obj[0].profileImage;
   }
