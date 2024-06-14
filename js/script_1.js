@@ -779,6 +779,7 @@ function wishListfor(){
     });
   }else{
     $("#noproduct").css("display","block");
+    $("#cate-myimages").css("display","none");
   }
 }
 
