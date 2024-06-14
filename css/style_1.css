@@ -218,10 +218,13 @@ body{
     width: 25px;
     height: auto;
     cursor: pointer;
+    border-radius: 50%;
 }
-#smallimg:hover{
-    width: 28px;
+#smallimg1{
+    width: 25px;
     height: auto;
+    cursor: pointer;
+    border-radius: 50%;
 }
 #menutot{
     width: 6%;
@@ -827,6 +830,7 @@ del{
     }
     #iconsearch{
         margin-bottom: 20px;
+        margin-left: 18px;
     }
     #carttot{
         width: 15%;
@@ -838,7 +842,7 @@ del{
         margin-left: 10px;
     }
     #cartCount {
-        right: 36.5%;
+        right: 41.5%;
         bottom: 48px;
     }
     #wholecancelation, #wholetc{
@@ -852,6 +856,9 @@ del{
     }
     .table-res P{
         margin-left: 10px;
+    }
+    #profiletot{
+        margin-right: 10px;
     }
 }
 @media only screen and (max-width:500px){
@@ -890,7 +897,7 @@ del{
         margin: 0px 10px;
     }
     #cartCount {
-        right: 37.5%;
+        right: 40.5%;
         bottom: 47px;
     }
     #wishtot{
