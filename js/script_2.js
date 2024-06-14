@@ -997,7 +997,7 @@ else {
 var myImage = document.getElementById('heartimg');
 
 
-var imageSources = ["http://localhost/ponni-dev/assets/icons/heart.png", "http://localhost/ponni-dev/assets/icons/colorheart.png"];
+var imageSources = ["http://localhost/Ponni-dev/assets/icons/heart.png", "http://localhost/Ponni-dev/assets/icons/colorheart.png"];
 
 var imageSources2 = ["./assets/icons/heart.png", "./assets/icons/colorheart.png"];
 
@@ -1013,21 +1013,15 @@ myImage.addEventListener('click', function() {
 
 
   
- 
-  for (var i = 0; i < imageSources.length; i++) {
-      // Get the src attribute of the current img tag
-      var src2 = imageSources[i];
-      
-      // Check if the src contains the desired image name
-      if (src2.includes(src)) {
-          // Perform your action here, for example:
-          console.log('Action performed for image: ' + src);
-          console.log(i);
-          currentImageIndex = i;
-          // You can replace the above console.log with whatever action you want to perform.
-      }
-  }
 
+  for (var i = 0; i < imageSources.length; i++) {
+    var src2 = imageSources[i];
+    console.log('Comparing with image source', i, ':', src2);
+    if (src2 === src) {
+        console.log('Match found at index:', i);
+        currentImageIndex = i;
+    }
+}
 
 
 
