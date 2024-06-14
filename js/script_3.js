@@ -318,7 +318,7 @@ function getcartPrice(uniqueObj) {
           //showNewLanches(obj);
          
         
-       displaycartdetails(uniqueObj);
+          cartgetAvailability(uniqueObj);
       
       },
       error: function (error) {
@@ -327,7 +327,40 @@ function getcartPrice(uniqueObj) {
   });
 }
 
+function cartgetAvailability(obj){
 
+ 
+  $.ajax({
+    url: "./php/getAllavailability.php",
+    type: "get",
+    success: function (response) {
+        var obj2 = JSON.parse(response);
+        
+        $(obj).each(function (index, value) {
+           
+            $(obj2).each(function (index2, value2) {
+                if (value.productId == value2.productId) {
+                    //console.log(value.uniqueId+":"+value2.id  );
+                    value.availability = value2.availability;
+                   
+                  
+                }
+            });
+            
+        });
+        //showNewLanches(obj);
+       console.log(obj);
+     
+       displaycartdetails(obj);
+        
+    
+    },
+    error: function (error) {
+        console.log(error);
+    }
+});
+
+}
 
  
 
@@ -366,8 +399,8 @@ var carticoncount=uniqueObj.length;
           cartDiv += '<div class="cartinputavailability">';
           cartDiv += `<button onclick="updateTotal(${i}, 'decrement')">-</button>`
     
-          cartDiv += `<input id='cartincrement${i}' type="number" class="product-quantity" value='${uniqueObj[i].count}'>`;
-          cartDiv += `<button onclick="updateTotal(${i}, 'increment')">+</button>`;
+          cartDiv += `<input id='cartincrement${i}' type="number" class="product-quantity" value='${uniqueObj[i].count}' max=${uniqueObj[i].availability}>`;
+          cartDiv += `<button onclick="updateTotal(${i}, 'increment' )">+</button>`;
   
           cartDiv += '</div>';
           cartDiv += '<div class="cart-totalvalue">';
@@ -411,15 +444,15 @@ var carticoncount=uniqueObj.length;
     });
 
       window.updateTotal = function(index, action) {
-
         var quantityInput = $(`#cartincrement${index}`);
         var currentValue = parseInt(quantityInput.val());
-        if (action === 'increment') {
+        var maxQuantity = parseInt(quantityInput.attr('max'));
+      
+        if (action === 'increment' && currentValue < maxQuantity) {
           quantityInput.val(currentValue + 1);
         } else if (action === 'decrement' && currentValue > 0) {
           quantityInput.val(currentValue - 1);
         }
-  
         updateTotalSum();
       };
     
