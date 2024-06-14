@@ -4,7 +4,13 @@ body{
 	margin:0px;	
 	
 }
-
+#noproductdisplay{
+    text-align: center;
+    display: none;
+    color: #4d6b20;
+    margin-top: 10px;
+    padding: 20px;
+}
 .orderdetails{
     margin-top: 20px;
     padding-bottom: 20px;

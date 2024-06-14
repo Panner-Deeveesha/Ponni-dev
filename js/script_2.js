@@ -433,6 +433,7 @@ function gettokenfororder(){
       type: "post",
       data: data,
       success: function (response) {
+       
         var boo = isJsonString(response);
         
         if(boo==true){
@@ -461,6 +462,7 @@ $.ajax({
   type: "post",
   data: data,
   success: function (response) {
+    console.log(response);
     var boo = isJsonString(response);
     
     if(boo==true){
@@ -469,7 +471,7 @@ $.ajax({
       getorderproduct(obj);
        
     }else{
-        console.log("Error");
+      document.getElementById("noproductdisplay").style.display="block";
     }   
 
 },
