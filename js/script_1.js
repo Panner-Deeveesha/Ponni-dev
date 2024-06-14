@@ -871,6 +871,83 @@ function printonwish(obj){
       
     }
 }
+var profiletot = document.getElementById("smallimg");
+var profiletot1 = document.getElementById("smallimg1");
+proficondynamic();
+function proficondynamic(){
+ var token3 = localStorage.getItem("token");
+ if(token3){
+  var data = {
+    "token": token3
+  }
+  $.ajax({
+      url: "./php/getuserImage.php",
+      type: "post",
+      data: data,
+      success: function (response) {
+        console.log(typeof(response))
+          var boo = isJsonString(response);
+          if(boo==true){
+              var obj = JSON.parse(response);
+              displayimg(obj);
+          }else{
+              console.log("Error");
+          }    
+      },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+}else{
+  profiletot.src = "./assets/icons/maleuser.png";
+  //profiletot1.src = "./assets/icons/maleuser.png";
+}
+}
+
+function displayimg(obj){
+  console.log(obj[0].profileImage);
+  if(profiletot){
+    profiletot.src = obj[0].profileImage;
+  }
+}
+
+proficondynamic2();
+function proficondynamic2(){
+ var token3 = localStorage.getItem("token");
+ if(token3){
+  var data = {
+    "token": token3
+  }
+  $.ajax({
+      url: "./php/getuserImage.php",
+      type: "post",
+      data: data,
+      success: function (response) {
+        console.log(typeof(response))
+          var boo = isJsonString(response);
+          if(boo==true){
+              var obj = JSON.parse(response);
+              displayimg2(obj);
+          }else{
+              console.log("Error");
+          }    
+      },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+}else{
+  profiletot.src = "./assets/icons/maleuser.png";
+  //profiletot1.src = "./assets/icons/maleuser.png";
+}
+}
+
+function displayimg2(obj){
+  console.log(obj[0].profileImage);
+  if(profiletot1){
+    profiletot1.src = obj[0].profileImage;
+  }
+}
 
 forhead();
 
