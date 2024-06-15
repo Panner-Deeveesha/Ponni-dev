@@ -349,7 +349,7 @@ function cartgetAvailability(obj){
             
         });
         //showNewLanches(obj);
-       console.log(obj);
+      // console.log(obj);
      
        displaycartdetails(obj);
         
