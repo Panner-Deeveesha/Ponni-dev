@@ -801,11 +801,13 @@ function getinwishlist(obj){
             var obj = JSON.parse(response);
             getdetailsInproduct(obj);
         }else{
-          //$("#samplework").text("No Products Found");
+          /*$("#samplework").text("No Products Found");
           var imgsrc="./assets/icons/error.png";
           var mgs="Error";
           var content="Sorry! No Products Found.";
-          popup(imgsrc,mgs,content);
+          popup(imgsrc,mgs,content);*/
+          $("#noproduct").css("display","block");
+          $("#cate-myimages").css("display","none");
         }    
     },
     error: function (error) {
