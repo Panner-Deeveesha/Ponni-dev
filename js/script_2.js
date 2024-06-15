@@ -1030,9 +1030,9 @@ var myImage = document.getElementById('heartimg');
 
 
 
-var imageSources = ["https://ponninaturals.com/assets/icons/heart.png", "https://ponninaturals.com/assets/icons/colorheart.png"];
+var imageSources = ["./assets/icons/heart.png", "./assets/icons/colorheart.png"];
 
-var imageSources2 = ["./assets/icons/heart.png", "./assets/icons/colorheart.png"];
+var imageSources2 = ["/assets/icons/heart.png", "/assets/icons/colorheart.png"];
 
 // Initialize a flag to keep track of the current image
 var currentImageIndex = 0;
@@ -1043,18 +1043,16 @@ myImage.addEventListener('click', function() {
             console.log(src); 
             console.log(currentImageIndex);
 
-
-
-  
-
-  for (var i = 0; i < imageSources.length; i++) {
-    var src2 = imageSources[i];
-    console.log('Comparing with image source', i, ':', src2);
-    if (src2 === src) {
-        console.log('Match found at index:', i);
-        currentImageIndex = i;
-    }
-}
+            for(let i=0;i<imageSources2.length;i++){
+              var currentsrc=imageSources2[i];
+            
+              var foundIndex = src.indexOf(currentsrc);
+              if (foundIndex !== -1) {
+                 currentImageIndex=i;
+                
+              } 
+            }
+           
 
 
 
@@ -1063,16 +1061,21 @@ myImage.addEventListener('click', function() {
     currentImageIndex = (currentImageIndex + 1) % imageSources.length;
     console.log(currentImageIndex);
    if(currentImageIndex == 1){
-    myImage.src = imageSources2[currentImageIndex];
+    myImage.src = imageSources[currentImageIndex];
     listproductdetails (input);
     
    }
   else{
-    myImage.src = imageSources2[currentImageIndex];
+    myImage.src = imageSources[currentImageIndex];
     removehighlighticon(input);
   }
   
 });
+
+
+
+// Attach an event listener for the click event
+
 checkTime(input);
 
 }
