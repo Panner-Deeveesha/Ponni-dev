@@ -384,7 +384,7 @@ var carticoncount=uniqueObj.length;
           cartDiv += uniqueObj[i].productName;
           cartDiv += '</p>';
           cartDiv += '<p>';
-          cartDiv += 'Quantatity:'+" "+uniqueObj[i].volume+"  "+uniqueObj[i].unit;
+          cartDiv += 'Quantity:'+" "+uniqueObj[i].volume+"  "+uniqueObj[i].unit;
           cartDiv += '</p>';
           cartDiv += `<img src="./assets/icons/icons8-delete-20.png" class="delete-item" data-index="${i}">`;
           cartDiv += '</div>';
