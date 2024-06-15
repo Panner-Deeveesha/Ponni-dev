@@ -281,7 +281,7 @@ function getBycategory(innerHTML) {
          
           if(boo==true){
               var obj = JSON.parse(response);
-            console.log(obj);
+           // console.log(obj);
               getPrice(obj);
              
           }else{
@@ -372,8 +372,8 @@ function displaycategories(obj){
       
       t +='</div>';
       
-      document.getElementById("samplework").innerHTML=t;
-      
+      //document.getElementById("samplework").innerHTML=t;
+      $("#samplework").html(t);
     }
 
 }
@@ -471,12 +471,12 @@ $.ajax({
   type: "post",
   data: data,
   success: function (response) {
-    console.log(response);
+   // console.log(response);
     var boo = isJsonString(response);
     
     if(boo==true){
         var obj = JSON.parse(response);
-        console.log(obj);
+       // console.log(obj);
       getorderproduct(obj);
        
     }else{
@@ -490,7 +490,7 @@ $.ajax({
 });
 }
 function getorderproduct(obj){
- console.log(obj);
+ //console.log(obj);
  var products=obj;
 
  $.ajax({
@@ -504,7 +504,7 @@ function getorderproduct(obj){
      var boo=isJsonString(response);
     if(boo==true){
    var product=JSON.parse(response);
-   console.log(obj,product);
+   //console.log(obj,product);
    getpriceorder(obj,product);
 
     }
@@ -561,8 +561,8 @@ function displayorderproducts(delicontent,obj){
     return productIdA - productIdB;
 });
 
-console.log(delicontent);
-  console.log(obj);
+//console.log(delicontent);
+  //console.log(obj);
 for(let i=0;i<obj.length;i++){
   orderdetail +="<div class='displaygridorders'>";
   orderdetail +="<div class='orderinnerimg'>";
@@ -655,7 +655,7 @@ function getByproductname(innerHTML2) {
         if(boo==true){
             var obj = JSON.parse(response);
             
-            console.log(obj);
+           // console.log(obj);
            getAvailability(obj);
            
         }else{
@@ -691,7 +691,7 @@ function getAvailability(obj){
               
           });
           //showNewLanches(obj);
-         console.log(obj);
+       //  console.log(obj);
        
          productpagegetPrice(obj);
           
@@ -758,7 +758,7 @@ if(token){
          var obj = JSON.parse(response);
         
         var getuserid=obj[0].id;
-       console.log(getuserid);
+       //console.log(getuserid);
       checkwishlistproduct(getuserid,fullobj);
         
      }else{
@@ -779,7 +779,7 @@ else{
 }
 
 function checkwishlistproduct(getuserid,fullobj){
-  console.log(fullobj);
+ // console.log(fullobj);
   var productname=fullobj[0].productName;
   var data = {
       "userid": getuserid,
@@ -795,11 +795,11 @@ function checkwishlistproduct(getuserid,fullobj){
          if (response === "1") {
          
           displayproduct(fullobj,response);
-           console.log(response);
+           //console.log(response);
         }else { 
           
           displayproduct(fullobj,response);     
-          console.log(response);
+          //console.log(response);
         }
       },
       error: function (error) {
@@ -811,8 +811,8 @@ function checkwishlistproduct(getuserid,fullobj){
 }
 
 function displayproduct(input,response){
-console.log(input);
-console.log(response);
+//console.log(input);
+//console.log(response);
   var token=localStorage.getItem('token');
   var s = "";
   var s2 ="";
