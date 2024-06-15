@@ -622,14 +622,14 @@ function getdatawithuserrecent(obj){
     type: "post",
     data: data,
     success: function (response) {  
-      console.log(typeof(response)); 
+      //console.log(typeof(response)); 
       var boo = isJsonString(response);
       if(boo==true){
         var obj = JSON.parse(response);
         //console.log(obj);
         getproductswithid(obj);
       }else{
-        console.log("There is no recent Item");
+        //console.log("It was not a string");
       }
     },
     error: function (error) {
@@ -652,11 +652,11 @@ function getproductswithid(obj){
             //console.log(obj);
             getpriceforrecent(obj);
         }else{
-            console.log("Response Is Object");
+            //console.log("Response Is Object");
         }    
     },
     error: function (error) {
-        console.log('No Product Found');
+        //console.log('No Product Found');
     }
   });
 }
@@ -687,7 +687,7 @@ function getpriceforrecent(obj){
         recentlyview(obj);
       },
       error: function (error) {
-        console.log(error);
+        //console.log(error);
       }
   });
 }
@@ -770,11 +770,11 @@ function wishListfor(){
                 var obj = JSON.parse(response);
                 getinwishlist(obj);
             }else{
-                console.log("Error");
+                //console.log("Error");
             }    
         },
         error: function (error) {
-            console.log(error);
+            //console.log(error);
         }
     });
   }else{
@@ -809,7 +809,7 @@ function getinwishlist(obj){
         }    
     },
     error: function (error) {
-        console.log(error);
+       // console.log(error);
     }
   });
 }
@@ -831,7 +831,7 @@ function getdetailsInproduct(obj){
         }    
     },
     error: function (error) {
-        console.log('No Product Found');
+        //console.log('No Product Found');
     }
   });
 }
@@ -898,7 +898,7 @@ function proficondynamic(){
         } 
       },
       error: function (error) {
-          console.log(error);
+          //console.log(error);
       }
   });
 }else{
@@ -971,6 +971,8 @@ function forhead(){
     $("#loginmenu").css("display","none");
     $("#logoutmenu").css("display","block");
     $(".wholeregisterpage").css("margin-top","99px");
+    $(".wholeloginpage").css("margin-top","99px");
+    $(".wholepasswordpage").css("margin-top","99px");
     $(".wholecategories2").css("margin-top","99px");
     $("#wholecancelation, #wholetc").css("margin-top","124px");
     if(screenWidth > 1070 ){
@@ -987,23 +989,38 @@ function forhead(){
   }else{
     $(".wholecategories2").css("margin-top","130px");
     $("#titlelogin").css("display","block");
-    $(".cart-headline").css("margin-top","99px");
+    $(".cart-headline").css("margin-top","130px");
     $(".productpage").css("margin-top","119px");
     $(".privacy-content").css("margin-top","125px");
-    $(".wholeregisterpage").css("margin-top","99px");
     $("#loginmenu").css("display","block");
     $("#logoutmenu").css("display","none");
     $("#wholecancelation, #wholetc").css("margin-top","135px");
     if(screenWidth > 990 ){
       $("#firimage").css("margin-top","130px");
+      $(".wholeregisterpage").css("margin-top","100px");
+      $(".wholepasswordpage").css("margin-top","100px");
+      $(".wholeloginpage").css("margin-top","100px");
     }else if(screenWidth > 775){
       $("#firimage").css("margin-top","120px");
+      $(".wholeregisterpage").css("margin-top","90px");
+      $(".wholepasswordpage").css("margin-top","90px");
+      $(".wholeloginpage").css("margin-top","90px");
     }else if(screenWidth > 575){
       $("#firimage").css("margin-top","130px");
+      $(".wholeregisterpage").css("margin-top","80px");
+      $(".wholepasswordpage").css("margin-top","80px");
+      $(".wholeloginpage").css("margin-top","80px");
     }else if(screenWidth > 475){
       $("#firimage").css("margin-top","130px");
+      $(".wholeregisterpage").css("margin-top","90px");
+      $(".wholepasswordpage").css("margin-top","90px");
+      $(".wholeloginpage").css("margin-top","90px");
     }else{
-      $("#firimage").css("margin-top","90px");
+      $("#firimage").css("margin-top","100px");
+      $(".wholeregisterpage").css("margin-top","80px");
+      $(".wholepasswordpage").css("margin-top","80px");
+      $(".wholeloginpage").css("margin-top","80px");
+      $(".cart-headline").css("margin-top","110px");
     }
   }
 }

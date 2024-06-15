@@ -573,7 +573,6 @@ del{
     width: 33.333%;
     list-style-type: none;
     display: block;
-    padding: 10px;
     border: 1px solid #e2e0e0;
 }
 #shopslide li:hover{
@@ -623,6 +622,10 @@ del{
     line-height: 0.5in;
     padding: 20px;
     margin-top: 99px;
+}
+#wholecontact a{
+    text-decoration: none;
+    color: #94d47f;
 }
 .table-res P{
     margin-left: 40px;
@@ -792,9 +795,17 @@ del{
     }
     .photopic{
         width: 30%;
+        margin: auto;
+    }
+    #wholecancelation, #wholetc {
+        width: 75%;
     }
 }
 @media only screen and (max-width:880px){
+    .tit {
+        width: 70%;
+        font-size: 16px;
+    }
     .simpleid {
         display: block;
     }
@@ -872,10 +883,11 @@ del{
     .itemone{
         width: 100%;
         display: block;
-        margin-left: 10px;
+        margin: 10px auto;
     }
     .contentforpic{
-        width: 90%;
+        width: 100%;
+        text-align: center;
     }
     #displayimg2{
         display: none;
@@ -890,7 +902,7 @@ del{
 }
 @media only screen and (max-width:475px){
     #ponnilogo {
-        width: 45%;
+        width: 30%;
     }
     #logoimg{
         width: 110px;
@@ -929,6 +941,9 @@ del{
         margin-left: 6px;
         margin-right: 5px;
     }
+    #wholecontact {
+        line-height: 0.3in;
+    }
 }
 @media only screen and (max-width:440px){
     .textcls{
@@ -960,7 +975,7 @@ del{
         display: none;
     }
     #ponnilogo{
-        width: 55%;
+        width: 28%;
     }
     #logoimg{
         width: 90px;
