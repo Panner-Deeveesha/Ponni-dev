@@ -1962,12 +1962,13 @@ width:20px;
         grid-template-columns: auto auto auto;
         gap: 20px;
     }
-	.cate-heading2 div {
-        width: 100%;
-        font-size: 16px;
-        padding: 3px 15px 3px 15px;
-        border: 1px solid #4d6b20;
-        border-radius: 35px;
+    
+	.cate-heading2 span {
+         font-size: 16px;
+         text-align: center;
+         padding: 3px 7px 3px 7px;
+         border: 1px solid #4d6b20;
+         border-radius: 35px;
     }
 	.active2,.cateheadings:hover {
     cursor: pointer;

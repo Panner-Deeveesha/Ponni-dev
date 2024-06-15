@@ -51,17 +51,17 @@ function printheading(obj){
 
   var headcate2 = "";
   headcate2 += "<div id='mydiv2' class='cate-heading2'>";
-  headcate2 += "<div class='cateheadings active2'>";
-  headcate2 +="<p>";
+  headcate2 += "<span class='cateheadings active2'>";
+
   headcate2 += obj[0].category;
-  headcate2 +="</p>";
-  headcate2 += "</div>";
+
+  headcate2 += "</span>";
   for(i=1;i<objlen;i++){
-    headcate2 += "<div class='cateheadings'>";
-    headcate2 +="<p>";
+    headcate2 += "<span class='cateheadings'>";
+  
     headcate2 += obj[i].category;
-    headcate2 +="</p>";
-    headcate2 += "</div>";
+  
+    headcate2 += "</span>";
   }
   headcate2 += "</div>";
   $("#headingdiv2").html(headcate2);
@@ -281,7 +281,7 @@ function getBycategory(innerHTML) {
          
           if(boo==true){
               var obj = JSON.parse(response);
-              //console.log(obj);
+            console.log(obj);
               getPrice(obj);
              
           }else{
@@ -305,14 +305,15 @@ function getBycategory(innerHTML) {
 
 
 function getPrice(obj) {
-  
+  var objects=obj;
+ // console.log(objects);
   $.ajax({
-      url: "./php/getPrice.php",
-      type: "get",
-      
+      url: "./php/pricebyunique.php",
+      type: "post",
+      data:{objects:objects},
       success: function (response) {
           var obj2 = JSON.parse(response);
-          //console.log(response);
+        //  console.log(response);
            //console.log(obj2);
           $(obj).each(function (index, value) {
               //console.log(value);
@@ -327,7 +328,7 @@ function getPrice(obj) {
               
           });
           //showNewLanches(obj);
-         
+         // console.log(obj);
           displaycategories(obj);
       },
       error: function (error) {
@@ -337,8 +338,11 @@ function getPrice(obj) {
 }
 
 function displaycategories(obj){
-  document.getElementById("samplework").style.display="grid";
-  document.getElementById("noneproducts").style.display="none";
+  
+  $("#samplework").css("display","grid");
+    
+  $("#noneproducts").css("display","none");
+
   const uniqueMap = new Map();
   
   obj.forEach((item) => {
@@ -382,7 +386,7 @@ $(document).on("click", ".btn", function() {
  
 });
 $(document).on("click", ".cateheadings", function() {
-  var innerHTML2 = $(this).find("p").text();
+  var innerHTML2 = $(this).html();
   getproductname(innerHTML2);
  
 });
@@ -513,35 +517,38 @@ function getorderproduct(obj){
 
 }
 function getpriceorder(delicontent,obj){
+  var objects=obj;
+ // console.log(objects);
   $.ajax({
-    url: "./php/getPrice.php",
-    type: "get",
-    
-    success: function (response) {
-        var obj2 = JSON.parse(response);
-        //console.log(response);
-         //console.log(obj2);
-        $(obj).each(function (index, value) {
-            //console.log(value);
-            $(obj2).each(function (index2, value2) {
-                if (value.productId == value2.productId) {
-                    //console.log(value.uniqueId+":"+value2.id  );
-                    value.price = value2.price;
-                    value.offerPrice = value2.offerPrice;
-                    //console.log(value);
-                }
-            });
-            
-        });
-        //showNewLanches(obj);
-        console.log(delicontent,obj);
+      url: "./php/pricebyunique.php",
+      type: "post",
+      data:{objects:objects},
+      success: function (response) {
+          var obj2 = JSON.parse(response);
+         // console.log(response);
+           //console.log(obj2);
+          $(obj).each(function (index, value) {
+              //console.log(value);
+              $(obj2).each(function (index2, value2) {
+                  if (value.productId == value2.productId) {
+                      //console.log(value.uniqueId+":"+value2.id  );
+                      value.price = value2.price;
+                      value.offerPrice = value2.offerPrice;
+                      //console.log(value);
+                  }
+              });
+              
+          });
+          //showNewLanches(obj);
+         // console.log(delicontent,obj);
         displayorderproducts(delicontent,obj);
-    },
-    error: function (error) {
-        console.log(error);
-    }
-});
-
+    
+      },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+ 
 }
 function displayorderproducts(delicontent,obj){
    var orderdetail="";
@@ -698,13 +705,17 @@ function getAvailability(obj){
 }
 
 function productpagegetPrice(obj) {
+
+  var objects=obj;
+ // console.log(objects);
   $.ajax({
-      url: "./php/getPrice.php",
-      type: "get",
+      url: "./php/pricebyunique.php",
+      type: "post",
+      data:{objects:objects},
       success: function (response) {
           var obj2 = JSON.parse(response);
-          //console.log(response);
-          // console.log(obj);
+        //  console.log(response);
+           //console.log(obj2);
           $(obj).each(function (index, value) {
               //console.log(value);
               $(obj2).each(function (index2, value2) {
@@ -718,15 +729,15 @@ function productpagegetPrice(obj) {
               
           });
           //showNewLanches(obj);
-      
-       getuseridforlike(obj);
-         
-      
+          getuseridforlike(obj);
+    
       },
       error: function (error) {
           console.log(error);
       }
   });
+ 
+
 }
 function getuseridforlike(fullobj){
 
@@ -854,6 +865,19 @@ console.log(response);
   s +='</div>';
 
   document.getElementById("product-content").innerHTML=s;
+  var dyul="";
+  dyul +='<ul>';
+  dyul +='<li>';
+  dyul +="Quality in a product.";
+
+  dyul +='</li>';
+
+  dyul +='<li>';
+  dyul +="Trust in a service.";
+  dyul +='</li>';
+  dyul +='</ul>';
+  document.getElementById("cate-des").innerHTML=dyul;
+
 
   s2 +='<div class="carousel-item active" id="firstscrollimg" style="width:80%;height:80%;">';
   s2 +='<img src="' +input[0].imgPath_3+'" width="100%" height="100%">'
@@ -1366,10 +1390,10 @@ function categload(){
           }
         });
       }else{
-        $("#mydiv2 div").each(function() {
+        $("#mydiv2 span").each(function() {
           var buttonText = this.textContent.toUpperCase(); // Get the text of the button
           if (buttonText === textconver) {
-            $("#mydiv2 div").removeClass("active2");
+            $("#mydiv2 span").removeClass("active2");
             $(this).addClass("active2");
             categorypagepass(passval);
           }
