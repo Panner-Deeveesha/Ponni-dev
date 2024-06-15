@@ -573,7 +573,6 @@ del{
     width: 33.333%;
     list-style-type: none;
     display: block;
-    padding: 10px;
     border: 1px solid #e2e0e0;
 }
 #shopslide li:hover{
@@ -623,6 +622,10 @@ del{
     line-height: 0.5in;
     padding: 20px;
     margin-top: 99px;
+}
+#wholecontact a{
+    text-decoration: none;
+    color: #94d47f;
 }
 .table-res P{
     margin-left: 40px;
