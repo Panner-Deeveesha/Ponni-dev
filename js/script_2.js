@@ -1056,10 +1056,10 @@ myImage.addEventListener('click', function() {
 
 
 
-  console.log(currentImageIndex);
+  //console.log(currentImageIndex);
     // Toggle the current image index
     currentImageIndex = (currentImageIndex + 1) % imageSources.length;
-    console.log(currentImageIndex);
+   // console.log(currentImageIndex);
    if(currentImageIndex == 1){
     myImage.src = imageSources[currentImageIndex];
     listproductdetails (input);
@@ -1463,3 +1463,60 @@ function setproductswish(obj,wishproduct){
     }
 });
 }
+
+let mouseMoved = false;
+let keyPressed = false;
+
+// Function to handle mousemove event
+function handleMouseMove(event) {
+    mouseMoved = true;
+}
+
+// Function to handle keydown event
+function handleKeyDown(event) {
+    keyPressed = true;
+}
+
+// Event listener for mousemove
+document.addEventListener('mousemove', handleMouseMove);
+
+// Event listener for keydown
+document.addEventListener('keydown', handleKeyDown);
+
+// Function to check activity every 2 minutes
+function checkActivity() {
+    if (mouseMoved || keyPressed) {
+        console.log('User was active in the last 2 minutes');
+        // Reset flags
+        mouseMoved = false;
+        keyPressed = false;
+    } else {
+        console.log('User was inactive in the last 2 minutes');
+        var imgsrc="./assets/icons/warning.png";
+        var mgs="Warning";
+        var content="Please Login";
+       popup(imgsrc,mgs,content);
+       setInterval(checktoopenlogin,10 * 1000);
+       
+      
+    }
+}
+function checktoopenlogin(){
+  if(!mouseMoved && !keyPressed){
+   openlogin();
+  }
+}
+
+setInterval( tokenpresentcheckactivity, 1 * 60 * 1000);
+
+function tokenpresentcheckactivity(){
+  let token=localStorage.getItem("token");
+  if(token){
+    checkActivity();
+  }
+  else{
+    console.log("token not present");
+  }
+}
+
+ // 2 minutes in milliseconds

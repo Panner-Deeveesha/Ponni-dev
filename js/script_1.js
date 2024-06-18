@@ -965,7 +965,7 @@ function displayimg2(obj){
 function forhead(){
   var token33 = localStorage.getItem("token");
   const screenWidth = window.innerWidth;
-  if(token33){
+  /*if(token33){
     $("#titlelogin").css("display","none");
     $(".cart-headline").css("margin-top","99px");
     $(".productpage").css("margin-top","80px");
@@ -1024,7 +1024,7 @@ function forhead(){
       $(".wholeloginpage").css("margin-top","80px");
       $(".cart-headline").css("margin-top","110px");
     }
-  }
+  }*/
 }
 
 $(document).ready(function () {
@@ -1035,6 +1035,7 @@ $(document).ready(function () {
   $(".blackscreen").click(function () {
     $(".blackscreen").css("display", "none");
     $("#productList").css("display", "none");
+    $(".profilechange").css("display","none");
   });
 
   /*$(document).click(function (event) {
@@ -1087,6 +1088,17 @@ $("#shopnowid").click(function () {
         var mgs="Error";
         var content="Please Enter Product Name!";
         popup(imgsrc,mgs,content);
+    }
+  });
+
+  $(document).on("click","#smallimg",function(){
+    const screenWidth = window.innerWidth;
+    if(screenWidth > 990 ){
+      $(".profilechange").css("display","block");
+      $("#profilelist").css("display","block");
+      $(".blackscreen").css("display", "block");
+      //prolist.style.fontSize = "18px";
+      //prolist.innerHTML = "Enter Product Name!";
     }
   });
 

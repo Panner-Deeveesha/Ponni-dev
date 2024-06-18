@@ -193,7 +193,7 @@ ship page
 /*end privay*/
 .wholeloginpage{
  font-family: 'Poppins', sans-serif;	
- margin-top: 99px;
+ position: relative;
 }
 .wholeloginpage #login-commend{
     color: red;
@@ -281,7 +281,7 @@ ship page
 
 
 .wholeregisterpage #register-heading{
-	
+	position: relative;
 	background-color:#6d9928;
 	padding:35px;
 	color:#fff;
@@ -369,7 +369,7 @@ ship page
 
 .wholepasswordpage{
     font-family: 'Poppins', sans-serif;	
-   
+   position: relative;
    }
    
    
@@ -1081,7 +1081,7 @@ width:20px;
 /*kavya css end*/
 
 .productpage{
-    margin-top: 89px;
+    position: relative;
 }
 
 .inputavailability {
