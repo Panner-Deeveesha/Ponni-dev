@@ -972,7 +972,7 @@ function iftheretoken(){
   h += "</a>";
   h += "</li>";
   h += "<li class = 'prolist'>";
-  h += "<a href='password.html'>";
+  h += "<a href='pswdwithold.html'>";
   h += "CHANGE PASSWORD";
   h += "</a>";
   h += "</li>";
@@ -1059,6 +1059,34 @@ function forhead(){
       $(".cart-headline").css("margin-top","110px");
     }*/
   }
+}
+
+/* PSWDWITHOLD PAGE */
+
+//registerpage
+
+
+function resetbtn(){
+  var inputvalues=document.querySelectorAll(".password-innerdiv input");
+  for(let i=0;i<inputvalues.length;i++){
+    if(inputvalues.value=" "){
+      document.getElementById("reg-emptyvalue").innerHTML="* All input filed must be filled";
+    }
+  }
+ var passvalue=document.getElementById("reg-pwd").value;
+ var confirmpass=document.getElementById("confirmreg-pwd").value;
+ 
+  if(passvalue.length<5){
+    document.getElementById("reg-emptyvalue").style.display="none";
+    document.getElementById("reg-commend").innerHTML="* Password must be more than five letters";
+ }
+ else if(passvalue != confirmpass){
+  document.getElementById("reg-commend").innerHTML="* Password and confirm password must be same";
+ }else{
+  document.getElementById("reg-emptyvalue").style.display="none";
+  document.getElementById("reg-commend").style.display="none";
+  console.log("success");
+ }
 }
 
 $(document).ready(function () {

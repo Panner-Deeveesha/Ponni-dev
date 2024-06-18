@@ -270,6 +270,11 @@ body{
 }
 .prolist{
     padding: 10px;
+    text-align: left;
+    border: 1px solid #fff;
+}
+.prolist:hover{
+    border: 1px solid #d8d8d8;
 }
 .prolist a{
     text-decoration: none;
@@ -779,6 +784,14 @@ del{
 }
 .product-list2 .owl-item p {
     margin: 0;
+}
+
+/* PSWD PAGE */
+#toggleBtn {
+    position: absolute;
+    right:43%; /* Adjust this value based on the desired positioning */
+    top: 54%;
+    transform: translateY(-59%);
 }
 
 /* Media Query */
