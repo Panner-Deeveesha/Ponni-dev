@@ -1,19 +1,28 @@
 <?php
     include "config.php";
-    $userid = $_POST["id"];
-		 $sql = "SELECT token FROM users WHERE id='$userid' AND isActive='1'";
-    $res = $con->query($sql);
+    $token = $_POST["token"];
+    $sql = "SELECT token FROM users";
+    $result = $con->query($sql);
 
-    if($res->num_rows>0){
-        while($row=$res->fetch_assoc()){
-            $response[] = $row;
-			//echo json_encode($response);
+	if ($result->num_rows > 0) {
+        $token_exists = false;
+        // Iterate through each row to check if the given token matches
+        while($row = $result->fetch_assoc()) {
+            $db_token = $row["token"];
+            if ($db_token === $token) {
+                $token_exists = true;
+                break;
+            }
         }
-        echo json_encode($response);
-		
-    }else{
-        echo "no record";
+        
+        if ($token_exists) {
+            echo json_encode(array("status" => "success", "message" => "Token '$token' exists in the database."));
+        } else {
+            echo json_encode(array("status" => "error", "message" => "No tokens found in the database."));
+        }
+    } else {
+        echo "No tokens found in the database.";
     }
-	
+    $con->close();
 ?>
 
