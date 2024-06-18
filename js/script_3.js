@@ -523,11 +523,72 @@ var carticoncount=uniqueObj.length;
 
             });
 
+            $.ajax({
+              type: "POST",
+              url: "./php/checkuser.php", 
+              data: {
+                token: tokenlist,
+             
+              },
+              success: function(response) {
+                var boo = isJsonString(response);
+
+      if (boo == true) {
+        var obj = JSON.parse(response);
+        console.log(obj);
+       
+        var userId = obj[0].Id; 
+          var currentDate = new Date();
+          var year = currentDate.getFullYear();
+          var month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
+          var date = ('0' + currentDate.getDate()).slice(-2); 
+          var hours = ('0' + currentDate.getHours()).slice(-2); 
+          var minutes = ('0' + currentDate.getMinutes()).slice(-2); 
+          var railwayTime = hours + '#' + minutes; 
+
+          var uniqueId = userId + '#' + year + '#' + month + '#' + date + '#' + railwayTime;
+          console.log( uniqueId);
+
+
+      } 
+        updatecartid(uniqueId,obj);
+                 
+              },
+              error: function(xhr, status, error) {
+                  
+                  console.error(xhr.responseText);
+              }
+          });
+
+
        
       }
-    
+
     }
 
+   function updatecartid(uniqueId ,obj){
+    var cartid=uniqueId;
+    var userId=obj[0].Id;
+    console.log(userId);
+    $.ajax({
+      type: "POST",
+      url: "./php/addCartId.php", 
+      data: {
+        cartid: cartid ,
+        userId:userId
+      },
+      success: function(response) {
+         console.log(response);
+        
+        
+      },
+      error: function(xhr, status, error) {
+          
+          console.error(xhr.responseText);
+      }
+  });
+
+   }
 
     function paynowdetails(obj,totalSum){
 
@@ -629,15 +690,12 @@ var carticoncount=uniqueObj.length;
   
     errorMessage1.innerHTML = "";
   
-    // Validation checks
+   
     if (!pin1 || !city1 || !street1 || !district1 || !doornum1) {
       errorMessage1.innerHTML = "Please fill in all the details.";
       return;
     }
-    if (!checkbox.checked) {
-      errorMessage1.innerHTML = "Please check the checkbox.";
-      return;
-    }
+    
   
     
     document.getElementById("payment-adress").style.display = "none";
