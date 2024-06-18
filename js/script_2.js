@@ -1525,7 +1525,7 @@ setInterval( tokenforcheck,  30 * 1000);
 
 
  function tokenforcheck(){
-  var getusertoken;
+  
   const token = localStorage.getItem('token');
  if(token){
   var data = {
@@ -1533,7 +1533,7 @@ setInterval( tokenforcheck,  30 * 1000);
     
 }
   $.ajax({
-    url: "./php/getuserId.php",
+    url: "./php/gettoken.php",
     type: "post",
     data: data,
     success: function (response) {
@@ -1543,9 +1543,19 @@ setInterval( tokenforcheck,  30 * 1000);
       if(boo==true){
           var obj = JSON.parse(response);
          
-          getuserid=obj[0].id;
-        //console.log(getuserid);
-        gettokenforid(getuserid);
+         
+        console.log(obj.status);
+        var tokenstatus =obj.status;
+        if(tokenstatus == "error"){
+          var imgsrc="./assets/icons/warning.png";
+          var mgs="Warning";
+          var content="Your Account Logged in another device";
+         popup(imgsrc,mgs,content);
+         
+         setInterval( openlogin,  3 * 1000);  
+        }
+        
+      
          
       }else{
           console.log("Error");
@@ -1558,56 +1568,10 @@ setInterval( tokenforcheck,  30 * 1000);
 });
  }
  else{
-  document.getElementById("noproductdisplay").style.display="block";
+  console.log("no token found");
  }
     
 }
 
-function gettokenforid(getuserid){
- 
-    var userid=getuserid;
-    var data = {
-        "id": userid
-    }
-    $.ajax({
-        url: "./php/gettoken.php",
-        type: "post",
-        data: data,
-        success: function (response) {
-            var boo = isJsonString(response);
-           
-            if(boo==true){
-                var obj = JSON.parse(response);
-            // console.log(obj);
-             var gettoken=obj[0].token;          
-              checkidandtoken(gettoken);
-               
-            }else{
-                console.log("Error");
-               
-            }   
-    
-        },
-        error: function (error) {
-            console.log(error);
-        }
-    });
-  
-}
 
-function checkidandtoken(gettoken){
-  const token = localStorage.getItem('token');
-  if(token == gettoken){
-    
-    console.log("token matched");
-  }
-  else{
-    var imgsrc="./assets/icons/warning.png";
-    var mgs="Warning";
-    var content="Your Account Logged in another device";
-   popup(imgsrc,mgs,content);
-   
-   setInterval( openlogin,  3 * 1000);
-  console.log("token not matched");
-  }
-}
+
