@@ -1316,6 +1316,9 @@ font-size:16px;
 .cartpermanant label{
 margin-left:10px;
 }
+.cart-paymentproduct .cartproduct-details{
+    margin-left:20px;
+}
 .line-inputs{
     display:flex;
      column-gap:20px;
