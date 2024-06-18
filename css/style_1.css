@@ -146,10 +146,16 @@ body{
     vertical-align:middle; 
     padding:5px;
 }
+.proimg{
+    width:30px; 
+    height:auto; 
+    vertical-align:middle; 
+    padding:5px;
+}
 #productname{
     text-transform: capitalize;
 }
-#productList li{
+.acting{
 	list-style:none;
     text-align: justify;
     display: flex;
@@ -233,12 +239,13 @@ body{
     cursor: pointer;
     border-radius: 50%;
 }
-/*.profilechange{
+.profilechange{
 	position:absolute;
-    width: inherit;
+    width: 30%;
 	z-index: 1;
     font-size: 18px;
     right: 5%;
+    top: 100%;
 }
 #profilelist{
 	display:none;
@@ -248,7 +255,30 @@ body{
 	font-size:14px;
 	padding:5px;
 	height:auto;
-}*/
+    list-style-type: none;
+    margin-top: 14px;
+}
+#profilelist1{
+	display:none;
+	z-index:5;
+	background:white;
+	width:100%;
+	font-size:14px;
+	padding:5px;
+	height:auto;
+    list-style-type: none;
+}
+.prolist{
+    padding: 10px;
+}
+.prolist a{
+    text-decoration: none;
+    color: #000;
+    font-weight: 400;
+}
+.prolist a:hover{
+    color: #558146;
+}
 #menutot{
     width: 6%;
     align-content: center;
@@ -820,6 +850,9 @@ del{
     #wholecancelation, #wholetc {
         width: 75%;
     }
+    .profilechange {
+        width: 65%;
+    }
 }
 @media only screen and (max-width:880px){
     .tit {
@@ -850,6 +883,9 @@ del{
     }
     #contenttolog a{
         width: 80%;
+    }
+    .profilechange {
+        width: 90%;
     }
 }
 @media only screen and (max-width:630px){
@@ -897,6 +933,9 @@ del{
     }
     #profiletot{
         margin-right: 10px;
+    }
+    #profilelist {
+        margin-top: 10px;
     }
 }
 @media only screen and (max-width:500px){
@@ -963,6 +1002,9 @@ del{
     }
     #wholecontact {
         line-height: 0.3in;
+    }
+    .profilechange {
+        width: 100%;
     }
 }
 @media only screen and (max-width:440px){
