@@ -1507,7 +1507,7 @@ function checktoopenlogin(){
   }
 }
 
-setInterval( tokenpresentcheckactivity, 1 * 60 * 1000);
+setInterval( tokenpresentcheckactivity,  170 * 1000);
 
 function tokenpresentcheckactivity(){
   let token=localStorage.getItem("token");
