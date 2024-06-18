@@ -893,6 +893,7 @@ function proficondynamic(){
         if(obj2!=null){
           var obj = JSON.parse(response);
           displayimg(obj);
+          iftheretoken(obj);
         }else{
           if(profiletot){
             profiletot.src = "./assets/icons/maleuser.png";
@@ -934,7 +935,8 @@ function proficondynamic2(){
         var obj2 = obj[0].profileImage;
         if(obj2!=null){
           var obj = JSON.parse(response);
-          displayimg(obj);
+          displayimg2(obj);
+          iftheretoken(obj);
         }else{
           if(profiletot1){
             profiletot1.src = "./assets/icons/maleuser.png";
@@ -960,14 +962,46 @@ function displayimg2(obj){
   }
 }
 
+/* PROFILE AREA */
 
+function iftheretoken(){
+  let h = "";
+  h += "<li class = 'prolist'>";
+  h += "<a href='password.html'>";
+  h += "CHANGE PROFILE IMAGE";
+  h += "</a>";
+  h += "</li>";
+  h += "<li class = 'prolist'>";
+  h += "<a href='password.html'>";
+  h += "CHANGE PASSWORD";
+  h += "</a>";
+  h += "</li>";
+  h += "<li class = 'prolist'>";
+  h += "<a href='login.html'>";
+  h += "LOGOUT";
+  h += "</a>";
+  h += "</li>";
+  $("#profilelist").html(h);
+  $("#profilelist1").html(h);
+};
+
+function ifnottoken(){
+  let h = "";
+  h += "<li class = 'prolist'>";
+  h += "<a href = './register.html'>";
+  h += "LOGIN/REGISTER";
+  h += "</a>";
+  h += "</li>";
+  $("#profilelist").html(h);
+  $("#profilelist1").html(h);
+};
 
 function forhead(){
   var token33 = localStorage.getItem("token");
   const screenWidth = window.innerWidth;
-  /*if(token33){
+  if(token33){
     $("#titlelogin").css("display","none");
-    $(".cart-headline").css("margin-top","99px");
+    /*$(".cart-headline").css("margin-top","99px");
     $(".productpage").css("margin-top","80px");
     $(".privacy-content").css("margin-top","92px");
     $("#loginmenu").css("display","none");
@@ -987,10 +1021,10 @@ function forhead(){
       $("#firimage").css("margin-top","99px");
     }else{
       $("#firimage").css("margin-top","70px");
-    }
+    }*/
   }else{
-    $(".wholecategories2").css("margin-top","130px");
     $("#titlelogin").css("display","block");
+    /*$(".wholecategories2").css("margin-top","130px");
     $(".cart-headline").css("margin-top","130px");
     $(".productpage").css("margin-top","119px");
     $(".privacy-content").css("margin-top","125px");
@@ -1023,8 +1057,8 @@ function forhead(){
       $(".wholepasswordpage").css("margin-top","80px");
       $(".wholeloginpage").css("margin-top","80px");
       $(".cart-headline").css("margin-top","110px");
-    }
-  }*/
+    }*/
+  }
 }
 
 $(document).ready(function () {
@@ -1092,14 +1126,39 @@ $("#shopnowid").click(function () {
   });
 
   $(document).on("click","#smallimg",function(){
+    const token = localStorage.getItem("token");
     const screenWidth = window.innerWidth;
-    if(screenWidth > 990 ){
-      $(".profilechange").css("display","block");
-      $("#profilelist").css("display","block");
+    if(screenWidth > 390 && token){
+      $("#profilelist").fadeIn("2000");
       $(".blackscreen").css("display", "block");
-      //prolist.style.fontSize = "18px";
-      //prolist.innerHTML = "Enter Product Name!";
+      $(".profilechange").fadeIn("2000");
+      iftheretoken();
+    }else{
+      $("#profilelist").fadeIn("2000");
+      $(".blackscreen").css("display", "block");
+      $(".profilechange").fadeIn("2000");
+      ifnottoken();
     }
+  });
+  $(document).on("click","#smallimg1",function(){
+    const token = localStorage.getItem("token");
+    const screenWidth = window.innerWidth;
+    if(screenWidth < 400 && token){
+      $("#profilelist1").fadeIn("2000");
+      $("#profilelist").css("display","none");
+      $(".blackscreen").css("display", "block");
+      $(".profilechange").fadeIn("2000");
+      $(".profilechange").css({"left":"8%","width":"75%"});
+      iftheretoken();
+    }else{
+      $("#profilelist1").fadeIn("2000");
+      $("#profilelist").css("display","none");
+      $(".blackscreen").css("display", "block");
+      $(".profilechange").fadeIn("2000");
+      $(".profilechange").css({"left":"8%","width":"75%","display":"block"});
+      ifnottoken();
+    }
+
   });
 
   proficondynamic();
