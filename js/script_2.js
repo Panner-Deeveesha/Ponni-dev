@@ -660,7 +660,7 @@ function getByproductname(innerHTML2) {
         if(boo==true){
             var obj = JSON.parse(response);
             
-           // console.log(obj);
+            console.log(obj);
            getAvailability(obj);
            
         }else{
@@ -816,7 +816,7 @@ function checkwishlistproduct(getuserid,fullobj){
 }
 
 function displayproduct(input,response){
-//console.log(input);
+console.log(input);
 //console.log(response);
   var token=localStorage.getItem('token');
   var s = "";
@@ -873,13 +873,22 @@ function displayproduct(input,response){
   var dyul="";
   dyul +='<ul>';
   dyul +='<li>';
-  dyul +="Quality in a product.";
+  dyul +=input[0].Highlight1;
 
   dyul +='</li>';
-
   dyul +='<li>';
-  dyul +="Trust in a service.";
+  dyul +=input[0].Highlight2;
+
   dyul +='</li>';
+  dyul +='<li>';
+  dyul +=input[0].Highlight3;
+
+  dyul +='</li>';
+  dyul +='<li>';
+  dyul +=input[0].Highlight4;
+
+  dyul +='</li>';
+  
   dyul +='</ul>';
   document.getElementById("cate-des").innerHTML=dyul;
 
