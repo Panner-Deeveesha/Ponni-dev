@@ -1733,7 +1733,7 @@ width:20px;
     }
     #toggleBtn {
         right: 37%;
-        top: 60%;
+        top: 53%;
     }
 }
 @media only screen and (max-width:950px) {
@@ -2092,7 +2092,7 @@ width:20px;
     }
     #toggleBtn {
         right: 31%;
-        top: 63%;
+        top: 53%;
     }
 }
 @media only screen and (max-width:630px) {
@@ -2162,6 +2162,10 @@ width:20px;
     overflow: hidden;
     margin: 0px;
    }
+   #toggleBtn {
+        right: 31%;
+        top: 60%;
+    }
 
 }
 
@@ -2701,7 +2705,7 @@ width:20px;
     }
     #toggleBtn {
         right: 17%;
-        top: 56%;
+        top: 64%;
     }
     .register-innerdiv input {
       padding: 10px;
@@ -3721,7 +3725,7 @@ margin-left: 3%;
 }
 #toggleBtn{
     right: 17%;
-    top: 57%;
+    top: 68%;
 }
 }
 @media only screen and (max-width:315px){
@@ -3956,5 +3960,15 @@ margin-left: 3%;
         width: 120px;
         text-align: center;
         margin-top: 10px;
+    }
+    #toggleBtn{
+        right: 17%;
+        top: 65%;
+    }
+}
+@media only screen and (max-width:290px){
+    #toggleBtn{
+        right: 17%;
+        top: 65%;
     }
 }

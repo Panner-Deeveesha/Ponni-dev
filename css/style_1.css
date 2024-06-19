@@ -790,8 +790,84 @@ del{
 #toggleBtn {
     position: absolute;
     right:43%; /* Adjust this value based on the desired positioning */
-    top: 54%;
-    transform: translateY(-59%);
+    top: 51%;
+    transform: translateY(-69%);
+}
+#reg-comm3{
+    display: none;
+}
+#reg-comm a{
+    text-decoration: none;
+    color: #9a9a9a !important;
+}
+#reg-comm3 a span{
+    color: red !important;
+}
+.wholepswdpage{
+    font-family: 'Poppins', sans-serif;	
+   position: relative;
+   }
+.wholepswdpage #login-head{       
+    background-color:#6d9928;
+    padding:35px;
+    color:#fff;
+    font-size:25px;
+    text-align:center;      
+}
+.pswd-innerdiv .passhead{
+    font-size: 20px;
+    font-weight: 600;
+}
+.pswd-innerdiv{
+    width:500px;
+    height:500px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:200px;
+    color:#707070;
+}
+.pswd-innerdiv input{
+    padding:15px;
+    border:1px solid #ddd;
+    color:#707070;
+    width:400px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+.pswd-innerdiv p{
+    color:#707070;
+    width:400px;
+    line-height: 25px;
+    margin-top:20px;
+}
+.pswd-innerdiv a:link {
+    color:#707070;
+    background-color: transparent;
+    text-decoration: none;
+}
+.pswd-innerdiv a:visited {
+    color:#707070;
+    background-color: transparent;
+    text-decoration: none;
+}
+.pswd-innerdiv a:hover {
+    color: red;    
+}
+.pswd-innerdiv button{
+    width:400px;
+    background-color:#36491e;
+    border:none;
+    color:#fff;
+    margin-top:30px;
+    padding:8px 20px;
+    font-size:17px;
+    border-radius:10px;
+}
+.pswd-innerdiv button:hover{
+    cursor: pointer;
+    background-color: #3e8e41;
 }
 
 /* Media Query */
