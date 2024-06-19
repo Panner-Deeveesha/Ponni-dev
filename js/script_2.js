@@ -85,24 +85,7 @@ function printheading(obj){
 
   getproductname(categoryfirst);
   categload();
-  var header = document.getElementById("headingdiv");
-  var btns = header.getElementsByClassName("btn");
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function () {
-      var current = document.getElementsByClassName("active");
-      current[0].className = current[0].className.replace(" active", "");
-      this.className += " active";
-    });
-  }
-  var header2 = document.getElementById("mydiv2");
-  var btns2 = header2.getElementsByClassName("cateheadings");
-  for (var i = 0; i < btns2.length; i++) {
-    btns2[i].addEventListener("click", function () {
-      var current2 = document.getElementsByClassName("active2");
-      current2[0].className = current2[0].className.replace(" active2", "");
-      this.className += " active2";
-    });
-  }
+ 
   
 }
 
@@ -380,7 +363,52 @@ function displaycategories(obj){
       //document.getElementById("samplework").innerHTML=t;
       $("#samplework").html(t);
     }
+    /*var header = document.getElementById("headingdiv");
+    var btns = header.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function () {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+      });
+    }
+    var header2 = document.getElementById("mydiv2");
+    var btns2 = header2.getElementsByClassName("cateheadings");
+    for (var i = 0; i < btns2.length; i++) {
+      btns2[i].addEventListener("click", function () {
+        var current2 = document.getElementsByClassName("active2");
+        current2[0].className = current2[0].className.replace(" active2", "");
+        this.className += " active2";
+      });
+    }*/
 
+    var header = document.getElementById("headingdiv");
+if (header) {
+    var btns = header.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            if (current.length > 0) {
+                current[0].classList.remove("active");
+            }
+            this.classList.add("active");
+        });
+    }
+}
+
+var header2 = document.getElementById("mydiv2");
+if (header2) {
+    var btns2 = header2.getElementsByClassName("cateheadings");
+    for (var i = 0; i < btns2.length; i++) {
+        btns2[i].addEventListener("click", function() {
+            var current2 = document.getElementsByClassName("active2");
+            if (current2.length > 0) {
+                current2[0].classList.remove("active2");
+            }
+            this.classList.add("active2");
+        });
+    }
+}
 }
 
 //finish index page
@@ -1659,7 +1687,7 @@ function changeimg(){
   var image_name = property.name;
   var image_extension = image_name.split('.').pop().toLowerCase();
   console.log(getuserid);
-  if(jQuery.inArray(image_extension,['gif','jpg','jpeg','']) == -1){
+  if(jQuery.inArray(image_extension,['jpg','jpeg','png']) == -1){
    
     var imgsrc="./assets/icons/error.png";
     var mgs="Error";
