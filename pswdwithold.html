@@ -180,21 +180,22 @@
             </div>
         </div>
     </div>
-
-    <div class="wholepasswordpage">
-        <p id="login-heading">LOGIN</p>
+    <div id="popup"></div>
+    <div class="wholepswdpage">
+        <p id="login-head">LOGIN</p>
         <div class="password-innerdiv">
-            <p class="passheading">RESET YOUR PASSWORD</p>
+            <p class="passhead">RESET YOUR PASSWORD</p>
             <p>Lost your password? Please enter your old password for confirmation.</p>
             <input type="password" id="old-pwd" name="old-pwd" placeholder="Old Password"><br>
             <input type="password" id="reg-pwd" name="reg-pwd" placeholder="New Password"><br>
             <img id="toggleBtn" src="./assets/icons/icons8-eye-20.png">
             <input type="password" id="confirmreg-pwd" name="confirmreg-pwd" placeholder="Confirm Password"><br>
-            <p id="reg-emptyvalue"></p>
-            <p id="reg-commend"></p>
-            <p id="reg-commend2"></p>
-            <button onclick="resetbtn()">RESET PASSWORD</button>
-            <p><a href="./login.html">Cancel</a></p>
+            <p id="reg-emptyval"></p>
+            <p id="reg-comm"></p>
+            <p id="reg-comm2"></p>
+            <p id="reg-comm3"><a href="./password.html"><span>Forgot Password!</span> Click Here</a></p>
+            <button onclick="resetbtn()">CHANGE PASSWORD</button>
+            <button id="cancelButton">CANCEL</button>
         </div> 
     </div>
 
@@ -332,13 +333,13 @@
             const screenWidth = window.innerWidth;
             if(!proftotid && screenWidth > 990 ){
                 $("#cartCount").css("right","18%");
-                $(".password-innerdiv").css({"margin-top":"100px","height":"600px"});
+                $(".password-innerdiv").css({"margin-top":"100px","height":"650px"});
             }else if(!proftotid && screenWidth > 630){
                 $("#cartCount").css("right","20%");
-                $(".password-innerdiv").css({"margin-top":"80px","height":"500px"});
+                $(".password-innerdiv").css({"margin-top":"80px","height":"600px"});
             }else if(!proftotid && screenWidth > 430){
                 $("#cartCount").css({"right":"27.5%","bottom":"46px"});
-                $(".password-innerdiv").css({"margin-top":"70px","height":"460px"});
+                $(".password-innerdiv").css({"margin-top":"70px","height":"500px"});
             }else if(!proftotid && screenWidth > 370){
                 $("#cartCount").css({"right":"32%","bottom":"46px"});
                 /*$(".wholepasswordpage").css("margin-top","80px");*/

@@ -30,7 +30,8 @@ function displayProducts(replacedString) {
         var imgsrc="./assets/icons/error.png";
         var mgs="Error";
         var content="Sorry! No Products Found.";
-        popup(imgsrc,mgs,content);
+        var btn="Cancel";
+        popup(imgsrc,mgs,content,btn);
       }   
     },
     error: function (error) {
@@ -337,7 +338,8 @@ function displayProd(replacedString2) {
         var imgsrc="./assets/icons/error.png";
         var mgs="Error";
         var content="Sorry! No Products Found.";
-        popup(imgsrc,mgs,content);
+        var btn="Cancel";
+        popup(imgsrc,mgs,content,btn);
       }   
     },
     error: function (error) {
@@ -493,6 +495,8 @@ function getAndSaveIPAddress() {
   });
 }
 
+/* RECENT VIEW */
+
 var inputlist = "";
 function checkTime(inputs) {
   inputlist = inputs;
@@ -536,7 +540,8 @@ function tocheckfortoken(inputs){
     var imgsrc="./assets/icons/error.png";
     var mgs="Error";
     var content="Please Login";
-    popup(imgsrc,mgs,content);
+    var btn="Cancel";
+    popup(imgsrc,mgs,content,btn);
   }
 }
 
@@ -753,6 +758,8 @@ function recentlyview(inputs){
   });
 }
 
+/* WISHLIST */
+
 function wishListfor(){
   var token31 = localStorage.getItem('token');
   //console.log('token31');
@@ -874,6 +881,9 @@ function printonwish(obj){
       
     }
 }
+
+/* PROFILE IMAGE */ 
+
 var profiletot = document.getElementById("smallimg");
 var profiletot1 = document.getElementById("smallimg1");
 
@@ -988,8 +998,13 @@ function iftheretoken(){
 function ifnottoken(){
   let h = "";
   h += "<li class = 'prolist'>";
+  h += "<a href = './login.html'>";
+  h += "LOGIN";
+  h += "</a>";
+  h += "</li>";
+  h += "<li class = 'prolist'>";
   h += "<a href = './register.html'>";
-  h += "LOGIN/REGISTER";
+  h += "REGISTER";
   h += "</a>";
   h += "</li>";
   $("#profilelist").html(h);
@@ -1063,30 +1078,89 @@ function forhead(){
 
 /* PSWDWITHOLD PAGE */
 
-//registerpage
-
-
-function resetbtn(){
-  var inputvalues=document.querySelectorAll(".password-innerdiv input");
-  for(let i=0;i<inputvalues.length;i++){
-    if(inputvalues.value=" "){
-      document.getElementById("reg-emptyvalue").innerHTML="* All input filed must be filled";
+function continueElseIf() {
+  var inputVal = document.querySelectorAll(".wholepswdpage input");
+  var isEmpty = false;
+  for (let i = 0; i < inputVal.length; i++) {
+    console.log(inputVal[i].value.trim()); // Use trim() to remove leading/trailing whitespace
+  
+    if (inputVal[i].value.trim() === "") {
+      isEmpty = true;
+      if (isEmpty) {
+        $("#reg-comm3").css("display","none");
+        document.getElementById("reg-emptyval").innerHTML = "* All input fields must be filled";
+      } else {
+        document.getElementById("reg-emptyval").innerHTML = ""; // Clear error message if all fields are filled
+      }
+    } 
+  }
+  var passvalue=document.getElementById("reg-pwd").value;
+  var confirmpass=document.getElementById("confirmreg-pwd").value;
+  var oldpswd=document.getElementById("old-pwd").value;
+  if(isEmpty == false){
+    document.getElementById("reg-emptyval").style.display="none";
+    if(passvalue.length<5){
+      $("#reg-comm3").css("display","none");
+      document.getElementById("reg-comm").innerHTML="* Password must be more than five letters";
+    }else if (passvalue != confirmpass) {
+      $("#reg-comm3").css("display","none");
+      document.getElementById("reg-comm").innerHTML = "* Password and confirm password must be same";
+    }else {
+      document.getElementById("reg-emptyval").style.display = "none";
+      document.getElementById("reg-comm").style.display = "none";
+      $("#reg-comm3").css("display","none");
+        var token = localStorage.getItem("token");
+        var data = {
+          "password": passvalue,
+          "token": token
+        }
+        $.ajax({
+            url: "./php/updatepswd.php",
+            type: "post",
+            data: data,
+            success: function(response) {   
+              var imgsrc="./assets/icons/success.png";
+              var mgs="SUCCESS";
+              var content="Success! Your Password Has Been Changed.";
+              //var btn = "Continue";
+              popup(imgsrc,mgs,content/*,btn*/);
+              setTimeout(function() {
+                // Code to execute after the delay
+                window.location.href = "./index.html";
+              }, 2000);
+            },
+            error: function (error) {
+                console.log(">>"+error);
+            }
+        });
     }
   }
- var passvalue=document.getElementById("reg-pwd").value;
- var confirmpass=document.getElementById("confirmreg-pwd").value;
- 
-  if(passvalue.length<5){
-    document.getElementById("reg-emptyvalue").style.display="none";
-    document.getElementById("reg-commend").innerHTML="* Password must be more than five letters";
- }
- else if(passvalue != confirmpass){
-  document.getElementById("reg-commend").innerHTML="* Password and confirm password must be same";
- }else{
-  document.getElementById("reg-emptyvalue").style.display="none";
-  document.getElementById("reg-commend").style.display="none";
-  console.log("success");
- }
+}
+function resetbtn(){
+  var oldpswd=document.getElementById("old-pwd").value;
+  if(oldpswd){
+    var token = localStorage.getItem("token");
+    var data = {
+      "password": oldpswd,
+      "token": token
+    }
+    $.ajax({
+        url: "./php/checkpswd.php",
+        type: "post",
+        data: data,
+        success: function (response) {   
+          //console.log(">>"+response);      
+          if (response === "true") {
+            continueElseIf();
+          }else {       
+            $("#reg-comm3").css("display","block");            
+          }
+        },
+        error: function (error) {
+            console.log(">>"+error);
+        }
+    });
+   }
 }
 
 $(document).ready(function () {
@@ -1149,7 +1223,8 @@ $("#shopnowid").click(function () {
         var imgsrc="./assets/icons/error.png";
         var mgs="Error";
         var content="Please Enter Product Name!";
-        popup(imgsrc,mgs,content);
+        var btn="Cancel"
+        popup(imgsrc,mgs,content,btn);
     }
   });
 
@@ -1187,6 +1262,9 @@ $("#shopnowid").click(function () {
       ifnottoken();
     }
 
+  });
+  $("#cancelButton").click(function() {
+    window.location.href = "login.html"; // Replace with your desired login page URL
   });
 
   proficondynamic();

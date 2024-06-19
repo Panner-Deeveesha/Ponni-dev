@@ -489,6 +489,9 @@ var carticoncount=uniqueObj.length;
      
     });
 
+
+
+
     function Checkout(){
       document.getElementById("modal").style.display="block";
 
@@ -638,48 +641,171 @@ var carticoncount=uniqueObj.length;
 
     }
     
-
-
-   function checkCheckbox(){
-    var errorMessage=document.getElementById("errorMessage");
-      var tokenlist1= localStorage.getItem('token');
-     
-    var pin=  document.getElementById("pincode").value;
-   var city=document.getElementById("city").value;
-   var street=document.getElementById("street").value;
-   var district=document.getElementById("district").value;
-   var doornum=document.getElementById("doornum").value;
-
-     
-   errorMessage.innerHTML = ""; 
-   if ( !pin || !city || !street || !district || !doornum) {
-    errorMessage.innerHTML += "Please fill in all the details.";
-    return; 
-}
+    function checkCheckbox(){
+      var errorMessage=document.getElementById("errorMessage");
+        var tokenlist1= localStorage.getItem('token');
+       
+      var pin=  document.getElementById("pincode").value;
+     var city=document.getElementById("city").value;
+     var street=document.getElementById("street").value;
+     var district=document.getElementById("district").value;
+     var doornum=document.getElementById("doornum").value;
   
-   $.ajax({
+       
+     errorMessage.innerHTML = ""; 
+     if ( !pin || !city || !street || !district || !doornum) {
+      errorMessage.innerHTML += "Please fill in all the details.";
+      return; 
+  }
+    
+     $.ajax({
+      type: "POST",
+      url: "./php/paynowuser.php", 
+      data: {
+        token: tokenlist1,
+       pin:pin,
+       city:city,
+       doornum:doornum,
+       street:street,
+       district:district
+      },
+      success: function(response) {
+        Addaddressdetail(); 
+         
+      },
+      error: function(xhr, status, error) {
+          
+          console.error(xhr.responseText);
+      }
+  });
+     }
+
+function Addaddressdetail(){
+  var tokenlist1= localStorage.getItem('token');
+
+$.ajax({
+
+  type: "POST",
+  url: "./php/checkuserAddress.php",
+  data: {
+    token: tokenlist1,
+  },
+  success: function(response) {
+   var boo = isJsonString(response)
+   if(boo==true){
+    var obj=JSON.parse(response);
+    console.log(obj);
+    mergeAddress(obj);
+   }
+
+  },
+  error: function(xhr, status, error) {
+      
+      console.error(xhr.responseText);
+  }
+});
+
+
+   }
+
+
+
+   function mergeAddress(obj) {
+    var id = obj[0].Id; 
+
+    $.ajax({
+        type: "POST",
+        url: "./php/mergeAddress.php",
+        data: {
+            id: id,
+        },
+        success: function(response) {
+            console.log(response); 
+
+           
+            var isValidJson = isJsonString(response);
+            
+            if (isValidJson) {
+                var obj2 = JSON.parse(response); 
+                
+                var uniqueMap = {}; 
+
+                obj2.forEach(function(value) {
+                    var userId = value.userId;
+                    if (!uniqueMap[userId]) {
+                        uniqueMap[userId] = value;
+                    }
+                });
+
+        
+                var uniqueObj2 = Object.values(uniqueMap);
+
+  
+                $(obj).each(function(index, value) {
+                   
+                    $(uniqueObj2).each(function(index2, value2) {
+                        
+                        if (value.Id == value2.userId) {
+                            value2.AddressLine_1 = value.AddressLine_1;
+                            value2.AddressLine_2 = value.AddressLine_2;
+                            value2.AddressLine_3 = value.AddressLine_3;
+                            value2.pincode = value.pincode;
+                            value.buyId = value2.buyId;
+                        }
+                    });
+                });
+
+                console.log(obj); 
+                adddeliveryaddress(obj);
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error("Error fetching data:", error); 
+        }
+    });
+}
+
+function  adddeliveryaddress(obj){
+
+  var id=obj[0].userId;
+  var AddressLine_1 =obj[0].AddressLine_1 ;
+  var AddressLine_2=obj[0].AddressLine_2 ;
+  var  AddressLine_3= obj[0].AddressLine_3 ;
+  var pincode=obj[0].pincode;
+  var buyid=obj[0].buyId;
+
+  $.ajax({
     type: "POST",
-    url: "./php/paynowuser.php", 
+    url: "./php/updatedelivery.php", 
     data: {
-      token: tokenlist1,
-     pin:pin,
-     city:city,
-     doornum:doornum,
-     street:street,
-     district:district
+      id:id,
+      AddressLine_1:AddressLine_1,
+      AddressLine_2:AddressLine_2,
+      AddressLine_3:AddressLine_3,
+      pin:pincode,
+      buyid:buyid
+   
     },
     success: function(response) {
         
-       
+     
     },
+    
     error: function(xhr, status, error) {
         
         console.error(xhr.responseText);
     }
 });
-   }
+
+
+
+}
+
+
 
    function continuenxt() {
+
+    var tokenlist1= localStorage.getItem('token');
     var errorMessage1 = document.getElementById("errorMessage");
     var checkbox = document.getElementById("cartcheck");
     var pin1 = document.getElementById("pincode").value;
@@ -706,8 +832,121 @@ var carticoncount=uniqueObj.length;
   
     var element2 = document.getElementById("payaddress");
     element2.classList.remove("paynowactive");
-  }
+
+    var cartcheck=document.getElementById('cartcheck');
+    var errorMessage=document.getElementById("errorMessage");
+    var tokenlist1= localStorage.getItem('token');
+   
+  var pin=  document.getElementById("pincode").value;
+ var city=document.getElementById("city").value;
+ var street=document.getElementById("street").value;
+ var district=document.getElementById("district").value;
+ var doornum=document.getElementById("doornum").value;
+
+    if(cartcheck.checked){
+    checkCheckbox();
+    }
+    else{
+    
+      var tokenlist1= localStorage.getItem('token');
+
+   
+   $.ajax({
+    type: "POST",
+    url: "./php/checkuser.php", 
+    data: {
+      token: tokenlist1
   
+    },
+    success: function(response) {
+      var boo = isJsonString(response);
+
+if (boo == true) {
+var obj = JSON.parse(response);
+console.log(obj);
+findbuyid(obj)
+}
+    },
+    error: function(xhr, status, error) {
+        
+      console.error(xhr.responseText);
+  }
+});
+     
+    }
+
+  }
+
+
+function  findbuyid(obj){
+  var id = obj[0].Id; 
+ 
+  $.ajax({
+    type: "POST",
+    url: "./php/mergeAddress.php",
+    data: {
+      id: id
+   
+    },
+    success: function(response) {
+      var boo = isJsonString(response);
+
+if (boo == true) {
+var obj = JSON.parse(response);
+console.log(obj);
+ fetchdetail(obj);
+}
+    },
+    error: function(xhr, status, error) {
+        
+      console.error(xhr.responseText);
+  }
+});
+
+
+}
+
+
+
+  function fetchdetail(obj){
+
+  var buyid=obj[0].buyId;
+  var id=obj[0].userId;
+  console.log(id);
+var pin=  document.getElementById("pincode").value;
+var city=document.getElementById("city").value;
+var street=document.getElementById("street").value;
+var district=document.getElementById("district").value;
+var doornum=document.getElementById("doornum").value;
+
+$.ajax({
+  type: "POST",
+  url: "./php/deliveryaddress.php", 
+  data: {
+    id:id,
+  
+     city:city,
+     doornum:doornum,
+     street:street,
+     district:district,
+    pin:pin,
+    buyid:buyid
+ 
+  },
+  success: function(response) {
+      
+  },
+  
+  error: function(xhr, status, error) {
+      
+      console.error(xhr.responseText);
+  }
+});
+
+}
+
+
+
 
   function youmaylike(){
   
