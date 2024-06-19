@@ -4,6 +4,43 @@ body{
 	margin:0px;	
 	
 }
+.profileimage{
+    width: 25%;
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    margin-top: 20px;
+    height: 300px;
+    margin-bottom: 20px;
+}
+.profileimage .img-des{
+ color: red;
+ margin-top: 20px;
+ display: none;
+}
+.profileimage input{
+    width: 80%;
+   margin-top: 20px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.profileimage #submitbtn{
+  padding: 10px;
+  width: 80%;
+  border-radius: 15px;
+  background-color: #36491e;
+  border: 1px solid #36491e;
+  color: #fff;
+  margin-top: 20px;
+cursor: pointer;
+}
+.profileimage #submitbtn:hover{
+    background-color:#3e8e41;
+    color: #fff;
+    border: 1px solid #3e8e41;
+}
 #noproductdisplay{
     text-align: center;
     display: none;
@@ -495,7 +532,12 @@ ship page
     margin-top: 20px;
 }
 .cate-heading {
-   
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto ;
+    gap: 20px;
     margin-top: 40px;
 
 }
@@ -1325,7 +1367,23 @@ width:20px;
 	 font-weight:400;
  }
  /*media query for product*/
+ @media only screen and (max-width:1350px) {
+    .cate-heading span {
+       
+        padding: 3px 15px 3px 15px;
+       
+    }
+ }
  @media only screen and (max-width:1300px) {
+    .profileimage{
+        width: 30%;
+        font-size: 13px;
+        
+    }
+    .profileimage input {
+        width:80%;
+      
+    }
     .fullpopup{
         margin: 25% auto;
         width: 30%;
@@ -1465,6 +1523,15 @@ width:20px;
     }
 }
   @media only screen and (max-width:1150px) {
+    .cate-heading span {
+        text-transform: capitalize;
+        font-size: 17px;
+        text-align: center;
+        padding: 3px 12px 3px 12px;
+        border: 1px solid #4d6b20;
+        border-radius: 35px;
+        margin-right: 10px;
+    }
 	  .breadcrumbs p {
     width: 800px;
     margin-left: auto;
@@ -1529,6 +1596,15 @@ width:20px;
 }
   }
 @media only screen and (max-width:1100px) {
+    .profileimage{
+        width: 40%;
+        font-size: 13px;
+        
+    }
+    .profileimage input {
+        width:80%;
+      
+    }
     .fullpopup{
         margin: 25% auto;
         width: 30%;
@@ -1736,7 +1812,33 @@ width:20px;
         top: 53%;
     }
 }
+@media only screen and (max-width:1035px) {
+    .cate-heading span {
+      
+        font-size: 16px;
+        text-align: center;
+        padding: 3px 8px 3px 8px;
+        
+    }
+
+}
 @media only screen and (max-width:950px) {
+    .cate-heading span {
+      
+        font-size: 16px;
+        text-align: center;
+        padding: 3px 8px 3px 8px;
+        
+    }
+    .cate-heading {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: auto auto auto auto ;
+        gap: 20px;
+        margin-top: 40px;
+    }
     .fullpopup{
         margin: 30% auto;
         width: 35%;
@@ -1821,19 +1923,19 @@ width:20px;
 }
 @media only screen and (max-width:910px) {
     .cate-heading {
-        width: 700px;
+        width: 70%;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 40px;
         display: grid;
-        grid-template-columns: auto auto auto auto auto auto;
-        gap: 15px;
+        grid-template-columns: auto auto auto auto ;
+        gap: 20px;
+        margin-top: 40px;
     }
 
     .cate-heading span {
         font-size: 16px;
         text-align: center;
-        padding: 3px 20px 3px 20px;
+        padding: 3px 12px 3px 12px;
         border: 1px solid #4d6b20;
         border-radius: 35px;
     }
@@ -1842,6 +1944,15 @@ width:20px;
 }
 
 @media only screen and (max-width:850px) {
+    .profileimage{
+        width: 40%;
+        font-size: 13px;
+        
+    }
+    .profileimage input {
+        width:90%;
+      
+    }
     .fullpopup{
         margin: 30% auto;
         width: 40%;
@@ -1944,6 +2055,15 @@ width:20px;
 
 
 @media only screen and (max-width:730px) {
+    .profileimage{
+        width: 60%;
+        font-size: 13px;
+        
+    }
+    .profileimage input {
+        width:80%;
+      
+    }
     .fullpopup{
         margin: 38% auto;
         width: 55%;
@@ -2171,6 +2291,15 @@ width:20px;
 
 
 @media only screen and (max-width:620px) {
+    .profileimage{
+        width: 70%;
+        font-size: 13px;
+        
+    }
+    .profileimage input {
+        width:90%;
+      
+    }
     .first-image {
         width: 230px !important;
         height: 250px;
@@ -2607,6 +2736,15 @@ width:20px;
     }
 }
 @media only screen and (max-width:500px) {
+    .profileimage{
+        width: 100%;
+        font-size: 13px;
+        
+    }
+    .profileimage input {
+        width:90%;
+      
+    }
     .fullpopup{
         margin: 55% auto;
         width: 69%;
@@ -3456,6 +3594,7 @@ margin-left: 3%;
     }
 }
 @media only screen and (max-width:380px){
+    
 	.first-image {
         width: 150px;
         height: 150px;
@@ -3512,6 +3651,15 @@ margin-left: 3%;
 	
 }
 @media only screen and (max-width:370px){
+    .profileimage{
+        width: 100%;
+        font-size: 13px;
+        
+    }
+    .profileimage input {
+        width:90%;
+      
+    }
     .fullpopup{
         margin: 75% auto;
         width: 69%;
@@ -3729,6 +3877,15 @@ margin-left: 3%;
 }
 }
 @media only screen and (max-width:315px){
+    .profileimage{
+        width: 100%;
+        font-size: 13px;
+        
+    }
+    .profileimage input {
+        width:90%;
+      
+    }
     .fullpopup{
         margin: 85% auto;
         width: 69%;
