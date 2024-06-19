@@ -434,7 +434,8 @@ var carticoncount=uniqueObj.length;
                 var imgsrc="./assets/icons/success.png";
                 var mgs="success";
                 var content="Product Was Removed from cart";
-                popup(imgsrc,mgs,content);
+                var btn="Continue";
+                popup(imgsrc,mgs,content,btn);
             },
             error: function(xhr, status, error) {
                 

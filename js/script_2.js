@@ -232,7 +232,7 @@ $(document).ready(function () {
   
 });
 
-function popup(imgsrc,mgs,content){
+function popup(imgsrc,mgs,content,btn){
   var popup="";
   popup +='<div class="fullpopup">';
   popup +='<div class="popupcontent">';
@@ -249,10 +249,13 @@ function popup(imgsrc,mgs,content){
   popup +='</div>';
   popup +='</div>';
   popup +='<div id="cancelbtn">';
-  popup += 'Cancel';
+  popup += btn;
   popup +='</div>';
-  document.getElementById("popup").style.display="block";
-  document.getElementById("popup").innerHTML=popup;
+
+  $("#popup").css("display","block");
+  
+  $("#popup").html(popup);
+
   $("#cancelbtn").click(function(){
     document.getElementById("popup").style.display="none";
    
@@ -292,7 +295,9 @@ function getBycategory(innerHTML) {
               var imgsrc="./assets/icons/error.png"
               var mgs="Error";
               var content="No Product Found";
-              popup(imgsrc,mgs,content);
+              var btn="Continue";
+              popup(imgsrc,mgs,content,btn);
+             
           }   
   
       },
@@ -1134,7 +1139,8 @@ function deletelike(token,wishproduct){
         var imgsrc="./assets/icons/success.png";
         var mgs="Success";
         var content="The product is Removed From WishList";
-       popup(imgsrc,mgs,content);
+        var btn="Continue";
+       popup(imgsrc,mgs,content,btn);
         
       },
       error:function(xhr,status,error){
@@ -1189,7 +1195,9 @@ $(document).on("click", "#productaddbutton", function() {
   var imgsrc="./assets/icons/success.png";
   var mgs="Success";
   var content="Product Added to Cart";
-  popup(imgsrc,mgs,content);
+  var btn="Continue";
+  popup(imgsrc,mgs,content,btn);
+
  
 });
   
@@ -1238,12 +1246,24 @@ function decrementbtn(){
 
 
 function clickregbutton(){
-  var inputvalues=document.querySelectorAll(".wholeregisterpage input");
-  for(let i=0;i<inputvalues.length;i++){
-    if(inputvalues.value=" "){
-      document.getElementById("reg-emptyvalue").innerHTML="* All input filed must be filled";
-    }
+  var inputValues = document.querySelectorAll(".wholeregisterpage input");
+  var isEmpty = false;
+  
+  for (let i = 0; i < inputValues.length; i++) {
+      console.log(inputValues[i].value.trim()); // Use trim() to remove leading/trailing whitespace
+  
+      if (inputValues[i].value.trim() === "") {
+          isEmpty = true;
+          if (isEmpty) {
+            document.getElementById("reg-emptyvalue").innerHTML = "* All input fields must be filled";
+        } else {
+            document.getElementById("reg-emptyvalue").innerHTML = ""; // Clear error message if all fields are filled
+        }
+      }
+      
   }
+  
+  
  var passvalue=document.getElementById("reg-pwd").value;
  var confirmpass=document.getElementById("confirmreg-pwd").value;
  var fname=document.getElementById("regi-fname").value;
@@ -1251,9 +1271,10 @@ function clickregbutton(){
  var emailvalue=document.getElementById("regi-email").value;
  var contactno=document.getElementById("regi-number").value;
  var fullname=fname+lname;
- 
-  if(passvalue.length<5){
-    document.getElementById("reg-emptyvalue").style.display="none";
+ if(isEmpty == false){
+  document.getElementById("reg-emptyvalue").style.display="none";
+     if(passvalue.length<5){
+   
     document.getElementById("reg-commend").innerHTML="* Password must be more than five letters";
     
  }
@@ -1261,10 +1282,10 @@ function clickregbutton(){
   document.getElementById("reg-commend").innerHTML="* Password and confirm password must be same";
  }
  else if(contactno.length != 10){
-   document.getElementById("reg-emptyvalue").innerHTML="* Invalid contact number";
+   document.getElementById("reg-commend2").innerHTML="* Invalid contact number";
  }
  else{
-  document.getElementById("reg-emptyvalue").style.display="none";
+  document.getElementById("reg-commend2").style.display="none";
   document.getElementById("reg-commend").style.display="none";
   $.ajax({
     url: "./php/userRegister.php",
@@ -1279,7 +1300,9 @@ function clickregbutton(){
       var imgsrc="./assets/icons/success.png";
       var mgs="Registration Successful";
       var content="Thank You! You have successfully registered on our website. You can now proceed to the payment process.";
-     popup(imgsrc,mgs,content);
+      var btn="Continue";
+      popup(imgsrc,mgs,content,btn);
+     
      setInterval(openlogin,1200);
     },
     error:function(xhr,status,error){
@@ -1287,6 +1310,8 @@ function clickregbutton(){
     }
   });
  }
+ }
+
 }
 function openlogin(){
   window.location.href = "./login.html"
@@ -1455,7 +1480,9 @@ function setproductswish(obj,wishproduct){
       var imgsrc="./assets/icons/success.png";
       var mgs="Success";
       var content="The product is Added To WishList";
-     popup(imgsrc,mgs,content);
+      var btn="Continue";
+      popup(imgsrc,mgs,content,btn);
+   
      
     },
     error:function(xhr,status,error){
@@ -1495,7 +1522,9 @@ function checkActivity() {
         var imgsrc="./assets/icons/warning.png";
         var mgs="Warning";
         var content="Your Session will be expired in 10 Seconds";
-       popup(imgsrc,mgs,content);
+        var btn="Cancel";
+        popup(imgsrc,mgs,content,btn);
+      
        setInterval(checktoopenlogin,10 * 1000);
        
       
@@ -1550,7 +1579,9 @@ setInterval( tokenforcheck,  30 * 1000);
           var imgsrc="./assets/icons/warning.png";
           var mgs="Warning";
           var content="Your Account Logged in another device";
-         popup(imgsrc,mgs,content);
+          var btn="Continue";
+          popup(imgsrc,mgs,content,btn);
+       
          
          setInterval( openlogin,  3 * 1000);  
         }
@@ -1572,6 +1603,100 @@ setInterval( tokenforcheck,  30 * 1000);
  }
     
 }
+$(document).ready(function(){
+  $(document).on('change','#photo',function(){
+    $("#img-size").css("display","none");
+  
+  });
+});
+function changeimg(){
+
+ 
+    var getuserid;
+    const token = localStorage.getItem('token');
+   if(token){
+    var data = {
+      "token": token
+      
+  }
+    $.ajax({
+      url: "./php/getuserId.php",
+      type: "post",
+      data: data,
+      success: function (response) {
+       
+        var boo = isJsonString(response);
+        console.log(response);
+        if(boo==true){
+            var obj = JSON.parse(response);
+           
+            getuserid=obj[0].id;
+         
+            uploadimg(getuserid);
+           
+        }else{
+            console.log("Error");
+        }   
+  
+    },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+   }
+  }
+   function uploadimg(getuserid){
+    var property = document.getElementById('photo').files[0];
+  var image_name = property.name;
+  var image_extension = image_name.split('.').pop().toLowerCase();
+  console.log(getuserid);
+  if(jQuery.inArray(image_extension,['gif','jpg','jpeg','']) == -1){
+   
+    var imgsrc="./assets/icons/error.png";
+    var mgs="Error";
+    var content="Invalid image file";
+    var btn="Cancel";
+    popup(imgsrc,mgs,content,btn);
+    $('#photo').val(''); // Clear the file input field
+  }
+else{
+  var form_data = new FormData();
+
+  form_data.append("file", property);
+form_data.append("userid", getuserid);
+
+  $.ajax({
+    url:'./php/upload.php',
+    method:'POST',
+    data: form_data,
+    contentType:false,
+    cache:false,
+    processData:false,
+    beforeSend:function(){
+      $('#msg').html('Loading......');
+    },
+    success:function(data){
+      console.log(data);
+      if(data=="sucess"){
+        var imgsrc="./assets/icons/success.png";
+        var mgs="Success";
+        var content="Your Profile Image is Changed";
+        var btn="Continue";
+        popup(imgsrc,mgs,content,btn);
+        $('#photo').val(''); // Clear the file input field
+      }
+     else{
+      $("#img-size").css("display","block");
+      $('#photo').val(''); // Clear the file input field
+     }
+    }
+  });
+}
+ 
+
+}
+    
 
 
-
+   
+  

@@ -977,7 +977,7 @@ function displayimg2(obj){
 function iftheretoken(){
   let h = "";
   h += "<li class = 'prolist'>";
-  h += "<a href='password.html'>";
+  h += "<a href='image.html'>";
   h += "CHANGE PROFILE IMAGE";
   h += "</a>";
   h += "</li>";
