@@ -617,7 +617,7 @@ del{
 }
 #shopslide{
     width: 98%;
-    height: 290px;
+    height: auto;
     display: none;
     flex-wrap: wrap;
     padding: 10px;
