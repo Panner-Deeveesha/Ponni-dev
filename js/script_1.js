@@ -1,7 +1,22 @@
 var ulit = document.getElementById("productList");
 var startTime = new Date().getTime();
+const searchInputElement = document.getElementById('searchInput');
 
-document.getElementById('searchInput').addEventListener('input', function () {
+if (searchInputElement) {
+  searchInputElement.addEventListener('input', function() {
+    // Handler function for the 'input' event on searchInput
+    const searchTerm = this.value.trim(); // Get trimmed search term
+    if (searchTerm.length >= 3) {
+      const replacedString = searchTerm.replace(/ /g, "_");
+      displayProducts(replacedString);
+    } else {
+      // Handle case when search term length is less than 3 (optional)
+      ulit.innerHTML = ""; // Clear previous results or handle differently
+    }
+  });
+}
+
+/*document.getElementById('searchInput').addEventListener('input', function () {
   const searchTerm = this.value;
   const tolen = searchTerm.length;
   ulit.innerHTML = " ";
@@ -10,7 +25,7 @@ document.getElementById('searchInput').addEventListener('input', function () {
   if(tolen >= 3){
     displayProducts(replacedString);
   }
-});
+});*/
 
 function displayProducts(replacedString) {
   var name = replacedString.replace(/_/g, " ");
