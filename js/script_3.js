@@ -379,10 +379,10 @@ function displaycartdetails(uniqueObj) {
 
       var totalSum = 0;
       var cartDiv = "";
-
+      var carticoncount=uniqueObj.length;
       for (let i = 0; i < uniqueObj.length; i++) {
           var unitAbbreviation = unitMapping[uniqueObj[i].unit.toLowerCase()] || uniqueObj[i].unit;
-
+     
           var productValue = uniqueObj[i].offerPrice * uniqueObj[i].count;
           totalSum += productValue;
 
@@ -617,6 +617,14 @@ function displaycartdetails(uniqueObj) {
    }
 
     function paynowdetails(obj,totalSum){
+      var unitMapping = {
+        'milli litre': 'ml',
+        'litre': 'L',
+        'Kg': 'kg',
+        'gram': 'g'
+    };
+var unitAbbreviation = unitMapping[obj[i].unit.toLowerCase()] || obj[i].unit;
+
 
        let paydiv="";
 
@@ -634,7 +642,7 @@ function displaycartdetails(uniqueObj) {
      paydiv+='<div class="cartproduct-details ">';
      paydiv+='<div class="title ">'+obj[i].productName+'</div>';
      paydiv+='<div class="price">'+'Price:'+obj[i].offerPrice +'</div>';
-     paydiv+='<span >'+'Quantity:'+obj[i].volume+obj[i].unit+'</span>';
+     paydiv+='<span >'+'Quantity:'+obj[i].volume+unitAbbreviation+'</span>';
      paydiv+='</div>';  
      paydiv+='</li>';
      }
