@@ -379,10 +379,10 @@ function displaycartdetails(uniqueObj) {
 
       var totalSum = 0;
       var cartDiv = "";
-
+      var carticoncount=uniqueObj.length;
       for (let i = 0; i < uniqueObj.length; i++) {
           var unitAbbreviation = unitMapping[uniqueObj[i].unit.toLowerCase()] || uniqueObj[i].unit;
-
+     
           var productValue = uniqueObj[i].offerPrice * uniqueObj[i].count;
           totalSum += productValue;
 
@@ -617,6 +617,14 @@ function displaycartdetails(uniqueObj) {
    }
 
     function paynowdetails(obj,totalSum){
+      var unitMapping1 = {
+        'milli litre': 'ml',
+        'litre': 'L',
+        'Kg': 'kg',
+        'gram': 'g'
+    };
+
+   
 
        let paydiv="";
 
@@ -627,6 +635,7 @@ function displaycartdetails(uniqueObj) {
       paydiv +='<div class="cart-paymentproduct">';
      paydiv +='<ul class="cartscroll">';
      for(let i=0;i<obj.length;i++){
+      var unitAbbreviation1 = unitMapping1[obj[i].unit.toLowerCase()] || obj[i].unit; 
      paydiv +='<li  class="payproductdetail">';
      paydiv +='<div class="paymentproduct-img">';
      paydiv += '<img src="' + obj[i].imgPath_1 + '" width="40px" alt="thirattipal" class="">';
@@ -634,7 +643,7 @@ function displaycartdetails(uniqueObj) {
      paydiv+='<div class="cartproduct-details ">';
      paydiv+='<div class="title ">'+obj[i].productName+'</div>';
      paydiv+='<div class="price">'+'Price:'+obj[i].offerPrice +'</div>';
-     paydiv+='<span >'+'Quantity:'+obj[i].volume+obj[i].unit+'</span>';
+     paydiv+='<span >'+'Quantity:'+obj[i].volume+unitAbbreviation1+'</span>';
      paydiv+='</div>';  
      paydiv+='</li>';
      }

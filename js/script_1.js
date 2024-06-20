@@ -573,7 +573,7 @@ function tocheckfortoken(inputs){
         data: data,
         success: function (response) {   
           var boo = isJsonString(response);
-          console.log(response);
+          //console.log(response);
           if(boo==true){
             var obj = JSON.parse(response);
             checkalreadytorecent(inputs,obj);
@@ -1164,7 +1164,7 @@ function continueElseIf() {
   var inputVal = document.querySelectorAll(".wholepswdpage input");
   var isEmpty = false;
   for (let i = 0; i < inputVal.length; i++) {
-    console.log(inputVal[i].value.trim()); // Use trim() to remove leading/trailing whitespace
+    //console.log(inputVal[i].value.trim()); // Use trim() to remove leading/trailing whitespace
   
     if (inputVal[i].value.trim() === "") {
       isEmpty = true;
