@@ -357,10 +357,10 @@ if (searchInput) {
     // Handler function for the 'input' event on searchInput
     if (event.target === searchInput) {
       // Your event handling code here
-      const searchTerm2 = this.value.trim(); // Get trimmed search term
-      if (searchTerm2.length >= 3) {
-        const replacedString2 = searchTerm2.replace(/ /g, "_");
-        displayProd(replacedString2);
+      const searchterm2 = this.value.trim(); // Get trimmed search term
+      if (searchterm2.length >= 3) {
+        const replaceString2 = searchterm2.replace(/ /g, "_");
+        displaydetails(replaceString2);
       } else {
         // Handle case when search term length is less than 3 (optional)
         clicksearch.innerHTML = ""; // Clear previous results or handle differently
@@ -369,8 +369,8 @@ if (searchInput) {
   });
 }
 
-function displayProd(replacedString2) {
-  var name = replacedString2.replace(/_/g, " ");
+function displaydetails(replaceString2) {
+  var name = replaceString2.replace(/_/g, " ");
   var data = {
       "name": name
   }
@@ -384,12 +384,12 @@ function displayProd(replacedString2) {
           var obj = JSON.parse(response);
           secondpricecheck(obj);
       }else{
-        //displayval.innerHTML = "Sorry! No Products Found";
-        var imgsrc="./assets/icons/error.png";
+        $("#nullitem").css("display","block");
+        /*var imgsrc="./assets/icons/error.png";
         var mgs="Error";
         var content="Sorry! No Products Found.";
         var btn="Cancel";
-        popup(imgsrc,mgs,content,btn);
+        popup(imgsrc,mgs,content,btn);*/
       }   
     },
     error: function (error) {
@@ -467,6 +467,7 @@ function displayoncheck(obj){
     //t += "</span>";
     secondlistcreate.innerHTML = emptyval;
     //listcreate.innerHTML = "<img src=https://gramiyum.in/wp-content/uploads/2022/12/Coldpressed-Sesame-Oil.jpg class='searimg'>" + "<div id='titlesear'>" + prodname + "</div>" + "<del id='delval'> " + prodprice + "</del>" + " <span id='offpriceid'>" + offprice + "</span>";
+    $("#nullitem").css("display","none");
     clicksearch.appendChild(secondlistcreate);
   }
 }
@@ -485,7 +486,7 @@ function openNav() {
   }else if(screenWidth > 775){
     document.getElementById("searchsort").style.display = "block";
     document.getElementById("contentsear").style.display = "block"; 
-    document.getElementById("contentsear").style.width = "40%";
+    document.getElementById("contentsear").style.width = "50%";
   } else{
     document.getElementById("searchsort").style.display = "block";
     document.getElementById("contentsear").style.display = "block"; 
@@ -572,7 +573,7 @@ function tocheckfortoken(inputs){
         data: data,
         success: function (response) {   
           var boo = isJsonString(response);
-          console.log(response);
+          //console.log(response);
           if(boo==true){
             var obj = JSON.parse(response);
             checkalreadytorecent(inputs,obj);
@@ -1163,7 +1164,7 @@ function continueElseIf() {
   var inputVal = document.querySelectorAll(".wholepswdpage input");
   var isEmpty = false;
   for (let i = 0; i < inputVal.length; i++) {
-    console.log(inputVal[i].value.trim()); // Use trim() to remove leading/trailing whitespace
+    //console.log(inputVal[i].value.trim()); // Use trim() to remove leading/trailing whitespace
   
     if (inputVal[i].value.trim() === "") {
       isEmpty = true;
