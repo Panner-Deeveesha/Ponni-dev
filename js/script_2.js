@@ -1797,7 +1797,7 @@ function getnewitems(){
         getPricefornewitems(obj);
       }
      else{
-
+      $("#nonepro").css("display","block");
       $("#nonepro").text("No New Products");
      }
     }, 
@@ -1842,7 +1842,7 @@ function getPricefornewitems(obj) {
 function displaynewitems(obj){
   $("#newwork").css("display","grid");
     
-  $("#noneproducts").css("display","none");
+  $("#nonepro").css("display","none");
 
   const uniqueMap = new Map();
   console.log(obj);
@@ -1899,7 +1899,7 @@ function getsellproduct(){
         getsellprodcutname(obj);
       }
      else{
-
+      $("#nonepro").css("display","block");
       $("#nonepro").text("No Products in Most Selling");
      }
        
@@ -1978,7 +1978,7 @@ function sellproductprice(obj){
 function displaymostsell(obj){
   $("#newwork2").css("display","grid");
     
-
+  $("#nonepro").css("display","none");
 
   const uniqueMap = new Map();
   console.log(obj);
