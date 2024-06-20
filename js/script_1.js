@@ -339,7 +339,7 @@ function countcheckforcart(totcount){
 var clicksearch = document.getElementById("productList2");
 var displayval = document.getElementById("totalstart");
 
-document.getElementById('searchInput2').addEventListener('input', function () {
+/*document.getElementById('searchInput2').addEventListener('input', function () {
   const searchTerm2 = this.value;
   const tolen2 = searchTerm2.length;
   clicksearch.innerHTML = " ";
@@ -348,7 +348,26 @@ document.getElementById('searchInput2').addEventListener('input', function () {
   if(tolen2 >= 3){
     displayProd(replacedString2);
   }
-});
+});*/
+
+const searchInput = document.querySelector('#seartype #searchInput2');
+
+if (searchInput) {
+  searchInput.addEventListener("input", function(event) {
+    // Handler function for the 'input' event on searchInput
+    if (event.target === searchInputElement) {
+      // Your event handling code here
+      const searchTerm2 = this.value.trim(); // Get trimmed search term
+      if (searchTerm2.length >= 3) {
+        const replacedString2 = searchTerm2.replace(/ /g, "_");
+        displayProd(replacedString2);
+      } else {
+        // Handle case when search term length is less than 3 (optional)
+        ulit.innerHTML = ""; // Clear previous results or handle differently
+      }
+    }
+  });
+}
 
 function displayProd(replacedString2) {
   var name = replacedString2.replace(/_/g, " ");
