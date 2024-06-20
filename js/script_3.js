@@ -362,63 +362,64 @@ function cartgetAvailability(obj){
 
 }
 
- 
+function displaycartdetails(uniqueObj) {
+  if (uniqueObj.length === 0) {
+      $('#emptycart').css('display', 'block');
+      $('.cart-details').css('display', 'none');
+      $("#cart-descriptionid").html('');
+  } else {
+      $('#emptycart').css('display', 'none');
+      $('.cart-details').css('display', 'block');
+      var unitMapping = {
+          'milli litre': 'ml',
+          'litre': 'L',
+          'Kg': 'kg',
+          'gram': 'g'
+      };
 
+      var totalSum = 0;
+      var cartDiv = "";
 
+      for (let i = 0; i < uniqueObj.length; i++) {
+          var unitAbbreviation = unitMapping[uniqueObj[i].unit.toLowerCase()] || uniqueObj[i].unit;
 
+          var productValue = uniqueObj[i].offerPrice * uniqueObj[i].count;
+          totalSum += productValue;
 
-function displaycartdetails(uniqueObj){
-
-if(uniqueObj.length===0){
- $(' #emptycart').css('display','block');
- $('.cart-details').css('display','none');
- $("#cart-descriptionid").html(''); 
-
-}else{
-  $(' #emptycart').css('display','none');
-  $('.cart-details').css('display','block');
-  var cartItems = {};
-var carticoncount=uniqueObj.length;
-  var totalSum = 0; 
-   var cartDiv = "";
-    for(let i=0;i<uniqueObj.length;i++){
-      var cartincrement='';
-      var productValue = uniqueObj[i].offerPrice * uniqueObj[i].count; 
-      totalSum += productValue;
-         cartDiv +='<div class="cart-all">';
+          cartDiv += '<div class="cart-all">';
           cartDiv += '<div class="cart-description1">';
-          cartDiv += `<img class='imagenav'src='${uniqueObj[i].imgPath_1}' width="120px" height="120px">`;
-          cartDiv += '<div  class="cart-product1">';
-          cartDiv += '<p class="cart-productname" >';
+          cartDiv += `<img class='imagenav' src='${uniqueObj[i].imgPath_1}' width="120px" height="120px">`;
+          cartDiv += '<div class="cart-product1">';
+          cartDiv += '<p class="cart-productname">';
           cartDiv += uniqueObj[i].productName;
           cartDiv += '</p>';
           cartDiv += '<p>';
-          cartDiv += 'Quantity:'+" "+uniqueObj[i].volume+"  "+uniqueObj[i].unit;
+          cartDiv += 'Quantity: ' + uniqueObj[i].volume + ' ' + unitAbbreviation;
           cartDiv += '</p>';
           cartDiv += `<img src="./assets/icons/icons8-delete-20.png" class="delete-item" data-index="${i}">`;
           cartDiv += '</div>';
           cartDiv += '</div>';
           cartDiv += '<div class="cart-price">';
-          cartDiv += '<del>';
-          cartDiv += '</del>';
+          cartDiv += '<del></del>';
           cartDiv += '<span class="product-price" id="cart-price1">';
-          cartDiv += 'Rs:'+" "+uniqueObj[i].offerPrice;
+          cartDiv += 'Rs: ' + uniqueObj[i].offerPrice;
           cartDiv += '</span>';
           cartDiv += '</div>';
           cartDiv += '<div class="cartinputavailability">';
-          cartDiv += `<button onclick="updateTotal(${i}, 'decrement')">-</button>`
-    
+          cartDiv += `<button onclick="updateTotal(${i}, 'decrement')">-</button>`;
           cartDiv += `<input id='cartincrement${i}' type="number" class="product-quantity" value='${uniqueObj[i].count}' max=${uniqueObj[i].availability}>`;
-          cartDiv += `<button onclick="updateTotal(${i}, 'increment' )">+</button>`;
-  
+          cartDiv += `<button onclick="updateTotal(${i}, 'increment')">+</button>`;
           cartDiv += '</div>';
           cartDiv += '<div class="cart-totalvalue">';
           cartDiv += `<p class="total-value">Rs: ${productValue}</p>`;
           cartDiv += '</div>';
           cartDiv += '</div>';
-          cartDiv+='</div>';
-          
-    }
+      }
+
+
+
+
+
       $("#cart-descriptionid").html(cartDiv);
       $('#wholecarttotal').html("Rs."+totalSum);
     
