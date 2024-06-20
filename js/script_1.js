@@ -1,4 +1,5 @@
 var ulit = document.getElementById("productList");
+ulit.innerHTML = "";
 var startTime = new Date().getTime();
 const searchInputElement = document.getElementById('searchInput');
 
