@@ -1760,7 +1760,265 @@ function updateprofileimg(newPath,getuserid){
 
 }
     
+function opennewitem(){
+  window.location.href = "./newitem.html";
+ 
+}
+var newheader = document.getElementById("newheadingdiv");
+if (newheader) {
+    var newbtns = newheader.getElementsByClassName("newbtn");
+    for (var i = 0; i < newbtns.length; i++) {
+        newbtns[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("newactive");
+            if (current.length > 0) {
+                current[0].classList.remove("newactive");
+            }
+            this.classList.add("newactive");
+        });
+    }
+}
+function getnewitems(){
+  $.ajax({
+    url: "./php/newitemget.php",
+    type: "get",
+    
+    success: function (response) {
+      if(response != "null"){
+        var obj = JSON.parse(response);
+        //console.log(obj);
+        //var uniqueId = [];
+      /*$(obj).each(function(index,value) {
+        console.log(value.category);
+        // uniqueId.push(value.uniqueId);
+        // });
+        //console.log(obj);
+      })*/
+        console.log(obj);
+        getPricefornewitems(obj);
+      }
+     else{
 
+      $("#nonepro").text("No New Products");
+     }
+    }, 
+    error: function (error) {
+        console.log(error);
+    }
+  
+});
+}
+function getPricefornewitems(obj) {
+  var objects=obj;
+ // console.log(objects);
+  $.ajax({
+      url: "./php/pricebyunique.php",
+      type: "post",
+      data:{objects:objects},
+      success: function (response) {
+          var obj2 = JSON.parse(response);
+        //  console.log(response);
+           //console.log(obj2);
+          $(obj).each(function (index, value) {
+              //console.log(value);
+              $(obj2).each(function (index2, value2) {
+                  if (value.productId == value2.productId) {
+                      //console.log(value.uniqueId+":"+value2.id  );
+                      value.price = value2.price;
+                      value.offerPrice = value2.offerPrice;
+                      //console.log(value);
+                  }
+              });
+              
+          });
+          //showNewLanches(obj);
+         // console.log(obj);
+         displaynewitems(obj);
+      },
+      error: function (error) {
+          console.log(error);
+      }
+  });
+}
+function displaynewitems(obj){
+  $("#newwork").css("display","grid");
+    
+  $("#noneproducts").css("display","none");
+
+  const uniqueMap = new Map();
+  console.log(obj);
+  obj.forEach((item) => {
+    
+    uniqueMap.set(item.productName, item);
+  });
+  const uniqueObjects = Array.from(uniqueMap.values());
+console.log(uniqueObjects);
+   var t = "";
+    for(let i=0;i<uniqueObjects.length;i++){
+      
+      t +='<div class="sampleitem">';
+      t +='<p class="first-image">';
+      t += '<img src="' + uniqueObjects[i].imgPath_1 + '" onmouseover="this.src=\'' + uniqueObjects[i].imgPath_2 + '\'" onmouseout="this.src=\'' + uniqueObjects[i].imgPath_1 + '\'">';
+      t +='</p>';
+      t +='<p class="item-product">';
+      t +=uniqueObjects[i].productName;
+      t +='</p>';
+      t +='<p>';
+      t +='<del>';
+      t +="Rs."+uniqueObjects[i].price;
+      t +='</del>';
+      t +='<span>';
+      t +="From Rs."+uniqueObjects[i].offerPrice;
+      t +='</span>';
+      t +='</p>';
+      
+      t +='</div>';
+      
+      //document.getElementById("samplework").innerHTML=t;
+     
+    }
+    $("#newwork").html(t);
+}
+function getsellproduct(){
+  $("#newwork").css("display","none");
+   
+  $.ajax({
+    url: "./php/deliveryproduct.php",
+    type: "get",
+    success: function (response) {
+      if(response != "null"){
+        var obj = JSON.parse(response);
+        //console.log(obj);
+        //var uniqueId = [];
+      /*$(obj).each(function(index,value) {
+        console.log(value.category);
+        // uniqueId.push(value.uniqueId);
+        // });
+        //console.log(obj);
+      })*/
+        console.log(obj);
+        getsellprodcutname(obj);
+      }
+     else{
+
+      $("#nonepro").text("No Products in Most Selling");
+     }
+       
+    },
+    error: function (error) {
+        console.log(error);
+    }
+});
+}
+
+
+function getsellprodcutname(obj){
+ 
+
+ 
+  $.ajax({
+    url: "./php/findbyproductId.php",
+    type: "post",
+    data: {
+      products: obj
+    },
+    success: function (response) {
+      var boo = isJsonString(response);
+
+      if (boo == true) {
+        var obj = JSON.parse(response);
+      
 
    
-  
+
+        console.log(obj);
+        sellproductprice(obj);
+
+      } else {
+        console.log("Error");
+      }
+
+    },
+    error: function (error) {
+      console.log(error);
+    }
+  });
+}
+function sellproductprice(obj){
+  var objects=obj;
+  // console.log(objects);
+   $.ajax({
+       url: "./php/pricebyunique.php",
+       type: "post",
+       data:{objects:objects},
+       success: function (response) {
+           var obj2 = JSON.parse(response);
+         //  console.log(response);
+            //console.log(obj2);
+           $(obj).each(function (index, value) {
+               //console.log(value);
+               $(obj2).each(function (index2, value2) {
+                   if (value.productId == value2.productId) {
+                       //console.log(value.uniqueId+":"+value2.id  );
+                       value.price = value2.price;
+                       value.offerPrice = value2.offerPrice;
+                       //console.log(value);
+                   }
+               });
+               
+           });
+           //showNewLanches(obj);
+          console.log(obj);
+          displaymostsell(obj);
+       },
+       error: function (error) {
+           console.log(error);
+       }
+   });
+}
+function displaymostsell(obj){
+  $("#newwork2").css("display","grid");
+    
+
+
+  const uniqueMap = new Map();
+  console.log(obj);
+  obj.forEach((item) => {
+    
+    uniqueMap.set(item.productName, item);
+  });
+  const uniqueObjects = Array.from(uniqueMap.values());
+console.log(uniqueObjects);
+   var t = "";
+    for(let i=0;i<uniqueObjects.length;i++){
+      
+      t +='<div class="sampleitem">';
+      t +='<p class="first-image">';
+      t += '<img src="' + uniqueObjects[i].imgPath_1 + '" onmouseover="this.src=\'' + uniqueObjects[i].imgPath_2 + '\'" onmouseout="this.src=\'' + uniqueObjects[i].imgPath_1 + '\'">';
+      t +='</p>';
+      t +='<p class="item-product">';
+      t +=uniqueObjects[i].productName;
+      t +='</p>';
+      t +='<p>';
+      t +='<del>';
+      t +="Rs."+uniqueObjects[i].price;
+      t +='</del>';
+      t +='<span>';
+      t +="From Rs."+uniqueObjects[i].offerPrice;
+      t +='</span>';
+      t +='</p>';
+      
+      t +='</div>';
+      
+      //document.getElementById("samplework").innerHTML=t;
+     
+    }
+    $("#newwork2").html(t);
+
+}
+
+
+
+
+
+
+
