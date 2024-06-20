@@ -1205,7 +1205,7 @@ function getcancel() {
 }
 
 function dynamicoffer() {
-  var productId = "PO#008";
+  var productId = "PO#003";
 
   $.ajax({
     type: "POST",
