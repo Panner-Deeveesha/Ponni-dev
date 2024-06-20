@@ -53,14 +53,14 @@ if($_FILES['file']['name'] != ''){
     $file_size = $_FILES['file']['size'];
     $test = explode('.', $_FILES['file']['name']);
     $extension = end($test);    
-    $name = $userid . '.' . $extension;
+    $name = $userid . '.' . "png";
     
     if ($file_size < 500000) {
 
         $location = '../assets/images/profileimage/'.$name;
         move_uploaded_file($_FILES['file']['tmp_name'], $location);
     
-        echo 'sucess';
+        echo $location;
  }else {
     echo "error";
 }

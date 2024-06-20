@@ -1714,22 +1714,49 @@ form_data.append("userid", getuserid);
     },
     success:function(data){
       console.log(data);
-      if(data=="sucess"){
-        var imgsrc="./assets/icons/success.png";
-        var mgs="Success";
-        var content="Your Profile Image is Changed";
-        var btn="Continue";
-        popup(imgsrc,mgs,content,btn);
+      if(data=="eror"){
+        $("#img-size").css("display","block");
         $('#photo').val(''); // Clear the file input field
+       
       }
      else{
-      $("#img-size").css("display","block");
+      var imgsrc="./assets/icons/success.png";
+      var mgs="Success";
+      var content="Your Profile Image is Changed";
+      var btn="Continue";
+      popup(imgsrc,mgs,content,btn);
       $('#photo').val(''); // Clear the file input field
+      console.log(data);
+    
+    let newPath = data.replace("..", ".");
+       console.log(newPath);
+       updateprofileimg(newPath,getuserid);
      }
     }
   });
 }
  
+
+}
+function updateprofileimg(newPath,getuserid){
+ 
+  $.ajax({
+    url: "./php/updateimage.php",
+    type: "post",
+    data: {
+      path:newPath,
+      userid:getuserid,
+     
+    },
+    success:function(response){
+      console.log("sucess");
+    },
+    error:function(xhr,status,error){
+      console.log(error);
+    }
+});
+
+
 
 }
     
