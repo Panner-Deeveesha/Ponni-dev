@@ -617,14 +617,14 @@ function displaycartdetails(uniqueObj) {
    }
 
     function paynowdetails(obj,totalSum){
-      var unitMapping = {
+      var unitMapping1 = {
         'milli litre': 'ml',
         'litre': 'L',
         'Kg': 'kg',
         'gram': 'g'
     };
-var unitAbbreviation = unitMapping[obj[i].unit.toLowerCase()] || obj[i].unit;
 
+   
 
        let paydiv="";
 
@@ -635,6 +635,7 @@ var unitAbbreviation = unitMapping[obj[i].unit.toLowerCase()] || obj[i].unit;
       paydiv +='<div class="cart-paymentproduct">';
      paydiv +='<ul class="cartscroll">';
      for(let i=0;i<obj.length;i++){
+      var unitAbbreviation1 = unitMapping1[obj[i].unit.toLowerCase()] || obj[i].unit; 
      paydiv +='<li  class="payproductdetail">';
      paydiv +='<div class="paymentproduct-img">';
      paydiv += '<img src="' + obj[i].imgPath_1 + '" width="40px" alt="thirattipal" class="">';
@@ -642,7 +643,7 @@ var unitAbbreviation = unitMapping[obj[i].unit.toLowerCase()] || obj[i].unit;
      paydiv+='<div class="cartproduct-details ">';
      paydiv+='<div class="title ">'+obj[i].productName+'</div>';
      paydiv+='<div class="price">'+'Price:'+obj[i].offerPrice +'</div>';
-     paydiv+='<span >'+'Quantity:'+obj[i].volume+unitAbbreviation+'</span>';
+     paydiv+='<span >'+'Quantity:'+obj[i].volume+unitAbbreviation1+'</span>';
      paydiv+='</div>';  
      paydiv+='</li>';
      }
