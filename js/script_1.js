@@ -851,7 +851,7 @@ function getinwishlist(obj){
     type: "post",
     data: data,
     success: function (response) {
-      console.log("ss" + response);
+      //console.log("ss" + response);
         var boo = isJsonString(response);
         if(boo==true){
             var obj = JSON.parse(response);
