@@ -628,6 +628,31 @@ padding-bottom:10px;
    font-size:25px;
    color:#878787;
   }
+  #emptycartshop{
+    margin-top:20px;
+    max-width: 200px;
+    margin-left:auto;
+    margin-right:auto;
+   
+  }
+  #emptycartshopbtn{
+    font-size:15px;
+    color:white;
+    border:none;
+    border-radius:5px;
+    padding:12px 6px;
+    background-color: #4d6b20;
+    font-weight:600;
+    width: 180px;
+    cursor: pointer;
+  }
+  #emptycartshopbtn:hover{
+
+    border:1px solid #4d6b20 ;
+     color: #6d9928;
+   
+    background:none !important;
+  }
   .whole-cart{
       margin-top:100px;
   }

@@ -2,35 +2,23 @@ var ulit = document.getElementById("productList");
 ulit.innerHTML = "";
 var startTime = new Date().getTime();
 const searchInputElement = document.querySelector('#searchbutton #searchInput');
-const searchInp = document.querySelector('#searchbutton #searchIn');
 
 if (searchInputElement) {
-  searchInputElement.addEventListener("input", function() {
+  searchInputElement.addEventListener("input", function(event) {
     // Handler function for the 'input' event on searchInput
-    const searchTerm = this.value.trim(); // Get trimmed search term
-    if (searchTerm.length >= 3) {
-      const replacedString = searchTerm.replace(/ /g, "_");
-      displayProducts(replacedString);
-    } else {
-      // Handle case when search term length is less than 3 (optional)
-      ulit.innerHTML = ""; // Clear previous results or handle differently
+    if (event.target === searchInputElement) {
+      // Your event handling code here
+      const searchTerm = this.value.trim(); // Get trimmed search term
+      if (searchTerm.length >= 3) {
+        const replacedString = searchTerm.replace(/ /g, "_");
+        displayProducts(replacedString);
+      } else {
+        // Handle case when search term length is less than 3 (optional)
+        ulit.innerHTML = ""; // Clear previous results or handle differently
+      }
     }
   });
 }
-if (searchInp) {
-  searchInp.addEventListener("input", function() {
-    // Handler function for the 'input' event on searchInput
-    const searchTerm = this.value.trim(); // Get trimmed search term
-    if (searchTerm.length >= 3) {
-      const replacedString = searchTerm.replace(/ /g, "_");
-      displayProducts(replacedString);
-    } else {
-      // Handle case when search term length is less than 3 (optional)
-      ulit.innerHTML = ""; // Clear previous results or handle differently
-    }
-  });
-}
-
 /*document.getElementById('searchInput').addEventListener('input', function () {
   const searchTerm = this.value;
   const tolen = searchTerm.length;
