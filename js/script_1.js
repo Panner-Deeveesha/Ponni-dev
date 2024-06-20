@@ -355,7 +355,7 @@ const searchInput = document.querySelector('#seartype #searchInput2');
 if (searchInput) {
   searchInput.addEventListener("input", function(event) {
     // Handler function for the 'input' event on searchInput
-    if (event.target === searchInputElement) {
+    if (event.target === searchInput) {
       // Your event handling code here
       const searchTerm2 = this.value.trim(); // Get trimmed search term
       if (searchTerm2.length >= 3) {
@@ -363,7 +363,7 @@ if (searchInput) {
         displayProd(replacedString2);
       } else {
         // Handle case when search term length is less than 3 (optional)
-        ulit.innerHTML = ""; // Clear previous results or handle differently
+        clicksearch.innerHTML = ""; // Clear previous results or handle differently
       }
     }
   });
