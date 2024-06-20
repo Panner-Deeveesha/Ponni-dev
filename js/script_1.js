@@ -1,5 +1,20 @@
 var ulit = document.getElementById("productList");
 var startTime = new Date().getTime();
+const searchInputElement = document.getElementById('searchInput');
+
+if (searchInputElement) {
+  searchInputElement.addEventListener('input', function() {
+    // Handler function for the 'input' event on searchInput
+    const searchTerm = this.value.trim(); // Get trimmed search term
+    if (searchTerm.length >= 3) {
+      const replacedString = searchTerm.replace(/ /g, "_");
+      displayProducts(replacedString);
+    } else {
+      // Handle case when search term length is less than 3 (optional)
+      ulit.innerHTML = ""; // Clear previous results or handle differently
+    }
+  });
+}
 
 /*document.getElementById('searchInput').addEventListener('input', function () {
   const searchTerm = this.value;
@@ -11,33 +26,6 @@ var startTime = new Date().getTime();
     displayProducts(replacedString);
   }
 });*/
-
-// Define a function to debounce the input event
-function debounce(func, delay) {
-  let timerId;
-  return function() {
-    const context = this;
-    const args = arguments;
-    clearTimeout(timerId);
-    timerId = setTimeout(() => {
-      func.apply(context, args);
-    }, delay);
-  };
-}
-
-// Attach a debounced event listener to the search input
-document.getElementById('searchInput').addEventListener('input', debounce(function() {
-  const searchTerm = this.value;
-  const trimmedSearchTerm = searchTerm.trim(); // Trim whitespace
-  if (trimmedSearchTerm.length >= 3) {
-    const replacedString = trimmedSearchTerm.replace(/ /g, "_");
-    displayProducts(replacedString);
-  } else {
-    // Handle case when search term length is less than 3 (optional)
-    ulit.innerHTML = ""; // Clear previous results or handle differently
-  }
-}, 300)); // Adjust the debounce delay (in milliseconds) as needed
-
 
 function displayProducts(replacedString) {
   var name = replacedString.replace(/_/g, " ");
