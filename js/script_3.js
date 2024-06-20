@@ -507,7 +507,10 @@ var carticoncount=uniqueObj.length;
      
     });
 
+    $("#emptycartshopbtn").click(function() {
 
+      window.location.href = "./index.html";
+    });
 
 
     function Checkout(){
