@@ -368,6 +368,15 @@ function cartgetAvailability(obj){
 
 
 function displaycartdetails(uniqueObj){
+
+if(uniqueObj.length===0){
+ $(' #emptycart').css('display','block');
+ $('.cart-details').css('display','none');
+ $("#cart-descriptionid").html(''); 
+
+}else{
+  $(' #emptycart').css('display','none');
+  $('.cart-details').css('display','block');
   var cartItems = {};
 var carticoncount=uniqueObj.length;
   var totalSum = 0; 
@@ -471,7 +480,15 @@ var carticoncount=uniqueObj.length;
       countcheckforcart(carticoncount);
       paynowdetails(uniqueObj,totalSum);
   
+       } 
+
+
     }
+
+
+
+
+
     $(document).on("click", ".cart-productname", function() {
   
       var temp1= $(this).text();
@@ -567,6 +584,7 @@ var carticoncount=uniqueObj.length;
 
        
       }
+    
 
     }
 
@@ -1124,10 +1142,8 @@ $(document).on("click", ".first-image", function() {
  
 });
 
-
 function getofferbtn() {
   $(".getofferbanner").css("display", "block");
-  
   dynamicoffer();
 }
 
@@ -1139,93 +1155,84 @@ function calculateTime(endTime) {
   var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
 
-  return { hours, minutes, seconds };
+  return { hours, minutes, seconds, remainingTime };
 }
 
 function updateCountdown(offer) {
-  var endTime = new Date(offer[0].expiretime).getTime(); 
+  var endTime = new Date(offer[0].expiretime).getTime();
   console.log(endTime);
   localStorage.setItem('endTime', endTime);
 
   var time = document.getElementById('offertime');
   if (time) {
-      var { hours, minutes, seconds } = calculateTime(endTime);
-      time.innerHTML = `
-          <span class="countdown-element hours">${hours}h</span>
-          <span class="countdown-element minutes">${minutes}m</span>
-          <span class="countdown-element seconds">${seconds}s</span>
-      `;
-  }
+    var { hours, minutes, seconds, remainingTime } = calculateTime(endTime);
+    time.innerHTML = `
+        <span class="countdown-element hours">${hours}h</span>
+        <span class="countdown-element minutes">${minutes}m</span>
+        <span class="countdown-element seconds">${seconds}s</span>
+    `;
 
-  setInterval(function () {
-      var { hours, minutes, seconds } = calculateTime(endTime);
-      time.innerHTML = `
-          <span class="countdown-element hours">${hours}h</span>
-          <span class="countdown-element minutes">${minutes}m</span>
-          <span class="countdown-element seconds">${seconds}s</span>
-      `;
-  }, 1000);
+   
+    if (remainingTime <= 0) {
+      localStorage.removeItem('endTime'); 
+      $("#offerImage").css("display", "none");
+      $("#offertime").css("display", "none"); 
+      $('.getcancel').css("display", "none"); 
+      $('.timesec').css("display", "none"); 
+    } else {
+      setTimeout(function() {
+        updateCountdown(offer); 
+      }, 1000);
+    }
+  }
 }
 
-
-
-
-function offercancel(event){
+function offercancel(event) {
   if (!event.target.classList.contains('offerimg1')) {
     event.stopPropagation();
-    document.querySelector('.getofferbanner').style.display = 'none';
+    $(".getofferbanner").css("display", "none");
+    localStorage.removeItem('endTime'); 
+  }
 }
-  
 
-}
-
-function getcancel(){
-  $(".getofferbanner").css("display","none");
+function getcancel() {
+  $(".getofferbanner").css("display", "none");
+  localStorage.removeItem('endTime'); 
 }
 
 function dynamicoffer() {
-
-  var productId="PO#008";
+  var productId = "PO#008";
 
   $.ajax({
     type: "POST",
-    url: "./php/offerimage.php", 
+    url: "./php/offerimage.php",
     data: {
-    productId:productId
-  
+      productId: productId
     },
-    success: function(response) {
-      
-     console.log(response);
-  
-     var boo = isJsonString(response);
-     if(boo==true){
-      var offer=JSON.parse(response);
-      console.log(offer);
-      displayofferimg(offer[0].img_Path);
-      updateCountdown(offer);
-    
-     }
-        
-       
+    success: function (response) {
+      console.log(response);
+      var boo = isJsonString(response);
+      if (boo) {
+        var offer = JSON.parse(response);
+        console.log(offer);
+        displayofferimg(offer[0].img_Path);
+        updateCountdown(offer);
+      }
     },
-    error: function(xhr, status, error) {
-        
-        console.error(xhr.responseText);
+    error: function (xhr, status, error) {
+      console.error(xhr.responseText);
     }
-  }); 
-
-
-
+  });
 }
- function displayofferimg(offer){
+
+function displayofferimg(offer) {
   console.log(offer);
-
   var offerImage = document.getElementById('offerImage');
-    if (offerImage) {
-        offerImage.src = offer;
-    }
+  if (offerImage) {
+    offerImage.src = offer;
+  }
 }
+
 
 function navindex(){
   window.location.href = "./index.html";
