@@ -4,6 +4,46 @@ body{
 	margin:0px;	
 	
 }
+#nonepro{
+   
+        text-align: center;
+      
+        color: #4d6b20;
+        margin-top: 30px;
+        padding: 20px;
+    
+}
+.newitemspage{
+
+        background-color: #fff9e3;
+        padding-top: 20px;
+    
+}
+.newcate-heading {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    margin-top: 40px;
+}
+.newcate-heading .newactive, .newbtn:hover {
+    cursor: pointer;
+    color: #fff;
+    background-color: #2b4522;
+    border: 1px solid #2b4522;
+}
+.newcate-heading span {
+    text-transform: capitalize;
+    font-size: 18px;
+    text-align: center;
+    padding: 3px 25px 3px 25px;
+    border: 1px solid #4d6b20;
+    border-radius: 35px;
+    margin-right: 10px;
+    cursor: pointer;
+}
 .profileimage{
     width: 25%;
     font-size: 15px;
@@ -1367,6 +1407,18 @@ width:20px;
 	 font-weight:400;
  }
  /*media query for product*/
+ @media only screen and (max-width:1500px) {
+    .newcate-heading {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 20px;
+        margin-top: 40px;
+    }
+
+ }
  @media only screen and (max-width:1350px) {
     .cate-heading span {
        
@@ -1944,6 +1996,15 @@ width:20px;
 }
 
 @media only screen and (max-width:850px) {
+    .newcate-heading {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 20px;
+        margin-top: 40px;
+    }
     .profileimage{
         width: 40%;
         font-size: 13px;
@@ -2055,6 +2116,15 @@ width:20px;
 
 
 @media only screen and (max-width:730px) {
+    .newcate-heading {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 20px;
+        margin-top: 40px;
+    }
     .profileimage{
         width: 60%;
         font-size: 13px;
@@ -2491,6 +2561,15 @@ width:20px;
 }
 
 @media only screen and (max-width:600px){
+    .newcate-heading {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 20px;
+        margin-top: 40px;
+    }
     .fullpopup{
         margin: 45% auto;
         width: 55%;
@@ -2558,7 +2637,15 @@ width:20px;
 
 
 @media only screen and (max-width:520px) {
-    
+    .newcate-heading {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 20px;
+        margin-top: 40px;
+    }
      .cate-heading2 #btn-masalas p {
         width: 70%;
         margin-left: auto;
@@ -2920,9 +3007,28 @@ width:20px;
         font-size: 12px;
         border-radius: 10px;
       }
+      .newcate-heading span {
+        text-transform: capitalize;
+        font-size: 18px;
+        text-align: center;
+        padding: 3px 20px 3px 20px;
+        border: 1px solid #4d6b20;
+        border-radius: 35px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
 }
 @media only screen and (max-width:450px){
-    
+    .newcate-heading span {
+        text-transform: capitalize;
+        font-size: 18px;
+        text-align: center;
+        padding: 3px 15px 3px 15px;
+        border: 1px solid #4d6b20;
+        border-radius: 35px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
 element.style {
     width: 80%;
     height: 80%;
@@ -3125,6 +3231,7 @@ element.style {
         width: 180px;
         text-align: center;
         margin-top: 10px;
+        font-size: 13px;
     }
     .savouries-images {
          row-gap: 10px;
@@ -3244,6 +3351,16 @@ element.style {
     }
 }
 @media only screen and (max-width:420px){
+    .newcate-heading span {
+        text-transform: capitalize;
+        font-size: 16px;
+        text-align: center;
+        padding: 3px 15px 3px 15px;
+        border: 1px solid #4d6b20;
+        border-radius: 35px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
 	.first-image {
         width: 180px;
         height: 180px;
@@ -3433,6 +3550,16 @@ margin-left: 3%;
 }
 }
 @media only screen and (max-width:390px) {
+    .newcate-heading span {
+        text-transform: capitalize;
+        font-size: 15px;
+        text-align: center;
+        padding: 3px 10px 3px 10px;
+        border: 1px solid #4d6b20;
+        border-radius: 35px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
     .displaygridorders {
         display: grid;
         grid-template-columns: 38% 35% 22%;
@@ -3798,6 +3925,16 @@ margin-left: 3%;
         margin-left: auto;
         margin-right: auto;
     }
+    .newcate-heading span {
+        text-transform: capitalize;
+        font-size: 14px;
+        text-align: center;
+        padding: 3px 5px 3px 5px;
+        border: 1px solid #4d6b20;
+        border-radius: 35px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
 }
 @media only screen and (max-width:320px){
     .orderinnerimg .first-image img {
@@ -3877,6 +4014,15 @@ margin-left: 3%;
 }
 }
 @media only screen and (max-width:315px){
+    .newcate-heading {
+        width: 100%;
+        margin:0px;
+       padding-left: 5px;
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px;
+        margin-top: 40px;
+    }
     .profileimage{
         width: 100%;
         font-size: 13px;
