@@ -1131,6 +1131,7 @@ function continueElseIf() {
     if (inputVal[i].value.trim() === "") {
       isEmpty = true;
       if (isEmpty) {
+        $("#reg-comm2").css("display","none");
         $("#reg-comm3").css("display","none");
         document.getElementById("reg-emptyval").innerHTML = "* All input fields must be filled";
       } else {
@@ -1144,14 +1145,17 @@ function continueElseIf() {
   if(isEmpty == false){
     document.getElementById("reg-emptyval").style.display="none";
     if(passvalue.length<5){
+      $("#reg-comm2").css("display","none");
       $("#reg-comm3").css("display","none");
       document.getElementById("reg-comm").innerHTML="* Password must be more than five letters";
     }else if (passvalue != confirmpass) {
+      $("#reg-comm2").css("display","none");
       $("#reg-comm3").css("display","none");
       document.getElementById("reg-comm").innerHTML = "* Password and confirm password must be same";
     }else {
       document.getElementById("reg-emptyval").style.display = "none";
       document.getElementById("reg-comm").style.display = "none";
+      $("#reg-comm2").css("display","none");
       $("#reg-comm3").css("display","none");
         var token = localStorage.getItem("token");
         var data = {
@@ -1166,8 +1170,8 @@ function continueElseIf() {
               var imgsrc="./assets/icons/success.png";
               var mgs="SUCCESS";
               var content="Success! Your Password Has Been Changed.";
-              //var btn = "Continue";
-              popup(imgsrc,mgs,content/*,btn*/);
+              var btn = "Continue";
+              popup(imgsrc,mgs,content,btn);
               setTimeout(function() {
                 // Code to execute after the delay
                 window.location.href = "./index.html";
@@ -1196,7 +1200,8 @@ function resetbtn(){
           //console.log(">>"+response);      
           if (response === "true") {
             continueElseIf();
-          }else {       
+          }else {    
+            $("#reg-comm2").text("* Incorrect Old Password");   
             $("#reg-comm3").css("display","block");            
           }
         },
