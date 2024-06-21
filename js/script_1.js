@@ -1354,6 +1354,15 @@ $("#shopnowid").click(function () {
     window.location.href = "login.html"; // Replace with your desired login page URL
   });
 
+  document.addEventListener('DOMContentLoaded', function() {
+    var inputtypeformail = document.getElementById('searchInput2');
+    inputtypeformail.setAttribute('autocomplete', 'off'); // Set autocomplete attribute to 'off'
+  });
+  document.addEventListener('DOMContentLoaded', function() {
+    var inputtypeforpswd = document.getElementById('old-pwd');
+    inputtypeforpswd.setAttribute('autocomplete', 'off'); // Set autocomplete attribute to 'off'
+  });
+
   proficondynamic();
   forhead();
   proficondynamic2();
