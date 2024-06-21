@@ -1729,6 +1729,10 @@ font-size:20px;
     margin-left:0px;
     
 }
+.whole-cart{
+padding-left:10px;
+padding-right:10px;
+}
    }
 @media only screen and (max-width:1166px){
     #cart-descriptionid{
