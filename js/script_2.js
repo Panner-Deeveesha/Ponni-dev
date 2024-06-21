@@ -1007,9 +1007,9 @@ inputnum.setAttribute("max", input[0].availability);
 //console.log(input[0].availability);
 
   $(document).on("click", ".btnnormal", function() {
-    var unitAbbreviate = unitMapping[input[index].unit.toLowerCase()] || input[index].unit;
     var buttons = $(".btnnormal"); // Get all buttons with the class "btnnormal"
     var index = buttons.index($(this));
+    var unitAbbreviate = unitMapping[input[index].unit.toLowerCase()] || input[index].unit;
     //console.log("Button clicked at index: " + index);
     document.getElementById("pricedetails").innerHTML="Rs. "+input[index].price;
     document.getElementById("quantityvalue").innerHTML="QUANTITY : "+input[index].volume+unitAbbreviate;
