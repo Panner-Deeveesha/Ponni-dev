@@ -799,8 +799,8 @@ del{
 /* PSWD PAGE */
 #toggleBtn {
     position: absolute;
-    right:43%; /* Adjust this value based on the desired positioning */
-    top: 51%;
+    right:28%; /* Adjust this value based on the desired positioning */
+    top: 46%;
     transform: translateY(-69%);
 }
 #reg-comm3{
@@ -831,10 +831,9 @@ del{
 .pswd-innerdiv{
     width:500px;
     height:500px;
-    margin-left:auto;
-    margin-right:auto;
-    margin-top:200px;
+    margin: 100px auto;
     color:#707070;
+    position: relative;
 }
 .pswd-innerdiv input{
     padding:15px;

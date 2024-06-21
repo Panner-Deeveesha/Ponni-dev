@@ -174,7 +174,7 @@ border:none !important;
        color: white;
     padding-top:30px;
     padding-bottom:60px;
-    transform: translateY(-9px);
+    transform: translateY(-10px);
 
 
    }
@@ -611,6 +611,7 @@ padding-bottom:10px;
     #emptycart{
      padding-top: 20px;
      padding-bottom:30px;
+     display: none;
      
     }
   #emptycartimg{

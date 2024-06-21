@@ -1570,9 +1570,6 @@ width:20px;
         width: 230px;
 
     }
-    #toggleBtn {
-        right: 39%;
-    }
 }
   @media only screen and (max-width:1150px) {
     .cate-heading span {
@@ -1858,10 +1855,6 @@ width:20px;
         text-align: center;
         margin-top: 10px;
         font-size: 16px;
-    }
-    #toggleBtn {
-        right: 37%;
-        top: 53%;
     }
 }
 @media only screen and (max-width:1035px) {
@@ -2280,10 +2273,6 @@ width:20px;
         margin-top: 30px;
         overflow: hidden;
     }
-    #toggleBtn {
-        right: 31%;
-        top: 53%;
-    }
 }
 @media only screen and (max-width:630px) {
     .orderproductname {
@@ -2352,10 +2341,6 @@ width:20px;
         overflow: hidden;
         margin: 0px;
    }
-   #toggleBtn {
-        right: 31%;
-        top: 53%;
-    }
 }
 
 
@@ -2927,10 +2912,6 @@ width:20px;
         top: 54%;
         transform: translateY(-50%);
     }
-    #toggleBtn {
-        right: 17%;
-        top: 56%;
-    }
     .register-innerdiv input {
       padding: 10px;
       border: 1px solid #ddd;
@@ -2941,6 +2922,12 @@ width:20px;
       margin-top: 20px;
     }
     .register-innerdiv #toggleButton {
+        position: absolute;
+        right: 8%;
+        top: 47%;
+        transform: translateY(-50%);
+    }
+    .pswd-innerdiv #toggleBtn {
         position: absolute;
         right: 8%;
         top: 47%;
@@ -3016,6 +3003,57 @@ width:20px;
         margin-right: 10px;
         cursor: pointer;
     }
+    .pswd-innerdiv p {
+        color: #707070;
+        width: 90%;
+        line-height: 25px;
+        margin-top: 20px;
+    }
+    .wholepswdpage #login-head{
+        background-color: #6d9928;
+        padding: 15px;
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+    }
+    .pswd-innerdiv .passheading {
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .pswd-innerdiv p {
+        color: #707070;
+        width: 100%;
+        font-size: 14px;
+        line-height: 25px;
+        margin-top: 10px;
+    }
+    .pswd-innerdiv {
+        width: 80%;
+        height: 430px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+       
+      }
+      .pswd-innerdiv input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        color: #ddd;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+      }
+      .pswd-innerdiv button {
+        width: 100%;
+        background-color: #000;
+        border: none;
+        margin-top:10px;
+        color: #fff;
+        padding: 8px;
+        font-size: 12px;
+        border-radius: 10px;
+      }
 }
 @media only screen and (max-width:450px){
     .newcate-heading span {
@@ -3935,6 +3973,11 @@ margin-left: 3%;
         cursor: pointer;
     }
 }
+@media only screen and (max-width:327px){
+    .pswd-innerdiv #toggleBtn {
+        top: 52%;
+    }
+}
 @media only screen and (max-width:320px){
     .orderinnerimg .first-image img {
         width: 80px;
@@ -4007,9 +4050,11 @@ margin-left: 3%;
     font-size: 14px;
     font-weight: 600;
 }
-#toggleBtn{
-    right: 17%;
-    top: 68%;
+.pswd-innerdiv #toggleBtn {
+    position: absolute;
+    right: 8%;
+    top: 52%;
+    transform: translateY(-50%);
 }
 }
 @media only screen and (max-width:315px){
@@ -4082,7 +4127,52 @@ margin-left: 3%;
         line-height: 25px;
         margin-top: 10px;
     }
-    .password-innerdiv .passheading {
+    .pswd-innerdiv .passhead {
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .pswd-innerdiv input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        color: #ddd;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+    }
+    .wholepswdpage #login-head {
+       
+        padding: 15px;
+       
+        font-size: 20px;
+       
+    }
+    .pswd-innerdiv {
+        width: 80%;
+        height: 350px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+        color: #707070;
+    }
+    .pswd-innerdiv button {
+        width: 100%;
+        background-color: #000;
+        border: none;
+        color: #fff;
+        padding:8px;
+        margin-top: 5px;
+        font-size: 12px;
+        border-radius: 10px;
+    }
+    .pswd-innerdiv p {
+        color: #707070;
+        width: 100%;
+        font-size: 13px;
+        line-height: 25px;
+        margin-top: 10px;
+    }
+    .pswd-innerdiv .passhead {
         font-size: 16px;
         font-weight: 600;
     }
@@ -4131,6 +4221,12 @@ margin-left: 3%;
         position: absolute;
         right: 5%;
         top: 52%;
+        transform: translateY(-50%);
+    }
+    .pswd-innerdiv #toggleBtn {
+        position: absolute;
+        right: 5%;
+        top: 51%;
         transform: translateY(-50%);
     }
     .register-innerdiv button {
@@ -4263,14 +4359,12 @@ margin-left: 3%;
         text-align: center;
         margin-top: 10px;
     }
-    #toggleBtn{
-        right: 17%;
-        top: 65%;
-    }
 }
-@media only screen and (max-width:290px){
-    #toggleBtn{
-        right: 17%;
-        top: 65%;
+@media only screen and (max-width:305px){
+    .pswd-innerdiv #toggleBtn {
+        position: absolute;
+        right: 5%;
+        top: 59%;
+        transform: translateY(-50%);
     }
 }
