@@ -1276,9 +1276,9 @@ $(document).ready(function () {
     }
   });*/
 
-  $("#searchInput2").focus(function () {
+  /*$("#searchInput2").focus(function () {
     $("#totalstart").css("display", "none");
-  });
+  });*/
 
 $("#shopnowid").click(function () {
   $(".contentmenuslide #shopslide").slideToggle("slow", function() {
