@@ -2341,22 +2341,21 @@ width:20px;
         margin: 0px;
     }
    .product-carousel .first-image{
-    width: 250px !important;
-    height: 250px;
-    overflow: hidden;
-    margin: 0px;
+        width: 250px !important;
+        height: 250px;
+        overflow: hidden;
+        margin: 0px;
    }
    .cate-recentphotos .first-image{
-    width: 250px !important;
-    height: 250px;
-    overflow: hidden;
-    margin: 0px;
+        width: 250px !important;
+        height: 250px;
+        overflow: hidden;
+        margin: 0px;
    }
    #toggleBtn {
         right: 31%;
-        top: 60%;
+        top: 53%;
     }
-
 }
 
 
