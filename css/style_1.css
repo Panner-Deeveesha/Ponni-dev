@@ -945,6 +945,7 @@ del{
     .photopic{
         width: 30%;
         margin: auto;
+        text-align: center;
     }
     #wholecancelation, #wholetc {
         width: 75%;
