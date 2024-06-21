@@ -2,6 +2,12 @@ var ulit = document.getElementById("productList");
 ulit.innerHTML = "";
 var startTime = new Date().getTime();
 const searchInputElement = document.querySelector('#searchbutton #searchInput');
+var unitMapping = {
+  'milli litre': 'ml',
+  'litre': 'l',
+  'Kg': 'kg',
+  'gram': 'g'
+};
 
 if (searchInputElement) {
   searchInputElement.addEventListener("input", function(event) {
@@ -117,11 +123,10 @@ function getvalfn(obj) {
   for (const key in groupedProducts) {
       if (groupedProducts.hasOwnProperty(key)) {
           const product = groupedProducts[key];
-
+          var unitAbbreviation = unitMapping[product.unit.toLowerCase()] || product.unit;
           // Create <li> element and its content
           var t = "";
           var prodname = product.productName;
-          var produnit = product.unit;
           var prodvol = product.volume;
           var prodcat = product.category;
           var prodimg = product.imgPath_1;
@@ -133,7 +138,7 @@ function getvalfn(obj) {
           t += prodname;
           t += "</div>";
           t += "<span id='prodcat'>";
-          t += prodvol + " " + produnit;
+          t += prodvol + " " + unitAbbreviation;
           t += "</span>";
           t += "</div>";
           listcreate.innerHTML = t;
@@ -439,10 +444,10 @@ function displayoncheck(obj){
   });
   const uniqueObj =  Array.from(uniqueMap.values());*/
   for(i=0;i<totvalue;i++){
+    var unitAbbreviation = unitMapping[obj[i].unit.toLowerCase()] || obj[i].unit;
     var emptyval = "";
     var secondprodname = obj[i].productName;
     //var productname = prodname.charAt(0).toUpperCase() + prodname.slice(1);
-    var secondprodunit = obj[i].unit;
     var secondprodvol = obj[i].volume;
     var prodcat = obj[i].category;
     var secondprodimg = obj[i].imgPath_1;
@@ -456,7 +461,7 @@ function displayoncheck(obj){
     emptyval += secondprodname;
     emptyval += "</span>";
     emptyval += "<span id='prodcat'>";
-    emptyval += secondprodvol + " " + secondprodunit;
+    emptyval += secondprodvol + " " + unitAbbreviation;
     emptyval += "</span>";
     emptyval += "</div>";
     //t += "<del id='delval'> ";
@@ -751,6 +756,7 @@ function getpriceforrecent(obj){
 function recentlyview(inputs){
   recentlyinput = " ";
   for(i=0;i<inputs.length;i++){
+    var unitAbbreviation = unitMapping[inputs[i].unit.toLowerCase()] || inputs[i].unit;
     recentlyinput += '<div class="item">';
     recentlyinput += '<div class="product">';
     recentlyinput += '<p class="first-image">';
@@ -940,7 +946,7 @@ function printonwish(obj){
   $("#cate-myimages").css("display","grid");
    var t = "";
     for(let i=0;i<uniqueObjects.length;i++){
-      
+      var unitAbbreviation = unitMapping[uniqueObjects[i].unit.toLowerCase()] || uniqueObjects[i].unit;
       t +='<div class="sampleitem">';
       t +='<p class="first-image">';
       t += '<img src="' + uniqueObjects[i].imgPath_1 + '" onmouseover="this.src=\'' + uniqueObjects[i].imgPath_2 + '\'" onmouseout="this.src=\'' + uniqueObjects[i].imgPath_1 + '\'">';
