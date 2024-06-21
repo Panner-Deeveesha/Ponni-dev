@@ -9,7 +9,7 @@
     $street=$_POST['street'] ;
     $doornum=$_POST['doornum'];
     
-    $sql = "UPDATE users SET AddressLine_1='$doornum', AddressLine_2='$city, $state', AddressLine_3='$district',pincode='$pin' WHERE token='$token'";
+    $sql = "UPDATE users SET AddressLine_1='$doornum', AddressLine_2='$street,$city', AddressLine_3='$district',pincode='$pin' WHERE token='$token'";
     $res = $con->query($sql);
 
    
