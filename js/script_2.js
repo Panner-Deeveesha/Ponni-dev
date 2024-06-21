@@ -2,6 +2,12 @@
 var mydiv = document.getElementById("headingdiv");
 var mydiv2 = document.getElementById("headingdiv2");
 var menucat = document.getElementById("shopslide");
+var unitMapping = {
+  'milli litre': 'ml',
+  'litre': 'l',
+  'Kg': 'kg',
+  'gram': 'g'
+};
 function getcategorydynamically(){
   $.ajax({
     url: "./php/getcategorydynamic.php",
@@ -846,6 +852,7 @@ function checkwishlistproduct(getuserid,fullobj){
 function displayproduct(input,response){
 console.log(input);
 //console.log(response);
+var unitAbbreviation = unitMapping[input[0].unit.toLowerCase()] || input[0].unit;
   var token=localStorage.getItem('token');
   var s = "";
   var s2 ="";
@@ -875,21 +882,21 @@ console.log(input);
   s +='</span>';
   s +='</p>';
   s +='<p id="quantityvalue">';
-  s +="QUANTITY : "+input[0].volume+input[0].unit;
+  s +="QUANTITY : "+input[0].volume+ unitAbbreviation;
   s +='</p>';
   s +='<div class="cate-grambutton">';
   for(var i=0;i<input.length;i++){
+    var unitAbbreviate = unitMapping[input[i].unit.toLowerCase()] || input[i].unit;
     var dynamiid='dynamic-id'+(i+1);
     if(i==0){
-    
       s +='<button type="button" id="'+dynamiid+'" class="btnnormal highlightbtn" onclick="highlightbtn(this.id)">';
       
-      s +=input[i].volume+" "+input[i].unit;
+      s +=input[i].volume+" "+unitAbbreviate;
       s +='</button>';
     }
     else{
       s +='<button type="button" id="'+dynamiid+'" class="btnnormal" onclick="highlightbtn(this.id)">';
-     s +=input[i].volume+" "+input[i].unit;
+     s +=input[i].volume+" "+unitAbbreviate;
       s +='</button>';
     
     }
@@ -1000,11 +1007,12 @@ inputnum.setAttribute("max", input[0].availability);
 //console.log(input[0].availability);
 
   $(document).on("click", ".btnnormal", function() {
+    var unitAbbreviate = unitMapping[input[index].unit.toLowerCase()] || input[index].unit;
     var buttons = $(".btnnormal"); // Get all buttons with the class "btnnormal"
     var index = buttons.index($(this));
     //console.log("Button clicked at index: " + index);
     document.getElementById("pricedetails").innerHTML="Rs. "+input[index].price;
-    document.getElementById("quantityvalue").innerHTML="QUANTITY : "+input[index].volume+input[index].unit;
+    document.getElementById("quantityvalue").innerHTML="QUANTITY : "+input[index].volume+unitAbbreviate;
     document.getElementById("offerpricedetails").innerHTML="From Rs. "+input[index].offerPrice;
     const inputnum = document.getElementById("getvalue");
 inputnum.setAttribute("max", input[index].availability);
