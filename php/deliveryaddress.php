@@ -9,10 +9,8 @@
     $doornum=$_POST['doornum'];
     $userId = $_POST['Id']; 
     $buyId = $_POST['buyid']; 
-
     $sql = "INSERT INTO deliveryaddress (id, buyid, addressLine1, addressLine2, addressLine3, pincode) 
-        VALUES ('$userId', '$buyId', '$doornum', '$street', '$city', '$pin')";
-
+        VALUES ('$userId', '$buyId', '$doornum', '$street, $city', '$district', '$pin')";
     $res = $con->query($sql);
 
    
