@@ -17,7 +17,7 @@ if ($con->connect_error) {
 }
 
 // Insert product details into database
-$sql ="INSERT INTO `users`(`name`,`emailId`,`userPassword`,`contactNo`)VALUES('$name','$emailId','$userPassword','$contactno')"; 
+$sql ="INSERT INTO `users`(`name`,`emailId`,`userPassword`,`contactNo`,`isActive`)VALUES('$name','$emailId','$userPassword','$contactno','1')"; 
 $excute= mysqli_query($con,$sql);
 if($excute) {
   echo "newrecord created successfully";

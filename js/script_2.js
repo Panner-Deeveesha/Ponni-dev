@@ -2024,9 +2024,140 @@ console.log(uniqueObjects);
 
 }
 
+const regiNumberInput = document.getElementById('regi-number');
+const sendOtpButton = document.getElementById('send-otp-btn');
+
+// Add an event listener to the input field
+regiNumberInput.addEventListener('input', function() {
+    // Get the value entered in the input field
+    $("#wrongphonenum").css("display","none");
+    const inputValue = regiNumberInput.value.trim(); // Trim to remove leading and trailing spaces
+   
+    // Check if the input value has exactly 10 digits
+    if (inputValue.length === 10 && !isNaN(inputValue)) {
+        // Display the Send OTP button
+        $("#send-otp-btn").css("display","block");
+  
+        
+    } else {
+        // Hide the Send OTP button if the condition is not met
+        sendOtpButton.style.display = 'none';
+    }
+});
 
 
+function verifyphonumber(){
+  
+
+  var phonenum=document.getElementById("regi-number").value;
+ console.log(phonenum);
+ var data = {
+  "phonenum": phonenum
+  
+}
+$.ajax({
+  url: "./php/verifyphone.php",
+  type: "post",
+  data:data,
+  success: function (response) {
+    console.log(typeof(response));
+    console.log(response);
+    let response1 = response.trim();
+    if (response1 == 'true') {
+      var obj = JSON.parse(response);
+      $(".otpdiv").css("display","block");
+      $("#send-otp-btn").css("display","none");
+      $("#verify-otp-btn").css("display","block");
+        console.log(obj);
+        sendotp();
+
+    } 
+    else {
+         $("#wrongphonenum").css("display","block");
+      console.log("Error");
+    }
+
+  },
+  error: function (error) {
+    console.log(error);
+  }
+});
 
 
+}
+
+
+function sendotp(){
+
+  var phonenum=document.getElementById("regi-number").value;
+ console.log(phonenum);
+ var data = {
+  "phonenum": phonenum
+  
+}
+  $.ajax({
+    url: "./php/sendotp.php",
+    type: "post",
+    data:data,
+    success: function (response) {
+      console.log(response);
+      var boo = isJsonString(response);
+     
+      if (boo == true) {
+        var obj = JSON.parse(response);
+      
+       
+   
+
+        console.log(obj);
+      
+
+      } else {
+        console.log("Error");
+      }
+
+    },
+    error: function (error) {
+      console.log(error);
+    }
+  });
+}
+
+
+function checkotp(){
+ 
+  var otp=document.getElementById('otpnum').value;
+  var data = {
+    "otp": otp
+    
+  }
+    $.ajax({
+      url: "./php/createotp.php",
+      type: "post",
+      data:data,
+      success: function (response) {
+        console.log(response);
+        var boo = isJsonString(response);
+       if(boo == true){
+        var obj = JSON.parse(response);
+        var objstatus=obj.status;
+        if (objstatus == "success") {
+          $("#reg-button").removeClass("disabled-button");
+          $("#wrongotp").css("display","none");
+          $(".otpdiv").css("display","none");
+          $("#verify-otp-btn").css("display","none");
+         } 
+        else {
+         $("#wrongotp").css("display","block");
+        }
+       }
+        
+  
+      },
+      error: function (error) {
+        console.log(error);
+      }
+    });
+}
 
 
