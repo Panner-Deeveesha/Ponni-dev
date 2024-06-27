@@ -2028,6 +2028,7 @@ const regiNumberInput = document.getElementById('regi-number');
 const sendOtpButton = document.getElementById('send-otp-btn');
 
 // Add an event listener to the input field
+if(regiNumberInput){
 regiNumberInput.addEventListener('input', function() {
     // Get the value entered in the input field
     $("#wrongphonenum").css("display","none");
@@ -2044,6 +2045,8 @@ regiNumberInput.addEventListener('input', function() {
         sendOtpButton.style.display = 'none';
     }
 });
+}
+
 
 
 function verifyphonumber(){
