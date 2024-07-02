@@ -106,7 +106,7 @@ function printheading(obj){
   headcate2 += "<div id='mydiv2' class='cate-heading2 owl-carousel owl-theme'>";
   headcate2 += "<div class='item'>";
   headcate2 += "<span class='cateheadings active2'>";
-  headcate2 += "<img class='headingimg' src='https://ueirorganic.com/cdn/shop/files/ICO_TEST_5ae08c48-9d22-48e4-b5ad-c3879fdf2438.png?v=1687961392&width=200'>";
+  headcate2 += "<img class='headingimg' src='./assets/images/" + obj[0].category + ".png'>";
   headcate2 += obj[0].category;
   headcate2 += "</span>";
   headcate2 += "</div>";
@@ -114,7 +114,7 @@ function printheading(obj){
   for (var i = 1; i < objlen; i++) {
       headcate2 += "<div class='item'>";
       headcate2 += "<span class='cateheadings'>";
-      headcate2 += "<img class='headingimg' src='https://ueirorganic.com/cdn/shop/files/ICO_TEST_5ae08c48-9d22-48e4-b5ad-c3879fdf2438.png?v=1687961392&width=200'>";
+      headcate2 += "<img class='headingimg' src='./assets/images/" + obj[i].category + ".png'>";
       headcate2 += obj[i].category;
       headcate2 += "</span>";
       headcate2 += "</div>";
@@ -145,14 +145,14 @@ function printheading(obj){
 
   var headcate3 = "";
   headcate3 += "<li class='comonclas'>";
-  headcate3 += "<img src='https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297' class='menuimg'>";
+  headcate3 += "<img src='./assets/images/" + obj[0].category + ".png' class='menuimg'>";
   headcate3 +="<span class='spancls'>";
   headcate3 += obj[0].category;
   headcate3 +="</span>";
   headcate3 += "</li>";
   for(i=1;i<objlen;i++){
     headcate3 += "<li class='comonclas'>";
-    headcate3 += "<img src='https://cdn.shopify.com/s/files/1/0604/7832/4995/files/Sweets_ed49cdae-7994-4fe9-9bea-59efe99ae09b.png?v=1706003297' class='menuimg'>";
+    headcate3 += "<img src='./assets/images/" + obj[i].category + ".png' class='menuimg'>";
     headcate3 += "<span class='spancls'>";
     headcate3 += obj[i].category;
     headcate3 += "</span>";
