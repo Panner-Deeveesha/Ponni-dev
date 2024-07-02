@@ -1408,7 +1408,7 @@ const screenWidth = window.innerWidth;
         autoplay: true,
         autoplaySpeed: 3000,
         speed: 300,
-        arrows: true,
+        arrows: false,
         dots: true,
         infinite: true
       });
@@ -1421,7 +1421,7 @@ const screenWidth = window.innerWidth;
         autoplay: true,
         autoplaySpeed: 3000,
         speed: 300,
-        arrows: true,
+        arrows: false,
         dots: true,
         infinite: true
       });
