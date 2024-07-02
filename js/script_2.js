@@ -40,37 +40,108 @@ function printheading(obj){
   if (objlen > 1) {
     numColumns = objlen;
   }
+ 
   var columnWidth = 100 / numColumns + "%";
   var headcate = "";
-  headcate += "<div id='mydiv' class='cate-heading'>";
+  headcate += "<div id='mydiv' class='cate-heading owl-carousel owl-theme'>";
+  headcate += "<div class='item'>";
   headcate += "<span class='btn active'>";
+  headcate += "<img class='headingimg' src='./assets/images/" + obj[0].category + ".png'>";
+  headcate += "<p>";
   headcate += obj[0].category;
+  headcate += "</p>";
   headcate += "</span>";
-  for(i=1;i<objlen;i++){
-    headcate += "<span class='btn'>";
-    headcate += obj[i].category;
-    headcate += "</span>";
+  headcate += "</div>";
+  
+  for (i = 1; i < objlen; i++) {
+      headcate += "<div class='item'>";
+      headcate += "<span class='btn'>";
+      headcate += "<img class='headingimg' src='./assets/images/" + obj[i].category + ".png'>";
+      headcate += "<p>";
+      headcate += obj[i].category;
+      headcate += "</p>";
+      headcate += "</span>";
+      headcate += "</div>";
   }
+  
   headcate += "</div>";
   $("#headingdiv").html(headcate);
-
+  
+  // Initialize Owl Carousel
+  $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 10,
+      dots:false,
+     
+      responsive: {
+          0: {
+            dots:true,
+            nav: false,
+              items: 3
+          },
+          500: {
+            dots:true,
+            nav: true,
+              items: 4
+          },
+          600: {
+            dots:true,
+            nav: true,
+              items: 5
+          },
+          775:{
+            dots:true,
+            nav: true,
+            items: 5
+          },
+          1000: {
+            dots:false,
+              items: 5
+          }
+      }
+  });
+  
 
   var headcate2 = "";
-  headcate2 += "<div id='mydiv2' class='cate-heading2'>";
+  headcate2 += "<div id='mydiv2' class='cate-heading2 owl-carousel owl-theme'>";
+  headcate2 += "<div class='item'>";
   headcate2 += "<span class='cateheadings active2'>";
-
+  headcate2 += "<img class='headingimg' src='https://ueirorganic.com/cdn/shop/files/ICO_TEST_5ae08c48-9d22-48e4-b5ad-c3879fdf2438.png?v=1687961392&width=200'>";
   headcate2 += obj[0].category;
-
   headcate2 += "</span>";
-  for(i=1;i<objlen;i++){
-    headcate2 += "<span class='cateheadings'>";
+  headcate2 += "</div>";
   
-    headcate2 += obj[i].category;
-  
-    headcate2 += "</span>";
+  for (var i = 1; i < objlen; i++) {
+      headcate2 += "<div class='item'>";
+      headcate2 += "<span class='cateheadings'>";
+      headcate2 += "<img class='headingimg' src='https://ueirorganic.com/cdn/shop/files/ICO_TEST_5ae08c48-9d22-48e4-b5ad-c3879fdf2438.png?v=1687961392&width=200'>";
+      headcate2 += obj[i].category;
+      headcate2 += "</span>";
+      headcate2 += "</div>";
   }
+  
   headcate2 += "</div>";
   $("#headingdiv2").html(headcate2);
+  
+  // Initialize Owl Carousel
+  $(".cate-heading2 .owl-carousel").owlCarousel({
+      loop: true,
+      margin: 10,
+      dots:false,
+      nav: true,
+      responsive: {
+          0: {
+              items: 2
+          },
+          600: {
+              items: 3
+          },
+          1000: {
+              items: 5
+          }
+      }
+  });
+  
 
   var headcate3 = "";
   headcate3 += "<li class='comonclas'>";
@@ -420,7 +491,7 @@ if (header2) {
 //finish index page
 
 $(document).on("click", ".btn", function() {
-  var innerHTML = $(this).html();
+  var innerHTML = $(this).find("p").text();;
   getproductname(innerHTML);
  
 });

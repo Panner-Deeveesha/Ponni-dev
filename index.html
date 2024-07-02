@@ -18,6 +18,10 @@
     <link href='https://fonts.googleapis.com/css?family=Radio Canada' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/slickmin.css">
+    <link rel="stylesheet" href="./css/slicktheme.css">
+    <link rel="stylesheet" href="./css/slick1.css">
+    <link rel="stylesheet" href="./css/slick2.css">
     <style>
         body {
             font-family: 'Poppins';font-size: 22px;
@@ -92,10 +96,23 @@
     </nav>
     <div class="blackscreen"></div>
     <div id="firimage">
-        <div>
-            <img src="./assets/images/desktop.jpg" alt="samplestore" id="displayimg">
-            <img src="assets/images/tab.jpg" alt="samplestore" id="displayimg2">
-            <img src="assets/images/mobile.jpg" alt="samplestore" id="displayimg3">
+        <div class="slickbanner">
+            <div><img src="./assets/images/desktop.jpg" alt="samplestore" class="displayimg"></div>
+            <div><img src="./assets/images/Banner_2.jpg" alt="samplestore" class="displayimg"></div>
+            <div><img src="./assets/images/Banner_3.jpg" alt="samplestore" class="displayimg"></div>
+            <div><img src="./assets/images/Banner_4.jpg" alt="samplestore" class="displayimg"></div>
+        </div>
+        <div class="tabviewslick">
+            <div><img src="assets/images/tab.jpg" alt="samplestore" class="displayimg2"></div>
+            <div><img src="assets/images/Banner_2.jpg" alt="samplestore" class="displayimg2"></div>
+            <div><img src="assets/images/Banner_3.jpg" alt="samplestore" class="displayimg2"></div>
+            <div><img src="assets/images/Banner_4.jpg" alt="samplestore" class="displayimg2"></div>
+        </div>
+        <div class="mobileviewslick">
+            <div><img src="assets/images/mobile.jpg" alt="samplestore" class="displayimg3"></div>
+            <div><img src="assets/images/mobile.jpg" alt="samplestore" class="displayimg3 twoimgcolor"></div>
+            <div><img src="assets/images/mobile.jpg" alt="samplestore" class="displayimg3 threeimgcolor"></div>
+            <div><img src="assets/images/mobile.jpg" alt="samplestore" class="displayimg3 fourimgcolor"></div>
         </div>
     </div>
     <div id="searchsort">
@@ -639,8 +656,53 @@
         </div>
     </div>
     <!-- Keerthana working area end-->
-    <!-- kavya working area start-->   
-    <div class="Testimonial-content"> 
+    <!-- kavya working area start-->
+        <div class="whyponni">
+
+            <h3 class="whyponniheading">Why Ponni?</h3>
+            
+            <div class="whyponniflex">
+       
+                <div  class="whyponniflexdiv  moveponni">
+                     <div class="whyponniimg"><img src="./assets/images/why4.png"></div>
+                  
+                    <h3>Purely Organic </h3>
+                  <p>Our Ponni products are completely natural and free from synthetic chemicals and pesticides</p>
+                </div>
+                 <div  class="whyponniflexdiv moveponni">
+                    <div class="whyponniimg"><img src="./assets/images/why5.png"></div>
+                      <h3>Health Conscious </h3>
+                    <p>We care more about your health when we are producing these organic products.</p>
+                  </div>
+
+                  <div  class="whyponniflexdiv moveponni">
+                    <div class="whyponniimg"><img src="./assets/images/why3.png"></div>
+                      <h3>No artificial Ingredients</h3>
+                    <p>We strictly prohibit artificial essences and ingredients that may affect your health slowly.</p>
+                  </div>
+             
+                 <!---- <div  class="whyponniflexdiv moveponni">
+                    <div class="whyponniimg"><img src="./assets/images/why2.png"></div>
+                      <h3>Affordable Price</h3>
+                    <p> We don’t use artificial fertilisers or additives in our food</p>
+                  </div>-->
+                   
+                  <div  class="whyponniflexdiv moveponni">
+                    <div class="whyponniimg"><img src="./assets/images/why1.png"></div>
+                      <h3>Secure Online Shopping</h3>
+                    <p>We care for your health as well as money</p>
+                  </div>
+            </div>
+
+          
+
+
+
+
+       </div>
+
+
+<div class="Testimonial-content"> 
         <h2>Words of Happy Authentic Food Lovers</h2>
         <div class="testimonial-star1">
             <img src="./assets/icons/icons8-star-16.png">
@@ -879,6 +941,8 @@
 
     <!-- kavya working area end--> 
     <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquerymigrate.js"></script>
+    <script src="./js/slickmin.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/script_1.js"></script>
     <script src="./js/script_2.js"></script>
@@ -886,6 +950,10 @@
     <script src="./js/owlnpm.js"></script>
 	<script src="./js/owlcarousel.js"></script>
 	<script src="./js/testslide2.js"></script>
+    <script src="./js/slickjs.js"></script>
+    <script>
+        
+    </script>
 </body>
 
 </html>
