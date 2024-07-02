@@ -664,8 +664,8 @@ del{
 .wholecategories2 .active,.btn:hover {
     cursor: pointer;
     color: #fff;
-    background-color: #2b4522;
-    border: 1px solid #2b4522;
+  /*  background-color: #2b4522;
+    border: 1px solid #2b4522;*/
 }
 
 /* CANCEL PAGE */

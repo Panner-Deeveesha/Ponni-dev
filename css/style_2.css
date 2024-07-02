@@ -13,6 +13,18 @@ body{
         padding: 20px;
     
 }
+
+.cate-heading .owl-carousel .owl-item img {
+    display: block;
+    width: 50% !important;
+}
+.cate-heading .item{
+    width: 200px;
+}
+.headingimg{
+    width: 80px;
+    height: 80px;
+}
 .newitemspage{
 
         background-color: #fff9e3;
@@ -612,9 +624,49 @@ ship page
     font-size: 25px;
 }
 #mydiv{
-  
+  width: 60%;
     margin: 0px auto;
     text-align: center;
+}
+.headingimg{
+    margin: 0px auto;
+    width: 50% !important;
+}
+.cate-heading .owl-nav .owl-next {
+    position: absolute;
+    top: 40%;
+    right: -4%;
+    opacity: 1;
+    font-size: 40px !important;
+    z-index: 10 !important;
+    color: red !important;
+    Padding: 10px !important;
+    background-color: #fff9e3 !important;
+    border-radius: 50% !important;
+    width: 60px;
+    height: 60px;
+    border: none !important;
+}
+.cate-heading .owl-nav .owl-prev {
+    position: absolute;
+    top: 40%;
+    left: -4%;
+    opacity: 1;
+    font-size: 30px !important;
+    z-index: 10;
+    Padding: 10px;
+    color:red !important;
+    background-color:  #fff9e3 !important;
+    border-radius: 50% !important;
+    width: 60px;
+    height: 60px;
+    border: none !important;
+}
+.cate-heading .owl-nav .owl-prev span{
+    font-size: 30px;
+}
+.cate-heading .owl-nav .owl-next span{
+    font-size: 30px;
 }
 #headingdiv{
     margin-top: 20px;
@@ -623,14 +675,14 @@ ship page
     width: 70%;
     margin-left: auto;
     margin-right: auto;
-    display: grid;
+    display:inline-block;
     grid-template-columns: auto auto auto auto auto auto ;
     gap: 20px;
     margin-top: 40px;
 
 }
-.cate-heading2{
-   display:none;
+#headingdiv2{
+   display:none !important;
 }
 /*.cate-heading {
     display: grid;
@@ -643,16 +695,17 @@ ship page
     font-size: 18px;
     text-align: center;
     padding: 3px 25px 3px 25px;
-    border: 1px solid #4d6b20;
-    border-radius: 35px;
+   /* border: 1px solid #4d6b20;
+    border-radius: 35px;*/
     margin-right: 10px;
 }
-
-.wholecategories .active,.btn:hover {
+.cate-heading p{
+    color: black;
+}
+.wholecategories .active {
     cursor: pointer;
     color: #fff;
-    background-color: #2b4522;
-    border: 1px solid #2b4522;
+ 
 }
 #cate-myimages #samplew{
     width: 1200px;
@@ -1465,7 +1518,39 @@ width:20px;
         gap: 20px;
         margin-top: 40px;
     }
-
+    #mydiv {
+        width: 70%;
+        margin: 0px auto;
+        text-align: center;
+    }
+    .headingimg {
+        margin: 0px auto;
+        width: 70% !important;
+    }
+   .cate-heading .item {
+    width: 100px;
+    margin-left:0px;
+}
+.cate-heading .owl-carousel.owl-drag .owl-item {
+  padding:0px;
+  width: 100px !important;
+}
+.cate-heading .owl-nav .owl-next {
+    position: absolute;
+    top: 40%;
+    right: -6% !important;
+    opacity: 1;
+   
+}
+.cate-heading .owl-nav .owl-prev {
+    position: absolute;
+    top: 40%;
+    left: -6% !important;
+    opacity: 1;
+    font-size: 30px !important;
+    z-index: 10;
+   
+}
  }
  @media only screen and (max-width:1350px) {
     .cate-heading span {
@@ -1473,6 +1558,39 @@ width:20px;
         padding: 3px 15px 3px 15px;
        
     }
+    #mydiv {
+        width: 70%;
+        margin: 0px auto;
+        text-align: center;
+    }
+    .headingimg {
+        margin: 0px auto;
+        width: 70% !important;
+    }
+   .cate-heading .item {
+    width: 100px;
+    margin-left:0px;
+}
+.cate-heading .owl-carousel.owl-drag .owl-item {
+  padding:0px;
+  width: 100px !important;
+}
+.cate-heading .owl-nav .owl-next {
+    position: absolute;
+    top: 40%;
+    right: -6% !important;
+    opacity: 1;
+   
+}
+.cate-heading .owl-nav .owl-prev {
+    position: absolute;
+    top: 40%;
+    left: -6% !important;
+    opacity: 1;
+    font-size: 30px !important;
+    z-index: 10;
+   
+}
  }
  @media only screen and (max-width:1300px) {
     .profileimage{
@@ -1557,6 +1675,39 @@ width:20px;
 
 /*media query for index */
 @media only screen and (max-width:1200px) {
+    #mydiv {
+        width: 70%;
+        margin: 0px auto;
+        text-align: center;
+    }
+    .headingimg {
+        margin: 0px auto;
+        width: 70% !important;
+    }
+   .cate-heading .item {
+    width: 100px;
+    margin-left:0px;
+}
+.cate-heading .owl-carousel.owl-drag .owl-item {
+  padding:0px;
+  width: 100px !important;
+}
+.cate-heading .owl-nav .owl-next {
+    position: absolute;
+    top: 40%;
+    right: -6% !important;
+    opacity: 1;
+   
+}
+.cate-heading .owl-nav .owl-prev {
+    position: absolute;
+    top: 40%;
+    left: -6% !important;
+    opacity: 1;
+    font-size: 30px !important;
+    z-index: 10;
+   
+}
     .fullpopup{
         margin: 20% auto;
         width: 30%;
@@ -1620,13 +1771,46 @@ width:20px;
     }
 }
   @media only screen and (max-width:1150px) {
+    #mydiv {
+        width: 70%;
+        margin: 0px auto;
+        text-align: center;
+    }
+    .headingimg {
+        margin: 0px auto;
+        width: 70% !important;
+    }
+   .cate-heading .item {
+    width: 100px;
+    margin-left:0px;
+}
+.cate-heading .owl-carousel.owl-drag .owl-item {
+  padding:0px;
+  width: 100px !important;
+}
+.cate-heading .owl-nav .owl-next {
+    position: absolute;
+    top: 40%;
+    right: -6% !important;
+    opacity: 1;
+   
+}
+.cate-heading .owl-nav .owl-prev {
+    position: absolute;
+    top: 40%;
+    left: -6% !important;
+    opacity: 1;
+    font-size: 30px !important;
+    z-index: 10;
+   
+}
     .cate-heading span {
         text-transform: capitalize;
         font-size: 17px;
         text-align: center;
         padding: 3px 12px 3px 12px;
-        border: 1px solid #4d6b20;
-        border-radius: 35px;
+       /* border: 1px solid #4d6b20;
+        border-radius: 35px;*/
         margin-right: 10px;
     }
 	  .breadcrumbs p {
@@ -1913,7 +2097,39 @@ width:20px;
         padding: 3px 8px 3px 8px;
         
     }
-
+    #mydiv {
+        width: 70%;
+        margin: 0px auto;
+        text-align: center;
+    }
+    .headingimg {
+        margin: 0px auto;
+        width: 70% !important;
+    }
+   .cate-heading .item {
+    width: 100px;
+    margin-left:0px;
+}
+.cate-heading .owl-carousel.owl-drag .owl-item {
+  padding:0px;
+  width: 100px !important;
+}
+.cate-heading .owl-nav .owl-next {
+    position: absolute;
+    top: 40%;
+    right: -6% !important;
+    opacity: 1;
+   
+}
+.cate-heading .owl-nav .owl-prev {
+    position: absolute;
+    top: 40%;
+    left: -6% !important;
+    opacity: 1;
+    font-size: 30px !important;
+    z-index: 10;
+   
+}
 }
 @media only screen and (max-width:950px) {
     .cate-heading span {
@@ -2015,6 +2231,30 @@ width:20px;
 }
 }
 @media only screen and (max-width:910px) {
+     #mydiv {
+        width: 90%;
+        margin: 0px auto;
+        text-align: center;
+    }
+    .headingimg {
+        margin: 0px auto;
+        width: 70% !important;
+    }
+   .cate-heading .item {
+    width: 100px;
+    margin-left:0px;
+}
+.cate-heading .owl-carousel.owl-drag .owl-item {
+  padding:0px;
+  width: 100px !important;
+}
+.cate-heading .owl-nav .owl-next {
+   display: none !important;
+}
+
+.cate-heading .owl-nav .owl-prev{
+    display: none !important;
+}
     .cate-heading {
         width: 70%;
         margin-left: auto;
@@ -2029,14 +2269,38 @@ width:20px;
         font-size: 16px;
         text-align: center;
         padding: 3px 12px 3px 12px;
-        border: 1px solid #4d6b20;
-        border-radius: 35px;
+       /* border: 1px solid #4d6b20;
+        border-radius: 35px;*/
     }
 	
 
 }
 
 @media only screen and (max-width:850px) {
+    #mydiv {
+        width: 90%;
+        margin: 0px auto;
+        text-align: center;
+    }
+    .headingimg {
+        margin: 0px auto;
+        width: 70% !important;
+    }
+   .cate-heading .item {
+    width: 100px;
+    margin-left:0px;
+}
+.cate-heading .owl-carousel.owl-drag .owl-item {
+  padding:0px;
+  width: 100px !important;
+}
+.cate-heading .owl-nav .owl-next {
+   display: none !important;
+}
+
+.cate-heading .owl-nav .owl-prev{
+    display: none !important;
+}
     .newcate-heading {
         width: 60%;
         margin-left: auto;
@@ -2157,6 +2421,30 @@ width:20px;
 
 
 @media only screen and (max-width:730px) {
+    #mydiv {
+        width: 90%;
+        margin: 0px auto;
+        text-align: center;
+    }
+    .headingimg {
+        margin: 0px auto;
+        width: 70% !important;
+    }
+   .cate-heading .item {
+    width: 100px;
+    margin-left:0px;
+}
+.cate-heading .owl-carousel.owl-drag .owl-item {
+  padding:0px;
+  width: 100px !important;
+}
+.cate-heading .owl-nav .owl-next {
+   display: none !important;
+}
+
+.cate-heading .owl-nav .owl-prev{
+    display: none !important;
+}
     .newcate-heading {
         width: 70%;
         margin-left: auto;
@@ -2185,32 +2473,28 @@ width:20px;
     }
     
     
-    .cate-heading {
-		display:none;
-    }
-	.cate-heading2 {
-        display: block;
+    
+	#headingdiv2{
+        display:none !important;
+     }
+    .cate-heading2 .owl-carousel{
         width: 90%;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 20px;
-        display: grid;
-        grid-template-columns: auto auto auto;
-        gap: 20px;
+        display: block !important;
     }
-    
 	.cate-heading2 span {
          font-size: 16px;
          text-align: center;
          padding: 3px 7px 3px 7px;
-         border: 1px solid #4d6b20;
-         border-radius: 35px;
+        /* border: 1px solid #4d6b20;
+         border-radius: 35px;*/
     }
 	.active2,.cateheadings:hover {
     cursor: pointer;
     color: #fff;
-    background-color: #2b4522;
-    border: 1px solid #2b4522;
+  /*  background-color: #2b4522;
+    border: 1px solid #2b4522;*/
     }
 	
 	.cate-heading2  #btn-podi p{
@@ -2593,6 +2877,30 @@ width:20px;
 }
 
 @media only screen and (max-width:600px){
+    #mydiv {
+        width: 80%;
+        margin: 0px auto;
+        text-align: center;
+    }
+    .headingimg {
+        margin: 0px auto;
+        width: 70% !important;
+    }
+   .cate-heading .item {
+    width: 100px;
+    margin-left:0px;
+}
+.cate-heading .owl-carousel.owl-drag .owl-item {
+  padding:0px;
+  width: 100px !important;
+}
+.cate-heading .owl-nav .owl-next {
+   display: none !important;
+}
+
+.cate-heading .owl-nav .owl-prev{
+    display: none !important;
+}
     .newcate-heading {
         width: 80%;
         margin-left: auto;
@@ -3113,6 +3421,30 @@ width:20px;
       }
 }
 @media only screen and (max-width:450px){
+    #mydiv {
+        width: 80%;
+        margin: 0px auto;
+        text-align: center;
+    }
+   .cate-heading .item {
+    width: 100px;
+    margin-left:0px;
+}
+.headingimg {
+    margin: 0px auto;
+    width: 70% !important;
+}
+.cate-heading .owl-carousel.owl-drag .owl-item {
+  padding:0px;
+  width: 100px !important;
+}
+.cate-heading .owl-nav .owl-next {
+   display: none !important;
+}
+
+.cate-heading .owl-nav .owl-prev{
+    display: none !important;
+}
     .newcate-heading span {
         text-transform: capitalize;
         font-size: 18px;
@@ -3265,8 +3597,8 @@ element.style {
 	.active2,.cateheadings:hover {
     cursor: pointer;
     color: #fff;
-    background-color: #2b4522;
-    border: 1px solid #2b4522;
+   /* background-color: #2b4522;
+    border: 1px solid #2b4522;*/
     }
 	 .cate-heading2 div{
 		  width: 100%;
@@ -3284,8 +3616,8 @@ element.style {
 		  
     cursor: pointer;
     color: #fff;
-    background-color: #2b4522;
-    border: 1px solid #2b4522;
+   /* background-color: #2b4522;
+    border: 1px solid #2b4522;*/
 
 	  }
 
@@ -3644,6 +3976,30 @@ margin-left: 3%;
 }
 }
 @media only screen and (max-width:390px) {
+    #mydiv {
+        width: 80%;
+        margin: 0px auto;
+        text-align: center;
+    }
+    .headingimg {
+        margin: 0px auto;
+        width: 70% !important;
+    }
+   .cate-heading .item {
+    width: 100px;
+    margin-left:0px;
+}
+.cate-heading .owl-carousel.owl-drag .owl-item {
+  padding:0px;
+  width: 100px !important;
+}
+.cate-heading .owl-nav .owl-next {
+   display: none !important;
+}
+
+.cate-heading .owl-nav .owl-prev{
+    display: none !important;
+}
     .newcate-heading span {
         text-transform: capitalize;
         font-size: 15px;
@@ -3660,7 +4016,7 @@ margin-left: 3%;
         width: 90%;
     }
     .cate-heading {
-		display:none;
+		display:none ;
         
     }
 	
@@ -4009,8 +4365,8 @@ margin-left: 3%;
         width: 100%;
         font-size: 13px;
         padding: 3px 15px 3px 15px;
-        border: 1px solid #4d6b20;
-        border-radius: 35px;
+       /* border: 1px solid #4d6b20;
+        border-radius: 35px;*/
     }
     .cate-lastcontent p {
         width: 85%;
