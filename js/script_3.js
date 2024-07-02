@@ -1261,6 +1261,7 @@ function initializeSlick() {
       slidesToScroll: 1,
       autoplay: true,
       dots: true,
+      arrows: false,
       autoplaySpeed: 3000
     });
     slickInitialized = true;
