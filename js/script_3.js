@@ -1251,3 +1251,44 @@ function navindex(){
   window.location.href = "./index.html";
   
 }
+
+var slickInitialized = false;
+
+function initializeSlick() {
+  if (!slickInitialized) {
+    $('.whyponniflex').slick({
+      slidesToShow: 2,
+      slidesToScroll: 1,
+      autoplay: true,
+      dots: true,
+      autoplaySpeed: 3000
+    });
+    slickInitialized = true;
+  }
+}
+
+function destroySlick() {
+  if (slickInitialized) {
+    $('.whyponniflex').slick('unslick');
+    slickInitialized = false;
+  }
+}
+
+function handleSlickOnResize() {
+  var windowWidth = $(window).width();
+  if (windowWidth < 900) {
+    initializeSlick();
+  } else {
+    destroySlick();
+  }
+}
+
+
+$(document).ready(function(){
+  handleSlickOnResize();
+});
+
+
+$(window).resize(function(){
+  handleSlickOnResize();
+});
