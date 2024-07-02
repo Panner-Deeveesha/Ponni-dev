@@ -324,23 +324,30 @@ body{
     height: auto;
     position: relative;
     background-color: #fff9e3;
+    overflow: hidden;
 }
-#displayimg{
+.displayimg{
     width: 100%;
     height: auto;
-    position: relative;
 }
-#displayimg2{
+.displayimg2{
+    display: none;
+    width: 100%;
+    height: 220px;
+}
+.twoimgcolor{
+    opacity: 70%;
+}
+.threeimgcolor{
+    filter: saturate(3);
+}
+.fourimgcolor{
+    filter: grayscale(50%);
+}
+.displayimg3{
     display: none;
     width: 100%;
     height: auto;
-    position: relative;
-}
-#displayimg3{
-    display: none;
-    width: 100%;
-    height: auto;
-    position: relative;
 }
 .inncontent{
     width: 100%;
@@ -899,10 +906,10 @@ del{
     #menutotleft{
         display: block;
     }
-    #displayimg{
+    .displayimg{
         display: none;
     }
-    #displayimg2{
+    .displayimg2{
         display: block;
     }
     #searchtot{
@@ -1047,10 +1054,10 @@ del{
         width: 100%;
         text-align: center;
     }
-    #displayimg2{
+    .displayimg2{
         display: none;
     }
-    #displayimg3{
+    .displayimg3{
         display: block;
     }
     .textareacon{

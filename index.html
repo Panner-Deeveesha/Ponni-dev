@@ -18,6 +18,8 @@
     <link href='https://fonts.googleapis.com/css?family=Radio Canada' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/slickmin.css">
+    <link rel="stylesheet" type="text/css" href="./css/slicktheme.css">
     <style>
         body {
             font-family: 'Poppins';font-size: 22px;
@@ -92,10 +94,23 @@
     </nav>
     <div class="blackscreen"></div>
     <div id="firimage">
-        <div>
-            <img src="./assets/images/desktop.jpg" alt="samplestore" id="displayimg">
-            <img src="assets/images/tab.jpg" alt="samplestore" id="displayimg2">
-            <img src="assets/images/mobile.jpg" alt="samplestore" id="displayimg3">
+        <div class="slickbanner">
+            <div><img src="./assets/images/desktop.jpg" alt="samplestore" class="displayimg oneimgcolor"></div>
+            <div><img src="./assets/images/desktop.jpg" alt="samplestore" class="displayimg twoimgcolor"></div>
+            <div><img src="./assets/images/desktop.jpg" alt="samplestore" class="displayimg threeimgcolor"></div>
+            <div><img src="./assets/images/desktop.jpg" alt="samplestore" class="displayimg fourimgcolor"></div>
+        </div>
+        <div class="tabviewslick">
+            <div><img src="assets/images/tab.jpg" alt="samplestore" class="displayimg2"></div>
+            <div><img src="assets/images/tab.jpg" alt="samplestore" class="displayimg2 twoimgcolor"></div>
+            <div><img src="assets/images/tab.jpg" alt="samplestore" class="displayimg2 threeimgcolor"></div>
+            <div><img src="assets/images/tab.jpg" alt="samplestore" class="displayimg2 fourimgcolor"></div>
+        </div>
+        <div class="mobileviewslick">
+            <div><img src="assets/images/mobile.jpg" alt="samplestore" class="displayimg3"></div>
+            <div><img src="assets/images/mobile.jpg" alt="samplestore" class="displayimg3 twoimgcolor"></div>
+            <div><img src="assets/images/mobile.jpg" alt="samplestore" class="displayimg3 threeimgcolor"></div>
+            <div><img src="assets/images/mobile.jpg" alt="samplestore" class="displayimg3 fourimgcolor"></div>
         </div>
     </div>
     <div id="searchsort">
@@ -879,6 +894,8 @@
 
     <!-- kavya working area end--> 
     <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquerymigrate.js"></script>
+    <script src="./js/slickmin.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/script_1.js"></script>
     <script src="./js/script_2.js"></script>
@@ -886,6 +903,51 @@
     <script src="./js/owlnpm.js"></script>
 	<script src="./js/owlcarousel.js"></script>
 	<script src="./js/testslide2.js"></script>
+    <script>
+        const screenWidth = window.innerWidth;
+        if(screenWidth <=500){
+            $(document).ready(function(){
+                $(".mobileviewslick").slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 3000,
+                    speed: 300,
+                    arrows: false,
+                    dots: true,
+                    infinite: true
+                });
+            });
+            
+        }else if(screenWidth <= 990){
+            $(document).ready(function(){
+                $(".tabviewslick").slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 3000,
+                    speed: 300,
+                    arrows: true,
+                    dots: true,
+                    infinite: true
+                });
+            });
+        }else{
+            $(document).ready(function(){
+                $(".slickbanner").slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 3000,
+                    speed: 300,
+                    arrows: true,
+                    infinite: true,
+                    prev: true,
+                    next: true,
+                });
+            });
+        }
+    </script>
 </body>
 
 </html>
