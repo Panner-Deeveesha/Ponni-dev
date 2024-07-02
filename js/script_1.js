@@ -1399,3 +1399,43 @@ $("#shopnowid").click(function () {
 });
 
 
+const screenWidth = window.innerWidth;
+  if(screenWidth <=500){
+    $(document).ready(function(){
+      $(".mobileviewslick").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        speed: 300,
+        arrows: true,
+        dots: true,
+        infinite: true
+      });
+    });    
+  }else if(screenWidth <= 990){
+    $(document).ready(function(){
+      $(".tabviewslick").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        speed: 300,
+        arrows: true,
+        dots: true,
+        infinite: true
+      });
+    });
+  }else{
+    $(document).ready(function(){
+      $(".slickbanner").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        speed: 300,
+        arrows: true,
+        infinite: true,
+      });
+    });
+  }
