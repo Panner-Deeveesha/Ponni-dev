@@ -1397,6 +1397,26 @@ function setContactNumber() {
     document.getElementById('regi-number1').value = contactno;
   }
 }
+document.addEventListener('keydown', function(event) {
+  // Check if Enter key (keyCode 13) was pressed
+  if (event.keyCode === 13) {
+      // Check if all input fields are filled
+      if (areAllInputsFilled()) {
+          // Call your function here
+          clickregbutton();
+      }
+  }
+});
+
+function areAllInputsFilled() {
+  var inputValues = document.querySelectorAll(".register-innerdiv input");
+  for (let i = 0; i < inputValues.length; i++) {
+      if (inputValues[i].value.trim() === "") {
+          return false; // Return false if any input field is empty
+      }
+  }
+  return true; // Return true if all input fields are filled
+}
 function clickregbutton(){
   var inputValues = document.querySelectorAll(".wholeregisterpage input");
   var isEmpty = false;
@@ -1421,7 +1441,7 @@ function clickregbutton(){
  var fname=document.getElementById("regi-fname").value;
 
  var emailvalue=document.getElementById("regi-email").value;
- var contactno=document.getElementById("regi-number").value;
+ var contactno=document.getElementById("regi-number1").value;
  var fullname=fname;
  if(isEmpty == false){
   document.getElementById("reg-emptyvalue").style.display="none";
