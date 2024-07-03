@@ -21,6 +21,6 @@
         echo json_encode($response);
     } else {
        
-        echo "No data found for the given IP address.";
+        echo "null";
     }
 ?>

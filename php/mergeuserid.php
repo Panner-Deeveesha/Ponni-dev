@@ -36,7 +36,7 @@ if ($cartItemCount > 0) {
                 }
                 echo json_encode($response);
             } else {
-                echo "No items in the cart for this user.";
+                echo "null.";
             }
         } else {
             echo "Error updating user ID in cart table: " . $con->error;

@@ -1104,11 +1104,11 @@ function forhead(){
   const screenWidth = window.innerWidth;
   if(token33){
     $("#titlelogin").css("display","none");
+    $("#loginmenu").css("display","none");
+    $("#logoutmenu").css("display","block");
     /*$(".cart-headline").css("margin-top","99px");
     $(".productpage").css("margin-top","80px");
     $(".privacy-content").css("margin-top","92px");
-    $("#loginmenu").css("display","none");
-    $("#logoutmenu").css("display","block");
     $(".wholeregisterpage").css("margin-top","99px");
     $(".wholeloginpage").css("margin-top","99px");
     $(".wholepasswordpage").css("margin-top","99px");
@@ -1127,12 +1127,12 @@ function forhead(){
     }*/
   }else{
     $("#titlelogin").css("display","block");
+    $("#loginmenu").css("display","block");
+    $("#logoutmenu").css("display","none");
     /*$(".wholecategories2").css("margin-top","130px");
     $(".cart-headline").css("margin-top","130px");
     $(".productpage").css("margin-top","119px");
     $(".privacy-content").css("margin-top","125px");
-    $("#loginmenu").css("display","block");
-    $("#logoutmenu").css("display","none");
     $("#wholecancelation, #wholetc").css("margin-top","135px");
     if(screenWidth > 990 ){
       $("#firimage").css("margin-top","130px");

@@ -75,14 +75,19 @@ function cartdetails() {
               ip: ip
           },
           success: function(response) {
+            if (response!="null"){
             var boo = isJsonString(response);
             if(boo==true){
             var product =JSON.parse(response);    
       
               cartByproductid(product);
             }
-            
-            
+          }
+           else{
+            $('#emptycart').css('display', 'block');
+            $('#loadinggif').css('display', 'none');
+
+           } 
           },
           error: function(xhr, status, error) {
               console.error('Error:', error);
@@ -181,6 +186,7 @@ function checkuser1(){
     },
     success: function(response) {
    
+       if(response !="null"){
       var boo = isJsonString(response);
           
          
@@ -188,7 +194,12 @@ function checkuser1(){
         var product1 = JSON.parse(response);
      cartByproductid(product1);
       }
-   
+    }
+    else{
+      $('#emptycart').css('display', 'block');
+      $('#loadinggif').css('display', 'none');
+
+    }
         
        
     },
@@ -212,13 +223,18 @@ function findUserId(product1) {
       },
       success: function(response) {
         var boo = isJsonString(response);
-          
+        if(response !="null"){  
          
           if (boo == true) {
             var product1 = JSON.parse(response);
          cartByproductid(product1);
           }
-       
+        }
+        else{
+          $('#emptycart').css('display', 'block');
+          $('#loadinggif').css('display', 'none');
+    
+        }
       },
       error: function(xhr, status, error) {
           console.error('Error:', error);
@@ -279,6 +295,8 @@ function cartByproductid(products) {
         getcartPrice(obj);
 
       } else {
+
+
         console.log("Error");
       }
 
@@ -363,7 +381,7 @@ function cartgetAvailability(obj){
 }
 
 async function displaycartdetails(uniqueObj) {
-  $('#emptycart').css('display', 'none');
+  
   $('#loadinggif').css('display', 'block');
   await sleep(1000);
   if (uniqueObj.length === 0) {
@@ -1313,4 +1331,11 @@ $(document).ready(function(){
 
 $(window).resize(function(){
   handleSlickOnResize();
+});
+
+var refreshload=document.getElementById("cartlastcancle");
+
+refreshload.addEventListener('click',function(){
+
+  location.reload();
 });

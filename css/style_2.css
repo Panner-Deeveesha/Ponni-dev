@@ -448,7 +448,7 @@ ship page
   #toggleButton {
     position: absolute;
     right:27%; /* Adjust this value based on the desired positioning */
-    top: 41%;
+    top: 30%;
     transform: translateY(-50%);
   }
 

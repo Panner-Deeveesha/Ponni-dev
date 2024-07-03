@@ -22,14 +22,14 @@
     
 	
 </head>
-<body onload="getAndSaveIPAddress();getcategorydynamically();">
+<body onload="getAndSaveIPAddress(); getcategorydynamically();">
     <nav id="navhead">
         <div id="headerfull">
             <div id="ponnititle">
                 <p><a href="./index.html">PONNI NATURAL FOODS</a></p>
             </div>
             <div id="menutotleft">
-                <img src="assets/icons/menu-blck.png" alt="Cart" id="menublck" onclick="openmenu()" onmouseover="this.src='./assets/icons/menu-green.png'" onmouseout="this.src='./assets/icons/menu-blck.png'">
+                <img onclick="openmenu()" src="assets/icons/menu-blck.png" alt="Cart" id="menublck" onmouseover="this.src='./assets/icons/menu-green.png'" onmouseout="this.src='./assets/icons/menu-blck.png'">
             </div>
             <div id="ponnilogo">
                 <a href="./index.html"><img src="assets/images/Logo trim.png" alt="Logo" id="logoimg"></a>
@@ -314,9 +314,6 @@
            </div>
 		   
         <script src="./js/jquery.min.js"></script>
-        <script src="./js/script_1.js"></script>
-        <script src="./js/script_2.js"></script>
-        <script src="./js/script_3.js"></script>
         <script>
             const passwordField = document.getElementById('reg-pwd');
             const toggleButton = document.getElementById('toggleBtn');
@@ -331,17 +328,17 @@
             });
 
             var proftotid = document.getElementById("profiletot");
-            const screenWidth = window.innerWidth;
-            if(!proftotid && screenWidth > 990 ){
+            const screenWid = window.innerWidth;
+            if(!proftotid && screenWid > 990 ){
                 $("#cartCount").css("right","18%");
                 $(".password-innerdiv").css({"margin-top":"100px","height":"650px"});
-            }else if(!proftotid && screenWidth > 630){
+            }else if(!proftotid && screenWid > 630){
                 $("#cartCount").css("right","20%");
                 $(".password-innerdiv").css({"margin-top":"80px","height":"600px"});
-            }else if(!proftotid && screenWidth > 430){
+            }else if(!proftotid && screenWid > 430){
                 $("#cartCount").css({"right":"27.5%","bottom":"46px"});
                 $(".password-innerdiv").css({"margin-top":"70px","height":"500px"});
-            }else if(!proftotid && screenWidth > 370){
+            }else if(!proftotid && screenWid > 370){
                 $("#cartCount").css({"right":"32%","bottom":"46px"});
                 /*$(".wholepasswordpage").css("margin-top","80px");*/
                 $("#menutotleft").css("width","35%");
@@ -353,5 +350,10 @@
                 $(".password-innerdiv").css({"margin-top":"70px","height":"415px"});
             }
         </script>
+        <script src="./js/script_1.js"></script>
+        <script src="./js/script_2.js"></script>
+        <script src="./js/script_3.js"></script>
+        <script src="./js/owlnpm.js"></script>
+	    <script src="./js/owlcarousel.js"></script>
 </body>
 </html>
