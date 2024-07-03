@@ -632,7 +632,18 @@
     /* Get offer btn end*/
     
     /*-------CART cSSSS-----*/
-    
+
+
+    #loadinggif{
+        display:none;
+    max-width:50px;
+    margin-left:auto;
+    margin-right:auto;
+    }
+    #loadinggif span{
+      font-size:20px;
+      color:#81b032;
+    }
       .cart-headline{
       background-color:rgb(129,176,50,0.8);
       padding: 30px;
@@ -654,8 +665,6 @@
         #emptycart{
          padding-top: 20px;
          padding-bottom:30px;
-       
-         
         }
       #emptycartimg{
     
@@ -932,6 +941,14 @@
       {
           width:60px;
       }
+
+      #verifycartnum{
+       width:50%;
+       border:1px solid #979eb5;
+       border-radius:8px;
+       padding:10px;
+
+      }
       .cart-process{
           display:flex;
           gap:10px;
@@ -977,16 +994,33 @@
           min-width: 170px;
           letter-spacing: 0.1em;
       }
+      #verifycartnumdiv{
+        margin-top:40px;
+        max-width:105px;
+        margin-left:auto;
+        margin-right:auto;
+
+      }
+     #verifycartnumbtn{
+       max-width:300px;
+        margin-left:auto;
+        margin-right:auto;
+        background: rgb(129, 176, 50, 0.8);
+        color: white;
+        border: none;
+        border-radius:8px;
+        padding:10px;
+ 
+      }
       .paymain-content{
           margin-top:50px;
           font-size: 18px;
           line-height: 30px;
           font-weight: 600;
-          text-align: center;
+          text-align: left;
           height:250px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-evenly;
+       
+         
           padding: 1rem 0;
           box-sizing: border-box;
       
@@ -1022,7 +1056,7 @@
           font-weight: 400;
           
       }
-      
+   
       .notifylabel::after{
       background:rgb(129,176,50,0.8) ;
           border: 2px solid #fff;
@@ -1554,17 +1588,6 @@
            }
     
        }
-
-          @media only screen and (max-width:980px){
-
-         .whyponniflexdiv {
-            width: 237px;
-          padding-left: 15px;
-         padding-right: 15px;
-      }
-    }
-
-
           @media only screen and (max-width:950px){
         .footer-banner {
               display:none;
@@ -1742,19 +1765,6 @@
         margin-right: auto;
         
     }
- .whyponniimg img {
-    max-width: 180px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-
-
-
-
-
-
      }
        @media only screen and (max-width:500px) {
            .footer-contact {
