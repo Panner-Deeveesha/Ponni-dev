@@ -1334,8 +1334,9 @@ $(window).resize(function(){
 });
 
 var refreshload=document.getElementById("cartlastcancle");
+if(refreshload){
+  refreshload.addEventListener('click',function(){
 
-refreshload.addEventListener('click',function(){
-
-  location.reload();
-});
+    location.reload();
+  });
+}
