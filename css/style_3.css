@@ -1554,6 +1554,17 @@
            }
     
        }
+
+          @media only screen and (max-width:980px){
+
+         .whyponniflexdiv {
+            width: 237px;
+          padding-left: 15px;
+         padding-right: 15px;
+      }
+    }
+
+
           @media only screen and (max-width:950px){
         .footer-banner {
               display:none;
@@ -1731,6 +1742,19 @@
         margin-right: auto;
         
     }
+ .whyponniimg img {
+    max-width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+
+
+
+
      }
        @media only screen and (max-width:500px) {
            .footer-contact {
