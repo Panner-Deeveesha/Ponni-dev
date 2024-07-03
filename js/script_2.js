@@ -40,7 +40,6 @@ function printheading(obj){
   if (objlen > 1) {
     numColumns = objlen;
   }
- 
   var columnWidth = 100 / numColumns + "%";
   var headcate = "";
   headcate += "<div id='mydiv' class='cate-heading owl-carousel owl-theme'>";
@@ -460,26 +459,34 @@ function displaycategories(obj){
     }*/
 
     var header = document.getElementById("headingdiv");
-if (header) {
-    var btns = header.getElementsByClassName("btn");
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function() {
-            var current = document.getElementsByClassName("active");
-            var imgElements = this.getElementsByClassName("headingimg");
-            if (imgElements.length > 0) {
-                var imgElement = imgElements[0];
-                var newCategoryName = this.getElementsByTagName("p")[0].innerText;
-                imgElement.src = "./assets/images/" + newCategoryName + "active.png";
-            }
-           
-            if (current.length > 0) {
-                current[0].classList.remove("active");
-            }
-            this.classList.add("active");
-        });
-    }
-}
-
+    if (header) {
+      var btns = header.getElementsByClassName("btn");
+      for (var i = 0; i < btns.length; i++) {
+          btns[i].addEventListener("click", function() {
+              var current = document.getElementsByClassName("active");
+              
+              // Remove 'active' class from previously active button
+              if (current.length > 0) {
+                  var prevActive = current[0];
+                  prevActive.classList.remove("active");
+                  
+                  // Reset previous active button's image src
+                  var prevImg = prevActive.getElementsByClassName("headingimg")[0];
+                  var prevCategoryName = prevActive.getElementsByTagName("p")[0].innerText;
+                  prevImg.src = "./assets/images/" + prevCategoryName + ".png";
+              }
+              
+              // Add 'active' class to the clicked button
+              this.classList.add("active");
+              
+              // Update clicked button's image src
+              var imgElement = this.getElementsByClassName("headingimg")[0];
+              var newCategoryName = this.getElementsByTagName("p")[0].innerText;
+              imgElement.src = "./assets/images/" + newCategoryName + "active.png";
+          });
+      }
+  }
+  
 var header2 = document.getElementById("mydiv2");
 if (header2) {
     var btns2 = header2.getElementsByClassName("cateheadings");
