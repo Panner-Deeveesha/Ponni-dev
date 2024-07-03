@@ -286,7 +286,7 @@
 
   </button>-->
 	 </div>
-	 <button type="submit"  class="cart-submit "  onclick="Checkout()">Buy Now </button>
+	 <button type="submit"  id="lastbuycart" class="cart-submit "  onclick="Checkout()">Buy Now </button>
 	 
 	 
 	 
@@ -309,7 +309,7 @@
     <div class="payementphone" id="payementphone1">
     
         <div class="paymain-content ">
-         <span> MobileNumber :</span> <input type="number" id="regi-number" value="">
+         <span> MobileNumber </span> <input type="number" id="regi-number" value="">
           <div id='verifycartnumdiv'><button id="verifycartnumbtn" onclick="verifyphonumber()">Verify Number</button></div> 
           <div class="otpdiv">
             <span>Please Enter OTP</span>
@@ -426,7 +426,7 @@
             <div class="summary-title-inner ">
               
             <div class="globalImg">
-                <div class="cartcancel"> <img src="./assets/icons/icons8-wrong-25 (1).png" onclick="cancelpayment()"></div>
+                <div class="cartcancel"> <img src="./assets/icons/icons8-wrong-25 (1).png" id="cartlastcancle" onclick="cancelpayment()"></div>
            <img src="./assets/icons/icons8-cart-18.png" class="paycart"><span class="">order summary</span><img src="./assets/icons/icons8-less-than-18 (1).png"  id="payuparrow"><img  src="./assets/icons/icons8-less-than-18.png" id="paydownarrow"></div>  
             </div>
             <div id="order-pay">

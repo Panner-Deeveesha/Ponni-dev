@@ -10,6 +10,9 @@
         }
         echo json_encode($response);
     }
+    else{
+        echo "null";
+    }
 ?>
 
 
