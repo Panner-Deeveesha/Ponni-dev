@@ -45,7 +45,7 @@ function printheading(obj){
   headcate += "<div id='mydiv' class='cate-heading owl-carousel owl-theme'>";
   headcate += "<div class='item'>";
   headcate += "<span class='btn active'>";
-  headcate += "<img class='headingimg' src='./assets/images/" + obj[0].category + ".png'>";
+  headcate += "<img class='headingimg' src='./assets/images/"+obj[0].category+".png'>";
   headcate += "<p>";
   headcate += obj[0].category;
   headcate += "</p>";
@@ -55,7 +55,7 @@ function printheading(obj){
   for (i = 1; i < objlen; i++) {
       headcate += "<div class='item'>";
       headcate += "<span class='btn'>";
-      headcate += "<img class='headingimg' src='./assets/images/" + obj[i].category + ".png'>";
+      headcate += "<img class='headingimg' src='./assets/images/"+obj[i].category+".png'>";
       headcate += "<p>";
       headcate += obj[i].category;
       headcate += "</p>";
