@@ -23,7 +23,7 @@
 		
 	
 </head>
-<body onload="getAndSaveIPAddress();getcategorydynamically();setContactNumber()">
+<body onload="getcategorydynamically(); getAndSaveIPAddress();setContactNumber()">
   <nav id="navhead">
     <div id="headerfull">
         <div id="ponnititle">
@@ -323,12 +323,8 @@
         </div>
     </div>
            
-           </div>
-		   
-           <script src="./js/jquery.min.js"></script>
-		   <script src="./js/script_1.js"></script>
-    <script src="./js/script_2.js"></script>
-    <script src="./js/script_3.js"></script>
+           </div>		   
+    <script src="./js/jquery.min.js"></script>
     <script>
         const passwordField = document.getElementById('reg-pwd');
         const toggleButton = document.getElementById('toggleButton');
@@ -344,14 +340,14 @@
         });
 
         var proftotid = document.getElementById("profiletot");
-            const screenWidth = window.innerWidth;
-            if(!proftotid && screenWidth > 990 ){
+            const screenWid = window.innerWidth;
+            if(!proftotid && screenWid > 990 ){
                 $("#cartCount").css("right","18%");
-            }else if(!proftotid && screenWidth > 630){
+            }else if(!proftotid && screenWid > 630){
                 $("#cartCount").css("right","20%");
-            }else if(!proftotid && screenWidth > 430){
+            }else if(!proftotid && screenWid > 430){
                 $("#cartCount").css({"right":"27.5%","bottom":"46px"});
-            }else if(!proftotid && screenWidth > 370){
+            }else if(!proftotid && screenWid > 370){
                 $("#cartCount").css({"right":"32%","bottom":"46px"});
                 /*$(".wholeregisterpage").css("margin-top","80px");*/
                 $("#menutotleft").css("width","35%");
@@ -362,5 +358,10 @@
             }
 
     </script>
+	<script src="./js/script_1.js"></script>
+    <script src="./js/script_2.js"></script>
+    <script src="./js/script_3.js"></script>
+    <script src="./js/owlnpm.js"></script>
+	<script src="./js/owlcarousel.js"></script>
 </body>
 </html>
