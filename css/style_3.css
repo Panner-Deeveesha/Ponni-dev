@@ -942,13 +942,21 @@
           width:60px;
       }
 
-      #verifycartnum{
+      #regi-number{
        width:50%;
        border:1px solid #979eb5;
        border-radius:8px;
        padding:10px;
 
       }
+      #otpnum{
+        width:50%;
+        border:1px solid #979eb5;
+        border-radius:8px;
+        padding:10px;
+        padding-bottom:20px;
+ 
+       }
       .cart-process{
           display:flex;
           gap:10px;
@@ -1010,8 +1018,43 @@
         border: none;
         border-radius:8px;
         padding:10px;
- 
+
       }
+     
+      
+      #send-otp-btn{
+        max-width:300px;
+         margin-left:auto;
+         margin-right:auto;
+         background: rgb(129, 176, 50, 0.8);
+         color: white;
+         border: none;
+         border-radius:8px;
+         padding:10px;
+  
+       }
+       #sign-inbtn{
+        max-width:300px;
+        margin-left:auto;
+        margin-right:auto;
+        background: rgb(129, 176, 50, 0.8);
+        color: white;
+        border: none;
+        border-radius:8px;
+        padding:10px;
+        margin-top:20px;
+       }
+       #verify-otp-btn{
+        max-width:300px;
+        margin-left:auto;
+        margin-right:auto;
+        background: rgb(129, 176, 50, 0.8);
+        color: white;
+        border: none;
+        border-radius:8px;
+        padding:10px;
+        margin-top: 20px;
+       }
       .paymain-content{
           margin-top:50px;
           font-size: 18px;
@@ -1025,6 +1068,7 @@
           box-sizing: border-box;
       
       }
+     
       #notificationscheck{
           display: none;
       }

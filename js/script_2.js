@@ -465,6 +465,13 @@ if (header) {
     for (var i = 0; i < btns.length; i++) {
         btns[i].addEventListener("click", function() {
             var current = document.getElementsByClassName("active");
+            var imgElements = this.getElementsByClassName("headingimg");
+            if (imgElements.length > 0) {
+                var imgElement = imgElements[0];
+                var newCategoryName = this.getElementsByTagName("p")[0].innerText;
+                imgElement.src = "./assets/images/" + newCategoryName + "active.png";
+            }
+           
             if (current.length > 0) {
                 current[0].classList.remove("active");
             }
@@ -479,6 +486,8 @@ if (header2) {
     for (var i = 0; i < btns2.length; i++) {
         btns2[i].addEventListener("click", function() {
             var current2 = document.getElementsByClassName("active2");
+           
+           
             if (current2.length > 0) {
                 current2[0].classList.remove("active2");
             }
@@ -1360,7 +1369,27 @@ function decrementbtn(){
 
 //registerpage
 
-
+function setphonenum(){
+ 
+  var contactno = document.getElementById("regi-number").value;
+  
+  // Encode contactno to ensure it's URL-safe
+  var encodedContactno = encodeURIComponent(contactno);
+  
+  // Redirect to register.html with contactno as a query parameter
+  window.location.href = "./register.html?contactno=" + encodedContactno;
+ 
+}
+function getQueryParam(param) {
+  var urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+function setContactNumber() {
+  var contactno = getQueryParam('contactno');
+  if (contactno) {
+    document.getElementById('regi-number1').value = contactno;
+  }
+}
 function clickregbutton(){
   var inputValues = document.querySelectorAll(".wholeregisterpage input");
   var isEmpty = false;
@@ -1383,10 +1412,10 @@ function clickregbutton(){
  var passvalue=document.getElementById("reg-pwd").value;
  var confirmpass=document.getElementById("confirmreg-pwd").value;
  var fname=document.getElementById("regi-fname").value;
- var lname=document.getElementById("regi-lname").value;
+
  var emailvalue=document.getElementById("regi-email").value;
  var contactno=document.getElementById("regi-number").value;
- var fullname=fname+lname;
+ var fullname=fname;
  if(isEmpty == false){
   document.getElementById("reg-emptyvalue").style.display="none";
      if(passvalue.length<5){
@@ -2108,8 +2137,7 @@ regiNumberInput.addEventListener('input', function() {
     // Check if the input value has exactly 10 digits
     if (inputValue.length === 10 && !isNaN(inputValue)) {
         // Display the Send OTP button
-        $("#send-otp-btn").css("display","block");
-  
+      
         
     } else {
         // Hide the Send OTP button if the condition is not met
@@ -2139,15 +2167,17 @@ $.ajax({
     let response1 = response.trim();
     if (response1 == 'true') {
       var obj = JSON.parse(response);
-      $(".otpdiv").css("display","block");
-      $("#send-otp-btn").css("display","none");
-      $("#verify-otp-btn").css("display","block");
+     // $(".otpdiv").css("display","block");
+      $("#send-otp-btn").css("display","block");
+      $("#verifycartnumbtn").css("display","none");
         console.log(obj);
         sendotp();
 
     } 
     else {
-         $("#wrongphonenum").css("display","block");
+      $("#sign-inbtn").css("display","block");
+      $("#verifycartnumbtn").css("display","none");
+       //  $("#wrongphonenum").css("display","block");
       console.log("Error");
     }
 
@@ -2175,13 +2205,14 @@ function sendotp(){
     data:data,
     success: function (response) {
       console.log(response);
-      var boo = isJsonString(response);
-     
-      if (boo == true) {
-        var obj = JSON.parse(response);
-      
+        let response1=response.trim();
+        console.log(response1);
+      if (response1 == "success") {
        
-   
+      
+        $(".otpdiv").css("display","block");
+       $("#send-otp-btn").css("display","none");
+       $("#verify-otp-btn").css("display","block");
 
         console.log(obj);
       
@@ -2216,10 +2247,11 @@ function checkotp(){
         var obj = JSON.parse(response);
         var objstatus=obj.status;
         if (objstatus == "success") {
-          $("#reg-button").removeClass("disabled-button");
+         
           $("#wrongotp").css("display","none");
           $(".otpdiv").css("display","none");
           $("#verify-otp-btn").css("display","none");
+          setphonenum();
          } 
         else {
          $("#wrongotp").css("display","block");

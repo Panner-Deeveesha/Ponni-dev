@@ -309,15 +309,16 @@
     <div class="payementphone" id="payementphone1">
     
         <div class="paymain-content ">
-         <span> MobileNumber:</span> <input type="number" id="regi-number" value="">
+         <span> MobileNumber :</span> <input type="number" id="regi-number" value="">
           <div id='verifycartnumdiv'><button id="verifycartnumbtn" onclick="verifyphonumber()">Verify Number</button></div> 
           <div class="otpdiv">
-            <p>Please Enter Otp</p>
+            <span>Please Enter OTP</span>
             <input type="number" id="otpnum" name="otp" placeholder="Enter the OTP Here">
             </div>
+            <button id="sign-inbtn" style="display: none;" onclick="openlogin()">Sign In</button>
             <button id="send-otp-btn" style="display: none;" onclick="sendotp()" >Send OTP</button>
             <button id="verify-otp-btn" style="display: none;" onclick="checkotp()">Verify OTP</button>
-                   
+            <p id="wrongotp">Invalid OTP</p>     
         </div>
     
           </div>
