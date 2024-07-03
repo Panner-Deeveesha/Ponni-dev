@@ -19,7 +19,7 @@ $otp = generateOTP();
 $_SESSION['otp'] = $otp;
 
 
-require __DIR__ . '\twilio-php-main/src/Twilio/autoload.php';
+require __DIR__ . '/twilio-php-main/src/Twilio/autoload.php';
 
 // Your Account SID and Auth Token from console.twilio.com
 $sid = "";
@@ -29,7 +29,7 @@ $number = $_POST['phonenum'];
 // Use the Client to make requests to the Twilio REST API
 if (isset($_POST['phonenum'])) {
     $number = $_POST['phonenum'];
-    echo $number;
+  
     // Validate or sanitize $number as needed
 
     try {
@@ -46,7 +46,7 @@ if (isset($_POST['phonenum'])) {
         );
 
         // Output a success message
-        echo " otp sent successfully. SID: " . $message->sid;
+        echo "success";
     } catch (Exception $e) {
         // Handle exceptions
         echo 'Error: ' . $e->getMessage();

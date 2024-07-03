@@ -18,19 +18,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Radio Canada' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   
-   
-		
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">		
 </head>
-<body onload="getAndSaveIPAddress(); removetoken(); getcategorydynamically();">
+<body onload="getcategorydynamically(); removetoken(); getAndSaveIPAddress();">
     <nav id="navhead">
         <div id="headerfull">
             <div id="ponnititle">
                 <p><a href="./index.html">PONNI NATURAL FOODS</a></p>
             </div>
             <div id="menutotleft">
-                <img src="assets/icons/menu-blck.png" alt="Cart" id="menublck" onclick="openmenu()" onmouseover="this.src='./assets/icons/menu-green.png'" onmouseout="this.src='./assets/icons/menu-blck.png'">
+                <img src="assets/icons/menu-blck.png" alt="Cart" id="menublck" onclick="openmenu();" onmouseover="this.src='./assets/icons/menu-green.png'" onmouseout="this.src='./assets/icons/menu-blck.png'">
             </div>
             <div id="ponnilogo">
                 <a href="./index.html"><img src="assets/images/Logo trim.png" alt="Logo" id="logoimg"></a>
@@ -39,7 +36,7 @@
                 <div id="searchtot">
                     <button id="searchbutton">
                         <input id="searchInput" type="text" placeholder="Search for..">
-                        <img src="assets/icons/search.png" id="iconsearch" onclick="openNav()">
+                        <img src="assets/icons/search.png" id="iconsearch" onclick="openNav();">
                     </button>
                     <div class="serchlist">
                         <ul id="productList">
@@ -310,10 +307,7 @@
        
        </div>
        
-           <script src="./js/jquery.min.js"></script>
-           <script src="./js/script_1.js"></script>
-    <script src="./js/script_2.js"></script>
-    <script src="./js/script_3.js"></script>
+    <script src="./js/jquery.min.js"></script>
     <script>
         const passwordField2 = document.getElementById('pwd');
 const toggleButton2 = document.getElementById('logintoggleButton');
@@ -329,14 +323,14 @@ toggleButton2.addEventListener('click', function() {
 });
 
 var proftotid = document.getElementById("profiletot");
-const screenWidth = window.innerWidth;
-if(!proftotid && screenWidth > 990 ){
+var screenWid = window.innerWidth;
+if(!proftotid && screenWid > 990 ){
     $("#cartCount").css("right","18%");
-}else if(!proftotid && screenWidth > 630){
+}else if(!proftotid && screenWid > 630){
     $("#cartCount").css("right","20%");
-}else if(!proftotid && screenWidth > 430){
+}else if(!proftotid && screenWid > 430){
     $("#cartCount").css({"right":"27.5%","bottom":"46px"});
-}else if(!proftotid && screenWidth > 370){
+}else if(!proftotid && screenWid > 370){
     $("#cartCount").css({"right":"32%","bottom":"46px"});
     /*$(".wholeloginpage").css("margin-top","80px");*/
     $("#menutotleft").css("width","35%");
@@ -347,5 +341,10 @@ if(!proftotid && screenWidth > 990 ){
 }
 
     </script>
+    <script src="./js/script_1.js"></script>
+    <script src="./js/script_2.js"></script>
+    <script src="./js/script_3.js"></script>
+    <script src="./js/owlnpm.js"></script>
+	<script src="./js/owlcarousel.js"></script>
 </body>
 </html>

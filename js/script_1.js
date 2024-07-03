@@ -1398,7 +1398,6 @@ $("#shopnowid").click(function () {
   });*/
 });
 
-
 const screenWidth = window.innerWidth;
   if(screenWidth <=500){
     $(document).ready(function(){
@@ -1421,7 +1420,7 @@ const screenWidth = window.innerWidth;
         autoplay: true,
         autoplaySpeed: 3000,
         speed: 300,
-        arrows: false,
+        arrows: true,
         dots: true,
         infinite: true
       });

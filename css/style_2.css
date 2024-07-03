@@ -452,13 +452,7 @@ ship page
     transform: translateY(-50%);
   }
 
-  .register-innerdiv  .disabled-button {
-    opacity: 0.5; 
-    pointer-events: none; 
-   
-    cursor: not-allowed; 
-    background-color: #ccc; 
-  }
+ 
 .register-innerdiv #reg-button{
    
 	width:400px;

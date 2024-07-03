@@ -211,7 +211,7 @@
 	<h3>Shopping cart</h3>
 	</div>
 	<div class="whole-cart">
-
+        <div id="loadinggif"><img src="./assets/icons\loading.gif"><span>Loading</span></div>
         <div id="emptycart">
             <div id="emptycartimg"> <img src="./assets/icons/clear.png"></div>
            
@@ -309,7 +309,16 @@
     <div class="payementphone" id="payementphone1">
     
         <div class="paymain-content ">
-            <h3> <a href="login.html">Please Sign In</a></h3>
+         <span> MobileNumber :</span> <input type="number" id="regi-number" value="">
+          <div id='verifycartnumdiv'><button id="verifycartnumbtn" onclick="verifyphonumber()">Verify Number</button></div> 
+          <div class="otpdiv">
+            <span>Please Enter OTP</span>
+            <input type="number" id="otpnum" name="otp" placeholder="Enter the OTP Here">
+            </div>
+            <button id="sign-inbtn" style="display: none;" onclick="openlogin()">Sign In</button>
+            <button id="send-otp-btn" style="display: none;" onclick="sendotp()" >Send OTP</button>
+            <button id="verify-otp-btn" style="display: none;" onclick="checkotp()">Verify OTP</button>
+            <p id="wrongotp">Invalid OTP</p>     
         </div>
     
           </div>

@@ -40,13 +40,12 @@ function printheading(obj){
   if (objlen > 1) {
     numColumns = objlen;
   }
- 
   var columnWidth = 100 / numColumns + "%";
   var headcate = "";
   headcate += "<div id='mydiv' class='cate-heading owl-carousel owl-theme'>";
   headcate += "<div class='item'>";
   headcate += "<span class='btn active'>";
-  headcate += "<img class='headingimg' src='./assets/images/" + obj[0].category + ".png'>";
+  headcate += "<img class='headingimg' src='./assets/images/"+obj[0].category+".png'>";
   headcate += "<p>";
   headcate += obj[0].category;
   headcate += "</p>";
@@ -56,7 +55,7 @@ function printheading(obj){
   for (i = 1; i < objlen; i++) {
       headcate += "<div class='item'>";
       headcate += "<span class='btn'>";
-      headcate += "<img class='headingimg' src='./assets/images/" + obj[i].category + ".png'>";
+      headcate += "<img class='headingimg' src='./assets/images/"+obj[i].category+".png'>";
       headcate += "<p>";
       headcate += obj[i].category;
       headcate += "</p>";
@@ -460,25 +459,42 @@ function displaycategories(obj){
     }*/
 
     var header = document.getElementById("headingdiv");
-if (header) {
-    var btns = header.getElementsByClassName("btn");
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function() {
-            var current = document.getElementsByClassName("active");
-            if (current.length > 0) {
-                current[0].classList.remove("active");
-            }
-            this.classList.add("active");
-        });
-    }
-}
-
+    if (header) {
+      var btns = header.getElementsByClassName("btn");
+      for (var i = 0; i < btns.length; i++) {
+          btns[i].addEventListener("click", function() {
+              var current = document.getElementsByClassName("active");
+              
+              // Remove 'active' class from previously active button
+              if (current.length > 0) {
+                  var prevActive = current[0];
+                  prevActive.classList.remove("active");
+                  
+                  // Reset previous active button's image src
+                  var prevImg = prevActive.getElementsByClassName("headingimg")[0];
+                  var prevCategoryName = prevActive.getElementsByTagName("p")[0].innerText;
+                  prevImg.src = "./assets/images/" + prevCategoryName + ".png";
+              }
+              
+              // Add 'active' class to the clicked button
+              this.classList.add("active");
+              
+              // Update clicked button's image src
+              var imgElement = this.getElementsByClassName("headingimg")[0];
+              var newCategoryName = this.getElementsByTagName("p")[0].innerText;
+              imgElement.src = "./assets/images/" + newCategoryName + "active.png";
+          });
+      }
+  }
+  
 var header2 = document.getElementById("mydiv2");
 if (header2) {
     var btns2 = header2.getElementsByClassName("cateheadings");
     for (var i = 0; i < btns2.length; i++) {
         btns2[i].addEventListener("click", function() {
             var current2 = document.getElementsByClassName("active2");
+           
+           
             if (current2.length > 0) {
                 current2[0].classList.remove("active2");
             }
@@ -1360,7 +1376,27 @@ function decrementbtn(){
 
 //registerpage
 
-
+function setphonenum(){
+ 
+  var contactno = document.getElementById("regi-number").value;
+  
+  // Encode contactno to ensure it's URL-safe
+  var encodedContactno = encodeURIComponent(contactno);
+  
+  // Redirect to register.html with contactno as a query parameter
+  window.location.href = "./register.html?contactno=" + encodedContactno;
+ 
+}
+function getQueryParam(param) {
+  var urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+function setContactNumber() {
+  var contactno = getQueryParam('contactno');
+  if (contactno) {
+    document.getElementById('regi-number1').value = contactno;
+  }
+}
 function clickregbutton(){
   var inputValues = document.querySelectorAll(".wholeregisterpage input");
   var isEmpty = false;
@@ -1383,10 +1419,10 @@ function clickregbutton(){
  var passvalue=document.getElementById("reg-pwd").value;
  var confirmpass=document.getElementById("confirmreg-pwd").value;
  var fname=document.getElementById("regi-fname").value;
- var lname=document.getElementById("regi-lname").value;
+
  var emailvalue=document.getElementById("regi-email").value;
  var contactno=document.getElementById("regi-number").value;
- var fullname=fname+lname;
+ var fullname=fname;
  if(isEmpty == false){
   document.getElementById("reg-emptyvalue").style.display="none";
      if(passvalue.length<5){
@@ -2108,8 +2144,7 @@ regiNumberInput.addEventListener('input', function() {
     // Check if the input value has exactly 10 digits
     if (inputValue.length === 10 && !isNaN(inputValue)) {
         // Display the Send OTP button
-        $("#send-otp-btn").css("display","block");
-  
+      
         
     } else {
         // Hide the Send OTP button if the condition is not met
@@ -2139,15 +2174,17 @@ $.ajax({
     let response1 = response.trim();
     if (response1 == 'true') {
       var obj = JSON.parse(response);
-      $(".otpdiv").css("display","block");
-      $("#send-otp-btn").css("display","none");
-      $("#verify-otp-btn").css("display","block");
+     // $(".otpdiv").css("display","block");
+      $("#send-otp-btn").css("display","block");
+      $("#verifycartnumbtn").css("display","none");
         console.log(obj);
         sendotp();
 
     } 
     else {
-         $("#wrongphonenum").css("display","block");
+      $("#sign-inbtn").css("display","block");
+      $("#verifycartnumbtn").css("display","none");
+       //  $("#wrongphonenum").css("display","block");
       console.log("Error");
     }
 
@@ -2175,13 +2212,14 @@ function sendotp(){
     data:data,
     success: function (response) {
       console.log(response);
-      var boo = isJsonString(response);
-     
-      if (boo == true) {
-        var obj = JSON.parse(response);
-      
+        let response1=response.trim();
+        console.log(response1);
+      if (response1 == "success") {
        
-   
+      
+        $(".otpdiv").css("display","block");
+       $("#send-otp-btn").css("display","none");
+       $("#verify-otp-btn").css("display","block");
 
         console.log(obj);
       
@@ -2216,10 +2254,11 @@ function checkotp(){
         var obj = JSON.parse(response);
         var objstatus=obj.status;
         if (objstatus == "success") {
-          $("#reg-button").removeClass("disabled-button");
+         
           $("#wrongotp").css("display","none");
           $(".otpdiv").css("display","none");
           $("#verify-otp-btn").css("display","none");
+          setphonenum();
          } 
         else {
          $("#wrongotp").css("display","block");

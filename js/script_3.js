@@ -362,14 +362,19 @@ function cartgetAvailability(obj){
 
 }
 
-function displaycartdetails(uniqueObj) {
+async function displaycartdetails(uniqueObj) {
+  $('#emptycart').css('display', 'none');
+  $('#loadinggif').css('display', 'block');
+  await sleep(1000);
   if (uniqueObj.length === 0) {
       $('#emptycart').css('display', 'block');
       $('.cart-details').css('display', 'none');
       $("#cart-descriptionid").html('');
+      $('#loadinggif').css('display', 'none');
   } else {
       $('#emptycart').css('display', 'none');
       $('.cart-details').css('display', 'block');
+      $('#loadinggif').css('display', 'none');
       var unitMapping = {
           'milli litre': 'ml',
           'litre': 'L',
@@ -591,6 +596,12 @@ function displaycartdetails(uniqueObj) {
     
 
     }
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+
 
    function updatecartid(uniqueId ,obj){
     var cartid=uniqueId;
@@ -1262,11 +1273,21 @@ function initializeSlick() {
       autoplay: true,
       dots: true,
       arrows: false,
-      autoplaySpeed: 3000
+      autoplaySpeed: 3000,
+      responsive: [
+        {
+          breakpoint: 500,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
     });
     slickInitialized = true;
   }
 }
+
 
 function destroySlick() {
   if (slickInitialized) {
@@ -1277,7 +1298,7 @@ function destroySlick() {
 
 function handleSlickOnResize() {
   var windowWidth = $(window).width();
-  if (windowWidth < 900) {
+  if (windowWidth < 950) {
     initializeSlick();
   } else {
     destroySlick();
