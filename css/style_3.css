@@ -81,7 +81,7 @@
     .Testimonial-content h2{
         padding-top:50px;
         text-align:center;
-        font-weight:400;
+        font-weight:600;
         font-size:23px;
         color: #6d9928 ;
     }
@@ -142,9 +142,15 @@
        }
     
      .testslide p{
-         font-size:16px;
-         color:black;
-         text-align:center;
+       padding-top:5px;
+    font-size: 14px;
+    text-align: center;
+    color: #999;
+}
+     
+     .test-customers #name{
+        font-size:18px;
+        text-align:center;
      }
     .owl-nav .owl-prev {
     
@@ -325,6 +331,7 @@
        }
      .footer-duties li{
          font-size:12px;
+         padding-top:4px;
      } 
      
        .footer-about ul {
@@ -561,7 +568,7 @@
         cursor: pointer;
         font-weight:bold;
         writing-mode: vertical-rl;
-        box-shadow: 2px 3px 5px 2px black;
+       box-shadow:4px 5px 12px 4px #00000085;
         
     }
     .getofferbtn{
@@ -1590,7 +1597,7 @@
     
     .footer-duties {
         line-height: 2;
-        width: 150px;
+        width: 180px;
     }
     .footer-emailsection {
       
