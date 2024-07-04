@@ -418,17 +418,8 @@ function displaycategories(obj){
     uniqueMap.set(item.productName, item);
   });
   const uniqueObjects = Array.from(uniqueMap.values());
-  const count = uniqueObjects.length;
-  if(count<4){
-    $(".sweets-images").css("grid-template-columns", "auto ".repeat(count));
-    $("#samplework").css("display","grid");
-  }
-  else{
-    $(".sweets-images").css("grid-template-columns", "auto ".repeat(count));
-    $("#samplework").css("display","grid");
-  }
-  $(".sweets-images").css("grid-template-columns", "auto ".repeat(4));
-    $("#samplework").css("display","grid");
+  
+ 
    var t = "";
     for(let i=0;i<uniqueObjects.length;i++){
       
@@ -453,6 +444,25 @@ function displaycategories(obj){
       //document.getElementById("samplework").innerHTML=t;
       $("#samplework").html(t);
     }
+    const count = uniqueObjects.length;
+
+  // Determine number of columns dynamically
+  let columns = count >= 4 ? 4 : count; // Adjust to a maximum of 4 columns or as needed
+  
+  // Set grid-template-columns dynamically
+  if ($(window).width() > 1200) {
+  $(".sweets-images").css({
+    "grid-template-columns": "repeat(" + columns + ", auto)",
+    "grid-gap": "40px"
+});
+  
+  // Adjust justification based on number of items
+  if (count < 4) {
+    $(".sweets-images").css("justify-content", "center");
+  } else {
+    $(".sweets-images ").css("justify-content", "center");
+  }
+}
     /*var header = document.getElementById("headingdiv");
     var btns = header.getElementsByClassName("btn");
     for (var i = 0; i < btns.length; i++) {

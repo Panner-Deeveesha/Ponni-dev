@@ -389,10 +389,11 @@ body{
     margin-top: 20px;
 }
 .textcls{
-    font-size: 30px;
+    font-size: 18px;
     font-weight: 400;
     display: block;
-    color: #ecad39;
+    color: #6d9928;
+    font-weight: 600;
     margin-top: 10px;
 }
 .textcls2{
