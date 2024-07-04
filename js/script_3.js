@@ -1218,7 +1218,9 @@ function updateCountdown(offer) {
     if (remainingTime <= 0) {
       localStorage.removeItem('endTime'); 
       $("#offerImage").css("display", "none");
+      $(".getofferbtn").css("display", "none");
       $("#offertime").css("display", "none"); 
+
       $('.getcancel').css("display", "none"); 
       $('.timesec').css("display", "none"); 
     } else {

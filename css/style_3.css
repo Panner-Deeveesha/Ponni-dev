@@ -12,6 +12,17 @@
         margin-right:auto;
         display:flex;
     }
+    .whyponnititle{
+       max-width:270px;
+       margin-left:auto;
+       margin-right:auto; 
+    }
+    .bordersvg{
+       max-width:190px;
+        height:31px;
+        margin-left:40px;
+       
+    }
     .whyponniimg{
       max-width:224px;
         margin-left:auto;
@@ -26,7 +37,7 @@
     .whyponniheading{
         text-align:center;
         font-size:25px;
-        padding-bottom:20px;
+       color: #6d9928 ;
     }
     .whyponniflexdiv{
         width:350px;
@@ -80,11 +91,13 @@
        transform: translateY(0);
        transition: transform .2s ease-in-out;
        border:none;
-     
     
       
     }
-    
+    .testreview{
+        font-size:18px;
+        margin-left:10px;
+    }
     
     .testimonial-star2 .reviewstars{
         width:30px !important;
@@ -542,6 +555,7 @@
         cursor: pointer;
         font-weight:bold;
         writing-mode: vertical-rl;
+        box-shadow: 2px 3px 5px 2px black;
     }
     
     .getofferdiv{
