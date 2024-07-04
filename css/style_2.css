@@ -606,7 +606,12 @@ ship page
     margin-right: auto;
 
 }
-
+.try-ponni {
+    width: 260px;
+    background-color: #fffff6;
+    margin-left: auto;
+    margin-right: auto;
+}
 .cate-first p {
     color: #6d9928;
     font-weight: 600;
@@ -979,14 +984,47 @@ input::-webkit-inner-spin-button {
 	transform:translate(0,-10px);
 	color:#d67c04;
 }
+.about-ponni{
+    width:20%;
+  
+    margin-left:auto;
+	margin-right:auto;
+    color: #6d9928;;
+    padding-top: 30px;
+    background-color: #f3f3f3;
+    text-align: center;
+}
+.about-ponni p{
+    font-size: 25px;
+    font-weight: 600;
+}
+.about-ponni img{
+    width:200px;
+    margin-left: 20px;
+}
+.try-ponni{
+    width:20%;
+  
+    margin-left:auto;
+	margin-right:auto;
+    color: #6d9928;
+}
+.try-ponni img{
+    width:250px;
+   margin-left: 60px;
+}
+.try-ponni p{
+    font-size: 25px;
+    font-weight: 600;
+}
 .cate-lastcontent p{
 	width:60%;
-	font-size:20px;
+	
 	font-weight:600;
 	text-align: justify;
 	margin-left:auto;
 	margin-right:auto;
-	
+	padding-bottom: 20px;
 }
 /*product css*/
 
