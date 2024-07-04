@@ -19,7 +19,7 @@ $otp = generateOTP();
 $_SESSION['otp'] = $otp;
 
 
-require __DIR__ . '/twilio-php-main/src/Twilio/autoload.php';
+require __DIR__ . '../twilio-php-main/src/Twilio/autoload.php';
 
 // Your Account SID and Auth Token from console.twilio.com
 $sid = "";
