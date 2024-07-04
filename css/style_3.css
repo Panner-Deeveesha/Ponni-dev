@@ -556,8 +556,11 @@
         font-weight:bold;
         writing-mode: vertical-rl;
         box-shadow: 2px 3px 5px 2px black;
+        
     }
-    
+    .getofferbtn{
+        display: none;
+    }
     .getofferdiv{
         writing-mode: vertical-rl;
           transform: rotate(180deg);

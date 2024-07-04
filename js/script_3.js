@@ -1184,9 +1184,9 @@ $(document).on("click", ".first-image", function() {
  
 });
 
-function getofferbtn() {
+function getofferbtn(offer) {
   $(".getofferbanner").css("display", "block");
-  dynamicoffer();
+  updateCountdown(offer);
 }
 
 function calculateTime(endTime) {
@@ -1214,7 +1214,6 @@ function updateCountdown(offer) {
         <span class="countdown-element seconds">${seconds}s</span>
     `;
 
-   
     if (remainingTime <= 0) {
       localStorage.removeItem('endTime'); 
       $("#offerImage").css("display", "none");
@@ -1229,7 +1228,14 @@ function updateCountdown(offer) {
       }, 1000);
     }
   }
+
+  // Additional check for offer end to modify $("#offerImage").css("display", "none");
+  if (remainingTime <= 0) {
+    $("#offerImage").css("display", "none");
+    // Any other modifications when the offer ends
+  }
 }
+
 
 function offercancel(event) {
   if (!event.target.classList.contains('offerimg1')) {
@@ -1253,21 +1259,38 @@ function dynamicoffer() {
     data: {
       productId: productId
     },
-    success: function (response) {
+    success: function(response) {
       console.log(response);
       var boo = isJsonString(response);
       if (boo) {
         var offer = JSON.parse(response);
         console.log(offer);
+
+        getofferbtn(offer); 
+
         displayofferimg(offer[0].img_Path);
-        updateCountdown(offer);
+     
+
+    
+        $(".getofferbtn").css("display", "block");
+       
+      } else {
+        // No valid offer
+        $("#offerImage").css("display", "none");
+        $(".getofferbtn").css("display", "none");
+        $("#offertime").css("display", "none");
+
+        $('.getcancel').css("display", "none");
+        $('.timesec').css("display", "none");
       }
+
     },
-    error: function (xhr, status, error) {
+    error: function(xhr, status, error) {
       console.error(xhr.responseText);
     }
   });
 }
+
 
 function displayofferimg(offer) {
   console.log(offer);
