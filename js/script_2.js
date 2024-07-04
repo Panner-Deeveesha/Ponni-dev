@@ -45,7 +45,7 @@ function printheading(obj){
   headcate += "<div id='mydiv' class='cate-heading owl-carousel owl-theme'>";
   headcate += "<div class='item'>";
   headcate += "<span class='btn active'>";
-  headcate += "<img class='headingimg' src='./assets/images/"+obj[0].category+".png'>";
+  headcate += "<img class='headingimg' src='./assets/images/"+obj[0].category+"active.png'>";
   headcate += "<p>";
   headcate += obj[0].category;
   headcate += "</p>";
@@ -68,7 +68,7 @@ function printheading(obj){
   
   // Initialize Owl Carousel
   $(".owl-carousel").owlCarousel({
-      loop: true,
+      loop: false,
       margin: 10,
       dots:false,
      
@@ -76,26 +76,31 @@ function printheading(obj){
           0: {
             dots:true,
             nav: false,
-              items: 3
+              items: 3,
+              rewind: true
           },
           500: {
             dots:true,
             nav: true,
-              items: 4
+              items: 4,
+              rewind: true
           },
           600: {
             dots:true,
             nav: true,
-              items: 5
+              items: 5,
+              rewind: false
           },
           775:{
             dots:true,
             nav: true,
-            items: 5
+            items: 5,
+            rewind: false
           },
           1000: {
-            dots:false,
-              items: 5
+            dots:true,
+              items: 5,
+              rewind: false
           }
       }
   });
@@ -105,7 +110,7 @@ function printheading(obj){
   headcate2 += "<div id='mydiv2' class='cate-heading2 owl-carousel owl-theme'>";
   headcate2 += "<div class='item'>";
   headcate2 += "<span class='cateheadings active2'>";
-  headcate2 += "<img class='headingimg' src='./assets/images/" + obj[0].category + ".png'>";
+  headcate2 += "<img class='headingimg' src='./assets/images/" + obj[0].category + "active.png'>";
   headcate2 += obj[0].category;
   headcate2 += "</span>";
   headcate2 += "</div>";
@@ -403,7 +408,6 @@ function getPrice(obj) {
 
 function displaycategories(obj){
   
-  $("#samplework").css("display","grid");
     
   $("#noneproducts").css("display","none");
 
@@ -414,7 +418,17 @@ function displaycategories(obj){
     uniqueMap.set(item.productName, item);
   });
   const uniqueObjects = Array.from(uniqueMap.values());
-
+  const count = uniqueObjects.length;
+  if(count<4){
+    $(".sweets-images").css("grid-template-columns", "auto ".repeat(count));
+    $("#samplework").css("display","grid");
+  }
+  else{
+    $(".sweets-images").css("grid-template-columns", "auto ".repeat(count));
+    $("#samplework").css("display","grid");
+  }
+  $(".sweets-images").css("grid-template-columns", "auto ".repeat(4));
+    $("#samplework").css("display","grid");
    var t = "";
     for(let i=0;i<uniqueObjects.length;i++){
       
