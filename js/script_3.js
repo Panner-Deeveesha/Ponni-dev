@@ -1183,12 +1183,10 @@ $(document).on("click", ".first-image", function() {
 
  
 });
-
-function getofferbtn(offer) {
+function getofferbtn() {
   $(".getofferbanner").css("display", "block");
-  updateCountdown(offer);
+  dynamicoffer();
 }
-
 function calculateTime(endTime) {
   var currentTime = new Date().getTime();
   var remainingTime = endTime - currentTime;
@@ -1249,7 +1247,33 @@ function getcancel() {
   $(".getofferbanner").css("display", "none");
   localStorage.removeItem('endTime'); 
 }
+function checkoffer(){
+  var productId = "PO#003";
+  $.ajax({
+    type: "POST",
+    url: "./php/checkoffer.php",
+    data: {
+      productId: productId
+    },
+  
+    success: function(response) {
+        // Handle the response data here
+        console.log(response);  
+       if(response=="true"){
+        $(".getofferbtn").css("display", "none");
+       }
+       else{
+      
+        $(".getofferbtn").css("display", "block");
+       }
 
+    },
+    error: function(xhr, status, error) {
+      console.error(xhr.responseText);
+    }
+  });
+
+}
 function dynamicoffer() {
   var productId = "PO#003";
 
@@ -1259,33 +1283,24 @@ function dynamicoffer() {
     data: {
       productId: productId
     },
-    success: function(response) {
+    success: function (response) {
       console.log(response);
       var boo = isJsonString(response);
       if (boo) {
         var offer = JSON.parse(response);
         console.log(offer);
-
-        getofferbtn(offer); 
-
         displayofferimg(offer[0].img_Path);
-     
-
-    
-        $(".getofferbtn").css("display", "block");
-       
-      } else {
-        // No valid offer
-        $("#offerImage").css("display", "none");
-        $(".getofferbtn").css("display", "none");
-        $("#offertime").css("display", "none");
-
-        $('.getcancel').css("display", "none");
-        $('.timesec').css("display", "none");
+        updateCountdown(offer);
       }
+      else{
+        $("#offerImage").css("display", "none");
+        $("#offertime").css("display", "none"); 
 
+        $('.getcancel').css("display", "none"); 
+        $('.timesec').css("display", "none"); 
+      }
     },
-    error: function(xhr, status, error) {
+    error: function (xhr, status, error) {
       console.error(xhr.responseText);
     }
   });
