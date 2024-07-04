@@ -23,6 +23,11 @@
         margin-left:40px;
        
     }
+    .testhead{
+        max-width:270px;
+        margin-left:auto;
+        margin-right:auto;  
+    }
     .whyponniimg{
       max-width:224px;
         margin-left:auto;
@@ -78,6 +83,7 @@
         text-align:center;
         font-weight:400;
         font-size:23px;
+        color: #6d9928 ;
     }
     .test-sildeshow{
        position:relative;
