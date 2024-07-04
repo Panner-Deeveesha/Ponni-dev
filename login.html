@@ -221,7 +221,7 @@
                 <h3 style= "transform:translateY(-5px)";>SUPPORT</h3>
                 <ul>
                     <li></li>
-                    <li style ="word-spacing:8px";><a href="contact.html"><p>CONTACT  +918042754660</p></a></li>
+                    <li style ="word-spacing:8px";><a href="contact.html"><p>CONTACT  +91-8042754660</p></a></li>
                     <li></li>		   
                 </ul>
             </div>               
@@ -269,7 +269,7 @@
             <div class="footer-duties">
                 <h3 >SUPPORT<span class="footer-plus" id="footer-plus3">+</span><span class="footer-minus" id="footer-minus3">-</span></h3>
                 <ul class="footer-dutieslist">           
-                    <li style ="word-spacing:8px";><a href="contact.html"><p>CONTACT  +918042754660</p></a></li>                                                              
+                    <li style ="word-spacing:8px";><a href="contact.html"><p>CONTACT  +91-8042754660</p></a></li>                                                              
                 </ul>
             </div>              
             <div class="footer-lastsection">              
@@ -325,17 +325,17 @@ toggleButton2.addEventListener('click', function() {
 var proftotid = document.getElementById("profiletot");
 var screenWid = window.innerWidth;
 if(!proftotid && screenWid > 990 ){
-    $("#cartCount").css("right","18%");
+    $("#cartCount").css({"right":"18%","bottom":"28px"});
 }else if(!proftotid && screenWid > 630){
-    $("#cartCount").css("right","20%");
+    $("#cartCount").css({"right":"20%","bottom":"28px"});
 }else if(!proftotid && screenWid > 430){
-    $("#cartCount").css({"right":"27.5%","bottom":"46px"});
-}else if(!proftotid && screenWid > 370){
     $("#cartCount").css({"right":"32%","bottom":"46px"});
+}else if(!proftotid && screenWid > 370){
+    $("#cartCount").css({"right":"28%","bottom":"46px"});
     /*$(".wholeloginpage").css("margin-top","80px");*/
     $("#menutotleft").css("width","35%");
 }else{
-    $("#cartCount").css({"right":"32%","bottom":"46px"});
+    $("#cartCount").css({"right":"28%","bottom":"46px"});
     /*$(".wholeloginpage").css("margin-top","70px");*/
     $("#menutotleft").css("width","40%");
 }

@@ -189,10 +189,11 @@ body{
     align-content: center;
     text-align: center;
     margin-left: 20px;
+    margin-top: 9px;
 }
 #cartCount {
     position: absolute;
-    bottom: 32px;
+    bottom: 31px;
     right: 25%;
     background: #f0d343;
     color: black;
@@ -202,12 +203,12 @@ body{
     font-weight: bold;
 }
 #cartblck{
-    width: 25px;
+    width: 27px;
     height: auto;
     cursor: pointer;
 }
 #cartblck:hover{
-    width: 28px;
+    width: 29px;
     height: auto;
 }
 #wishtot{
@@ -215,14 +216,15 @@ body{
     align-content: center;
     text-align: center;
     margin-left: 10px;
+    margin-top: 9px;
 }
 #wishblck{
-    width: 25px;
+    width: 27px;
     height: auto;
     cursor: pointer;
 }
 #wishblck:hover{
-    width: 28px;
+    width: 29px;
     height: auto;
 }
 #profiletot{
@@ -230,23 +232,33 @@ body{
     align-content: center;
     text-align: center;
     margin-left: 10px;
+    margin-top: 9px;
 }
 #profiletot1{
     display: none;
     width: 30%;
     margin-left: 10px;
+    margin-top: 9px;
 }
 #smallimg{
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
     cursor: pointer;
     border-radius: 50%;
 }
+#smallimg:hover{
+    width: 29px;
+    height: 29px;
+}
 #smallimg1{
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
     cursor: pointer;
     border-radius: 50%;
+}
+#smallimg1:hover{
+    width: 29px;
+    height: 29px;
 }
 .profilechange{
 	position:absolute;
@@ -298,14 +310,15 @@ body{
     align-content: center;
     text-align: center;
     margin-left: 10px;
+    margin-top: 9px;
 }
 #menublck{
-    width: 25px;
+    width: 27px;
     height: auto;
     cursor: pointer;
 }
 #menublck:hover{
-    width: 28px;
+    width: 29px;
     height: auto;
 }
 .blackscreen{
@@ -356,7 +369,7 @@ body{
     background-color: #f3f3f3;
 }
 .simpleid{
-    width: 90%;
+    width: 95%;
     display: flex;
     flex-direction: row;
     margin: 0px auto;
@@ -889,13 +902,13 @@ del{
 /* Media Query */
 @media only screen and (max-width:1280px){
     #cartCount {
-        bottom: 33px;
+        bottom: 30px;
         right: 27%;
     }
 }
 @media only screen and (max-width:1024px){
     #cartCount {
-        bottom: 33px;
+        bottom: 30px;
         right: 28%;
     }
 }
@@ -927,7 +940,7 @@ del{
         border: none;
         padding: 0;
         position: static;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
         margin-left: 30px;
     }
     #carttot{
@@ -935,7 +948,7 @@ del{
         margin-left: 0px;
     }
     #cartCount {
-        bottom: 35px;
+        bottom: 30px;
         right: 28%;
     }
     #cartblck {
@@ -944,6 +957,9 @@ del{
     #wishtot{
         width: 15%;
         margin-left: 0px;
+    }
+    #wishblck {
+        margin-left: 5px;
     }
     #menutot{
         display: none;
@@ -1020,6 +1036,10 @@ del{
     #wishtot{
         width: 15%;
         margin-left: 10px;
+        margin-top: 0px;
+    }
+    #wishblck{
+        margin-left: 0px;
     }
     #cartCount {
         right: 41.5%;
@@ -1039,6 +1059,7 @@ del{
     }
     #profiletot{
         margin-right: 10px;
+        margin-top: 0px;
     }
     #profilelist {
         margin-top: 10px;
@@ -1140,6 +1161,7 @@ del{
     #profiletot1{
         display: block;
         width: 30%;
+        margin-top: 2px;
     }
     #profiletot{
         display: none;
@@ -1153,7 +1175,7 @@ del{
     }
     #cartCount {
         right: 28.5%;
-        bottom: 47px;
+        bottom: 50px;
     }
     #menutotleft {
         padding-left: 10px;
@@ -1191,7 +1213,7 @@ del{
     }
     #cartCount {
         right: 35%;
-        bottom: 47px;
+        bottom: 50px;
     }
     #carttot{
         margin-left: 10px;
