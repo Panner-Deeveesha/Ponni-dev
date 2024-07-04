@@ -1407,7 +1407,11 @@ document.addEventListener('keydown', function(event) {
       }
   }
 });
-
+document.getElementById("pwd").addEventListener("keyup", function(event) {
+  if (event.key === "Enter") {
+      signincheck();
+  }
+});
 function areAllInputsFilled() {
   var inputValues = document.querySelectorAll(".register-innerdiv input");
   for (let i = 0; i < inputValues.length; i++) {
