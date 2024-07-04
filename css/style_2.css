@@ -983,10 +983,10 @@ input::-webkit-inner-spin-button {
 	color:#d67c04;
 }
 .cate-lastcontent p{
-	width:80%;
+	width:65%;
 	font-size:20px;
 	font-weight:600;
-	
+	text-align: justify;
 	margin-left:auto;
 	margin-right:auto;
 	
@@ -1503,6 +1503,9 @@ width:20px;
  }
  /*media query for product*/
  @media only screen and (max-width:1500px) {
+    .cate-lastcontent p {
+        width: 85%;
+    }
     .newcate-heading {
         width: 50%;
         margin-left: auto;
@@ -2126,6 +2129,9 @@ width:20px;
 }
 }
 @media only screen and (max-width:950px) {
+    .cate-lastcontent p {
+        width: 85%;
+    }
     .cate-heading span {
       
         font-size: 16px;
