@@ -1013,9 +1013,10 @@ input::-webkit-inner-spin-button {
     width:250px;
    margin-left: 60px;
 }
-.try-ponni p{
+.try-ponni #trypara{
     font-size: 25px;
     font-weight: 600;
+    padding-bottom: 0px;
 }
 .cate-lastcontent p{
 	width:60%;
