@@ -385,6 +385,7 @@ body{
 .imgsimple{
     width: auto;
     height: 320px;
+    max-width: 100%;
 }
 .textareacon{
     width: 50%;
