@@ -383,7 +383,7 @@ body{
     text-align: center;
 }
 .imgsimple{
-    width: 90%;
+    width: auto;
     height: 320px;
 }
 .textareacon{
