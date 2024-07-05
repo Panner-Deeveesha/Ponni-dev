@@ -705,7 +705,8 @@ ship page
     margin-right: 10px;
 }
 .cate-heading p{
-    color: black;
+    color: #000;
+    font-weight: 400;
 }
 .wholecategories .active {
     cursor: pointer;

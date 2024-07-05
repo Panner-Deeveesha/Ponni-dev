@@ -964,7 +964,7 @@ function printonwish(obj){
       t +='</p>';
       
       t +='</div>';
-      
+      $("#loadinggif").css("display","none");
       document.getElementById("samplework").innerHTML=t;
       
     }
