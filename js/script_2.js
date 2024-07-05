@@ -32,7 +32,7 @@ function getcategorydynamically(){
 
 
 async function printheading(obj){
-$("#loadinggif1").css("display","block");
+
 
 await sleep(1000);
   var categoryfirst= obj[0].category;
@@ -467,6 +467,19 @@ function displaycategories(obj){
     $(".sweets-images ").css("justify-content", "center");
   }
 }
+if (count === 5) {
+  $(".sweets-images").css({
+      "grid-template-columns": "repeat(4, auto)",
+      "grid-auto-rows": "auto" // Ensure rows adjust dynamically based on content
+  });
+
+  // Move the 5th item to the second row
+  $(".sampleitem:nth-child(5)").css({
+      "grid-column": "1 / span 4", // Span all 4 columns
+      "grid-row": "2" // Place in the second row
+  });
+}
+
     /*var header = document.getElementById("headingdiv");
     var btns = header.getElementsByClassName("btn");
     for (var i = 0; i < btns.length; i++) {
