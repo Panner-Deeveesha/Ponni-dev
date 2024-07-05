@@ -1553,7 +1553,7 @@ width:20px;
  /*media query for product*/
  @media only screen and (max-width:1500px) {
     .cate-lastcontent p {
-        width: 85%;
+        width: 76%;
     }
     .newcate-heading {
         width: 50%;
