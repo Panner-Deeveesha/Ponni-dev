@@ -31,8 +31,10 @@ function getcategorydynamically(){
 }
 
 
-function printheading(obj){
-  
+async function printheading(obj){
+$("#loadinggif1").css("display","block");
+
+await sleep(1000);
   var categoryfirst= obj[0].category;
   var objlen = obj.length;
 
@@ -64,7 +66,9 @@ function printheading(obj){
   }
   
   headcate += "</div>";
+  $("#loadinggif1").css("display","none");
   $("#headingdiv").html(headcate);
+
   
   // Initialize Owl Carousel
   $(".owl-carousel").owlCarousel({
