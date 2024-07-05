@@ -794,6 +794,7 @@ ship page
     margin-top: 40px;
     display: grid;
     grid-template-columns: auto auto auto auto;
+    
 
 }
 
@@ -982,7 +983,8 @@ input::-webkit-inner-spin-button {
 	background-color:#fffff6;
 	padding:20px;
 	transform:translate(0,-10px);
-	color:#d67c04;
+	color:#999;
+    font-size: 16px;
 }
 .about-ponni{
     width:20%;
@@ -1023,7 +1025,7 @@ input::-webkit-inner-spin-button {
 .cate-lastcontent p{
 	width:60%;
 	
-	font-weight:600;
+	margin-top: 10px;
 	text-align: justify;
 	margin-left:auto;
 	margin-right:auto;
@@ -3953,6 +3955,22 @@ element.style {
 }
 }
 @media only screen and (max-width:400px) {
+    .about-ponni {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        color: #6d9928;
+        padding-top: 30px;
+        background-color: #f3f3f3;
+        text-align: center;
+    }
+    .try-ponni {
+        width: 90%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        color: #6d9928;
+    }
     #mgscontent{
         font-size: 16px;
     }
