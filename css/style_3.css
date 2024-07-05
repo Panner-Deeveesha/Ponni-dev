@@ -567,8 +567,8 @@
         color:white;
         cursor: pointer;
         font-weight:bold;
-        writing-mode: vertical-rl;
-       box-shadow:4px 5px 12px 4px #00000085;
+ 
+       box-shadow:2px 3px 5px 2px #00000085;
         
     }
     .getofferbtn{
