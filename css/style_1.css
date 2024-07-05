@@ -369,31 +369,30 @@ body{
     background-color: #f3f3f3;
 }
 .simpleid{
-    width: 95%;
+    width: 70%;
     display: flex;
     flex-direction: row;
     margin: 0px auto;
-    justify-content: center;
+    justify-content: space-between;
 }
-.simpleid:nth-of-type(2) .textareacon{
-    margin-right: 40px;
-    margin-left: 0px;
+.imgdiv{
+    width: 40%;
+    text-align: center;
 }
 .imgsimple{
     width: 400px;
     height: 350px;
 }
 .textareacon{
-    width: 400px;
+    width: 40%;
     margin-left: 40px;
     margin-top: 20px;
 }
 .textcls{
-    font-size: 18px;
+    font-size: 30px;
     font-weight: 400;
     display: block;
-    color: #100000;
-    font-weight: 600;
+    color: #ecad39;
     margin-top: 10px;
 }
 .textcls2{
@@ -404,7 +403,6 @@ body{
     margin-top: 10px;
 }
 .para1{
-    color: #878787;
     font-size: 16px;
     margin-top: 10px;
     line-height: .3in;
@@ -977,12 +975,6 @@ del{
     .profilechange {
         width: 65%;
     }
-}
-@media only screen and (max-width:880px){
-    .tit {
-        width: 70%;
-        font-size: 16px;
-    }
     .simpleid {
         display: block;
     }
@@ -991,14 +983,23 @@ del{
         padding-top: 0px;
         margin-left: 0px;
     }
+    .imgdiv{
+        width: 100%;
+    }
     .imgsimple{
         width: 90%;
         height: auto;
         text-align: justify;
     }
-    .simpleid:nth-of-type(2){
+    .simpleid:nth-of-type(3){
         display: flex;
         flex-wrap: wrap-reverse;
+    }
+}
+@media only screen and (max-width:880px){
+    .tit {
+        width: 70%;
+        font-size: 16px;
     }
 }
 @media only screen and (max-width:750px){
