@@ -498,51 +498,57 @@ if (count === 5) {
         this.className += " active2";
       });
     }*/
-
-    var header = document.getElementById("headingdiv");
-    if (header) {
-      var btns = header.getElementsByClassName("btn");
-      for (var i = 0; i < btns.length; i++) {
+      var header = document.getElementById("headingdiv");
+      if (header) {
+        var btns = header.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
           btns[i].addEventListener("click", function() {
-              var current = document.getElementsByClassName("active");
-              
-              // Remove 'active' class from previously active button
-              if (current.length > 0) {
-                  var prevActive = current[0];
-                  prevActive.classList.remove("active");
-                  
-                  // Reset previous active button's image src
-                  var prevImg = prevActive.getElementsByClassName("headingimg")[0];
-                  var prevCategoryName = prevActive.getElementsByTagName("p")[0].innerText;
-                  prevImg.src = "./assets/images/" + prevCategoryName + ".png";
-              }
-              
-              // Add 'active' class to the clicked button
-              this.classList.add("active");
-              
-              // Update clicked button's image src
-              var imgElement = this.getElementsByClassName("headingimg")[0];
-              var newCategoryName = this.getElementsByTagName("p")[0].innerText;
-              imgElement.src = "./assets/images/" + newCategoryName + "active.png";
-          });
-      }
-  }
-  
-var header2 = document.getElementById("mydiv2");
-if (header2) {
-    var btns2 = header2.getElementsByClassName("cateheadings");
-    for (var i = 0; i < btns2.length; i++) {
-        btns2[i].addEventListener("click", function() {
-            var current2 = document.getElementsByClassName("active2");
-           
-           
-            if (current2.length > 0) {
-                current2[0].classList.remove("active2");
+            // Remove 'active' class from previously active button
+            var currentActive = header.querySelector(".btn.active");
+            if (currentActive) {
+              currentActive.classList.remove("active");
+              // Reset previous active button's image src
+              var prevImg = currentActive.getElementsByClassName("headingimg")[0];
+              var prevCategoryName = currentActive.getElementsByTagName("p")[0].innerText;
+              prevImg.src = "./assets/images/" + prevCategoryName + ".png";
             }
-            this.classList.add("active2");
-        });
-    }
-}
+            
+            // Add 'active' class to the clicked button
+            this.classList.add("active");
+            
+            // Update clicked button's image src
+            var imgElement = this.getElementsByClassName("headingimg")[0];
+            var newCategoryName = this.getElementsByTagName("p")[0].innerText;
+            imgElement.src = "./assets/images/" + newCategoryName + "active.png";
+          });
+        }
+      }
+      var header2 = document.getElementById("headingdiv");
+      if (header2) {
+        var btns2 = header2.getElementsByClassName("btn");
+        for (var i = 0; i < btns2.length; i++) {
+          btns2[i].addEventListener("click", function() {
+            // Remove 'active' class from previously active button
+            var currentActive = header2.querySelector(".btn.active");
+            if (currentActive) {
+              currentActive.classList.remove("active");
+              // Reset previous active button's image src
+              var prevImg = currentActive.getElementsByClassName("headingimg")[0];
+              var prevCategoryName = currentActive.getElementsByTagName("p")[0].innerText;
+              prevImg.src = "./assets/images/" + prevCategoryName + ".png";
+            }
+            
+            // Add 'active' class to the clicked button
+            this.classList.add("active");
+            
+            // Update clicked button's image src
+            var imgElement = this.getElementsByClassName("headingimg")[0];
+            var newCategoryName = this.getElementsByTagName("p")[0].innerText;
+            imgElement.src = "./assets/images/" + newCategoryName + "active.png";
+          });
+        }
+      }
+      
 }
 
 //finish index page
