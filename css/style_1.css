@@ -375,6 +375,9 @@ body{
     margin: 0px auto;
     justify-content: center;
 }
+.formrgin{
+    margin-left: 30px !important;
+}
 .imgdiv{
     width: 50%;
     text-align: center;
@@ -382,6 +385,7 @@ body{
 .imgsimple{
     width: auto;
     height: 320px;
+    max-width: 100%;
 }
 .textareacon{
     width: 50%;

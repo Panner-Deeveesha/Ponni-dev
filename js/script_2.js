@@ -32,7 +32,7 @@ function getcategorydynamically(){
 
 
 async function printheading(obj){
-$("#loadinggif1").css("display","block");
+
 
 await sleep(1000);
   var categoryfirst= obj[0].category;
@@ -467,6 +467,19 @@ function displaycategories(obj){
     $(".sweets-images ").css("justify-content", "center");
   }
 }
+if (count === 5) {
+  $(".sweets-images").css({
+      "grid-template-columns": "repeat(4, auto)",
+      "grid-auto-rows": "auto" // Ensure rows adjust dynamically based on content
+  });
+
+  // Move the 5th item to the second row
+  $(".sampleitem:nth-child(5)").css({
+      "grid-column": "1 / span 4", // Span all 4 columns
+      "grid-row": "2" // Place in the second row
+  });
+}
+
     /*var header = document.getElementById("headingdiv");
     var btns = header.getElementsByClassName("btn");
     for (var i = 0; i < btns.length; i++) {
@@ -485,51 +498,57 @@ function displaycategories(obj){
         this.className += " active2";
       });
     }*/
-
-    var header = document.getElementById("headingdiv");
-    if (header) {
-      var btns = header.getElementsByClassName("btn");
-      for (var i = 0; i < btns.length; i++) {
+      var header = document.getElementById("headingdiv");
+      if (header) {
+        var btns = header.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
           btns[i].addEventListener("click", function() {
-              var current = document.getElementsByClassName("active");
-              
-              // Remove 'active' class from previously active button
-              if (current.length > 0) {
-                  var prevActive = current[0];
-                  prevActive.classList.remove("active");
-                  
-                  // Reset previous active button's image src
-                  var prevImg = prevActive.getElementsByClassName("headingimg")[0];
-                  var prevCategoryName = prevActive.getElementsByTagName("p")[0].innerText;
-                  prevImg.src = "./assets/images/" + prevCategoryName + ".png";
-              }
-              
-              // Add 'active' class to the clicked button
-              this.classList.add("active");
-              
-              // Update clicked button's image src
-              var imgElement = this.getElementsByClassName("headingimg")[0];
-              var newCategoryName = this.getElementsByTagName("p")[0].innerText;
-              imgElement.src = "./assets/images/" + newCategoryName + "active.png";
-          });
-      }
-  }
-  
-var header2 = document.getElementById("mydiv2");
-if (header2) {
-    var btns2 = header2.getElementsByClassName("cateheadings");
-    for (var i = 0; i < btns2.length; i++) {
-        btns2[i].addEventListener("click", function() {
-            var current2 = document.getElementsByClassName("active2");
-           
-           
-            if (current2.length > 0) {
-                current2[0].classList.remove("active2");
+            // Remove 'active' class from previously active button
+            var currentActive = header.querySelector(".btn.active");
+            if (currentActive) {
+              currentActive.classList.remove("active");
+              // Reset previous active button's image src
+              var prevImg = currentActive.getElementsByClassName("headingimg")[0];
+              var prevCategoryName = currentActive.getElementsByTagName("p")[0].innerText;
+              prevImg.src = "./assets/images/" + prevCategoryName + ".png";
             }
-            this.classList.add("active2");
-        });
-    }
-}
+            
+            // Add 'active' class to the clicked button
+            this.classList.add("active");
+            
+            // Update clicked button's image src
+            var imgElement = this.getElementsByClassName("headingimg")[0];
+            var newCategoryName = this.getElementsByTagName("p")[0].innerText;
+            imgElement.src = "./assets/images/" + newCategoryName + "active.png";
+          });
+        }
+      }
+      var header2 = document.getElementById("headingdiv");
+      if (header2) {
+        var btns2 = header2.getElementsByClassName("btn");
+        for (var i = 0; i < btns2.length; i++) {
+          btns2[i].addEventListener("click", function() {
+            // Remove 'active' class from previously active button
+            var currentActive = header2.querySelector(".btn.active");
+            if (currentActive) {
+              currentActive.classList.remove("active");
+              // Reset previous active button's image src
+              var prevImg = currentActive.getElementsByClassName("headingimg")[0];
+              var prevCategoryName = currentActive.getElementsByTagName("p")[0].innerText;
+              prevImg.src = "./assets/images/" + prevCategoryName + ".png";
+            }
+            
+            // Add 'active' class to the clicked button
+            this.classList.add("active");
+            
+            // Update clicked button's image src
+            var imgElement = this.getElementsByClassName("headingimg")[0];
+            var newCategoryName = this.getElementsByTagName("p")[0].innerText;
+            imgElement.src = "./assets/images/" + newCategoryName + "active.png";
+          });
+        }
+      }
+      
 }
 
 //finish index page
@@ -1599,45 +1618,77 @@ function removetoken(){
 
 
 
-
-//category page
-
-function categload(){
+function categload() {
   $(document).ready(function() {
-      function getURLParameter(name) {
-          var urlParams = new URLSearchParams(window.location.search);
-          return urlParams.get(name);
+    function getURLParameter(name) {
+      var urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+    
+    // Get the value of the 'value' parameter from the URL
+    var passvalEncoded = getURLParameter('value');
+    // Decode the encoded value
+    var passval = decodeURIComponent(passvalEncoded);
+    var textconver = passval.toUpperCase();
+
+    const screenWidth = window.innerWidth;
+    var selector = (screenWidth > 730) ? "#mydiv .btn" : "#mydiv2 .btn";
+
+    // Event listener for button clicks using event delegation
+    $(document).on("click", selector, function() {
+      // Remove 'active' class from all buttons
+      $(selector).removeClass("active");
+
+      // Add 'active' class to the clicked button
+      $(this).addClass("active");
+
+      // Update all button images to inactive state
+      $(selector).each(function() {
+        var imgElement = $(this).find(".headingimg")[0];
+        var categoryName = $(this).find("p").text().trim();
+        imgElement.src = "./assets/images/" + categoryName + ".png";
+      });
+
+      // Update clicked button's image src to active state
+      var imgElement = $(this).find(".headingimg")[0];
+      var newCategoryName = $(this).find("p").text().trim();
+      imgElement.src = "./assets/images/" + newCategoryName + "active.png";
+
+      // Call categorypagepass with the text content of the clicked button
+      categorypagepass(newCategoryName);
+    });
+
+    // Initial highlighting based on URL parameter
+    $(selector).each(function() {
+      var buttonText = $(this).find("p").text().trim().toUpperCase();
+      if (buttonText === textconver) {
+        // Remove 'active' class from all buttons
+        $(selector).removeClass("active");
+
+        // Add 'active' class to the matched button
+        $(this).addClass("active");
+
+        // Update all button images to inactive state
+        $(selector).each(function() {
+          var imgElement = $(this).find(".headingimg")[0];
+          var categoryName = $(this).find("p").text().trim();
+          imgElement.src = "./assets/images/" + categoryName + ".png";
+        });
+
+        // Update matched button's image src to active state
+        var imgElement = $(this).find(".headingimg")[0];
+        imgElement.src = "./assets/images/" + buttonText + "active.png";
+
+        // Call categorypagepass with the text content of the matched button
+        categorypagepass(buttonText);
       }
-      // Get the value of the 'value' parameter from the URL
-      var passvalEncoded = getURLParameter('value');
-      
-      // Decode the encoded value
-      var passval = decodeURIComponent(passvalEncoded);
-      var textconver = passval.toUpperCase();
-      // Iterate over each button
-      const screenWidth = window.innerWidth;
-      if (screenWidth > 730) {
-        $("#mydiv span").each(function() {
-          var buttonText = this.textContent.toUpperCase(); // Get the text of the button
-          if (buttonText === textconver) {
-            $("#mydiv span").removeClass("active");
-            $(this).addClass("active");
-            categorypagepass(passval);
-          }
-        });
-      }else{
-        $("#mydiv2 span").each(function() {
-          var buttonText = this.textContent.toUpperCase(); // Get the text of the button
-          if (buttonText === textconver) {
-            $("#mydiv2 span").removeClass("active2");
-            $(this).addClass("active2");
-            categorypagepass(passval);
-          }
-        });
-      } 
+    });
   });
 }
-  
+
+
+
+
 function categorypagepass(passval){
   var cateproname=passval;
   getBycategory(cateproname);

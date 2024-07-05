@@ -14,9 +14,10 @@ body{
     
 }
 #loadinggif1{
-    display:none;
+    display:block;
 max-width:50px;
 margin-left:auto;
+
 margin-right:auto;
 }
 #loadinggif1 span{
@@ -800,8 +801,9 @@ ship page
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
 }
 
@@ -810,7 +812,18 @@ ship page
 	
     text-align: center;
     margin-top: 10px;
+  
+ 
+   
+}
+.sweets-images .item-product{
+    font-weight: 600;
     font-size: 16px;
+    color: #000000;
+}
+.sweets-images del{
+    font-size: 14px;
+    color: #999;
 }
 .productname{
 	height:30px;
@@ -818,6 +831,7 @@ ship page
 .sweets-images span {
     color: #ec0101;
     padding-left:5px;
+    font-size: 14px;
 }
 
 .sweets-images img {
@@ -1968,8 +1982,7 @@ width:20px;
         margin-left: auto;
         margin-right: auto;
         margin-top: 40px;
-        display: grid;
-        grid-template-columns: auto auto;
+       
     }
 
     .sweets-images div {
@@ -2780,9 +2793,9 @@ width:20px;
         width: 100%;
 
         margin-top: 40px;
-        display: grid;
-        row-gap: 50px;
-        grid-template-columns: auto auto;
+      
+      padding-top: 20px;
+       
 
     }
 
@@ -3079,7 +3092,7 @@ width:20px;
 
     .sweets-images {
 
-        row-gap: 10px;
+        row-gap: 30px;
 
     }
 
