@@ -997,6 +997,7 @@ input::-webkit-inner-spin-button {
 .about-ponni p{
     font-size: 25px;
     font-weight: 600;
+    margin-left: 20px;
 }
 .about-ponni img{
     width:200px;
@@ -1004,19 +1005,20 @@ input::-webkit-inner-spin-button {
 }
 .try-ponni{
     width:20%;
-  
+    text-align: center;
     margin-left:auto;
 	margin-right:auto;
     color: #6d9928;
 }
 .try-ponni img{
     width:250px;
-   margin-left: 60px;
 }
 .try-ponni #trypara{
     font-size: 25px;
     font-weight: 600;
     padding-bottom: 0px;
+    width: 100%;
+    text-align: center;
 }
 .cate-lastcontent p{
 	width:60%;
@@ -2163,8 +2165,12 @@ width:20px;
     z-index: 10;
    
 }
+.try-ponni img {
+    margin-left: 0px;
+}
 }
 @media only screen and (max-width:950px) {
+    
     .cate-lastcontent p {
         width: 85%;
     }
