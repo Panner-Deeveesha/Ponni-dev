@@ -369,7 +369,7 @@ body{
     background-color: #f3f3f3;
 }
 .simpleid{
-    width: 60%;
+    width: 58%;
     display: flex;
     flex-direction: row;
     margin: 0px auto;
@@ -381,12 +381,11 @@ body{
 }
 .imgsimple{
     width: auto;
-    height: 350px;
+    height: 320px;
 }
 .textareacon{
     width: 50%;
-    margin-left: 40px;
-    margin-top: 20px;
+   margin: auto;
 }
 .textcls{
     font-size: 18px;
@@ -901,6 +900,11 @@ del{
 }
 
 /* Media Query */
+@media only screen and (max-width:1500px){
+    .simpleid{
+        width: 72%;
+    }
+}
 @media only screen and (max-width:1280px){
     #cartCount {
         bottom: 30px;
@@ -911,6 +915,10 @@ del{
     #cartCount {
         bottom: 30px;
         right: 28%;
+    }
+    .inncontent {
+
+   padding-bottom: 30px;
     }
 }
 @media only screen and (max-width:990px){
