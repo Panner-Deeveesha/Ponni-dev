@@ -369,30 +369,30 @@ body{
     background-color: #f3f3f3;
 }
 .simpleid{
-    width: 70%;
+    width: 60%;
     display: flex;
     flex-direction: row;
     margin: 0px auto;
-    justify-content: space-between;
+    justify-content: center;
 }
 .imgdiv{
-    width: 40%;
+    width: 50%;
     text-align: center;
 }
 .imgsimple{
-    width: 400px;
+    width: auto;
     height: 350px;
 }
 .textareacon{
-    width: 40%;
+    width: 50%;
     margin-left: 40px;
     margin-top: 20px;
 }
 .textcls{
-    font-size: 30px;
-    font-weight: 400;
+    font-size: 18px;
+    font-weight: 600;
     display: block;
-    color: #ecad39;
+    color: #000000;
     margin-top: 10px;
 }
 .textcls2{
@@ -403,11 +403,12 @@ body{
     margin-top: 10px;
 }
 .para1{
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 10px;
     line-height: .3in;
     overflow: hidden;
     text-align: justify;
+    color: #817e7e;
 }
 .giftbtn{
     color: #fff;
