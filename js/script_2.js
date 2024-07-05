@@ -1618,45 +1618,77 @@ function removetoken(){
 
 
 
-
-//category page
-
-function categload(){
+function categload() {
   $(document).ready(function() {
-      function getURLParameter(name) {
-          var urlParams = new URLSearchParams(window.location.search);
-          return urlParams.get(name);
+    function getURLParameter(name) {
+      var urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+    
+    // Get the value of the 'value' parameter from the URL
+    var passvalEncoded = getURLParameter('value');
+    // Decode the encoded value
+    var passval = decodeURIComponent(passvalEncoded);
+    var textconver = passval.toUpperCase();
+
+    const screenWidth = window.innerWidth;
+    var selector = (screenWidth > 730) ? "#mydiv .btn" : "#mydiv2 .btn";
+
+    // Event listener for button clicks using event delegation
+    $(document).on("click", selector, function() {
+      // Remove 'active' class from all buttons
+      $(selector).removeClass("active");
+
+      // Add 'active' class to the clicked button
+      $(this).addClass("active");
+
+      // Update all button images to inactive state
+      $(selector).each(function() {
+        var imgElement = $(this).find(".headingimg")[0];
+        var categoryName = $(this).find("p").text().trim();
+        imgElement.src = "./assets/images/" + categoryName + ".png";
+      });
+
+      // Update clicked button's image src to active state
+      var imgElement = $(this).find(".headingimg")[0];
+      var newCategoryName = $(this).find("p").text().trim();
+      imgElement.src = "./assets/images/" + newCategoryName + "active.png";
+
+      // Call categorypagepass with the text content of the clicked button
+      categorypagepass(newCategoryName);
+    });
+
+    // Initial highlighting based on URL parameter
+    $(selector).each(function() {
+      var buttonText = $(this).find("p").text().trim().toUpperCase();
+      if (buttonText === textconver) {
+        // Remove 'active' class from all buttons
+        $(selector).removeClass("active");
+
+        // Add 'active' class to the matched button
+        $(this).addClass("active");
+
+        // Update all button images to inactive state
+        $(selector).each(function() {
+          var imgElement = $(this).find(".headingimg")[0];
+          var categoryName = $(this).find("p").text().trim();
+          imgElement.src = "./assets/images/" + categoryName + ".png";
+        });
+
+        // Update matched button's image src to active state
+        var imgElement = $(this).find(".headingimg")[0];
+        imgElement.src = "./assets/images/" + buttonText + "active.png";
+
+        // Call categorypagepass with the text content of the matched button
+        categorypagepass(buttonText);
       }
-      // Get the value of the 'value' parameter from the URL
-      var passvalEncoded = getURLParameter('value');
-      
-      // Decode the encoded value
-      var passval = decodeURIComponent(passvalEncoded);
-      var textconver = passval.toUpperCase();
-      // Iterate over each button
-      const screenWidth = window.innerWidth;
-      if (screenWidth > 730) {
-        $("#mydiv span").each(function() {
-          var buttonText = this.textContent.toUpperCase(); // Get the text of the button
-          if (buttonText === textconver) {
-            $("#mydiv span").removeClass("active");
-            $(this).addClass("active");
-            categorypagepass(passval);
-          }
-        });
-      }else{
-        $("#mydiv2 span").each(function() {
-          var buttonText = this.textContent.toUpperCase(); // Get the text of the button
-          if (buttonText === textconver) {
-            $("#mydiv2 span").removeClass("active2");
-            $(this).addClass("active2");
-            categorypagepass(passval);
-          }
-        });
-      } 
+    });
   });
 }
-  
+
+
+
+
 function categorypagepass(passval){
   var cateproname=passval;
   getBycategory(cateproname);
