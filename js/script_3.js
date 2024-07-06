@@ -1359,38 +1359,20 @@ function destroySlick() {
     slickInitialized = false;
   }
 }
-	  
-window.addEventListener("scroll", (event) => {
-    let scroll = this.scrollY;
-    //console.log(scroll);
-    if(scroll>=3700 && scroll<=3800){
-		var windowWidth = $(window).width();
-  		if (windowWidth < 950) {
-			initializeSlick();
-		} else {
-    		destroySlick();
-  		}
-    }else if(scroll>=4600 && scroll<=4700){
-		destroySlick();
-	}
-	else if(scroll>=3100 && scroll<=3200){
-		destroySlick();
-	}
-  });
+
 function handleSlickOnResize() {
   var windowWidth = $(window).width();
   if (windowWidth < 950) {
-
-   //initializeSlick();
-
-
+    initializeSlick();
   } else {
     destroySlick();
   }
 }
+
+$(document).ready(function() {
+  handleSlickOnResize();
+
   $(window).resize(function() {
     handleSlickOnResize();
   });
-$(document).ready(function() {
-  //handleSlickOnResize();
 });
