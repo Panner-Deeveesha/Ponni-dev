@@ -1362,19 +1362,27 @@ function destroySlick() {
 	  
 window.addEventListener("scroll", (event) => {
     let scroll = this.scrollY;
-    //console.log(scroll);
-    if(scroll>=3700 && scroll<=3800){
+    console.log(scroll);
+    if(scroll>=2300 && scroll<=2400){
 		var windowWidth = $(window).width();
   		if (windowWidth < 950) {
+        //console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>start");
 			initializeSlick();
 		} else {
-    		destroySlick();
+      //console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>end");
+    		//destroySlick();
   		}
-    }else if(scroll>=4600 && scroll<=4700){
+    }else if(scroll>=2000 && scroll<=2100){
+      //console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>end");
 		destroySlick();
 	}
-	else if(scroll>=3100 && scroll<=3200){
+	else if(scroll>=3400 && scroll<=3500){
+   // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>end");
 		destroySlick();
+	}
+  else if(scroll>=3200 && scroll<=3300){
+    //console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>start");
+			initializeSlick();
 	}
   });
 function handleSlickOnResize() {
