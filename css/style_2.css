@@ -265,6 +265,7 @@ privacy page
     padding-top: 10px;
     font-size: 15px;
     line-height:26px;
+    text-align: justify;
 }
 /*end privay*/
 /*
@@ -293,6 +294,7 @@ ship page
     padding-top: 10px;
     font-size: 15px;
     line-height:26px;
+    text-align: justify;
 }
 /*end privay*/
 .wholeloginpage{
@@ -2207,7 +2209,7 @@ width:20px;
 @media only screen and (max-width:950px) {
     
     .cate-lastcontent p {
-        width: 85%;
+        width: 95%;
     }
     .cate-heading span {
       
@@ -3129,7 +3131,7 @@ width:20px;
     }
     
     .cate-lastcontent p {
-      width: 85%;
+      width: 95%;
       font-size: 16px;
    
       margin-left: auto;
