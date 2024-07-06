@@ -1,4 +1,5 @@
 
+
 var mydiv = document.getElementById("headingdiv");
 var mydiv2 = document.getElementById("headingdiv2");
 var menucat = document.getElementById("shopslide");
@@ -9,6 +10,7 @@ var unitMapping = {
   'gram': 'g'
 };
 function getcategorydynamically(){
+  $("#loadinggif1").css("display","block");
   $.ajax({
     url: "./php/getcategorydynamic.php",
     type: "get",

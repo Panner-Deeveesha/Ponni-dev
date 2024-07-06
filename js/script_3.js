@@ -1305,6 +1305,7 @@ function dynamicoffer() {
     }
   });
 }
+// Document height
 
 
 function displayofferimg(offer) {
@@ -1322,16 +1323,17 @@ function navindex(){
 }
 
 var slickInitialized = false;
+var isSlickAutoplayEnabled = false;
 
 function initializeSlick() {
   if (!slickInitialized) {
     $('.whyponniflex').slick({
       slidesToShow: 2,
       slidesToScroll: 1,
-      autoplay: true,
+      autoplay: false,
       dots: true,
       arrows: false,
-      autoplaySpeed: 12000,
+      autoplaySpeed: 3000,
       responsive: [
         {
           breakpoint: 500,
@@ -1372,7 +1374,35 @@ $(document).ready(function(){
 $(window).resize(function(){
   handleSlickOnResize();
 });
-
+$(window).scroll(function() {
+  handleAutoplayOnScroll();
+});
+function handleAutoplayOnScroll() {
+  // Check if .whyponniflex is in the viewport
+  if (isElementInViewport($whyponniflex)) {
+    if (!slickInitialized) {
+      initializeSlick();
+    }
+    // Enable autoplay if not already enabled
+    if (!isSlickAutoplayEnabled) {
+      $whyponniflex.slick('slickPlay');
+      isSlickAutoplayEnabled = true;
+    }
+  } else {
+    // Pause autoplay if user scrolls away from .whyponniflex
+    if (isSlickAutoplayEnabled) {
+      $whyponniflex.slick('slickPause');
+      isSlickAutoplayEnabled = false;
+    }
+  }
+}
+function isElementInViewport(elem) {
+  var scroll = $(window).scrollTop();
+  var windowHeight = $(window).height();
+  var elemTop = elem.offset().top;
+  var elemBottom = elemTop + elem.height();
+  return elemBottom >= scroll && elemTop <= scroll + windowHeight;
+}
 var refreshload=document.getElementById("cartlastcancle");
 if(refreshload){
   refreshload.addEventListener('click',function(){
