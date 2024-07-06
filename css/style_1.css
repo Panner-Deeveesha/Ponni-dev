@@ -926,7 +926,7 @@ margin-right:auto;
 /* Media Query */
 @media only screen and (max-width:1500px){
     .simpleid{
-        width: 72%;
+        width: 73%;
     }
 }
 @media only screen and (max-width:1280px){
@@ -1035,6 +1035,11 @@ margin-right:auto;
         margin-left: 0px !important;
     }
 }
+@media only screen and (max-width:950px){
+    .simpleid{
+        width: 88%;
+    }
+}
 @media only screen and (max-width:880px){
     .tit {
         width: 70%;
@@ -1094,7 +1099,8 @@ margin-right:auto;
         margin: 30px 10px;
     }
     #wholecontact{
-        width: 80%;
+        width: 95%;
+        padding-left: 0px;
     }
     .table-res P{
         margin-left: 10px;

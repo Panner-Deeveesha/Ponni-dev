@@ -33,7 +33,7 @@
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
-
+    box-shadow: 2px 2px #b1b0b0;
     cursor: pointer;
 
     color: #000;
