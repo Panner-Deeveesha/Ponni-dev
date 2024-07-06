@@ -785,12 +785,19 @@ del{
     width: 100%;
     height: auto;
     padding: 25px;
-    color: #4d6b20;
+    padding-bottom: 0px;
+    color: #6d9928;
     font-size: 25px;
     text-align: center;
-    font-weight: 700;
+    font-weight: 600;
 }
-
+#svgimage{
+    width: 10%;
+    margin: 0px auto;
+}
+.centeralignfor{
+    text-align: center;
+}
 /* RECENT VIEW */
 
 .cate-recentphotos .owl-prev span {
@@ -903,6 +910,19 @@ del{
     background-color: #3e8e41;
 }
 
+/* LOADING CONTENT */
+
+#loadinggif3{
+    display:block;
+max-width:50px;
+margin-left:auto;
+margin-right:auto;
+}
+#loadinggif3 span{
+  font-size:20px;
+  color:#81b032;
+}
+
 /* Media Query */
 @media only screen and (max-width:1500px){
     .simpleid{
@@ -923,6 +943,9 @@ del{
     .inncontent {
 
    padding-bottom: 30px;
+    }
+    #svgimage{
+        width: 20%;
     }
 }
 @media only screen and (max-width:990px){
@@ -1105,6 +1128,9 @@ del{
     }
     #nullitem{
         font-size: 14px;
+    }
+    #svgimage{
+        width: 25%;
     }
 }
 @media only screen and (max-width:475px){

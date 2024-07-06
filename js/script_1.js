@@ -934,8 +934,7 @@ function thirdpricecheck(obj) {
 }
 
 function printonwish(obj){
-  document.getElementById("samplework").style.display="grid";
-  document.getElementById("noneproducts").style.display="none";
+  document.getElementById("samplework1").style.display="flex";
   const uniqueMap = new Map();
   
   obj.forEach((item) => {
@@ -943,7 +942,7 @@ function printonwish(obj){
     uniqueMap.set(item.productName, item);
   });
   const uniqueObjects = Array.from(uniqueMap.values());
-  $("#cate-myimages").css("display","grid");
+  $("#cate-myimages").css("display","flex");
    var t = "";
     for(let i=0;i<uniqueObjects.length;i++){
       var unitAbbreviation = unitMapping[uniqueObjects[i].unit.toLowerCase()] || uniqueObjects[i].unit;
@@ -964,8 +963,7 @@ function printonwish(obj){
       t +='</p>';
       
       t +='</div>';
-      $("#loadinggif").css("display","none");
-      document.getElementById("samplework").innerHTML=t;
+      document.getElementById("samplework1").innerHTML=t;
       
     }
 }
@@ -1405,7 +1403,7 @@ const screenWidth = window.innerWidth;
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 5000,
         speed: 300,
         arrows: false,
         dots: true,
