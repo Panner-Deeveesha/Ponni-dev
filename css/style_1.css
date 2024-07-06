@@ -193,12 +193,12 @@ body{
 }
 #cartCount {
     position: absolute;
-    bottom: 31px;
-    right: 25%;
+    bottom: 35px;
+    right: 25.5%;
     background: #f0d343;
     color: black;
     padding: 0px 5px;
-    border-radius: 33px;
+    border-radius: 25px;
     font-size: 12px;
     font-weight: bold;
 }
@@ -318,7 +318,7 @@ body{
     cursor: pointer;
 }
 #menublck:hover{
-    width: 35px;
+    width: 28px;
     height: auto;
 }
 .blackscreen{
@@ -931,13 +931,13 @@ margin-right:auto;
 }
 @media only screen and (max-width:1280px){
     #cartCount {
-        bottom: 30px;
+        bottom: 35px;
         right: 27%;
     }
 }
 @media only screen and (max-width:1024px){
     #cartCount {
-        bottom: 30px;
+        bottom: 35px;
         right: 28%;
     }
     .inncontent {
@@ -985,7 +985,7 @@ margin-right:auto;
     }
     #cartCount {
         bottom: 30px;
-        right: 28%;
+        right: 30%;
     }
     #cartblck {
         margin-left: 10px;
@@ -1156,7 +1156,7 @@ margin-right:auto;
     }
     #cartCount {
         right: 43.5%;
-        bottom: 47px;
+        bottom: 49px;
     }
     #wishtot{
         margin: 0px 10px;

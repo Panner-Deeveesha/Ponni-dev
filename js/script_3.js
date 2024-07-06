@@ -1359,27 +1359,20 @@ function destroySlick() {
     slickInitialized = false;
   }
 }
-var windowWidth = $(window).width();
-if (windowWidth < 950) {
-initializeSlick();
-} else {
-  destroySlick();
-} 
 
 function handleSlickOnResize() {
   var windowWidth = $(window).width();
   if (windowWidth < 950) {
-
-   initializeSlick();
-
-
+    initializeSlick();
   } else {
     destroySlick();
   }
 }
+
+$(document).ready(function() {
+  handleSlickOnResize();
+
   $(window).resize(function() {
     handleSlickOnResize();
   });
-$(document).ready(function() {
-  //handleSlickOnResize();
 });

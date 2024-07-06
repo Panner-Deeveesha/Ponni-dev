@@ -406,11 +406,11 @@ ship page
 }
 .register-innerdiv{
 	width:400px;
-	height:600px;
+	height:500px;
     position: relative;
 	margin-left:auto;
 	margin-right:auto;
-	margin-top:20px;
+	margin-top:60px;
 	color:#707070;
     margin-bottom:100px;
 }
@@ -467,7 +467,7 @@ ship page
   #toggleButton {
     position: absolute;
     right:5%; /* Adjust this value based on the desired positioning */
-    top: 30%;
+    top: 35%;
     transform: translateY(-50%);
   }
 
@@ -3383,7 +3383,7 @@ width:20px;
       height: 450px;
       margin-left: auto;
       margin-right: auto;
-     
+     margin-top: 20px;
       color: #707070;
     }
     .wholeregisterpage #register-heading {
@@ -3411,7 +3411,7 @@ width:20px;
     .register-innerdiv #toggleButton {
         position: absolute;
         right: 8%;
-        top: 47%;
+        top: 35%;
         transform: translateY(-50%);
     }
     .pswd-innerdiv #toggleBtn {
@@ -4842,7 +4842,7 @@ margin-left: 3%;
     .register-innerdiv #toggleButton {
         position: absolute;
         right: 5%;
-        top: 52%;
+        top: 38%;
         transform: translateY(-50%);
     }
     .pswd-innerdiv #toggleBtn {
