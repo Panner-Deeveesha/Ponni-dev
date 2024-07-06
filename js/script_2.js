@@ -1,4 +1,5 @@
 
+
 var mydiv = document.getElementById("headingdiv");
 var mydiv2 = document.getElementById("headingdiv2");
 var menucat = document.getElementById("shopslide");
