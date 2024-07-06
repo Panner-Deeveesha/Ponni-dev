@@ -2196,12 +2196,11 @@
       .timesec{
         width:300px;
       }
-    
-     .getcancel{
-     
+     .getcancel{    
       top: 8px;
       right:0;
-    
      }
-    
+     .getbtn {
+        background-color: #4d6b2085;
       }
+    }

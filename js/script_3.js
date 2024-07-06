@@ -1338,7 +1338,7 @@ function initializeSlick() {
       autoplay: true,
       dots: true,
       arrows: false,
-      autoplaySpeed: 12000,
+      autoplaySpeed: 3000,
       responsive: [
         {
           breakpoint: 500,
