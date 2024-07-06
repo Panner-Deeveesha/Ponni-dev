@@ -1368,11 +1368,29 @@ function handleSlickOnResize() {
     destroySlick();
   }
 }
+var startSlick = 0;
+window.addEventListener("scroll", (event) => {
+  let scroll = this.scrollY;
+  //console.log(scroll);
+  
+  if(scroll>=2100 && scroll<=2200){
+    var windowWidth = $(window).width();
+    if (windowWidth < 950) {
+      if(startSlick==0){
+        destroySlick();
+        //console.log(">>>>>>>>>start");
+        initializeSlick();
+        startSlick = 1;
+      }
+    }
+  
+   
+  }
+});
 
+$(window).resize(function() {
+  handleSlickOnResize();
+});
 $(document).ready(function() {
   handleSlickOnResize();
-
-  $(window).resize(function() {
-    handleSlickOnResize();
-  });
 });
