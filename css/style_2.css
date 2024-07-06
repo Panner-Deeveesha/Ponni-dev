@@ -315,7 +315,7 @@ ship page
 	
 }
 .login-innerdiv{
-	width:500px;
+	width:400px;
 	height:500px;
     position:relative;
 	margin-left:auto;
@@ -335,7 +335,7 @@ ship page
 }
 #logintoggleButton {
     position: absolute;
-    right: 23%;
+    right: 5%;
     top: 22%;
     transform: translateY(-50%);
 }
@@ -4097,8 +4097,9 @@ margin-left: 3%;
 }
 }
 @media only screen and (max-width:390px) {
+  
     #mydiv {
-        width:87%;
+        width:97%;
         
         margin: 0px auto;
      
@@ -4112,6 +4113,7 @@ margin-left: 3%;
     width: 100px;
     height: 150px;
     margin-left:0px;
+    padding-bottom: 20px;
 }
 .cate-heading .owl-carousel.owl-drag .owl-item {
   padding:0px;
