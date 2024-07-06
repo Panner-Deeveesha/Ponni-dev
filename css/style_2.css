@@ -3258,6 +3258,42 @@ width:20px;
     }
 }
 @media only screen and (max-width:500px) {
+    .owl-carousel .owl-stage-outer {
+        position: relative;
+        overflow: hidden;
+        -webkit-transform: translate3d(0px, 0px, 0px);
+       height: 126px;
+    }
+    #mydiv {
+        width:99%;
+        
+        margin: 0px auto;
+     
+        text-align: center;
+    }
+    .headingimg {
+        margin: 0px auto;
+        width: 70% !important;
+    }
+   .cate-heading .item {
+    width: 100px;
+    height: 102px;
+    margin-left:0px;
+  
+}
+.cate-heading span {
+    font-size: 16px;
+    text-align: center;
+    padding:0px;
+    margin-right: 0px;
+}
+.cate-first {
+   margin-top: 20px;
+}
+.wholecategories {
+   
+    padding-top: 5px;
+}
     .profileimage{
         width: 100%;
         font-size: 13px;
@@ -3882,6 +3918,42 @@ element.style {
     }
 }
 @media only screen and (max-width:420px){
+    .owl-carousel .owl-stage-outer {
+        position: relative;
+        overflow: hidden;
+        -webkit-transform: translate3d(0px, 0px, 0px);
+       height: 126px;
+    }
+    #mydiv {
+        width:99%;
+        
+        margin: 0px auto;
+     
+        text-align: center;
+    }
+    .headingimg {
+        margin: 0px auto;
+        width: 70% !important;
+    }
+   .cate-heading .item {
+    width: 100px;
+    height: 102px;
+    margin-left:0px;
+  
+}
+.cate-heading span {
+    font-size: 16px;
+    text-align: center;
+    padding:0px;
+    margin-right: 0px;
+}
+.cate-first {
+   margin-top: 20px;
+}
+.wholecategories {
+   
+    padding-top: 5px;
+}
     .newcate-heading span {
         text-transform: capitalize;
         font-size: 16px;
@@ -4097,9 +4169,14 @@ margin-left: 3%;
 }
 }
 @media only screen and (max-width:390px) {
-  
+    .owl-carousel .owl-stage-outer {
+        position: relative;
+        overflow: hidden;
+        -webkit-transform: translate3d(0px, 0px, 0px);
+       height: 125px;
+    }
     #mydiv {
-        width:97%;
+        width:99%;
         
         margin: 0px auto;
      
@@ -4111,9 +4188,22 @@ margin-left: 3%;
     }
    .cate-heading .item {
     width: 100px;
-    height: 150px;
+    height: 102px;
     margin-left:0px;
-    padding-bottom: 20px;
+  
+}
+.cate-heading span {
+    font-size: 16px;
+    text-align: center;
+    padding:0px;
+    margin-right: 0px;
+}
+.cate-first {
+   margin-top: 20px;
+}
+.wholecategories {
+   
+    padding-top: 5px;
 }
 .cate-heading .owl-carousel.owl-drag .owl-item {
   padding:0px;
