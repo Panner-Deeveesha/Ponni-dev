@@ -1,9 +1,5 @@
 <?php
     include "config.php";
-
-
- 
-
     $sql = "SELECT price, offerPrice,productId FROM price WHERE isActive=1";
 
     $res = $con->query($sql);
