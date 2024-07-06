@@ -1359,37 +1359,18 @@ function destroySlick() {
     slickInitialized = false;
   }
 }
-	  
-window.addEventListener("scroll", (event) => {
-    let scroll = this.scrollY;
-    console.log(scroll);
-    if(scroll>=2300 && scroll<=2400){
-		var windowWidth = $(window).width();
-  		if (windowWidth < 950) {
-        //console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>start");
-			initializeSlick();
-		} else {
-      //console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>end");
-    		//destroySlick();
-  		}
-    }else if(scroll>=2000 && scroll<=2100){
-      //console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>end");
-		destroySlick();
-	}
-	else if(scroll>=3400 && scroll<=3500){
-   // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>end");
-		destroySlick();
-	}
-  else if(scroll>=3200 && scroll<=3300){
-    //console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>start");
-			initializeSlick();
-	}
-  });
+var windowWidth = $(window).width();
+if (windowWidth < 950) {
+initializeSlick();
+} else {
+  destroySlick();
+} 
+
 function handleSlickOnResize() {
   var windowWidth = $(window).width();
   if (windowWidth < 950) {
 
-   //initializeSlick();
+   initializeSlick();
 
 
   } else {
