@@ -2003,12 +2003,13 @@ if (newheader) {
     }
 }
 function getnewitems(){
+  $("#nonepro").css("display","none");
   $.ajax({
     url: "./php/newitemget.php",
     type: "get",
     
     success: function (response) {
-      if(response != "null"){
+   
         var obj = JSON.parse(response);
         //console.log(obj);
         //var uniqueId = [];
@@ -2019,11 +2020,15 @@ function getnewitems(){
         //console.log(obj);
       })*/
         console.log(obj);
-        getPricefornewitems(obj);
-      }
+        if(obj !="null"){
+          getPricefornewitems(obj);
+        }
+      
+      
      else{
-      $("#nonepro").css("display","block");
-      $("#nonepro").text("No New Products");
+      $("#nonepro").css("display","none");
+      $("#nonepro1").css("display","block");
+      $("#nonepro1").text("No New Products");
      }
     }, 
     error: function (error) {
@@ -2067,7 +2072,7 @@ function getPricefornewitems(obj) {
 function displaynewitems(obj){
   $("#newwork").css("display","grid");
     
-  $("#nonepro").css("display","none");
+  $("#nonepro1").css("display","none");
 
   const uniqueMap = new Map();
   console.log(obj);
@@ -2104,6 +2109,7 @@ console.log(uniqueObjects);
     $("#newwork").html(t);
 }
 function getsellproduct(){
+  $("#nonepro1").css("display","none");
   $("#newwork").css("display","none");
    
   $.ajax({
@@ -2124,6 +2130,7 @@ function getsellproduct(){
         getsellprodcutname(obj);
       }
      else{
+      $("#nonepro1").css("display","none");
       $("#nonepro").css("display","block");
       $("#nonepro").text("No Products in Most Selling");
      }
