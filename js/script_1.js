@@ -992,7 +992,7 @@ function proficondynamic(){
           iftheretoken(obj);
         }else{
           if(profiletot){
-            profiletot.src = "./assets/icons/maleuser.png";
+            profiletot.src = "./assets/icons/profile.png";
           }
         } 
       },
@@ -1002,7 +1002,7 @@ function proficondynamic(){
   });
 }else{
   if(profiletot){
-    profiletot.src = "./assets/icons/maleuser.png";
+    profiletot.src = "./assets/icons/profile.png";
   }
   //profiletot1.src = "./assets/icons/maleuser.png";
 }
@@ -1035,7 +1035,7 @@ function proficondynamic2(){
           iftheretoken(obj);
         }else{
           if(profiletot1){
-            profiletot1.src = "./assets/icons/maleuser.png";
+            profiletot1.src = "./assets/icons/profile.png";
           }
         }   
       },
@@ -1045,7 +1045,7 @@ function proficondynamic2(){
   });
 }else{
   if(profiletot1){
-    profiletot1.src = "./assets/icons/maleuser.png";
+    profiletot1.src = "./assets/icons/profile.png";
   }
   //profiletot1.src = "./assets/icons/maleuser.png";
 }
