@@ -1635,7 +1635,7 @@ function categload() {
     var textconver = passval.toUpperCase();
 
     const screenWidth = window.innerWidth;
-    var selector = (screenWidth > 730) ? "#mydiv .btn" : "#mydiv2 .btn";
+    var selector = (screenWidth > 730) ? "#mydiv .btn" : "#mydiv .btn";
 
     // Event listener for button clicks using event delegation
     $(document).on("click", selector, function() {
@@ -2114,7 +2114,7 @@ function getsellproduct(){
    
   $.ajax({
     url: "./php/deliveryproduct.php",
-    type: "get",
+    type: "get",                                                                                                                                                                                                          
     success: function (response) {
       if(response != "null"){
         var obj = JSON.parse(response);
