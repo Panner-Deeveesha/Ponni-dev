@@ -313,12 +313,12 @@ body{
     margin-top: 9px;
 }
 #menublck{
-    width: 27px;
+    width: 35px;
     height: auto;
     cursor: pointer;
 }
 #menublck:hover{
-    width: 29px;
+    width: 35px;
     height: auto;
 }
 .blackscreen{
