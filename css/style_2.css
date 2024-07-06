@@ -405,7 +405,7 @@ ship page
 
 }
 .register-innerdiv{
-	width:500px;
+	width:400px;
 	height:600px;
     position: relative;
 	margin-left:auto;
@@ -466,7 +466,7 @@ ship page
   
   #toggleButton {
     position: absolute;
-    right:27%; /* Adjust this value based on the desired positioning */
+    right:5%; /* Adjust this value based on the desired positioning */
     top: 30%;
     transform: translateY(-50%);
   }
@@ -1060,12 +1060,12 @@ input::-webkit-inner-spin-button {
 }
 .cate-lastcontent p{
 	width:60%;
-	
+	line-height: 0.3in;
 	margin-top: 10px;
 	text-align: justify;
 	margin-left:auto;
 	margin-right:auto;
-	padding-bottom: 60px;
+	padding-bottom: 40px;
 }
 /*product css*/
 
@@ -3656,6 +3656,14 @@ element.style {
     padding-bottom: 10px;
     margin-right: 5px;
 }
+.cate-lastcontent p {
+    width: 100%;
+    font-size: 14px;
+    line-height: 0.25in;
+}
+.try-ponni img {
+    width: 200px;
+}
 }
 @media only screen and (max-width:440px) {
     #headingdiv {
@@ -4483,13 +4491,6 @@ margin-left: 3%;
         padding: 3px 15px 3px 15px;
        /* border: 1px solid #4d6b20;
         border-radius: 35px;*/
-    }
-    .cate-lastcontent p {
-        width: 85%;
-        font-size: 14px;
-      
-        margin-left: auto;
-        margin-right: auto;
     }
     .newcate-heading span {
         text-transform: capitalize;
