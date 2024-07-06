@@ -84,9 +84,8 @@ function cartdetails() {
             }
           }
            else{
-            $('#loadinggif').css('display', 'none');
             $('#emptycart').css('display', 'block');
-          
+            $('#loadinggif').css('display', 'none');
 
            } 
           },
@@ -1322,40 +1321,19 @@ function navindex(){
   window.location.href = "./index.html";
   
 }
-$(document).ready(function() {
-  var isSlickInitialized = false;
-
-  $(window).scroll(function() {
-    // Check if .whyponniflex is visible
-    if (isElementInViewport($('.whyponniflex')) && !isSlickInitialized) {
-      initializeSlick();
-      isSlickInitialized = true;
-    }
-  });
-
-  // Function to check if an element is in the viewport
-  function isElementInViewport(elem) {
-    var scroll = $(window).scrollTop();
-    var windowHeight = $(window).height();
-    var elemTop = elem.offset().top;
-    var elemBottom = elemTop + elem.height();
-    return elemBottom >= scroll && elemTop <= scroll + windowHeight;
-  }
-});
 
 var slickInitialized = false;
 var isSlickAutoplayEnabled = false;
-var $whyponniflex = $('.whyponniflex');
 
 function initializeSlick() {
   if (!slickInitialized) {
-    $whyponniflex.slick({
+    $('.whyponniflex').slick({
       slidesToShow: 2,
       slidesToScroll: 1,
-      autoplay: false, // Autoplay initially disabled
+      autoplay: false,
       dots: true,
       arrows: false,
-      autoplaySpeed: 6000,
+      autoplaySpeed: 3000,
       responsive: [
         {
           breakpoint: 500,
@@ -1369,37 +1347,6 @@ function initializeSlick() {
     slickInitialized = true;
   }
 }
-
-$(document).ready(function() {
-  $(window).scroll(function() {
-    // Check if .whyponniflex is in the viewport
-    if (isElementInViewport($whyponniflex)) {
-      if (!slickInitialized) {
-        initializeSlick();
-      }
-      // Enable autoplay if not already enabled
-      if (!isSlickAutoplayEnabled) {
-        $whyponniflex.slick('slickPlay');
-        isSlickAutoplayEnabled = true;
-      }
-    } else {
-      // Pause autoplay if user scrolls away from .whyponniflex
-      if (isSlickAutoplayEnabled) {
-        $whyponniflex.slick('slickPause');
-        isSlickAutoplayEnabled = false;
-      }
-    }
-  });
-
-  // Function to check if an element is in the viewport
-  function isElementInViewport(elem) {
-    var scroll = $(window).scrollTop();
-    var windowHeight = $(window).height();
-    var elemTop = elem.offset().top;
-    var elemBottom = elemTop + elem.height();
-    return elemBottom >= scroll && elemTop <= scroll + windowHeight;
-  }
-});
 
 
 function destroySlick() {
@@ -1427,7 +1374,35 @@ $(document).ready(function(){
 $(window).resize(function(){
   handleSlickOnResize();
 });
-
+$(window).scroll(function() {
+  handleAutoplayOnScroll();
+});
+function handleAutoplayOnScroll() {
+  // Check if .whyponniflex is in the viewport
+  if (isElementInViewport($whyponniflex)) {
+    if (!slickInitialized) {
+      initializeSlick();
+    }
+    // Enable autoplay if not already enabled
+    if (!isSlickAutoplayEnabled) {
+      $whyponniflex.slick('slickPlay');
+      isSlickAutoplayEnabled = true;
+    }
+  } else {
+    // Pause autoplay if user scrolls away from .whyponniflex
+    if (isSlickAutoplayEnabled) {
+      $whyponniflex.slick('slickPause');
+      isSlickAutoplayEnabled = false;
+    }
+  }
+}
+function isElementInViewport(elem) {
+  var scroll = $(window).scrollTop();
+  var windowHeight = $(window).height();
+  var elemTop = elem.offset().top;
+  var elemBottom = elemTop + elem.height();
+  return elemBottom >= scroll && elemTop <= scroll + windowHeight;
+}
 var refreshload=document.getElementById("cartlastcancle");
 if(refreshload){
   refreshload.addEventListener('click',function(){

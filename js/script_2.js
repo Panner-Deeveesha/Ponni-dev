@@ -10,6 +10,7 @@ var unitMapping = {
   'gram': 'g'
 };
 function getcategorydynamically(){
+  $("#loadinggif1").css("display","block");
   $.ajax({
     url: "./php/getcategorydynamic.php",
     type: "get",
