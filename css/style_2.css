@@ -4,6 +4,7 @@ body{
 	margin:0px;	
 	
 }
+
 #nonepro{
    
         text-align: center;
@@ -4074,8 +4075,10 @@ margin-left: 3%;
 }
 @media only screen and (max-width:390px) {
     #mydiv {
-        width: 80%;
+        width:87%;
+        
         margin: 0px auto;
+     
         text-align: center;
     }
     .headingimg {
@@ -4084,6 +4087,7 @@ margin-left: 3%;
     }
    .cate-heading .item {
     width: 100px;
+    height: 150px;
     margin-left:0px;
 }
 .cate-heading .owl-carousel.owl-drag .owl-item {
