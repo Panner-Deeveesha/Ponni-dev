@@ -36,7 +36,7 @@ function getcategorydynamically(){
 async function printheading(obj){
 
 
-await sleep(1000);
+
   var categoryfirst= obj[0].category;
   var objlen = obj.length;
 
@@ -68,6 +68,7 @@ await sleep(1000);
   }
   
   headcate += "</div>";
+  await sleep(1000);
   $("#loadinggif1").css("display","none");
   $("#headingdiv").html(headcate);
 
