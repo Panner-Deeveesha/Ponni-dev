@@ -170,12 +170,22 @@ body{
     display: flex;
     padding: 10px;
     cursor: pointer;
+    border: 1px solid #fff;
+}
+.acting:hover{
+    box-shadow: 2px 5px 8px grey;
+    border: 1px solid #36491e;
 }
 #productList div{
     text-overflow: ellipsis;
+    margin-top: 5px;
 }
 .titlesear{
     text-transform: capitalize;
+    padding-left: 10px;
+}
+#prodcat{
+    padding-left: 10px;
 }
 #offpriceid{
     display: inline-block;
@@ -1144,6 +1154,21 @@ margin-right:auto;
     #svgimage{
         width: 25%;
     }
+    /*#iconsearch{
+        width: 15px;
+    }
+    #cartblck{
+        width: 15px;
+    }
+    #menublck{
+        width: 15px;
+    }
+    #wishblck{
+        width: 15px;
+    }
+    #smallimg{
+        width: 15px;
+    }*/
 }
 @media only screen and (max-width:475px){
     #ponnilogo {

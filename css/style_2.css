@@ -14,6 +14,14 @@ body{
         padding: 20px;
     
 }
+#mobile-btn{
+    display: none;
+}
+.cate-bread{
+    text-decoration: none;
+    color: #000000;
+    cursor: pointer;
+}
 #nonepro1{
    display: none;
     text-align: center;
@@ -213,6 +221,7 @@ cursor: pointer;
 #heartimg{
     width: 30px;
     height: 30px;
+    margin-left: 10px;
 }
 #cancelbtn{
     text-align: center;
@@ -306,10 +315,7 @@ ship page
     text-align: justify;
 }
 /*end privay*/
-.wholeloginpage{
- font-family: 'archivo';	
- position: relative;
-}
+
 .wholeloginpage #login-commend{
     color: red;
 }
@@ -3093,6 +3099,13 @@ width:20px;
         top: 80%;
         z-index: 2;
     }
+    .breadcrumbs {
+        width: 100%;
+        font-size: 14px;
+        background-color: #f6f6f6;
+        padding: 15px;
+        padding-top: 20px;
+    }
 }
 
 
@@ -3284,14 +3297,20 @@ width:20px;
 }
 @media only screen and (max-width:500px) {
     .cate-addbtn {
-        width: 250px;
+        width:100%;
         margin-left: auto;
         margin-right: auto;
         margin-top: 20px;
         
     }
+    #destop-btn{
+        display: none;
+    }
+    #mobile-btn{
+        display: block;
+    }
     .cate-addbtn button {
-        width: 250px;
+        width: 100%;
         padding: 5px 20px;
         font-size: 14px;
         font-weight: 600;
@@ -3309,6 +3328,8 @@ width:20px;
     }
     .product-details #quantityvalue{
         font-size: 16px;
+        margin-left: 90px;
+      
     }
     .inputavailability {
       
@@ -3317,17 +3338,23 @@ width:20px;
        
     }
     .flexbox2 {
-        padding: 20px;
-        margin-top: 0px;
+        padding: 10px;
+        margin-top: 10px;
+    }
+    #heartimg {
+      margin-left: 130px;
+        width: 30px;
+        height: 30px;
     }
     .product-details p {
         font-size: 16px;
         margin-top: 5px;
+        display: inline;
         margin-bottom: 0px;
         font-weight: 600;
     }
     #productname {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 600;
     }
     .cate-grambutton{
@@ -4185,22 +4212,22 @@ margin-left: 3%;
     height:70px;
     right: 0%;
     bottom: 0;
-    left: 2%;
+    left: 0%;
     top: 75%;
     z-index: 2;
 }
 .carousel-indicators #scroll2 {
-    width:60px;
-    height:60px;
+    width:70px;
+    height:70px;
     right: 0%;
     bottom: 0;
-    left: 30%;
+    left: 28%;
     top: 75%;
     z-index: 2;
 }
 .carousel-indicators #scroll3 {
-    width:60px;
-    height:60px;
+    width:70px;
+    height:70px;
     right: 0%;
     bottom: 0;
     left: 50%;
@@ -4208,8 +4235,8 @@ margin-left: 3%;
     z-index: 2;
 }
 .carousel-indicators #scroll4 {
-    width:60px;
-    height:60px;
+    width:70px;
+    height:70px;
     right: 0%;
     bottom: 0;
     left: 70%;

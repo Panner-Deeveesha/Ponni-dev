@@ -4,10 +4,10 @@ var mydiv = document.getElementById("headingdiv");
 var mydiv2 = document.getElementById("headingdiv2");
 var menucat = document.getElementById("shopslide");
 var unitMapping = {
-  'milli litre': 'ml',
-  'litre': 'l',
+  'milli liter': 'ml',
   'Kg': 'kg',
-  'gram': 'g'
+  'gram': 'g',
+  ' liter': 'L'
 };
 function getcategorydynamically(){
   $("#loadinggif1").css("display","block");
@@ -995,16 +995,16 @@ var br="";
  br += '<a href="index.html">';
  br += "Home / ";
  br += "</a>";
- br += '<a href="categories.html">';
- br += input[0].category+" / ";
+ br += '<a class="cate-bread">';
+ br += input[0].category;
  br += "</a>";
  br += "<a>";
- br += input[0].productName;
+ br += " / "+input[0].productName;
  br += "</a>";
  
-document.getElementById("dynamicbread").innerHTML=br;
+$("#dynamicbread").html(br);
 
-var unitAbbreviation = unitMapping[input[0].unit.toLowerCase()] || input[0].unit;
+var unitAbbreviation = unitMapping[input[0].unit] || input[0].unit;
   var token=localStorage.getItem('token');
   var s = "";
   var s2 ="";
@@ -1013,7 +1013,6 @@ var unitAbbreviation = unitMapping[input[0].unit.toLowerCase()] || input[0].unit
    
   s +='<h3 id="productname">';
   s +=input[0].productName;
-  s +='</h3>';
   if(token){
     if(response==0){
       s +='<img id="heartimg" src="./assets/icons/heart.png">';
@@ -1023,6 +1022,8 @@ var unitAbbreviation = unitMapping[input[0].unit.toLowerCase()] || input[0].unit
     }
    
   }
+ 
+  s +='</h3>';
  
   s +='<p>';
   
@@ -1034,14 +1035,14 @@ var unitAbbreviation = unitMapping[input[0].unit.toLowerCase()] || input[0].unit
   s +='</span>';
   s +='</p>';
   s +='<p id="quantityvalue">';
-  s +="QUANTITY : ";
+  s +="Quantity : ";
   s +="<span>";
   s += input[0].volume+ unitAbbreviation;
   s +="</span>";
   s +='</p>';
   s +='<div class="cate-grambutton">';
   for(var i=0;i<input.length;i++){
-    var unitAbbreviate = unitMapping[input[i].unit.toLowerCase()] || input[i].unit;
+    var unitAbbreviate = unitMapping[input[i].unit] || input[i].unit;
     var dynamiid='dynamic-id'+(i+1);
     if(i==0){
       s +='<button type="button" id="'+dynamiid+'" class="btnnormal highlightbtn" onclick="highlightbtn(this.id)">';
@@ -1243,39 +1244,43 @@ var imageSources2 = ["/assets/icons/heart.png", "/assets/icons/colorheart.png"];
 var currentImageIndex = 0;
 
 // Attach an event listener for the click event
-myImage.addEventListener('click', function() {
-  var src = this.src; // Retrieve src attribute of clicked image
-            console.log(src); 
-            console.log(currentImageIndex);
-
-            for(let i=0;i<imageSources2.length;i++){
-              var currentsrc=imageSources2[i];
-            
-              var foundIndex = src.indexOf(currentsrc);
-              if (foundIndex !== -1) {
-                 currentImageIndex=i;
-                
-              } 
-            }
-           
-
-
-
-  //console.log(currentImageIndex);
-    // Toggle the current image index
-    currentImageIndex = (currentImageIndex + 1) % imageSources.length;
-   // console.log(currentImageIndex);
-   if(currentImageIndex == 1){
-    myImage.src = imageSources[currentImageIndex];
-    listproductdetails (input);
-    
-   }
-  else{
-    myImage.src = imageSources[currentImageIndex];
-    removehighlighticon(input);
-  }
+if(myImage){
+  myImage.addEventListener('click', function() {
+    var src = this.src; // Retrieve src attribute of clicked image
+              console.log(src); 
+              console.log(currentImageIndex);
   
-});
+              for(let i=0;i<imageSources2.length;i++){
+                var currentsrc=imageSources2[i];
+              
+                var foundIndex = src.indexOf(currentsrc);
+                if (foundIndex !== -1) {
+                   currentImageIndex=i;
+                  
+                } 
+              }
+             
+  
+  
+  
+    //console.log(currentImageIndex);
+      // Toggle the current image index
+      currentImageIndex = (currentImageIndex + 1) % imageSources.length;
+     // console.log(currentImageIndex);
+     if(currentImageIndex == 1){
+      myImage.src = imageSources[currentImageIndex];
+      listproductdetails (input);
+      
+     }
+    else{
+      myImage.src = imageSources[currentImageIndex];
+      removehighlighticon(input);
+    }
+    
+  });
+
+}
+
 
 
 
@@ -1284,6 +1289,10 @@ myImage.addEventListener('click', function() {
 checkTime(input);
 
 }
+$(document).on("click", ".cate-bread", function() {
+  var passval = $(this).text();
+  window.location.href = "./categories.html?value=" + passval;
+});
 function removehighlighticon(input){
   var wishproduct=input[0].productName;
   
@@ -1650,7 +1659,7 @@ function categload() {
     var passvalEncoded = getURLParameter('value');
     // Decode the encoded value
     var passval = decodeURIComponent(passvalEncoded);
-    var textconver = passval.toUpperCase();
+   
 
     const screenWidth = window.innerWidth;
     var selector = (screenWidth > 730) ? "#mydiv .btn" : "#mydiv .btn";
@@ -1681,8 +1690,8 @@ function categload() {
 
     // Initial highlighting based on URL parameter
     $(selector).each(function() {
-      var buttonText = $(this).find("p").text().trim().toUpperCase();
-      if (buttonText === textconver) {
+      var buttonText = $(this).find("p").text().trim();
+      if (buttonText === passval) {
         // Remove 'active' class from all buttons
         $(selector).removeClass("active");
 
