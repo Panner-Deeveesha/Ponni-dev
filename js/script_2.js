@@ -556,11 +556,11 @@ if (count === 5) {
 
 //finish index page
 
-$(document).on("click", ".btn", function() {
-  var innerHTML = $(this).find("p").text();;
-  getproductname(innerHTML);
- 
+$(document).on("click", ".headingimg", function() {
+  var innerText = $(this).closest('.btn').find("p").text();
+  getproductname(innerText);
 });
+
 $(document).on("click", ".cateheadings", function() {
   var innerHTML2 = $(this).html();
   getproductname(innerHTML2);
@@ -989,6 +989,21 @@ function checkwishlistproduct(getuserid,fullobj){
 function displayproduct(input,response){
 console.log(input);
 //console.log(response);
+var br="";
+
+ var br = "<p>";
+ br += '<a href="index.html">';
+ br += "Home / ";
+ br += "</a>";
+ br += '<a href="categories.html">';
+ br += input[0].category+" / ";
+ br += "</a>";
+ br += "<a>";
+ br += input[0].productName;
+ br += "</a>";
+ 
+document.getElementById("dynamicbread").innerHTML=br;
+
 var unitAbbreviation = unitMapping[input[0].unit.toLowerCase()] || input[0].unit;
   var token=localStorage.getItem('token');
   var s = "";

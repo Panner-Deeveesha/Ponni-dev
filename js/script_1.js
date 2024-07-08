@@ -682,7 +682,7 @@ function getdatawithuserrecent(obj){
     type: "post",
     data: data,
     success: function (response) {  
-      //console.log(typeof(response)); 
+      console.log(typeof(response)); 
       var boo = isJsonString(response);
       if(boo==true){
         var obj = JSON.parse(response);
@@ -776,9 +776,9 @@ function recentlyview(inputs){
     recentlyinput += '</div>';
     recentlyinput += '</div>';
   }
-  $(".cate-recent").css("display","block"); 
+  $(".cate-recent").css("display","block");
+  $(".cate-recentphotos").css("display","block"); 
   $(".product-list2").html(recentlyinput);
-
   var responsiveItems = {}; 
 
   // Define responsive items based on the number of products
