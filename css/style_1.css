@@ -799,18 +799,21 @@ del{
     text-align: center;
 }
 /* RECENT VIEW */
-
-.cate-recentphotos .owl-prev span {
+.cate-recentphotos{
+    display: none;
+}
+.cate-recentphotos .product-list2 .owl-prev span {
     font-size: 60px !important;
     color: #9a9a9a;
     font-weight: 500;
 }
 
-.cate-recentphotos .owl-next span {
+.cate-recentphotos .product-list2 .owl-next span {
     font-size: 60px !important;
     color: #9a9a9a;
     font-weight: 500;
 }
+
 .product-list2 .owl-item {
     display: flex;
     flex-direction: column;
@@ -988,7 +991,10 @@ margin-right:auto;
         right: 30%;
     }
     #cartblck {
-        margin-left: 10px;
+        margin-left: 5px;
+    }
+    #smallimg {
+        margin-left: 5px;
     }
     #wishtot{
         width: 15%;
@@ -1063,7 +1069,7 @@ margin-right:auto;
         height: auto;
     }
     #logoimg{
-        width: 115px;
+        width: 145px;
     }
     /*#firimage{
         margin-top: 140px;
@@ -1086,7 +1092,7 @@ margin-right:auto;
         margin-top: 0px;
     }
     #wishblck{
-        margin-left: 0px;
+        margin-left: 5px;
     }
     #cartCount {
         right: 41.5%;
@@ -1144,7 +1150,7 @@ margin-right:auto;
         width: 30%;
     }
     #logoimg{
-        width: 110px;
+        width: 130px;
         height: 75px;
     }
     #searchtot{
@@ -1159,10 +1165,10 @@ margin-right:auto;
         bottom: 49px;
     }
     #wishtot{
-        margin: 0px 10px;
+        margin: 0px 5px;
     }
     #profiletot{
-        margin-left: 0px;
+        margin-left: 5px;
     }
     #contenttolog{
         width: 80%;
@@ -1212,17 +1218,17 @@ margin-right:auto;
     }
     #profiletot1{
         display: block;
-        width: 30%;
+        width: 15%;
         margin-top: 2px;
     }
     #profiletot{
         display: none;
     }
     #ponnilogo{
-        width: 28%;
+        width: 43%;
     }
     #logoimg{
-        width: 90px;
+        width: 120px;
         height: 60px;
     }
     #cartCount {
@@ -1233,6 +1239,7 @@ margin-right:auto;
         padding-left: 10px;
     }
     #headicons{
+        width: 33%;
         padding-right: 10px;
     }
 }
@@ -1246,11 +1253,11 @@ margin-right:auto;
         width: 17%;
     }
     #logoimg{
-        width: 80px;
+        width: 88px;
         height: 50px;
     }
     #headicons{
-        width: 32%;
+        width: 33%;
         padding-right: 10px;
     }
     #searchtot{

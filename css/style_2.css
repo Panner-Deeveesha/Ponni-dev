@@ -1491,6 +1491,7 @@ width:20px;
 	text-align: center;
 }
 .product-carousel{
+    display: none;
 	width:1200px;
 	margin-left:auto;
 	margin-right:auto;
