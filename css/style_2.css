@@ -1074,7 +1074,7 @@ input::-webkit-inner-spin-button {
 
 .breadcrumbs{
 	width:100%;
-    font-size: 14px;
+    font-size: 16px;
 	background-color:#f6f6f6;
 	padding:15px;
 	padding-top:20px;
@@ -1393,6 +1393,11 @@ width:20px;
 	background-color:#4d6b20;
 	border:1px solid #4d6b20;
 	
+}
+.cate-addbtn button:hover{
+    background-color:#fff;
+    color:#4d6b20;
+    border:1px solid #4d6b20;
 }
 #cate-des{
 	margin-top:20px;
@@ -3278,6 +3283,56 @@ width:20px;
     }
 }
 @media only screen and (max-width:500px) {
+    .cate-addbtn {
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        
+    }
+    .cate-addbtn button {
+        width: 250px;
+        padding: 5px 20px;
+        font-size: 14px;
+        font-weight: 600;
+      
+    }
+    .product-details del {
+        display: inline-block;
+        color: #878787;
+        font-size: 16px;
+    }
+    .product-details span {
+        padding-left: 10px;
+        color: #ec0101;
+        font-size: 16px;
+    }
+    .product-details #quantityvalue{
+        font-size: 16px;
+    }
+    .inputavailability {
+      
+        border-radius: 5px;
+        margin-top: 10px;
+       
+    }
+    .flexbox2 {
+        padding: 20px;
+        margin-top: 0px;
+    }
+    .product-details p {
+        font-size: 16px;
+        margin-top: 5px;
+        margin-bottom: 0px;
+        font-weight: 600;
+    }
+    #productname {
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .cate-grambutton{
+        margin-top: 10px;
+    }
     .owl-carousel .owl-stage-outer {
         position: relative;
         overflow: hidden;
@@ -3644,16 +3699,7 @@ element.style {
         overflow: hidden;
         margin: 0px;
        }
-	.cate-addbtn button {
-        width: 300px;
-        padding: 5px 20px;
-        font-size: 16px;
-        font-weight: 600;
-        color: #fff;
-        border-radius: 5px;
-        background-color: #4d6b20;
-        border: 1px solid #4d6b20;
-    }
+	
 	.carousel-indicators #scroll1 {
         width:70px;
         height:70px;
@@ -3690,10 +3736,7 @@ element.style {
         top: 75%;
         z-index: 2;
     }
-    .flexbox2 {
-        padding: 20px;
-        margin-top: 20px;
-    }
+   
     .descr-heading {
         width: 300px;
         padding-top: 0px;
@@ -4006,7 +4049,7 @@ element.style {
     .flexbox1 .carousel-item {
        
         width: 89%;
-        margin-left:0%;
+        margin-left:3%;
         margin-right:-100%;
         
     }
@@ -4016,7 +4059,7 @@ element.style {
         right: 0%;
         bottom: 0;
         left: 2%;
-        top: 75%;
+        top: 77%;
         z-index: 2;
     }
     .carousel-indicators #scroll2 {
@@ -4024,8 +4067,8 @@ element.style {
         height:60px;
         right: 0%;
         bottom: 0;
-        left: 30%;
-        top: 75%;
+        left: 25%;
+        top: 78%;
         z-index: 2;
     }
     .carousel-indicators #scroll3 {
@@ -4033,8 +4076,8 @@ element.style {
         height:60px;
         right: 0%;
         bottom: 0;
-        left: 50%;
-        top: 75%;
+        left: 46%;
+        top: 78%;
         z-index: 2;
     }
     .carousel-indicators #scroll4 {
@@ -4042,14 +4085,11 @@ element.style {
         height:60px;
         right: 0%;
         bottom: 0;
-        left: 70%;
-        top: 75%;
+        left: 66%;
+        top: 78%;
         z-index: 2;
     }
-    .flexbox2 {
-        padding: 20px;
-        margin-top: 20px;
-    }
+   
     .descr-heading {
         width: 300px;
         padding-top: 0px;
@@ -4176,10 +4216,7 @@ margin-left: 3%;
     top: 75%;
     z-index: 2;
 }
-.flexbox2 {
-    padding: 20px;
-    margin-top: 20px;
-}
+
 .descr-heading {
     width: 300px;
     padding-top: 0px;
@@ -4451,16 +4488,7 @@ margin-left: 3%;
         margin-left: 0px;
     }
 
-.cate-addbtn button {
-        width: 250px;
-        padding: 5px 20px;
-        font-size: 16px;
-        font-weight: 600;
-        color: #fff;
-        border-radius: 5px;
-        background-color:#4d6b20;
-        border: 1px solid #4d6b20;
-    }
+
 	
 }
 @media only screen and (max-width:370px){
