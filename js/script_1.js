@@ -591,12 +591,8 @@ function tocheckfortoken(inputs){
         }
     });
   }else{
-    //console.log("please login");
-    var imgsrc="./assets/icons/error.png";
-    var mgs="Error";
-    var content="Please Login";
-    var btn="Cancel";
-    popup(imgsrc,mgs,content,btn);
+    console.log("please login");
+   
   }
 }
 
