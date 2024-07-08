@@ -24,7 +24,7 @@ if($res->num_rows > 0){
         }
         echo json_encode($cartData);
     } else {
-        echo "No data found in the cart for the user with specified conditions.";
+        echo "Null";
     }
 } else {
    
