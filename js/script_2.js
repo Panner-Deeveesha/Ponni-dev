@@ -7,7 +7,8 @@ var unitMapping = {
   'milli liter': 'ml',
   'Kg': 'kg',
   'gram': 'g',
-  ' liter': 'L'
+  'liter': 'L',
+   'litre': 'L'
 };
 function getcategorydynamically(){
   $("#loadinggif1").css("display","block");
@@ -49,7 +50,7 @@ async function printheading(obj){
   headcate += "<div id='mydiv' class='cate-heading owl-carousel owl-theme'>";
   headcate += "<div class='item'>";
   headcate += "<span class='btn active'>";
-  headcate += "<img class='headingimg' src='./assets/images/"+obj[0].category+"active.png'>";
+  headcate += "<img class='headingimg' src='./assets/images/" + obj[0].category + "active.png' onclick='getproductname("+obj[0].category+")'>";
   headcate += "<p>";
   headcate += obj[0].category;
   headcate += "</p>";
@@ -59,7 +60,7 @@ async function printheading(obj){
   for (i = 1; i < objlen; i++) {
       headcate += "<div class='item'>";
       headcate += "<span class='btn'>";
-      headcate += "<img class='headingimg' src='./assets/images/"+obj[i].category+".png'>";
+      headcate += "<img class='headingimg' src='./assets/images/" + obj[i].category + ".png' onclick='getproductname("+obj[i].category+")'>";
       headcate += "<p>";
       headcate += obj[i].category;
       headcate += "</p>";
@@ -117,7 +118,7 @@ async function printheading(obj){
   headcate2 += "<div id='mydiv2' class='cate-heading2 owl-carousel owl-theme'>";
   headcate2 += "<div class='item'>";
   headcate2 += "<span class='cateheadings active2'>";
-  headcate2 += "<img class='headingimg' src='./assets/images/" + obj[0].category + "active.png'>";
+  headcate2 += "<img class='headingimg' src='./assets/images/" + obj[0].category + "active.png' onclick='getproductname("+obj[0].category+")'>";
   headcate2 += obj[0].category;
   headcate2 += "</span>";
   headcate2 += "</div>";
@@ -125,7 +126,7 @@ async function printheading(obj){
   for (var i = 1; i < objlen; i++) {
       headcate2 += "<div class='item'>";
       headcate2 += "<span class='cateheadings'>";
-      headcate2 += "<img class='headingimg' src='./assets/images/" + obj[i].category + ".png'>";
+      headcate2 += "<img class='headingimg' src='./assets/images/" + obj[i].category + ".png' onclick='getproductname("+obj[i].category+")'>";
       headcate2 += obj[i].category;
       headcate2 += "</span>";
       headcate2 += "</div>";
@@ -503,69 +504,48 @@ if (count === 5) {
     }*/
       var header = document.getElementById("headingdiv");
       if (header) {
-        var btns = header.getElementsByClassName("btn");
-        for (var i = 0; i < btns.length; i++) {
-          btns[i].addEventListener("click", function() {
-            // Remove 'active' class from previously active button
-            var currentActive = header.querySelector(".btn.active");
-            if (currentActive) {
-              currentActive.classList.remove("active");
-              // Reset previous active button's image src
-              var prevImg = currentActive.getElementsByClassName("headingimg")[0];
-              var prevCategoryName = currentActive.getElementsByTagName("p")[0].innerText;
-              prevImg.src = "./assets/images/" + prevCategoryName + ".png";
-            }
-            
-            // Add 'active' class to the clicked button
-            this.classList.add("active");
-            
-            // Update clicked button's image src
-            var imgElement = this.getElementsByClassName("headingimg")[0];
-            var newCategoryName = this.getElementsByTagName("p")[0].innerText;
-            imgElement.src = "./assets/images/" + newCategoryName + "active.png";
-          });
-        }
-      }
-      var header2 = document.getElementById("headingdiv");
-      if (header2) {
-        var btns2 = header2.getElementsByClassName("btn");
-        for (var i = 0; i < btns2.length; i++) {
-          btns2[i].addEventListener("click", function() {
-            // Remove 'active' class from previously active button
-            var currentActive = header2.querySelector(".btn.active");
-            if (currentActive) {
-              currentActive.classList.remove("active");
-              // Reset previous active button's image src
-              var prevImg = currentActive.getElementsByClassName("headingimg")[0];
-              var prevCategoryName = currentActive.getElementsByTagName("p")[0].innerText;
-              prevImg.src = "./assets/images/" + prevCategoryName + ".png";
-            }
-            
-            // Add 'active' class to the clicked button
-            this.classList.add("active");
-            
-            // Update clicked button's image src
-            var imgElement = this.getElementsByClassName("headingimg")[0];
-            var newCategoryName = this.getElementsByTagName("p")[0].innerText;
-            imgElement.src = "./assets/images/" + newCategoryName + "active.png";
-          });
-        }
+          var btns = header.getElementsByClassName("btn");
+          for (var i = 0; i < btns.length; i++) {
+              var headingImg = btns[i].querySelector(".headingimg");
+              
+              headingImg.addEventListener("click", function() {
+                  var btn = this.closest(".btn");
+      
+                  // Remove 'active' class from previously active button
+                  var currentActive = header.querySelector(".btn.active");
+                  if (currentActive && currentActive !== btn) {
+                      currentActive.classList.remove("active");
+                      // Reset previous active button's image src
+                      var prevImg = currentActive.querySelector(".headingimg");
+                      var prevCategoryName = currentActive.querySelector("p").innerText;
+                      prevImg.src = "./assets/images/" + prevCategoryName + ".png";
+                  }
+      
+                  // Toggle 'active' class on the current button
+                  btn.classList.toggle("active");
+      
+                  // Update image src based on active state
+                  var imgElement = btn.querySelector(".headingimg");
+                  var categoryName = btn.querySelector("p").innerText;
+                  var newSrc = btn.classList.contains("active") ? 
+                               "./assets/images/" + categoryName + "active.png" : 
+                               "./assets/images/" + categoryName + ".png";
+                  imgElement.src = newSrc;
+                  
+                  // Call getproductname with the text from p tag
+                  var innerText = btn.querySelector("p").innerText.trim();
+                 // getproductname(innerText);
+              });
+          }
       }
       
+     
 }
 
 //finish index page
 
-$(document).on("click", ".headingimg", function() {
-  var innerText = $(this).closest('.btn').find("p").text();
-  getproductname(innerText);
-});
 
-$(document).on("click", ".cateheadings", function() {
-  var innerHTML2 = $(this).html();
-  getproductname(innerHTML2);
- 
-});
+
 $(document).on("click", ".comanclas", function() {
   var meanuname =  $(this).html();
   getproductname(meanuname);
