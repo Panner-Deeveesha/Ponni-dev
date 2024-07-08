@@ -224,7 +224,7 @@ body{
     cursor: pointer;
 }
 #wishblck:hover{
-    width: 29px;
+    width: 27px;
     height: auto;
 }
 #profiletot{
@@ -247,8 +247,8 @@ body{
     border-radius: 50%;
 }
 #smallimg:hover{
-    width: 29px;
-    height: 29px;
+    width: 27px;
+    height: 27px;
 }
 #smallimg1{
     width: 27px;
@@ -257,8 +257,8 @@ body{
     border-radius: 50%;
 }
 #smallimg1:hover{
-    width: 29px;
-    height: 29px;
+    width: 27px;
+    height: 27px;
 }
 .profilechange{
 	position:absolute;
