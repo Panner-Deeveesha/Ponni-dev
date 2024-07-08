@@ -1002,7 +1002,7 @@ var br="";
  br += " / "+input[0].productName;
  br += "</a>";
  
-document.getElementById("dynamicbread").innerHTML=br;
+$("#dynamicbread").html(br);
 
 var unitAbbreviation = unitMapping[input[0].unit] || input[0].unit;
   var token=localStorage.getItem('token');
