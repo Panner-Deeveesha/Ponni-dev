@@ -1154,46 +1154,73 @@ margin-right:auto;
     #svgimage{
         width: 25%;
     }
-    /*#iconsearch{
-        width: 15px;
+    #iconsearch{
+        width: 23px;
+        height: 23px;
     }
     #cartblck{
-        width: 15px;
+        width: 23px;
+        height: 23px;
     }
     #menublck{
-        width: 15px;
+        width: 23px;
+        height: 23px;
     }
     #wishblck{
-        width: 15px;
+        width: 23px;
+        height: 23px;
     }
     #smallimg{
-        width: 15px;
-    }*/
-}
-@media only screen and (max-width:475px){
-    #ponnilogo {
+        width: 23px;
+        height: 23px;
+    }
+    #menutotleft{
         width: 30%;
     }
+    #profiletot1 {
+        width: 30%;
+    }
+    #ponnilogo {
+        width: 50%;
+    }
+    #headicons {
+        width: 30%;
+    }
+    #searchtot {
+        width: 30%;
+        margin-top: 20px;
+        margin-left: 0px;
+    }
+    #carttot {
+        width: 15%;
+        margin: 0px 5px;
+    }
+    #wishtot {
+        width: 18%;
+        margin-left: 5px;
+        margin-top: 0px;
+    }
+    #profiletot{
+        width: 6%;
+        margin-right: 10px;
+        margin-top: 0px;
+    }
+    #menutot {
+        width: 6%;
+    }
+    #cartCount {
+        right: 45.5%;
+        bottom: 43px;
+    }
+}
+@media only screen and (max-width:475px){
     #logoimg{
-        width: 130px;
+        width: 115px;
         height: 75px;
-    }
-    #searchtot{
-        width: 20%;
-        margin-right: 5px;
-    }
-    #carttot{
-        margin: 0px 10px;
     }
     #cartCount {
         right: 43.5%;
-        bottom: 49px;
-    }
-    #wishtot{
-        margin: 0px 5px;
-    }
-    #profiletot{
-        margin-left: 5px;
+        bottom: 45px;
     }
     #contenttolog{
         width: 80%;
@@ -1236,53 +1263,95 @@ margin-right:auto;
 }
 @media only screen and (max-width:390px){
     #menublck{
-        width: 27px;
+        width: 25px;
+        height: 25px;
     }
     #menutotleft{
-        width: 10%;
+        width: 30%;
+        padding-left: 10px;
     }
-    #profiletot1{
+    /*#profiletot1{
         display: block;
         width: 15%;
         margin-top: 2px;
-    }
-    #profiletot{
-        display: none;
-    }
+    }*/
     #ponnilogo{
         width: 43%;
     }
+    #iconsearch{
+        margin-left: 0px;
+    }
+    #carttot{
+        width: 20%;
+        margin-left: 0px;
+        margin-right: 2px;
+    }
+    #cartblck {
+        margin-left: 0px;
+    }
     #logoimg{
-        width: 120px;
+        width: 100px;
         height: 60px;
     }
     #cartCount {
-        right: 28.5%;
-        bottom: 50px;
-    }
-    #menutotleft {
-        padding-left: 10px;
+        right: 58%;
+        bottom: 43px;
     }
     #headicons{
-        width: 33%;
+        width: 27%;
         padding-right: 10px;
+    }
+    #searchtot {
+        width: 20%;
+        margin-left: 3px;
+    }
+    #wishtot {
+        margin-left: 3px;
+    }
+    #wishblck {
+        width: 20px;
+        height: 20px;
+    }
+    #iconsearch {
+        width: 20px;
+        height: 20px;
+    }
+    #cartblck {
+        width: 20px;
+        height: 20px;
+    }
+    #wishblck {
+        width: 20px;
+        height: 20px;
+        margin-left: 2px;
+    }
+    #profiletot {
+        width: 25%;
+        margin-right: 0px;
+        margin-top: 0px;
+        padding-right: 0px;
+        margin-left: 2px;
+    }
+    #smallimg {
+        width: 20px;
+        height: 20px;
     }
 }
 @media only screen and (max-width:310px){
     #ponnilogo{
-        width: 39%;
+        width: 38%;
         padding-left: 0px;
         padding-top: 0px;
     }
     #menutotleft {
-        width: 17%;
+        width: 40%;
     }
     #logoimg{
-        width: 88px;
+        width: 80px;
         height: 50px;
     }
     #headicons{
-        width: 33%;
+        width: 34%;
         padding-right: 10px;
     }
     #searchtot{
@@ -1296,21 +1365,24 @@ margin-right:auto;
         margin-left: 0px;
     }
     #cartCount {
-        right: 35%;
-        bottom: 50px;
+        right: 46%;
+        bottom: 43px;
     }
     #carttot{
-        margin-left: 10px;
+        margin-left: 2px;
         width: 33%;
         margin: 0px;
-        margin-right: 5px !important;
+        margin-right: 2px;
     }
     #wishtot{
         width: 30%;
         margin: 0px;
     }
-    #profiletot1{
+    #smallimg {
+        margin-left: 2px;
+    }
+    /*#profiletot1{
         width: 12%;
         margin-left: 0px;
-    }
+    }*/
 }
