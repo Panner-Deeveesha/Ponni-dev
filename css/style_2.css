@@ -23,6 +23,10 @@ body{
     padding: 20px;
 
 }
+#productname{
+    font-size: 25px;
+    font-weight: 600;
+}
 #loadinggif1{
     display:none;
 max-width:50px;
@@ -206,12 +210,17 @@ cursor: pointer;
     font-weight: bolder;
     padding-bottom: 6px;
 }
+#heartimg{
+    width: 30px;
+    height: 30px;
+}
 #cancelbtn{
     text-align: center;
     padding: 6px;
     border-radius: 5px;
     background-color: #fff;
     color: #36491e;
+    font-size: 16px;
     cursor: pointer;
     margin: 20px auto;
     width: 50%;
@@ -222,13 +231,13 @@ cursor: pointer;
 }
 #mgscontent{
     margin-left: 10px;
-    font-size: 20px;
+    font-size: 25px;
     text-align: center;
 }
 #mgsinnercontent{
     margin-left: 6px;
     margin-right: 6px;
-    font-size: 15px;
+    font-size: 18px;
     text-align: center;
     padding-top:10px;
     padding-bottom:15px;
@@ -298,7 +307,7 @@ ship page
 }
 /*end privay*/
 .wholeloginpage{
- font-family: 'Poppins', sans-serif;	
+ font-family: 'archivo';	
  position: relative;
 }
 .wholeloginpage #login-commend{
@@ -379,12 +388,6 @@ ship page
      cursor: pointer;
      background-color: #3e8e41;
 }
-
-.wholeregisterpage{
- font-family: 'Poppins', sans-serif;	
-
-}
-
 
 .wholeregisterpage #register-heading{
 	position: relative;
@@ -615,7 +618,7 @@ ship page
     cursor: pointer;
 }
 .wholecategories {
-    font-family: 'Poppins', sans-serif;
+ 
     background-color: #fff9e3;
     padding-top: 20px;
 }
@@ -1071,6 +1074,7 @@ input::-webkit-inner-spin-button {
 
 .breadcrumbs{
 	width:100%;
+    font-size: 14px;
 	background-color:#f6f6f6;
 	padding:15px;
 	padding-top:20px;
@@ -1245,14 +1249,22 @@ width:20px;
     margin-top:20px;
     font-weight:600;
 }
+.product-details #quantityvalue{
+    font-weight:500;
+}
+#quantityvalue span{
+    font-weight: 600;
+    color: #000000;
+}
 .product-details del{
    display: inline-block;
     color: #878787;
-   
+    font-size: 18px;
 }
 .product-details span{
     padding-left:10px;
     color: #ec0101;
+    font-size: 18px;
 }
 .cate-productlist{
 	font-size:20px;
@@ -1358,9 +1370,12 @@ width:20px;
 	font-size: 20px;
     font-weight: 600;
 }
+.inputavailability button:hover{
+    color: #3e8e41;
+}
 .inputavailability input {
     width: 70px;
-    padding-left: 20px;
+    padding-left: 30px;
     font-size: 16px;
 	font-weight:700;
     border: none;
@@ -1381,6 +1396,7 @@ width:20px;
 }
 #cate-des{
 	margin-top:20px;
+    font-size: 14px;
 	color:#878787;
 }
 .cate-ingre{
@@ -1399,6 +1415,7 @@ width:20px;
 .descr-heading{
 	width:400px;
 	padding-top:40px;
+    font-size: 18px;
 	margin-left:auto;
 	margin-right:auto;
 	font-weight:600;
@@ -1921,6 +1938,7 @@ width:20px;
 .cate-para1 {
     width: 800px;
     margin-left: auto;
+    font-size: 14px;
     margin-right: auto;
     line-height: 32px;
     padding: 20px;
@@ -1944,6 +1962,7 @@ width:20px;
     width: 800px;
     margin-left: auto;
     margin-right: auto;
+    font-size: 14px;
     padding: 20px;
     color: #878787;
     display: none;

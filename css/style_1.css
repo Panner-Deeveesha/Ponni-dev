@@ -198,7 +198,7 @@ body{
     background: #f0d343;
     color: black;
     padding: 0px 5px;
-    border-radius: 25px;
+    border-radius: 20px;
     font-size: 12px;
     font-weight: bold;
 }
@@ -208,7 +208,7 @@ body{
     cursor: pointer;
 }
 #cartblck:hover{
-    width: 29px;
+    width: 27px;
     height: auto;
 }
 #wishtot{
@@ -224,7 +224,7 @@ body{
     cursor: pointer;
 }
 #wishblck:hover{
-    width: 29px;
+    width: 27px;
     height: auto;
 }
 #profiletot{
@@ -247,8 +247,8 @@ body{
     border-radius: 50%;
 }
 #smallimg:hover{
-    width: 29px;
-    height: 29px;
+    width: 27px;
+    height: 27px;
 }
 #smallimg1{
     width: 27px;
@@ -257,8 +257,8 @@ body{
     border-radius: 50%;
 }
 #smallimg1:hover{
-    width: 29px;
-    height: 29px;
+    width: 27px;
+    height: 27px;
 }
 .profilechange{
 	position:absolute;
@@ -556,7 +556,7 @@ body{
 }
 del{
     color: #878787;
-    font-size: 16px;
+    font-size: 18px;
     display: inline-block;
 }
 .contentforpic span:nth-of-type(2){
