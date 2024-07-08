@@ -7,7 +7,8 @@ var unitMapping = {
   'milli liter': 'ml',
   'Kg': 'kg',
   'gram': 'g',
-  ' liter': 'L'
+  'liter': 'L',
+   'litre': 'L'
 };
 function getcategorydynamically(){
   $("#loadinggif1").css("display","block");
