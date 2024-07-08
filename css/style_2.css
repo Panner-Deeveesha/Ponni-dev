@@ -298,7 +298,7 @@ ship page
 }
 /*end privay*/
 .wholeloginpage{
- font-family: 'Poppins', sans-serif;	
+ font-family: 'archivo';	
  position: relative;
 }
 .wholeloginpage #login-commend{
@@ -379,12 +379,6 @@ ship page
      cursor: pointer;
      background-color: #3e8e41;
 }
-
-.wholeregisterpage{
- font-family: 'Poppins', sans-serif;	
-
-}
-
 
 .wholeregisterpage #register-heading{
 	position: relative;
@@ -615,7 +609,7 @@ ship page
     cursor: pointer;
 }
 .wholecategories {
-    font-family: 'Poppins', sans-serif;
+ 
     background-color: #fff9e3;
     padding-top: 20px;
 }
