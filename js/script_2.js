@@ -442,7 +442,7 @@ function displaycategories(obj){
       t +="Rs."+uniqueObjects[i].price;
       t +='</del>';
       t +='<span>';
-      t +="From Rs."+uniqueObjects[i].offerPrice;
+      t +=" Rs."+uniqueObjects[i].offerPrice;
       t +='</span>';
       t +='</p>';
       
@@ -1015,11 +1015,14 @@ var unitAbbreviation = unitMapping[input[0].unit.toLowerCase()] || input[0].unit
   s +="Rs."+input[0].price;
   s +='</del>';
   s +='<span id="offerpricedetails">';
-  s +="From Rs."+input[0].offerPrice;
+  s +=" Rs."+input[0].offerPrice;
   s +='</span>';
   s +='</p>';
   s +='<p id="quantityvalue">';
-  s +="QUANTITY : "+input[0].volume+ unitAbbreviation;
+  s +="QUANTITY : ";
+  s +="<span>";
+  s += input[0].volume+ unitAbbreviation;
+  s +="</span>";
   s +='</p>';
   s +='<div class="cate-grambutton">';
   for(var i=0;i<input.length;i++){
@@ -1150,7 +1153,7 @@ inputnum.setAttribute("max", input[0].availability);
     //console.log("Button clicked at index: " + index);
     document.getElementById("pricedetails").innerHTML="Rs. "+input[index].price;
     document.getElementById("quantityvalue").innerHTML="QUANTITY : "+input[index].volume+unitAbbreviate;
-    document.getElementById("offerpricedetails").innerHTML="From Rs. "+input[index].offerPrice;
+    document.getElementById("offerpricedetails").innerHTML=" Rs. "+input[index].offerPrice;
     const inputnum = document.getElementById("getvalue");
 inputnum.setAttribute("max", input[index].availability);
 // add to cart function
@@ -2097,7 +2100,7 @@ console.log(uniqueObjects);
       t +="Rs."+uniqueObjects[i].price;
       t +='</del>';
       t +='<span>';
-      t +="From Rs."+uniqueObjects[i].offerPrice;
+      t +=" Rs."+uniqueObjects[i].offerPrice;
       t +='</span>';
       t +='</p>';
       
@@ -2235,7 +2238,7 @@ console.log(uniqueObjects);
       t +="Rs."+uniqueObjects[i].price;
       t +='</del>';
       t +='<span>';
-      t +="From Rs."+uniqueObjects[i].offerPrice;
+      t +=" Rs."+uniqueObjects[i].offerPrice;
       t +='</span>';
       t +='</p>';
       
