@@ -3364,7 +3364,7 @@ width:20px;
         position: relative;
         overflow: hidden;
         -webkit-transform: translate3d(0px, 0px, 0px);
-       height: 126px;
+       height: 100%;
     }
     #mydiv {
         width:99%;
