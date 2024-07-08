@@ -5,6 +5,7 @@ var mydiv2 = document.getElementById("headingdiv2");
 var menucat = document.getElementById("shopslide");
 var unitMapping = {
   'milli liter': 'ml',
+  'milli litre': 'ml',
   'Kg': 'kg',
   'gram': 'g',
   'liter': 'L',
