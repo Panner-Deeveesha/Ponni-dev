@@ -3298,9 +3298,7 @@ width:20px;
     }
 }
 @media only screen and (max-width:500px) {
-    #owlcarouselId .owl-stage-outer{
-        overflow: visible ;
-    }
+
     .cate-addbtn {
         width:100%;
         margin-left: auto;
@@ -3659,9 +3657,7 @@ width:20px;
       }
 }
 @media only screen and (max-width:450px){
-    #owlcarouselId .owl-stage-outer{
-        overflow: visible ;
-    }
+
     #mydiv {
         width: 80%;
         margin: 0px auto;
@@ -3800,9 +3796,7 @@ element.style {
 }
 }
 @media only screen and (max-width:440px) {
-    #owlcarouselId .owl-stage-outer{
-        overflow: visible ;
-    }
+
     #headingdiv {
         margin-top: 0px;
     }
@@ -4186,9 +4180,7 @@ element.style {
 }
 }
 @media only screen and (max-width:400px) {
-    #owlcarouselId .owl-stage-outer{
-        overflow: visible ;
-    }
+
     .about-ponni {
         width: 90%;
         margin-left: auto;
@@ -4267,9 +4259,7 @@ margin-left: 3%;
 }
 }
 @media only screen and (max-width:390px) {
-    #owlcarouselId .owl-stage-outer{
-        overflow: visible ;
-    }
+
     .owl-carousel .owl-stage-outer {
         position: relative;
         overflow: hidden;
@@ -4488,9 +4478,7 @@ margin-left: 3%;
     }
 }
 @media only screen and (max-width:380px){
-    #owlcarouselId .owl-stage-outer{
-        overflow: visible ;
-    }
+
 	.first-image {
         width: 150px;
         height: 150px;
