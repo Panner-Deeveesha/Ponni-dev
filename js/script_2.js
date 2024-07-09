@@ -504,7 +504,7 @@ if (count === 5) {
       });
     }*/
       var header = document.getElementById("headingdiv");
-      if (header) {
+     /* if (header) {
           var btns = header.getElementsByClassName("btn");
           for (var i = 0; i < btns.length; i++) {
               var headingImg = btns[i].querySelector(".headingimg");
@@ -513,7 +513,7 @@ if (count === 5) {
                   var btn = this.closest(".btn");
       
                   // Remove 'active' class from previously active button
-                  var currentActive = header.querySelector(".btn.active");
+                  var currentActive = header.querySelector(".btn .active");
                   if (currentActive && currentActive !== btn) {
                       currentActive.classList.remove("active");
                       // Reset previous active button's image src
@@ -538,7 +538,7 @@ if (count === 5) {
                  // getproductname(innerText);
               });
           }
-      }
+      }*/
       
      
 }

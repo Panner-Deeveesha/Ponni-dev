@@ -14,6 +14,9 @@ body{
         padding: 20px;
     
 }
+#cate-des ul{
+    padding-left: 1rem !important;
+}
 #mobile-btn{
     display: none;
 }
@@ -2640,9 +2643,8 @@ width:20px;
         margin-right: 0px;
     }
 	.flexbox1 .carousel {
-        width:90%;
+        width:100%;
        
-        margin-left: auto;
     }
 	.flexbox2{
 		padding:20px;
@@ -2744,7 +2746,7 @@ width:20px;
         width: 85%;
     }
 	    .breadcrumbs p {
-        width: 80%;
+        width: 95%;
         margin-left: auto;
         margin-right: auto;
     }
@@ -3296,6 +3298,9 @@ width:20px;
     }
 }
 @media only screen and (max-width:500px) {
+    #owlcarouselId .owl-stage-outer{
+        overflow: visible ;
+    }
     .cate-addbtn {
         width:100%;
         margin-left: auto;
@@ -3654,6 +3659,9 @@ width:20px;
       }
 }
 @media only screen and (max-width:450px){
+    #owlcarouselId .owl-stage-outer{
+        overflow: visible ;
+    }
     #mydiv {
         width: 80%;
         margin: 0px auto;
@@ -3792,6 +3800,9 @@ element.style {
 }
 }
 @media only screen and (max-width:440px) {
+    #owlcarouselId .owl-stage-outer{
+        overflow: visible ;
+    }
     #headingdiv {
         margin-top: 0px;
     }
@@ -4063,7 +4074,7 @@ element.style {
 	.productflex {
         width: 100%;
         margin: 0px;
-		padding-left:10px;
+        padding: 0px 10px;
         margin-top: 30px;
         display: block;
     }
@@ -4175,6 +4186,9 @@ element.style {
 }
 }
 @media only screen and (max-width:400px) {
+    #owlcarouselId .owl-stage-outer{
+        overflow: visible ;
+    }
     .about-ponni {
         width: 90%;
         margin-left: auto;
@@ -4253,6 +4267,9 @@ margin-left: 3%;
 }
 }
 @media only screen and (max-width:390px) {
+    #owlcarouselId .owl-stage-outer{
+        overflow: visible ;
+    }
     .owl-carousel .owl-stage-outer {
         position: relative;
         overflow: hidden;
@@ -4471,7 +4488,9 @@ margin-left: 3%;
     }
 }
 @media only screen and (max-width:380px){
-    
+    #owlcarouselId .owl-stage-outer{
+        overflow: visible ;
+    }
 	.first-image {
         width: 150px;
         height: 150px;

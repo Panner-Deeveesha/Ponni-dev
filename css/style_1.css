@@ -13,6 +13,12 @@ body{
     margin-top: 10px;
     padding: 20px;
 }
+#cartblck:hover,#wishblck:hover,#smallimg:hover{
+    fill: green;
+}
+#menublck:hover path{
+    fill: green;
+}
 #nullitem{
     text-align: center;
     display: none;
@@ -122,6 +128,7 @@ body{
     padding-left: 10px;
     background-color:#F4F6F8;
     border-right:1px solid #ced4da;
+    font-size: 13.3px;
 }
 #searchInput :active{
     border: none;
