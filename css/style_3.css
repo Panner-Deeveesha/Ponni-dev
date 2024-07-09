@@ -124,7 +124,7 @@
        border:none;
        border-radius: 8px;
        background:none;
-      padding-left:10px;
+       padding:0px 10px !important;
     }
       .test-customers{
           margin-top:35px;
@@ -1807,8 +1807,7 @@
             
             }
             .owl-carousel.owl-drag .owl-item{
-                padding:10px !important;
-                padding-left:0px;
+                padding:0px 10px !important;
            }
          
             
@@ -1876,8 +1875,7 @@
               left:20%;	
             }
           .owl-carousel.owl-drag .owl-item{
-                padding:10px !important;
-                padding-left:0px;
+                padding:0px 10px !important;
            }
            .footer-lastsection h3 {
                letter-spacing: 0.6px;
