@@ -5006,7 +5006,10 @@ input::-webkit-inner-spin-button {
         width: 100%;
         text-align: center;
     }
-
+#heartimg{
+    float: right;
+    margin-top: -25px;
+}
     .pppFlexbox2 {
         margin-top: 90px;
         padding: 10px;
@@ -5999,6 +6002,27 @@ input::-webkit-inner-spin-button {
 }
 
 @media only screen and (max-width:320px) {
+    #pricedetails,#offerpricedetails,#quantityvalue {
+        font-size: 16px;
+        
+    }
+    .product-details #quantityvalue {
+        margin-left: 50px;
+    }
+    .carousel-indicators {
+        position: absolute !important;
+        top: 300px;
+    }
+    #productname {
+        margin-bottom: 15px;
+    }
+    .cate-grambutton {
+        margin-top: 15px;
+    }
+    
+    .cate-recent {
+        font-size: 18px;
+    }
     .orderinnerimg .first-image img {
         width: 80px;
         height: 80px;
