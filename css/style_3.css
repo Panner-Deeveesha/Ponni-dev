@@ -1953,7 +1953,19 @@
         
     
         }
-    
+        @media only screen and (max-width:425px){
+        
+            #owlcarouselId .owl-stage-outer{
+                overflow: visible !important;
+            }
+            .whyponniflex {
+                padding-top: 10px;
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        
+          }
         @media only screen and (max-width:385px){
         
             .whyponniflex {
