@@ -98,7 +98,7 @@ body{
 }
 #menutotleft{
     display: none;
-    width: 40%;
+  /*  width: 40%;*/
     padding-left: 20px;
 }
 #headicons{
@@ -1182,7 +1182,7 @@ margin-right:auto;
         height: 23px;
     }
     #menutotleft{
-        width: 30%;
+       /* width: 30%;*/
     }
     #profiletot1 {
         width: 30%;

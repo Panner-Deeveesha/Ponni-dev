@@ -4477,7 +4477,12 @@ input::-webkit-inner-spin-button {
     }
 }
 
-@media only screen and (max-width:420px) {
+@media only screen and (max-width:425px) {
+    #menutotleft {
+        display: block;
+        padding: 0px;
+        margin-left: 10px;
+    }
     .owl-carousel .owl-stage-outer {
         position: relative;
         overflow: hidden;
@@ -5001,7 +5006,12 @@ input::-webkit-inner-spin-button {
     }
 }
 
-@media only screen and (max-width:380px) {
+@media only screen and (max-width:375px) {
+    #productname {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
     .descr-heading {
         width: 100%;
         text-align: center;
@@ -6002,6 +6012,9 @@ input::-webkit-inner-spin-button {
 }
 
 @media only screen and (max-width:320px) {
+    #slideindicatorsimg {
+        width: 93%;
+    }
     #pricedetails,#offerpricedetails,#quantityvalue {
         font-size: 16px;
         
