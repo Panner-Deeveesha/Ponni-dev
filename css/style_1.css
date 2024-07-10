@@ -64,6 +64,7 @@ body{
     display: flex;
     align-items: center;
     margin: 0px auto;
+    justify-content: space-between;
 }
 #ponnilogo{
     width: 20%;
@@ -75,8 +76,9 @@ body{
     background-color: #d6d6d6;
 }*/
 #logoimg{
-    width: 150px; 
-    height: 80px; 
+   /*  
+    height: 80px; */
+    width: 40%;
 }
 #ponnititle{
     width: 40%;
@@ -105,7 +107,6 @@ body{
     width: 40%;
     display: flex;
     align-items: center;
-    padding-right: 20px;
     position: relative;
 }
 #searchtot{
@@ -1086,7 +1087,7 @@ margin-right:auto;
         height: auto;
     }
     #logoimg{
-        width: 145px;
+       /* width: 145px;*/
     }
     /*#firimage{
         margin-top: 140px;
@@ -1191,7 +1192,7 @@ margin-right:auto;
         width: 50%;
     }
     #headicons {
-        width: 30%;
+        /*width: 30%;*/
     }
     #searchtot {
         width: 30%;
@@ -1222,8 +1223,8 @@ margin-right:auto;
 }
 @media only screen and (max-width:475px){
     #logoimg{
-        width: 115px;
-        height: 75px;
+       /* width: 115px;
+        height: 75px;*/
     }
     #cartCount {
         right: 43.5%;
@@ -1252,7 +1253,13 @@ margin-right:auto;
         width: 100%;
     }
 }
-@media only screen and (max-width:440px){
+@media only screen and (max-width:425px){
+
+    #logoimg {
+        width: 50%;
+        margin-left: 120    px;
+
+    }
     .textcls{
         font-size: 20px;
     }
