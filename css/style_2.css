@@ -5073,10 +5073,15 @@ input::-webkit-inner-spin-button {
         position: absolute !important;
         top: 355px;
     }
-
+    #slideindicatorsimg {
+        top: 355px;
+    }
     #slideindicatorsimg {
         width: 100%;
 
+    }
+    .carousel-indicators {
+        margin-left: 10% !important;
     }
 
     #slidecarouselimg {
@@ -6052,8 +6057,12 @@ input::-webkit-inner-spin-button {
 }
 
 @media only screen and (max-width:320px) {
+    .carousel-indicators {
+        margin-left: 10% !important;
+    }
     #slideindicatorsimg {
         width: 93%;
+        top: 300px;
     }
     #pricedetails,#offerpricedetails,#quantityvalue {
         font-size: 16px;
