@@ -4506,7 +4506,7 @@ input::-webkit-inner-spin-button {
     }
     #slideindicatorsimg {
         width:80%;
-        top: 405px;
+        top: 100%;
     }
     #heartimg {
         margin-left: 153px;
@@ -4718,7 +4718,7 @@ input::-webkit-inner-spin-button {
     }
 }
 
-@media only screen and (max-width:400px) {
+/*@media only screen and (max-width:400px) {
 
     .about-ponni {
         width: 90%;
@@ -4801,7 +4801,7 @@ input::-webkit-inner-spin-button {
         margin-right: auto;
         font-weight: 600;
     }
-}
+}*/
 
 @media only screen and (max-width:390px) {
     .Testimonialreview-contents {
@@ -5066,7 +5066,7 @@ input::-webkit-inner-spin-button {
     margin-top: -25px;
 }
     .pppFlexbox2 {
-        margin-top: 90px;
+        margin-top: 20%;
         padding: 10px;
     }
 
@@ -6082,7 +6082,7 @@ input::-webkit-inner-spin-button {
     }
     #slideindicatorsimg {
         width: 65%;
-        top: 300px;
+        top: 100%;
     }
     #pricedetails,#offerpricedetails,#quantityvalue {
         font-size: 16px;
