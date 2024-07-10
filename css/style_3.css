@@ -1866,6 +1866,9 @@
 
      }
        @media only screen and (max-width:500px) {
+        #owlcarouselId .owl-stage-outer{
+            overflow: visible !important;
+        }
            .footer-contact {
                width: 300px;
     
@@ -1915,7 +1918,9 @@
             
         }
     
-    
+        #owlcarouselId .owl-stage-outer{
+            overflow: visible !important;
+        }
     
       }
     
@@ -1950,6 +1955,9 @@
         
         font-size:16px;
     }
+    #owlcarouselId .owl-stage-outer{
+        overflow: visible !important;
+    }
         
     
         }
@@ -1964,6 +1972,7 @@
                 margin-left: auto;
                 margin-right: auto;
             }
+         
         
           }
         @media only screen and (max-width:385px){
