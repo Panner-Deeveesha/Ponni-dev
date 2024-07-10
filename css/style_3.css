@@ -239,7 +239,9 @@
     
        .footer-main {
            
-           background-color: #4d6b20;
+          /* background-color: #4d6b20;*/
+           background: linear-gradient(355deg, #bc6e44, white);
+
            color: white;
         padding-top:30px;
         padding-bottom:60px;
@@ -256,7 +258,7 @@
     
        .footer-main2 {
     
-           color: white;
+           color: #000000;
            display: flex;
            max-width: 1350px;
            margin-left: auto;

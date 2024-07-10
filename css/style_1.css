@@ -1083,11 +1083,12 @@ margin-right:auto;
 }
 @media only screen and (max-width:630px){
     #ponnilogo {
-        width: 25%;
+        width: 60%;
         height: auto;
+        
     }
     #logoimg{
-       /* width: 145px;*/
+        margin-left: 190px;
     }
     /*#firimage{
         margin-top: 140px;
@@ -1130,7 +1131,7 @@ margin-right:auto;
         margin-left: 10px;
     }
     #profiletot{
-        margin-right: 10px;
+        margin-right: 28px;
         margin-top: 0px;
     }
     #profilelist {
@@ -1138,6 +1139,11 @@ margin-right:auto;
     }
 }
 @media only screen and (max-width:500px){
+    #logoimg {
+        width: 50%;
+        margin-left: 145px;
+
+    }
     .itemone{
         width: 100%;
         display: block;
@@ -1222,9 +1228,10 @@ margin-right:auto;
     }
 }
 @media only screen and (max-width:475px){
-    #logoimg{
-       /* width: 115px;
-        height: 75px;*/
+    #logoimg {
+        width: 50%;
+        margin-left: 140px;
+
     }
     #cartCount {
         right: 43.5%;
@@ -1257,7 +1264,7 @@ margin-right:auto;
 
     #logoimg {
         width: 50%;
-        margin-left: 120    px;
+        margin-left: 120px;
 
     }
     .textcls{
