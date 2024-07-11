@@ -12,18 +12,53 @@
         margin-right:auto;
         display:flex;
     }
+    #reviewSlider{
+        position: relative;
+        max-width: 1200px;
+    margin: 0px auto;
+    }
+        .test-customers p{
+            white-space: normal;
+        }
     .testhead{
         position: relative;
       }
-      .testhead #slideLeft{
+      .Testimonialreview-contents::-webkit-scrollbar {
+        display: none;
+    }
+    .Testimonialreview-contents {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+      #reviewSlider #slideLeft{
         position: absolute;
-        top: 30%;
-    left: 0%;           
+    top: 30%;
+    left: 1%;
+    z-index: 1;
+    width: 3%;
+    height: 7%;
+    border-radius: 18px;
+    font-weight: bolder;   
+    border: 0px;  
+     
+    background-color: #ffffffb0;
 
-      }.testhead #slideRight{
+      }
+      #reviewSlider #slideRight:hover,#reviewSlider #slideLeft:hover{
+        background-color: green;
+        color: white;
+      }
+      #reviewSlider #slideRight{
         position: absolute;
         top: 30%;
-    right: 0%;
+    right: 1%;
+    border: 0px;
+    z-index: 1;  
+    width: 3%;
+    height: 7%;
+    border-radius: 18px;
+    font-weight: bolder;
+    background-color: #ffffffb0;
       }
     .owl-nav .owl-prev:hover,.owl-nav .owl-next:hover{
         border: 1px solid black !important;
