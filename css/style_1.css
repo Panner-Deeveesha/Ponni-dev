@@ -952,11 +952,22 @@ del{
     .simpleid{
         width: 73%;
     }
+    #menutot {
+        width: 8%;
+    }
+    #menublck {
+        width: 30px;
+    }
 }
 @media only screen and (max-width:1280px){
     #cartCount {
         bottom: 26px;
         right: -11%;
+    }
+}
+@media only screen and (max-width:1024px){
+    #logoimg {
+        width: 50%;
     }
 }
 @media only screen and (max-width:1024px){
@@ -1192,18 +1203,18 @@ del{
         width: 23px;
         height: 23px;
     }
-    #menutotleft{
-       /* width: 30%;*/
-    }
+    /*#menutotleft{
+        width: 30%;
+    }*/
     #profiletot1 {
         width: 30%;
     }
     #ponnilogo {
         width: 50%;
     }
-    #headicons {
-        /*width: 30%;*/
-    }
+    /*#headicons {
+        width: 30%;
+    }*/
     #searchtot {
         width: 30%;
         margin-top: 20px;
