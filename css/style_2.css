@@ -179,7 +179,7 @@ body {
     margin-top: 20px;
 
     grid-template-columns: 18% 25% 25% 30%;
-    width: 60%;
+    width: 1200px;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 2px 4px 3px 4px #ddd;
@@ -854,12 +854,16 @@ ship page
     color: #fff;
 
 }
+#cate-myimages {
+    margin-bottom: 30px;
+}
 
 #cate-myimages #samplew {
     width: 1200px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
+    
     display: grid;
     grid-template-columns: auto auto auto auto;
 }

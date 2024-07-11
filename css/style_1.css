@@ -19,6 +19,9 @@ body{
 #menublck:hover path{
     fill: green;
 }
+#carttot a{
+    position: relative;
+}
 #nullitem{
     text-align: center;
     display: none;
@@ -211,8 +214,8 @@ body{
 }
 #cartCount {
     position: absolute;
-    bottom: 35px;
-    right: 25.5%;
+    bottom: 26px;
+    right: -16.5%;
     background: #f0d343;
     color: black;
     padding: 0px 5px;
@@ -952,14 +955,14 @@ margin-right:auto;
 }
 @media only screen and (max-width:1280px){
     #cartCount {
-        bottom: 35px;
-        right: 27%;
+        bottom: 26px;
+        right: -11%;
     }
 }
 @media only screen and (max-width:1024px){
     #cartCount {
-        bottom: 35px;
-        right: 28%;
+        bottom: 26px;
+        right: -7%;
     }
     .inncontent {
 
@@ -1005,8 +1008,9 @@ margin-right:auto;
         margin-left: 0px;
     }
     #cartCount {
-        bottom: 30px;
-        right: 30%;
+        bottom: 27px;
+        right: -8%;
+    
     }
     #cartblck {
         margin-left: 5px;
@@ -1114,8 +1118,8 @@ margin-right:auto;
         margin-left: 5px;
     }
     #cartCount {
-        right: 41.5%;
-        bottom: 48px;
+        right: -9.5%;
+    bottom: 26px;
     }
     #wholecancelation, #wholetc{
         width: 95%;
@@ -1223,8 +1227,8 @@ margin-right:auto;
         width: 6%;
     }
     #cartCount {
-        right: 45.5%;
-        bottom: 43px;
+        right: -16.5%;
+    bottom: 21px;
     }
 }
 @media only screen and (max-width:475px){
@@ -1234,8 +1238,8 @@ margin-right:auto;
 
     }
     #cartCount {
-        right: 43.5%;
-        bottom: 45px;
+        right: -24.5%;
+    bottom: 21px;
     }
     #contenttolog{
         width: 80%;
