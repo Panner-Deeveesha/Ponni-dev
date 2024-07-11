@@ -451,19 +451,35 @@
            width: 100%;
            padding: 10px;
        }
-    
+       .copyrightscontent .terms{
+        width: 60%;
+       }
+       .copyrightscontent .dev-company{
+        width: 20%;
+        text-align: right;
+       }
+       .dev-company a{
+        text-decoration: none;
+        color: #878787;
+       }
+       .dev-company img{
+       width: 7%;
+       vertical-align: middle;
+    }
        .copyrightscontent {
            display: flex;
            max-width: 1200px;
            margin-left: auto;
            margin-right: auto;
+           text-align: center;
     
        }
     
        .copyrights1 {
-           width:65%;
+           width:20%;
     
            color: #878787;
+           text-align: left;
        }
     
        .copyrights1 p {
