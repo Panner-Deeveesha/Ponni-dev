@@ -13,6 +13,15 @@ body{
     margin-top: 10px;
     padding: 20px;
 }
+#cartblck:hover,#wishblck:hover,#smallimg:hover{
+    fill: green;
+}
+#menublck:hover path{
+    fill: green;
+}
+#carttot a{
+    position: relative;
+}
 #nullitem{
     text-align: center;
     display: none;
@@ -58,6 +67,7 @@ body{
     display: flex;
     align-items: center;
     margin: 0px auto;
+    justify-content: space-between;
 }
 #ponnilogo{
     width: 20%;
@@ -69,8 +79,9 @@ body{
     background-color: #d6d6d6;
 }*/
 #logoimg{
-    width: 150px; 
-    height: 80px; 
+   /*  
+    height: 80px; */
+    width: 40%;
 }
 #ponnititle{
     width: 40%;
@@ -92,14 +103,13 @@ body{
 }
 #menutotleft{
     display: none;
-    width: 40%;
+  /*  width: 40%;*/
     padding-left: 20px;
 }
 #headicons{
     width: 40%;
     display: flex;
     align-items: center;
-    padding-right: 20px;
     position: relative;
 }
 #searchtot{
@@ -122,6 +132,7 @@ body{
     padding-left: 10px;
     background-color:#F4F6F8;
     border-right:1px solid #ced4da;
+    font-size: 13.3px;
 }
 #searchInput :active{
     border: none;
@@ -203,8 +214,8 @@ body{
 }
 #cartCount {
     position: absolute;
-    bottom: 35px;
-    right: 25.5%;
+    bottom: 26px;
+    right: -16.5%;
     background: #f0d343;
     color: black;
     padding: 0px 5px;
@@ -944,14 +955,14 @@ del{
 }
 @media only screen and (max-width:1280px){
     #cartCount {
-        bottom: 35px;
-        right: 27%;
+        bottom: 26px;
+        right: -11%;
     }
 }
 @media only screen and (max-width:1024px){
     #cartCount {
-        bottom: 35px;
-        right: 28%;
+        bottom: 26px;
+        right: -7%;
     }
     .inncontent {
 
@@ -997,8 +1008,9 @@ del{
         margin-left: 0px;
     }
     #cartCount {
-        bottom: 30px;
-        right: 30%;
+        bottom: 27px;
+        right: -8%;
+    
     }
     #cartblck {
         margin-left: 5px;
@@ -1075,11 +1087,12 @@ del{
 }
 @media only screen and (max-width:630px){
     #ponnilogo {
-        width: 25%;
+        width: 60%;
         height: auto;
+        
     }
     #logoimg{
-        width: 145px;
+        margin-left: 190px;
     }
     /*#firimage{
         margin-top: 140px;
@@ -1105,8 +1118,8 @@ del{
         margin-left: 5px;
     }
     #cartCount {
-        right: 41.5%;
-        bottom: 48px;
+        right: -9.5%;
+    bottom: 26px;
     }
     #wholecancelation, #wholetc{
         width: 95%;
@@ -1122,7 +1135,7 @@ del{
         margin-left: 10px;
     }
     #profiletot{
-        margin-right: 10px;
+        margin-right: 28px;
         margin-top: 0px;
     }
     #profilelist {
@@ -1130,6 +1143,11 @@ del{
     }
 }
 @media only screen and (max-width:500px){
+    #logoimg {
+        width: 50%;
+        margin-left: 145px;
+
+    }
     .itemone{
         width: 100%;
         display: block;
@@ -1175,7 +1193,7 @@ del{
         height: 23px;
     }
     #menutotleft{
-        width: 30%;
+       /* width: 30%;*/
     }
     #profiletot1 {
         width: 30%;
@@ -1184,7 +1202,7 @@ del{
         width: 50%;
     }
     #headicons {
-        width: 30%;
+        /*width: 30%;*/
     }
     #searchtot {
         width: 30%;
@@ -1209,18 +1227,19 @@ del{
         width: 6%;
     }
     #cartCount {
-        right: 45.5%;
-        bottom: 43px;
+        right: -16.5%;
+    bottom: 21px;
     }
 }
 @media only screen and (max-width:475px){
-    #logoimg{
-        width: 115px;
-        height: 75px;
+    #logoimg {
+        width: 50%;
+        margin-left: 140px;
+
     }
     #cartCount {
-        right: 43.5%;
-        bottom: 45px;
+        right: -24.5%;
+    bottom: 21px;
     }
     #contenttolog{
         width: 80%;
@@ -1245,7 +1264,13 @@ del{
         width: 100%;
     }
 }
-@media only screen and (max-width:440px){
+@media only screen and (max-width:425px){
+
+    #logoimg {
+        width: 50%;
+        margin-left: 120px;
+
+    }
     .textcls{
         font-size: 20px;
     }

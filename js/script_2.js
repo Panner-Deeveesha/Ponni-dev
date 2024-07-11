@@ -504,7 +504,7 @@ if (count === 5) {
       });
     }*/
       var header = document.getElementById("headingdiv");
-      if (header) {
+     /* if (header) {
           var btns = header.getElementsByClassName("btn");
           for (var i = 0; i < btns.length; i++) {
               var headingImg = btns[i].querySelector(".headingimg");
@@ -513,7 +513,7 @@ if (count === 5) {
                   var btn = this.closest(".btn");
       
                   // Remove 'active' class from previously active button
-                  var currentActive = header.querySelector(".btn.active");
+                  var currentActive = header.querySelector(".btn .active");
                   if (currentActive && currentActive !== btn) {
                       currentActive.classList.remove("active");
                       // Reset previous active button's image src
@@ -538,7 +538,7 @@ if (count === 5) {
                  // getproductname(innerText);
               });
           }
-      }
+      }*/
       
      
 }
@@ -1065,17 +1065,17 @@ var unitAbbreviation = unitMapping[input[0].unit] || input[0].unit;
   document.getElementById("cate-des").innerHTML=dyul;
 
 
-  s2 +='<div class="carousel-item active" id="firstscrollimg" style="width:80%;height:80%;">';
-  s2 +='<img src="' +input[0].imgPath_3+'" width="100%" height="100%">'
+  s2 +='<div class="carousel-item active" id="firstscrollimg" >';
+  s2 +='<img src="' +input[0].imgPath_3+'" >'
   s2 +='</div>';
-  s2 +='<div class="carousel-item" id="secondscrollimg" style="width:80%;height:80%;">';
-  s2 +='<img src="' +input[0].imgPath_4+'" width="100%" height="100%">'
+  s2 +='<div class="carousel-item" id="secondscrollimg" >';
+  s2 +='<img src="' +input[0].imgPath_4+'" >'
   s2 +='</div>';
-  s2 +='<div class="carousel-item" id="thirdscrollimg" style="width:80%;height:80%;">';
-  s2 +='<img src="' +input[0].imgPath_5+'" width="100%" height="100%">'
+  s2 +='<div class="carousel-item" id="thirdscrollimg" >';
+  s2 +='<img src="' +input[0].imgPath_5+'" >'
   s2 +='</div>';
-  s2 +='<div class="carousel-item" id="fourthscrollimg" style="width:80%;height:80%;">';
-  s2 +='<img src="' +input[0].imgPath_6+'" width="100%" height="100%">'
+  s2 +='<div class="carousel-item" id="fourthscrollimg" >';
+  s2 +='<img src="' +input[0].imgPath_6+'" >'
   s2 +='</div>';
 
   document.getElementById("slidecarouselimg").innerHTML=s2;

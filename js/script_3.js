@@ -40,7 +40,15 @@ $("#footer-minus4").click(function () {
   $("#footer-plus4").css("display", "block");
 });
 
+const buttonRight = document.getElementById('slideRight');
+    const buttonLeft = document.getElementById('slideLeft');
 
+    buttonRight.onclick = function () {
+      document.getElementById('scrollIdReview').scrollLeft += 340;
+    };
+    buttonLeft.onclick = function () {
+      document.getElementById('scrollIdReview').scrollLeft -= 340;
+    };
 function cancelpayment(){
   document.getElementById("modal").style.display="none";
   document.getElementById("paymentwalletid").style.display="none";
@@ -1368,11 +1376,29 @@ function handleSlickOnResize() {
     destroySlick();
   }
 }
+var startSlick = 0;
+window.addEventListener("scroll", (event) => {
+  let scroll = this.scrollY;
+  //console.log(scroll);
+  
+  if(scroll>=2100 && scroll<=2200){
+    var windowWidth = $(window).width();
+    if (windowWidth < 950) {
+      if(startSlick==0){
+        destroySlick();
+        //console.log(">>>>>>>>>start");
+        initializeSlick();
+        startSlick = 1;
+      }
+    }
+  
+   
+  }
+});
 
+$(window).resize(function() {
+  handleSlickOnResize();
+});
 $(document).ready(function() {
   handleSlickOnResize();
-
-  $(window).resize(function() {
-    handleSlickOnResize();
-  });
 });
