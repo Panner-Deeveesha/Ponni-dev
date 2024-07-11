@@ -40,7 +40,15 @@ $("#footer-minus4").click(function () {
   $("#footer-plus4").css("display", "block");
 });
 
+const buttonRight = document.getElementById('slideRight');
+    const buttonLeft = document.getElementById('slideLeft');
 
+    buttonRight.onclick = function () {
+      document.getElementById('scrollIdReview').scrollLeft += 340;
+    };
+    buttonLeft.onclick = function () {
+      document.getElementById('scrollIdReview').scrollLeft -= 340;
+    };
 function cancelpayment(){
   document.getElementById("modal").style.display="none";
   document.getElementById("paymentwalletid").style.display="none";

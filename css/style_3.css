@@ -12,6 +12,19 @@
         margin-right:auto;
         display:flex;
     }
+    .testhead{
+        position: relative;
+      }
+      .testhead #slideLeft{
+        position: absolute;
+        top: 30%;
+    left: 0%;
+
+      }.testhead #slideRight{
+        position: absolute;
+        top: 30%;
+    right: 0%;
+      }
     .owl-nav .owl-prev:hover,.owl-nav .owl-next:hover{
         border: 1px solid black !important;
     }
@@ -80,8 +93,10 @@
           margin-left:auto;
           margin-right:auto;
        Padding-bottom:60px;
-       
+       white-space: nowrap;
+    overflow-x: auto;
       }
+   
     .Testimonial-content h2{
         padding-top:50px;
         text-align:center;
@@ -90,7 +105,10 @@
         color: #6d9928 ;
     }
     .test-sildeshow{
-       position:relative;
+       /*position:relative;*/
+       height: 420px;
+    display: inline-block;
+    overflow: auto;
     }
     .testslide{
        
@@ -101,6 +119,8 @@
        transform: translateY(0);
        transition: transform .2s ease-in-out;
        border:none;
+       display: inline-block;
+       width: 330px;
     
       
     }
@@ -1985,6 +2005,9 @@
         
             #owlcarouselId .owl-stage-outer{
                 overflow: visible !important;
+            }
+            #owlcarouselId .owl-stage-outer .owl-stage{
+                width: 100% !important;
             }
             .whyponniflex {
                 padding-top: 10px;
