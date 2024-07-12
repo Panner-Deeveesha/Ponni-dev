@@ -802,19 +802,19 @@
     </div>
 </div>
            <script src="./js/jquery.min.js"></script>
-           <script>
+        <script>
             var token31 = localStorage.getItem("token"); 
             const screenWid = window.innerWidth;
             if(screenWid < 630){
                 $("#cartCount").css("bottom","23px");
                 $("#ponnilogo").css("padding-top","0px");
-               // $("#logoimg").css("width","80px");
+                $("#logoimg").css("width","80px");
                 if(token){
                     $("#ponnilogo").css("width","32%");
                 }
             }else{
-                $("#cartCount").css("bottom","9px");
-                $("#ponnilogo").css("padding-top","10px");
+                $("#cartCount").css("bottom","0px");
+                $("#ponnilogo").css("padding-top","0px");
             }
         </script>
            <script src="./js/slickjs.js"></script>
