@@ -1105,12 +1105,11 @@ del{
 @media only screen and (max-width:630px){
     #ponnilogo {
         width: 60%;
-        height: auto;
-        
+        height: auto;     
     }
     #logoimg{
         margin-left: 190px;
-        width: 40%;
+        width: 60%;
     }
     /*#firimage{
         margin-top: 140px;
@@ -1163,7 +1162,6 @@ del{
 @media only screen and (max-width:500px){
     #logoimg {
         width: 50%;
-        margin-left: 145px;
 
     }
     .itemone{
@@ -1252,7 +1250,6 @@ del{
 @media only screen and (max-width:475px){
     #logoimg {
         width: 50%;
-        margin-left: 140px;
 
     }
     #cartCount {
@@ -1343,8 +1340,10 @@ del{
         height: 60px;
     }
     #cartCount {
-        right: 58%;
-        bottom: 43px;
+        right: 0%;
+        bottom: 23px;
+        font-size: 10px;
+        font-weight: 900;
     }
     #headicons{
         width: 27%;
@@ -1420,10 +1419,6 @@ del{
     }
     #cartblck {
         margin-left: 0px;
-    }
-    #cartCount {
-        right: 46%;
-        bottom: 43px;
     }
     #carttot{
         margin-left: 2px;
