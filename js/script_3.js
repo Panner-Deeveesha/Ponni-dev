@@ -58,12 +58,12 @@ const buttonRight = document.getElementById('slideRight');
     const buttonLeft = document.getElementById('slideLeft');
 
     buttonRight.onclick = function () {
-      console.log(sl);
+     // console.log(sl);
       document.getElementById('scrollIdReview').scrollLeft += sl;
     };
     buttonLeft.onclick = function () {
       document.getElementById('scrollIdReview').scrollLeft -= sr;
-      console.log(sl);
+    //  console.log(sl);
     };
 
 

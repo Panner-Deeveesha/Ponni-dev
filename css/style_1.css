@@ -1305,6 +1305,12 @@ del{
     }
 }
 @media only screen and (max-width:390px){
+    #ponnilogo a{
+        margin-left: -94%;
+    }
+    #ponnilogo img{
+        width: 71%;
+    }
     #menublck{
         width: 25px;
         height: 25px;
@@ -1378,6 +1384,14 @@ del{
     #smallimg {
         width: 20px;
         height: 20px;
+    }
+}
+@media only screen and (max-width:375px){
+    #ponnilogo a{
+        margin-left: -75% !important;
+    }
+    #ponnilogo img{
+        width: 70% !important;
     }
 }
 @media only screen and (max-width:310px){

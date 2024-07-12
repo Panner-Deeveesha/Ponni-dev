@@ -2141,6 +2141,15 @@
          
      }
        }
+       @media only screen and (max-width:990px){
+        #ponnilogo a{
+            margin-left: 112%;
+        }
+        #ponnilogo img{
+            width: 70%;
+        }
+        
+       }
        @media only screen and (max-width:800px){
         .cart-list1 {
       display:none;
@@ -2168,6 +2177,15 @@
     }
         
     }
+    @media only screen and (max-width:630px){
+        #ponnilogo a{
+            margin-left: 3%;
+        }
+        #ponnilogo img{
+            width: 44%;
+        }
+        
+       }
     @media only screen and (max-width:550px){
         .payment-content1 {
             width: 100%;
@@ -2343,7 +2361,12 @@
     
           }
           @media only screen and (max-width:320px){
-    
+            #ponnilogo a{
+                margin-left: -94%;
+            }
+            #ponnilogo img{
+                width: 71%;
+            }
             #reviewSlider #slideRight {
                 
                 width: 8%;
