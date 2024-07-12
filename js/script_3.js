@@ -40,15 +40,25 @@ $("#footer-minus4").click(function () {
   $("#footer-plus4").css("display", "block");
 });
 
+var sl = 340;
+var sr = 340;
+var windowWidth = $(window).width();
 const buttonRight = document.getElementById('slideRight');
     const buttonLeft = document.getElementById('slideLeft');
 
     buttonRight.onclick = function () {
-      document.getElementById('scrollIdReview').scrollLeft += 340;
+      console.log(windowWidth);
+      document.getElementById('scrollIdReview').scrollLeft += sl;
     };
     buttonLeft.onclick = function () {
-      document.getElementById('scrollIdReview').scrollLeft -= 340;
+      document.getElementById('scrollIdReview').scrollLeft -= sr;
+      console.log(windowWidth);
     };
+
+
+   
+
+
 function cancelpayment(){
   document.getElementById("modal").style.display="none";
   document.getElementById("paymentwalletid").style.display="none";
