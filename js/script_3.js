@@ -46,12 +46,11 @@ var windowWidth = $(window).width();
 if(windowWidth>=425){
 sl=10*43;
 sr = 10*43;
-}
-if(windowWidth>=375){
+}else if(windowWidth>=375){
   sl=10*38;
   sr = 10*38;
   }
-  if(windowWidth>=320){
+  else if(windowWidth>=320){
     sl=10*32.5;
     sr = 10*32.5;
     }
