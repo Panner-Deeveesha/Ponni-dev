@@ -43,16 +43,28 @@ $("#footer-minus4").click(function () {
 var sl = 340;
 var sr = 340;
 var windowWidth = $(window).width();
+if(windowWidth>=425){
+sl=10*43;
+sr = 10*43;
+}
+if(windowWidth>=375){
+  sl=10*38;
+  sr = 10*38;
+  }
+  if(windowWidth>=320){
+    sl=10*32.5;
+    sr = 10*32.5;
+    }
 const buttonRight = document.getElementById('slideRight');
     const buttonLeft = document.getElementById('slideLeft');
 
     buttonRight.onclick = function () {
-      console.log(windowWidth);
+      console.log(sl);
       document.getElementById('scrollIdReview').scrollLeft += sl;
     };
     buttonLeft.onclick = function () {
       document.getElementById('scrollIdReview').scrollLeft -= sr;
-      console.log(windowWidth);
+      console.log(sl);
     };
 
 
