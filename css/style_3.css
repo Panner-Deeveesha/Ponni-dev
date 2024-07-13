@@ -337,12 +337,15 @@
        .footer-icon1 {
            transition: transform 0.3s ease;
        }
-    
-       .footer-icon1:hover {
+
+       .footer-icon1:hover{
            transform: translateY(-8px);
-           cursor: pointer;
+           cursor: pointer;  
        }
-    
+       .footer-icon1:hover g{
+            fill: #6d9928;
+       }
+
        .footer-icon2 {
            transition: transform 0.3s ease;
            margin-left: 10px;
@@ -351,7 +354,12 @@
        .footer-icon2:hover {
            transform: translateY(-8px);
            cursor: pointer;
+           fill: #6d9928;
        }
+
+       .footer-icon2:hover #Dribbble-Light-Preview{
+        fill: #6d9928;
+        }
     
        .footer-icon3 {
            transition: transform 0.3s ease;
@@ -361,7 +369,12 @@
        .footer-icon3:hover {
            transform: translateY(-8px);
            cursor: pointer;
+           fill: #6d9928;
        }
+
+       .footer-icon3:hover #Dribbble-Light-Preview{
+        fill: #6d9928;
+        }
     
        .footer-linklist {
            line-height: 2;
