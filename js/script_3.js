@@ -56,20 +56,17 @@ sr = 10*43;
     }
 const buttonRight = document.getElementById('slideRight');
     const buttonLeft = document.getElementById('slideLeft');
-
-    buttonRight.onclick = function () {
-     // console.log(sl);
-      document.getElementById('scrollIdReview').scrollLeft += sl;
-    };
-    buttonLeft.onclick = function () {
-      document.getElementById('scrollIdReview').scrollLeft -= sr;
-    //  console.log(sl);
-    };
-
-
-   
-
-
+    if(buttonRight && buttonLeft){
+      buttonRight.onclick = function () {
+        // console.log(sl);
+         document.getElementById('scrollIdReview').scrollLeft += sl;
+      };
+      buttonLeft.onclick = function () {
+        document.getElementById('scrollIdReview').scrollLeft -= sr;
+      //  console.log(sl);
+      };
+    }
+    
 function cancelpayment(){
   document.getElementById("modal").style.display="none";
   document.getElementById("paymentwalletid").style.display="none";
@@ -1287,7 +1284,7 @@ function checkoffer(){
   
     success: function(response) {
         // Handle the response data here
-        console.log(response);  
+        //console.log(response);  
        if(response=="true"){
         $(".getofferbtn").css("display", "none");
        }
