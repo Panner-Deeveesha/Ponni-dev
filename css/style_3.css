@@ -2086,7 +2086,9 @@
     #owlcarouselId .owl-stage-outer{
         overflow: visible !important;
     }
-        
+    #reviewSlider {
+        height: 390px;
+    }
     
         }
         @media only screen and (max-width:425px){
