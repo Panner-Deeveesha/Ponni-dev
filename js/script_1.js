@@ -25,6 +25,28 @@ if (searchInputElement) {
     }
   });
 }
+
+function addtosession() {
+  var link = document.getElementById('indexf-redirect');
+  if (link) {
+      sessionStorage.setItem("indexclick", "truetoredirect");
+  } else {
+    console.error("#indexf-redirect element not found");
+  }
+}  
+
+function onloadtoindex() {
+  let getItemofsession = sessionStorage.getItem("indexclick");
+  let footerid = document.getElementById("footerwhole");
+
+  if (getItemofsession === "truetoredirect" && footerid) {
+    let heightofooter = footerid.offsetTop;
+    window.scrollTo(0, heightofooter);
+  }
+}
+
+onloadtoindex();
+
 /*document.getElementById('searchInput').addEventListener('input', function () {
   const searchTerm = this.value;
   const tolen = searchTerm.length;
@@ -1366,6 +1388,16 @@ $("#shopnowid").click(function () {
   proficondynamic();
   forhead();
   proficondynamic2();
+
+  /*document.addEventListener('DOMContentLoaded', function() {
+    var link = document.getElementById('indexf-redirect');
+    
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        var targetElement = document.getElementById('footerwhole');
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+    });
+  });*/
 
   /*$(document).ready(function(){
     $('.menureg').click(function(){
