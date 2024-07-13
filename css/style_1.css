@@ -15,11 +15,11 @@ body{
     font-weight: 600;
     font-size: 16px;
 }
-#cartblck:hover,#wishblck:hover,#smallimg:hover{
-    fill: green;
+#cartblck:hover,#wishblck:hover{
+    fill: #6d9928;
 }
-#menublck:hover path{
-    fill: green;
+#menublck:hover path, #smallimg:hover path{
+    fill: #6d9928;
 }
 #carttot a{
     position: relative;
@@ -388,7 +388,7 @@ body{
 .inncontent{
     width: 100%;
     height: auto; 
-    transform: translate(0,-10px);
+    /*transform: translate(0,-10px);*/
     background-color: #f3f3f3;
 }
 .simpleid{
