@@ -125,9 +125,9 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding: 20px;
-    margin-top: 20px;
-    height: 300px;
-    margin-bottom: 20px;
+    margin-top: 40px;
+    height: auto;
+    margin-bottom: 40px;
 }
 
 .profileimage .img-des {
