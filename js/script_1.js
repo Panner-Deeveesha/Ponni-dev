@@ -42,6 +42,7 @@ function onloadtoindex() {
   if (getItemofsession === "truetoredirect" && footerid) {
     let heightofooter = footerid.offsetTop;
     window.scrollTo(0, heightofooter);
+    sessionStorage.removeItem("indexclick");
   }
 }
 
