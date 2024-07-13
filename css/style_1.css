@@ -9,9 +9,11 @@ body{
 #noproduct{
     text-align: center;
     display: none;
-    color: #4d6b20;
+    color: #000;
     margin-top: 10px;
     padding: 20px;
+    font-weight: 600;
+    font-size: 16px;
 }
 #cartblck:hover,#wishblck:hover,#smallimg:hover{
     fill: green;
