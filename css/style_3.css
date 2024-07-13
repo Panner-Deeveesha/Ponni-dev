@@ -2,7 +2,7 @@
     background-color: #fffff6;
     padding-top:40px !important;
     padding-bottom:50px !important;
-    transform: translate(0px,-10px);
+    /*transform: translate(0px,-10px);*/
     overflow: hidden;
     }
     .whyponniflex{
@@ -1992,7 +1992,7 @@
       
         padding-top:5px !important;
         padding-bottom:8px !important;
-        transform: translate(0px,-10px);
+        /*transform: translate(0px,-10px);*/
         overflow: hidden;
         }
         .whyponniheading {

@@ -1220,7 +1220,7 @@ input::-webkit-inner-spin-button {
     text-align: justify;
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
 }
 
 /*product css*/
@@ -3902,6 +3902,7 @@ input::-webkit-inner-spin-button {
         margin-right: auto;
         margin-top: 20px;
         color: #707070;
+        margin-bottom: 15px;
     }
 
     .wholeregisterpage #register-heading {
