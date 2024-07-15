@@ -978,11 +978,21 @@ del{
     height: 100%;
     margin: 20px;
 }
-#sliderfor{
-    width: 30%;
-    height: 100%;
-    margin: 0px auto;
+.videodiv2{
+    position: relative;
+    width: 90% !important;
+    padding-bottom: 56.25%; 
+    height: 530px;
+    margin: 20px;
 }
+.videodiv2 iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 305px;
+    height: 532px;
+}
+
 
 /* Media Query */
 @media only screen and (max-width:1500px){
