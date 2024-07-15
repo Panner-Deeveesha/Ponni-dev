@@ -1465,3 +1465,40 @@ const screenWidth = window.innerWidth;
       });
     });
   }
+  $('#sliderfor').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: true,
+    asNavFor: '#videolinksflex'
+  });
+  $('#videolinksflex').slick({
+    centerMode: true,
+    centerPadding: '60px',
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 9000,
+    slidesToShow: 5,
+    asNavFor: '#sliderfor',
+    dots: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 1
+        }
+      }
+    ]
+  });
