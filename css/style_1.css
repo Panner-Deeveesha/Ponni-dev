@@ -1357,6 +1357,9 @@ del{
     .simpleid:nth-of-type(2) .textareacon{
         margin-right: 0px;
     }
+    .videodiv2 {
+        margin-left: 62px;
+    }
 }
 @media only screen and (max-width:390px){
     #ponnilogo a{
@@ -1441,6 +1444,10 @@ del{
         width: 20px;
         height: 20px;
     }
+
+    .videodiv2 {
+        margin-left: 45px;
+    }
 }
 @media only screen and (max-width:375px){
     #ponnilogo a{
@@ -1448,6 +1455,14 @@ del{
     }
     #ponnilogo img{
         width: 70% !important;
+    }
+    .videodiv2 {
+        margin-left: 36px;
+    }
+}
+@media only screen and (max-width:320px){
+    .videodiv2 {
+        margin-left: 7px;
     }
 }
 @media only screen and (max-width:310px){
