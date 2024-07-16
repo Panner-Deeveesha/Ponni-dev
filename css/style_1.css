@@ -970,6 +970,7 @@ del{
 }
 #videolinksflex{
     width: 100%;
+    max-width: 1200px;
     overflow: hidden;
     margin: 0px auto;
 }
@@ -980,10 +981,10 @@ del{
 }
 .videodiv2{
     position: relative;
-    width: 90% !important;
-    padding-bottom: 56.25%; 
+    width: 100% !important;
     height: 530px;
     margin: 20px;
+    margin-left: 48px;
 }
 .videodiv2 iframe {
     position: absolute;
