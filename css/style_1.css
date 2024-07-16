@@ -1212,6 +1212,9 @@ del{
     #videohead{
         padding-bottom:0px; 
     }
+    .videodiv2 {
+        margin-left: 140px;
+    }
 }
 @media only screen and (max-width:500px){
     #logoimg {
@@ -1358,7 +1361,10 @@ del{
         margin-right: 0px;
     }
     .videodiv2 {
-        margin-left: 62px;
+        margin-left: 48px;
+    }
+    .slick-prev {
+        left: 30px !important;
     }
 }
 @media only screen and (max-width:390px){
