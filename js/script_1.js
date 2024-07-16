@@ -1436,7 +1436,7 @@ const screenWidth = window.innerWidth;
         speed: 300,
         arrows: false,
         dots: true,
-        infinite: true
+        infinite: false
       });
     });    
   }else if(screenWidth <= 990){
@@ -1449,7 +1449,7 @@ const screenWidth = window.innerWidth;
         speed: 300,
         arrows: true,
         dots: true,
-        infinite: true
+        infinite: false
       });
     });
   }else{
@@ -1461,27 +1461,26 @@ const screenWidth = window.innerWidth;
         autoplaySpeed: 3000,
         speed: 300,
         arrows: true,
-        infinite: true,
+        infinite: false,
       });
     });
   }
 
   $('#videolinksflex').slick({
-    centerMode: true,
-    centerPadding: '60px',
-    arrows: false,
+    arrows: true,
     autoplay: true,
     autoplaySpeed: 9000,
-    slidesToShow: 5,
-    dots: true,
+    slidesToShow: 3,
+    dots: false,
+    infinite: false,
     responsive: [
       {
         breakpoint: 990,
         settings: {
-          arrows: false,
+          arrows: true,
           centerMode: true,
           centerPadding: '40px',
-          slidesToShow: 3
+          slidesToShow: 2
         }
       },
       {
