@@ -1485,7 +1485,7 @@ const screenWidth = window.innerWidth;
         breakpoint: 768,
         settings: {
           arrows: true,
-          dots: true,
+          dots: false,
           slidesToShow: 1
         }
       },
@@ -1493,7 +1493,7 @@ const screenWidth = window.innerWidth;
         breakpoint: 480,
         settings: {
           arrows: true,
-          dots: true,
+          dots: false,
           slidesToShow: 1
         }
       }
