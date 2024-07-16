@@ -1273,6 +1273,41 @@ function resetbtn(){
    }
 }
 
+/* Subscribe Footer */
+
+function subscribebtn(){
+  let emailInput = document.getElementById("emailcheck");
+  let emailcrct = emailInput.value.trim(); 
+ 
+  let emailPattern = /^[^\s@]+@gmail\.com$/;
+
+  if (emailPattern.test(emailcrct)) {
+    console.log("Email is valid");
+    var data = {
+      "emailInput": emailcrct
+    }
+    $.ajax({
+        url: "./php/subscribeaction.php",
+        type: "post",
+        data: data,
+        success: function (response) {
+          console.log("mail sent");
+        },
+        error: function (error) {
+            console.log("Mail not sent");
+        }
+    });
+  } else {
+    var imgsrc="./assets/icons/error.png"
+    var mgs="Error";
+    var content="Please enter a valid email address";
+    var btn="Continue";
+    popup(imgsrc,mgs,content,btn);
+    console.log("Please enter a valid email address");
+  }
+
+}
+
 $(document).ready(function () {
   $("#searchInput").focus(function () {
     $(".blackscreen").css("display", "block");
