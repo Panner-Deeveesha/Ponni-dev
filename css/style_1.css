@@ -1149,6 +1149,9 @@ del{
     .profilechange {
         width: 90%;
     }
+    .videodiv2 {
+        margin-left: 85px;
+    }
 }
 @media only screen and (max-width:630px){
     #ponnilogo {
@@ -1328,6 +1331,9 @@ del{
     }
     .profilechange {
         width: 100%;
+    }
+    .videodiv2 {
+        margin-left: 69px;
     }
 }
 @media only screen and (max-width:425px){
