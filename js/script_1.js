@@ -1293,7 +1293,7 @@ function subscribebtn(){
         success: function (response) {
           var imgsrc="./assets/icons/success.png";
           var mgs="SUCCESS";
-          var content="Success! Your Mail Has Been Sent.";
+          var content="You Have Successfully Subscribed to Ponni Newsletter!";
           var btn = "Continue";
           popup(imgsrc,mgs,content,btn);
         },
