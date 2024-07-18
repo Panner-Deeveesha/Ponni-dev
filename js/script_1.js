@@ -1279,7 +1279,7 @@ function subscribebtn(){
   let emailInput = document.getElementById("emailcheck");
   let emailcrct = emailInput.value.trim(); 
  
-  let emailPattern = /^[^\s@]+@gmail\.com$/;
+  let emailPattern = /.+@.*\.com$/;
 
   if (emailPattern.test(emailcrct)) {
     console.log("Email is valid");
