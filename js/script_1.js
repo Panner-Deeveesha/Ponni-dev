@@ -1291,7 +1291,11 @@ function subscribebtn(){
         type: "post",
         data: data,
         success: function (response) {
-          console.log("mail sent");
+          var imgsrc="./assets/icons/success.png";
+          var mgs="SUCCESS";
+          var content="Success! Your Mail Has Been Sent.";
+          var btn = "Continue";
+          popup(imgsrc,mgs,content,btn);
         },
         error: function (error) {
             console.log("Mail not sent");
