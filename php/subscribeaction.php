@@ -13,9 +13,9 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
-require 'phpmailer\Exception.php';
-require 'phpmailer\PHPMailer.php';
-require 'phpmailer\SMTP.php';
+require('./phpmailer/Exception.php');
+require('./phpmailer/PHPMailer.php');
+require('./phpmailer/SMTP.php');
 
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
